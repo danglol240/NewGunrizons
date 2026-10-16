@@ -8,6 +8,12 @@ import com.gtnewhorizon.newgunrizons.model.JsonModel;
 
 public class Bullets {
 
+    public static ItemBullet FerroSlug;
+    public static ItemBullet LaserCharge;
+    public static ItemBullet PlasmaCannonCharge;
+    public static ItemBullet ParticleCharge;
+    public static ItemBullet ExoticCharge;
+    public static ItemBullet AntimatterCharge;
     public static ItemBullet ShotgunShell;
     public static ItemBullet ShotgunShell410;
     public static ItemBullet Magnum44Ammo;
@@ -802,6 +808,148 @@ public class Bullets {
                 GL11.glScaled(1.2D, 1.2D, 1.2D);
             })
             .withTextureName("Dummy.png")
+            .build(ItemBullet.class);
+
+        // ---- High-tier ammo (LuV-UHV) ----
+        FerroSlug = (new ItemBullet.Builder()).withCreativeTab(NewGunrizonsMod.AmmoTab)
+            .withName("FerroSlug")
+            .withModel(new JsonModel("ammo/bulletbig"), "FerroSlug.png")
+
+            .withFirstPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(0.1F, -1.0F, 0.4F);
+                GL11.glRotatef(30.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glScaled(0.4D, 0.7D, 0.4D);
+            })
+            .withThirdPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(-0.7F, -0.29F, 0.7F);
+                GL11.glRotatef(-50.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(80.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.5D, 0.7D, 0.5D);
+            })
+            .withInventoryPositioning((itemStack) -> {
+                GL11.glTranslatef(-0.8F, -0.45F, 0.4F);
+                GL11.glRotatef(10.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(2.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(1.2D, 1.4D, 1.2D);
+            })
+            .withTextureName("Dummy.png")
+            .build(ItemBullet.class);
+        LaserCharge = (new ItemBullet.Builder()).withCreativeTab(NewGunrizonsMod.AmmoTab)
+            .withName("LaserCharge")
+            .withModel(new JsonModel("ammo/bulletbig"), "LaserCharge.png")
+
+            .withFirstPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(0.1F, -1.0F, 0.4F);
+                GL11.glRotatef(30.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glScaled(0.4D, 0.7D, 0.4D);
+            })
+            .withThirdPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(-0.7F, -0.29F, 0.7F);
+                GL11.glRotatef(-50.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(80.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.5D, 0.7D, 0.5D);
+            })
+            .withInventoryPositioning((itemStack) -> {
+                GL11.glTranslatef(-0.8F, -0.45F, 0.4F);
+                GL11.glRotatef(10.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(2.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(1.2D, 1.4D, 1.2D);
+            })
+            .withTextureName("Dummy.png")
+            .build(ItemBullet.class);
+        PlasmaCannonCharge = (new ItemBullet.Builder()).withCreativeTab(NewGunrizonsMod.AmmoTab)
+            .withName("PlasmaCannonCharge")
+            .withMaxStackSize(1)
+            .withModel(new JsonModel("ammo/smawrocket"), "PlasmaCannonCharge.png")
+            .withFirstPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(0.1F, -1.2F, 0.4F);
+                GL11.glRotatef(30.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glScaled(0.0D, 0.0D, 0.0D);
+            })
+            .withThirdPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(-0.9F, -0.29F, 0.8F);
+                GL11.glRotatef(-50.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(80.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.0D, 0.0D, 0.0D);
+            })
+            .withInventoryPositioning((itemStack) -> {
+                GL11.glTranslatef(-0.8F, 0.8F, -2.1F);
+                GL11.glRotatef(10.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(2.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.6D, 0.6D, 0.6D);
+            })
+            .withTextureName("Dummy.png")
+
+            .build(ItemBullet.class);
+        ParticleCharge = (new ItemBullet.Builder()).withCreativeTab(NewGunrizonsMod.AmmoTab)
+            .withName("ParticleCharge")
+            .withModel(new JsonModel("ammo/bulletbig"), "ParticleCharge.png")
+
+            .withFirstPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(0.1F, -1.0F, 0.4F);
+                GL11.glRotatef(30.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glScaled(0.4D, 0.7D, 0.4D);
+            })
+            .withThirdPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(-0.7F, -0.29F, 0.7F);
+                GL11.glRotatef(-50.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(80.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.5D, 0.7D, 0.5D);
+            })
+            .withInventoryPositioning((itemStack) -> {
+                GL11.glTranslatef(-0.8F, -0.45F, 0.4F);
+                GL11.glRotatef(10.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(2.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(1.2D, 1.4D, 1.2D);
+            })
+            .withTextureName("Dummy.png")
+            .build(ItemBullet.class);
+        ExoticCharge = (new ItemBullet.Builder()).withCreativeTab(NewGunrizonsMod.AmmoTab)
+            .withName("ExoticCharge")
+            .withModel(new JsonModel("ammo/bulletbig"), "ExoticCharge.png")
+
+            .withFirstPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(0.1F, -1.0F, 0.4F);
+                GL11.glRotatef(30.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glScaled(0.4D, 0.7D, 0.4D);
+            })
+            .withThirdPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(-0.7F, -0.29F, 0.7F);
+                GL11.glRotatef(-50.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(80.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.5D, 0.7D, 0.5D);
+            })
+            .withInventoryPositioning((itemStack) -> {
+                GL11.glTranslatef(-0.8F, -0.45F, 0.4F);
+                GL11.glRotatef(10.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(2.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(1.2D, 1.4D, 1.2D);
+            })
+            .withTextureName("Dummy.png")
+            .build(ItemBullet.class);
+        AntimatterCharge = (new ItemBullet.Builder()).withCreativeTab(NewGunrizonsMod.AmmoTab)
+            .withName("AntimatterCharge")
+            .withMaxStackSize(1)
+            .withModel(new JsonModel("ammo/smawrocket"), "AntimatterCharge.png")
+            .withFirstPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(0.1F, -1.2F, 0.4F);
+                GL11.glRotatef(30.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glScaled(0.0D, 0.0D, 0.0D);
+            })
+            .withThirdPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(-0.9F, -0.29F, 0.8F);
+                GL11.glRotatef(-50.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(80.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.0D, 0.0D, 0.0D);
+            })
+            .withInventoryPositioning((itemStack) -> {
+                GL11.glTranslatef(-0.8F, 0.8F, -2.1F);
+                GL11.glRotatef(10.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(2.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.6D, 0.6D, 0.6D);
+            })
+            .withTextureName("Dummy.png")
+
             .build(ItemBullet.class);
     }
 }

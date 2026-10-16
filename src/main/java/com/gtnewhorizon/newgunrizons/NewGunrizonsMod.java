@@ -3,10 +3,12 @@ package com.gtnewhorizon.newgunrizons;
 import net.minecraft.creativetab.CreativeTabs;
 
 import com.gtnewhorizon.newgunrizons.registry.GTRecipes;
+import com.gtnewhorizon.newgunrizons.registry.HighTierRecipes;
 import com.gtnewhorizon.newgunrizons.tabs.AmmoTab;
 import com.gtnewhorizon.newgunrizons.tabs.AssaultRiflesTab;
 import com.gtnewhorizon.newgunrizons.tabs.AttachmentsTab;
 import com.gtnewhorizon.newgunrizons.tabs.GunsTab;
+import com.gtnewhorizon.newgunrizons.tabs.HighTierTab;
 import com.gtnewhorizon.newgunrizons.tabs.PistolsTab;
 import com.gtnewhorizon.newgunrizons.tabs.SMGTab;
 import com.gtnewhorizon.newgunrizons.tabs.ShotgunsTab;
@@ -37,6 +39,7 @@ public class NewGunrizonsMod {
     public static CreativeTabs SnipersTab;
     public static CreativeTabs AmmoTab;
     public static CreativeTabs AttachmentsTab;
+    public static CreativeTabs HighTierTab;
 
     @SidedProxy(
         serverSide = "com.gtnewhorizon.newgunrizons.CommonProxy",
@@ -50,7 +53,7 @@ public class NewGunrizonsMod {
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-
+        HighTierRecipes.init();
     }
 
     @EventHandler
@@ -68,5 +71,6 @@ public class NewGunrizonsMod {
         SnipersTab = new SnipersTab(CreativeTabs.getNextID(), "SnipersTab");
         AmmoTab = new AmmoTab(CreativeTabs.getNextID(), "AmmoTab");
         AttachmentsTab = new AttachmentsTab(CreativeTabs.getNextID(), "AttachmentsTab");
+        HighTierTab = new HighTierTab(CreativeTabs.getNextID(), "HighTier_tab");
     }
 }

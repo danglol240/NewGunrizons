@@ -8,6 +8,14 @@ import com.gtnewhorizon.newgunrizons.model.JsonModel;
 
 public class Magazines {
 
+    public static ItemMagazine CoilgunMag;
+    public static ItemMagazine GaussRifleMag;
+    public static ItemMagazine RailgunMag;
+    public static ItemMagazine LaserRifleCell;
+    public static ItemMagazine PlasmaRifleCell;
+    public static ItemMagazine ParticleBeamCell;
+    public static ItemMagazine NeutronRifleCell;
+    public static ItemMagazine ExoticMatterCell;
     public static ItemMagazine Magazine762x39;
     public static ItemMagazine PMAG762x39;
     public static ItemMagazine Mag75rnd762x39;
@@ -1782,6 +1790,215 @@ public class Magazines {
                 GL11.glRotatef(-170.0F, 0.0F, 1.0F, 0.0F);
                 GL11.glRotatef(10.0F, 1.0F, 0.0F, 0.0F);
                 GL11.glScaled(0.9D, 0.9D, 0.9D);
+            })
+
+            .withTextureName("Dummy.png")
+            .build(ItemMagazine.class);
+
+        // ---- High-tier magazines and cells (LuV-UHV) ----
+        CoilgunMag = (new ItemMagazine.Builder()).withAmmo(50)
+            .withCompatibleBullet(Bullets.FerroSlug)
+            .withName("CoilgunMag")
+            .withCreativeTab(NewGunrizonsMod.AmmoTab)
+            .withModel(new JsonModel("magazine/p90mag"), "CoilgunMag.png")
+            .withFirstPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(0.1F, -0.3F, 0.4F);
+                GL11.glRotatef(30.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glScaled(0.7D, 0.7D, 0.7D);
+            })
+            .withThirdPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
+                GL11.glRotatef(-50.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(10.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.7D, 0.7D, 0.7D);
+            })
+            .withInventoryPositioning((itemStack) -> {
+                GL11.glTranslatef(0.3F, 1.2F, 0.4F);
+                GL11.glRotatef(-170.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(10.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.9D, 0.9D, 0.9D);
+            })
+
+            .withTextureName("Dummy.png")
+            .build(ItemMagazine.class);
+        GaussRifleMag = (new ItemMagazine.Builder()).withAmmo(8)
+            .withCompatibleBullet(Bullets.FerroSlug)
+            .withName("GaussRifleMag")
+            .withCreativeTab(NewGunrizonsMod.AmmoTab)
+            .withModel(new JsonModel("magazine/as50mag"), "GaussRifleMag.png")
+            .withFirstPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(0.1F, -0.7F, 0.4F);
+                GL11.glRotatef(30.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glScaled(0.7D, 0.7D, 0.7D);
+            })
+            .withThirdPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(-1.0F, -0.5F, 0.8F);
+                GL11.glRotatef(-50.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(80.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.7D, 0.7D, 0.7D);
+            })
+            .withInventoryPositioning((itemStack) -> {
+                GL11.glTranslatef(-0.9F, 0.2F, 0.4F);
+                GL11.glRotatef(-130.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(20.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glRotatef(-30.0F, 0.0F, 0.0F, 1.0F);
+                GL11.glScaled(1.0D, 1.0D, 1.0D);
+            })
+
+            .withTextureName("Dummy.png")
+            .build(ItemMagazine.class);
+        RailgunMag = (new ItemMagazine.Builder()).withAmmo(6)
+            .withCompatibleBullet(Bullets.FerroSlug)
+            .withName("RailgunMag")
+            .withCreativeTab(NewGunrizonsMod.AmmoTab)
+            .withModel(new JsonModel("magazine/m107mag"), "RailgunMag.png")
+            .withFirstPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(0.1F, -0.7F, 0.4F);
+                GL11.glRotatef(30.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glScaled(0.7D, 0.7D, 0.7D);
+            })
+            .withThirdPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(-1.0F, -0.5F, 0.8F);
+                GL11.glRotatef(-50.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(80.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.7D, 0.7D, 0.7D);
+            })
+            .withInventoryPositioning((itemStack) -> {
+                GL11.glTranslatef(-0.9F, -0.1F, 0.4F);
+                GL11.glRotatef(-130.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(20.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glRotatef(-30.0F, 0.0F, 0.0F, 1.0F);
+                GL11.glScaled(1.0D, 1.0D, 1.0D);
+            })
+
+            .withTextureName("Dummy.png")
+            .build(ItemMagazine.class);
+        LaserRifleCell = (new ItemMagazine.Builder()).withAmmo(60)
+            .withCompatibleBullet(Bullets.LaserCharge)
+            .withName("LaserRifleCell")
+            .withCreativeTab(NewGunrizonsMod.AmmoTab)
+            .withModel(new JsonModel("magazine/m8a7mag"), "LaserRifleCell.png")
+            .withFirstPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(0.1F, -0.7F, 0.4F);
+                GL11.glRotatef(30.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glScaled(0.7D, 0.7D, 0.7D);
+            })
+            .withThirdPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(-0.8F, -1.0F, 0.9F);
+                GL11.glRotatef(-50.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(80.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.5D, 0.5D, 0.5D);
+            })
+            .withInventoryPositioning((itemStack) -> {
+                GL11.glTranslatef(-0.8F, 0.4F, -0.8F);
+                GL11.glRotatef(-120.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(-10.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glRotatef(-30.0F, 0.0F, 0.0F, 1.0F);
+                GL11.glScaled(0.9D, 0.9D, 0.9D);
+            })
+            .withTextureName("Dummy.png")
+
+            .build(ItemMagazine.class);
+        PlasmaRifleCell = (new ItemMagazine.Builder()).withAmmo(80)
+            .withCompatibleBullet(Bullets.LaserCharge)
+            .withName("PlasmaRifleCell")
+            .withCreativeTab(NewGunrizonsMod.AmmoTab)
+            .withModel(new JsonModel("magazine/m41amag"), "PlasmaRifleCell.png")
+            .withFirstPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(-0.1F, -1.0F, 0.2F);
+                GL11.glRotatef(30.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glScaled(0.7D, 0.7D, 0.7D);
+            })
+            .withThirdPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(-0.8F, -0.2F, 0.6F);
+                GL11.glRotatef(-50.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(80.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.7D, 0.7D, 0.7D);
+            })
+            .withInventoryPositioning((itemStack) -> {
+                GL11.glTranslatef(-0.4F, -0.6F, 0.8F);
+                GL11.glRotatef(-130.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(-20.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glRotatef(-30.0F, 0.0F, 0.0F, 1.0F);
+                GL11.glScaled(1.3D, 1.3D, 1.3D);
+            })
+
+            .withTextureName("Dummy.png")
+            .build(ItemMagazine.class);
+        ParticleBeamCell = (new ItemMagazine.Builder()).withAmmo(10)
+            .withCompatibleBullet(Bullets.ParticleCharge)
+            .withName("ParticleBeamCell")
+            .withCreativeTab(NewGunrizonsMod.AmmoTab)
+            .withModel(new JsonModel("magazine/as50mag"), "ParticleBeamCell.png")
+            .withFirstPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(0.1F, -0.7F, 0.4F);
+                GL11.glRotatef(30.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glScaled(0.7D, 0.6D, 0.7D);
+            })
+            .withThirdPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(-1.0F, -0.5F, 0.8F);
+                GL11.glRotatef(-50.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(80.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.7D, 0.6D, 0.7D);
+            })
+            .withInventoryPositioning((itemStack) -> {
+                GL11.glTranslatef(-0.9F, 0.2F, 0.4F);
+                GL11.glRotatef(-130.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(20.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glRotatef(-30.0F, 0.0F, 0.0F, 1.0F);
+                GL11.glScaled(1.0D, 0.9D, 1.0D);
+            })
+
+            .withTextureName("Dummy.png")
+            .build(ItemMagazine.class);
+        NeutronRifleCell = (new ItemMagazine.Builder()).withAmmo(150)
+            .withCompatibleBullet(Bullets.ParticleCharge)
+            .withName("NeutronRifleCell")
+            .withCreativeTab(NewGunrizonsMod.AmmoTab)
+            .withModel(new JsonModel("magazine/m249mag"), "NeutronRifleCell.png")
+            .withFirstPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(0.1F, -0.7F, 0.4F);
+                GL11.glRotatef(30.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glScaled(0.7D, 0.7D, 0.7D);
+            })
+            .withThirdPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(-1.0F, -0.5F, 0.8F);
+                GL11.glRotatef(-50.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(80.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.7D, 0.7D, 0.7D);
+            })
+            .withInventoryPositioning((itemStack) -> {
+                GL11.glTranslatef(-0.2F, 0.4F, 0.4F);
+                GL11.glRotatef(-180.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(-10.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glRotatef(-10.0F, 0.0F, 0.0F, 1.0F);
+                GL11.glScaled(1.0D, 1.0D, 1.0D);
+            })
+
+            .withTextureName("Dummy.png")
+            .build(ItemMagazine.class);
+        ExoticMatterCell = (new ItemMagazine.Builder()).withAmmo(40)
+            .withCompatibleBullet(Bullets.ExoticCharge)
+            .withName("ExoticMatterCell")
+            .withCreativeTab(NewGunrizonsMod.AmmoTab)
+            .withModel(new JsonModel("magazine/mxmag"), "ExoticMatterCell.png")
+            .withFirstPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(0.1F, -0.7F, 0.4F);
+                GL11.glRotatef(30.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glScaled(0.7D, 0.7D, 0.7D);
+            })
+            .withThirdPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(-1.0F, -0.5F, 0.8F);
+                GL11.glRotatef(-50.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(80.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.7D, 0.7D, 0.7D);
+            })
+            .withInventoryPositioning((itemStack) -> {
+                GL11.glTranslatef(-0.4F, 0.0F, 0.4F);
+                GL11.glRotatef(-130.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(-20.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glRotatef(-30.0F, 0.0F, 0.0F, 1.0F);
+                GL11.glScaled(1.0D, 1.0D, 1.0D);
             })
 
             .withTextureName("Dummy.png")

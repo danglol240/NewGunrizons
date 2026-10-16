@@ -107,8 +107,33 @@ import com.gtnewhorizon.newgunrizons.items.factories.guns.sniper.VSSVintorezFact
 import com.gtnewhorizon.newgunrizons.items.factories.guns.special.M41AFactory;
 import com.gtnewhorizon.newgunrizons.items.factories.guns.special.SMAWFactory;
 
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.XR7Factory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.HX9Factory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.CoilgunFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.GaussRifleFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.RailgunFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.LaserRifleFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.PlasmaRifleFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.PlasmaCannonFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.ParticleBeamRifleFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.NeutronRifleFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.AntimatterCannonFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.ExoticMatterRifleFactory;
+
 public class Guns {
 
+    public static Item XR7;
+    public static Item HX9;
+    public static Item Coilgun;
+    public static Item GaussRifle;
+    public static Item Railgun;
+    public static Item LaserRifle;
+    public static Item PlasmaRifle;
+    public static Item PlasmaCannon;
+    public static Item ParticleBeamRifle;
+    public static Item NeutronRifle;
+    public static Item AntimatterCannon;
+    public static Item ExoticMatterRifle;
     public static Item AK47;
     public static Item AKM;
     public static Item AK15;
@@ -328,5 +353,19 @@ public class Guns {
         Gewehr98 = new Gewehr98Factory().createGun();
         LeeEnfieldSMLE = new LeeEnfieldSMLE().createGun();
         LeeEnfieldNo4MkI = new LeeEnfieldNo4MkI().createGun();
+
+        // High-tier weapons (IV-UHV)
+        XR7 = new XR7Factory().createGun();
+        HX9 = new HX9Factory().createGun();
+        Coilgun = new CoilgunFactory().createGun();
+        GaussRifle = new GaussRifleFactory().createGun();
+        Railgun = new RailgunFactory().createGun();
+        LaserRifle = new LaserRifleFactory().createGun();
+        PlasmaRifle = new PlasmaRifleFactory().createGun();
+        PlasmaCannon = new PlasmaCannonFactory().createGun();
+        ParticleBeamRifle = new ParticleBeamRifleFactory().createGun();
+        NeutronRifle = new NeutronRifleFactory().createGun();
+        AntimatterCannon = new AntimatterCannonFactory().createGun();
+        ExoticMatterRifle = new ExoticMatterRifleFactory().createGun();
     }
 }
