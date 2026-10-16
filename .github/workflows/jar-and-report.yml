@@ -41,6 +41,20 @@ jobs:
         id: check
         continue-on-error: true
         run: ./gradlew --continue --stacktrace build -x assemble 2>&1 | tee "$RUNNER_TEMP/check.log"; exit ${PIPESTATUS[0]}
+      - name: Server smoke test
+        id: server
+        continue-on-error: true
+        run: |
+          mkdir -p run/server
+          echo "eula=true" > run/eula.txt
+          echo "eula=true" > run/server/eula.txt
+          echo "stop" > "$RUNNER_TEMP/stop.txt"
+          timeout 240 ./gradlew --stacktrace runServer < "$RUNNER_TEMP/stop.txt" 2>&1 | tee "$RUNNER_TEMP/server.log" || true
+          shopt -s nullglob
+          crashes=(run/crash-reports/crash*.txt run/server/crash-reports/crash*.txt)
+          if [ ${#crashes[@]} -gt 0 ]; then cp "${crashes[-1]}" "$RUNNER_TEMP/crash.txt"; exit 1; fi
+          grep -qE 'Fatal errors were detected|forced into state SERVER_STOPPED|Exception stopping the server' "$RUNNER_TEMP/server.log" && exit 1
+          grep -qP 'Done \(.+\)! For help' "$RUNNER_TEMP/server.log" || exit 1
       - name: Report to PR
         if: always()
         env:
@@ -49,6 +63,7 @@ jobs:
           {
             echo "### Jar and report (${GITHUB_SHA::7})"
             echo "check step: ${{ steps.check.outcome }}"
+            echo "server step: ${{ steps.server.outcome }}"
             echo
             echo "Jars:"
             ls -1 build/libs 2>/dev/null | sed 's/^/- /'
@@ -57,6 +72,12 @@ jobs:
             grep -nE "FAILED|What went wrong|violations|spotless|error:|Exception|> Task .*FAILED" "$RUNNER_TEMP/check.log" | head -60
             echo '---'
             tail -n 60 "$RUNNER_TEMP/check.log"
+            echo '```'
+            echo
+            echo "#### Server"
+            echo '```'
+            if [ -f "$RUNNER_TEMP/crash.txt" ]; then head -n 80 "$RUNNER_TEMP/crash.txt"; fi
+            grep -nE "ERROR|FATAL|Exception|Caused by|Done \(|newgunrizons" "$RUNNER_TEMP/server.log" | grep -v "^.*DEBUG" | head -80
             echo '```'
           } > "$RUNNER_TEMP/report.md"
           pr=$(gh pr list --head "$GITHUB_REF_NAME" --json number --jq '.[0].number')
