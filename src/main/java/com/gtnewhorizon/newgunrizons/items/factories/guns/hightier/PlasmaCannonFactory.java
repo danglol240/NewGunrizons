@@ -95,7 +95,9 @@ public class PlasmaCannonFactory {
                 }
 
             })
-            .withCompatibleAttachment(Bullets.PlasmaCannonCharge, ((model) -> { GL11.glTranslatef(0.0F, 0.0F, 0.07F); }))
+            .withCompatibleAttachment(
+                Bullets.PlasmaCannonCharge,
+                ((model) -> { GL11.glTranslatef(0.0F, 0.0F, 0.07F); }))
             .withTextureName("PlasmaCannon")
             .withRenderer(
                 (new WeaponRenderer.Builder()).withModel(new JsonModel("weapon/smaw"))

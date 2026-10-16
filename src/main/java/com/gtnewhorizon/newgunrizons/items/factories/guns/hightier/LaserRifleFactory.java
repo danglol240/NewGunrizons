@@ -208,15 +208,18 @@ public class LaserRifleFactory {
                         GL11.glScaled(0.5D, 0.5D, 0.5D);
                         GL11.glTranslatef(-0.4F, -0.8F, 0.9F);
                     }, 150L, 50L))
-                    .withFirstPersonCustomPositioningUnloading(Magazines.LaserRifleCell, new Transition((renderContext) -> {
-                        GL11.glTranslatef(0.0F, 0.5F, -0.2F);
-                        GL11.glRotatef(-20.0F, 1.0F, 0.0F, 0.0F);
-                    }, 250L, 1000L), new Transition((renderContext) -> {
-                        GL11.glTranslatef(1.3F, 0.5F, -0.8F);
-                        GL11.glRotatef(10.0F, 1.0F, 0.0F, 0.0F);
-                        GL11.glRotatef(10.0F, 0.0F, 1.0F, 0.0F);
-                        GL11.glRotatef(-90.0F, 0.0F, 0.0F, 1.0F);
-                    }, 250L, 1000L))
+                    .withFirstPersonCustomPositioningUnloading(
+                        Magazines.LaserRifleCell,
+                        new Transition((renderContext) -> {
+                            GL11.glTranslatef(0.0F, 0.5F, -0.2F);
+                            GL11.glRotatef(-20.0F, 1.0F, 0.0F, 0.0F);
+                        }, 250L, 1000L),
+                        new Transition((renderContext) -> {
+                            GL11.glTranslatef(1.3F, 0.5F, -0.8F);
+                            GL11.glRotatef(10.0F, 1.0F, 0.0F, 0.0F);
+                            GL11.glRotatef(10.0F, 0.0F, 1.0F, 0.0F);
+                            GL11.glRotatef(-90.0F, 0.0F, 0.0F, 1.0F);
+                        }, 250L, 1000L))
                     .withFirstPersonCustomPositioningReloading(
                         Magazines.LaserRifleCell,
                         new Transition((renderContext) -> { GL11.glTranslatef(0.05F, 1.0F, 0.0F); }, 250L, 1000L),

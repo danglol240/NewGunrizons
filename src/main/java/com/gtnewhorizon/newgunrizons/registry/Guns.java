@@ -34,6 +34,18 @@ import com.gtnewhorizon.newgunrizons.items.factories.guns.assault.POFUSAFactory;
 import com.gtnewhorizon.newgunrizons.items.factories.guns.assault.STG44Factory;
 import com.gtnewhorizon.newgunrizons.items.factories.guns.assault.ScarHFactory;
 import com.gtnewhorizon.newgunrizons.items.factories.guns.assault.TAR21Factory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.AntimatterCannonFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.CoilgunFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.ExoticMatterRifleFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.GaussRifleFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.HX9Factory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.LaserRifleFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.NeutronRifleFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.ParticleBeamRifleFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.PlasmaCannonFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.PlasmaRifleFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.RailgunFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.XR7Factory;
 import com.gtnewhorizon.newgunrizons.items.factories.guns.lmg.M249Factory;
 import com.gtnewhorizon.newgunrizons.items.factories.guns.lmg.Mk48MOD1Factory;
 import com.gtnewhorizon.newgunrizons.items.factories.guns.lmg.RPK74MFactory;
@@ -106,19 +118,6 @@ import com.gtnewhorizon.newgunrizons.items.factories.guns.sniper.SVT40Factory;
 import com.gtnewhorizon.newgunrizons.items.factories.guns.sniper.VSSVintorezFactory;
 import com.gtnewhorizon.newgunrizons.items.factories.guns.special.M41AFactory;
 import com.gtnewhorizon.newgunrizons.items.factories.guns.special.SMAWFactory;
-
-import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.XR7Factory;
-import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.HX9Factory;
-import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.CoilgunFactory;
-import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.GaussRifleFactory;
-import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.RailgunFactory;
-import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.LaserRifleFactory;
-import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.PlasmaRifleFactory;
-import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.PlasmaCannonFactory;
-import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.ParticleBeamRifleFactory;
-import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.NeutronRifleFactory;
-import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.AntimatterCannonFactory;
-import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.ExoticMatterRifleFactory;
 
 public class Guns {
 
