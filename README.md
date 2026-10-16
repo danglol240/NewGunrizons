@@ -2,8 +2,9 @@
 
 A Minecraft 1.7.10 firearms mod for the [GT New Horizons](https://github.com/GTNewHorizons) modpack. NewGunrizons is a heavily modified fork of [**Vic's Modern Warfare**](https://github.com/vic4games/modern-warfare) (also known as Modern Warfare Mod / MWC), rebuilt from the ground up to integrate with GregTech and the GTNH ecosystem.
 
-> **WARNING: This mod is built for GTNH 2.8.4 release.**
-> It depends on specific versions of GT5-Unofficial (5.09.51.482), Angelica (1.0.0-beta66b), and GTNHLib (0.7.10) shipped with that release. It is **not guaranteed to work** with newer or older GTNH versions, as internal APIs and class structures may change between releases.
+> **WARNING: This branch targets GTNH 2.9.0-RC-2.**
+> It is built against GTNHLib 0.11.52, NotEnoughItems 2.8.155-GTNH and tested with Angelica 2.2.28, the versions shipped with that release.
+> GregTech recipes are currently not present in the code (they were removed during the March 2026 refactor), so weapons are only obtainable from the creative tab.
 
 ## Shader Compatibility
 
