@@ -2,9 +2,9 @@ package com.gtnewhorizon.newgunrizons.registry;
 
 import net.minecraft.item.Item;
 
+import com.gtnewhorizon.newgunrizons.items.factories.DoomShotgunFactory;
 import com.gtnewhorizon.newgunrizons.items.factories.LaserRifleFactory;
 import com.gtnewhorizon.newgunrizons.items.factories.PlasmaRifleFactory;
-import com.gtnewhorizon.newgunrizons.items.factories.DoomShotgunFactory;
 
 public class Guns {
 

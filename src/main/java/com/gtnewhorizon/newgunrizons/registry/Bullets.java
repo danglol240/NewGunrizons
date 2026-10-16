@@ -9,8 +9,7 @@ public class Bullets {
     public static ItemBullet ShotgunShell;
 
     public static void init() {
-        ShotgunShell = new ItemBullet.Builder()
-            .withCreativeTab(NewGunrizonsMod.AmmoTab)
+        ShotgunShell = new ItemBullet.Builder().withCreativeTab(NewGunrizonsMod.AmmoTab)
             .withName("ShotgunShell")
             .withModel(new BedrockModel("ammo/shotgunshell"))
             .withTextureName("ShotgunShell")
