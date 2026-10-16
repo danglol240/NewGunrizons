@@ -183,7 +183,7 @@ public class GTRecipes {
 
         GTValues.RA.stdBuilder()
             .itemInputs(
-                GTOreDictUnificator.get(OrePrefixes.plate, Materials.Plastic, 4),
+                GTOreDictUnificator.get(OrePrefixes.plate, Materials.Polyethylene, 4),
                 GTOreDictUnificator.get(OrePrefixes.screw, Materials.Aluminium, 2),
                 GTUtility.getIntegratedCircuit(1))
             .itemOutputs(new ItemStack(CommonProxy.GunStockPlastic))
@@ -756,7 +756,7 @@ public class GTRecipes {
         if (grip == null) return;
         GTValues.RA.stdBuilder()
             .itemInputs(
-                GTOreDictUnificator.get(OrePrefixes.plate, Materials.Plastic, 2),
+                GTOreDictUnificator.get(OrePrefixes.plate, Materials.Polyethylene, 2),
                 GTOreDictUnificator.get(OrePrefixes.screw, Materials.Steel, 2),
                 GTOreDictUnificator.get(OrePrefixes.stick, Materials.Steel, 1),
                 GTUtility.getIntegratedCircuit(circuit))
