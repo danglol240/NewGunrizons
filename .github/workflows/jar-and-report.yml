@@ -2,7 +2,7 @@ name: Jar and report
 
 on:
   push:
-    branches: [ gtnh-2.9 ]
+    branches-ignore: [ master ]
   workflow_dispatch:
 
 permissions:
@@ -26,7 +26,7 @@ jobs:
       - name: Build jar
         run: |
           chmod +x gradlew
-          ./gradlew --stacktrace assemble 2>&1 | tee assemble.log
+          ./gradlew --stacktrace assemble 2>&1 | tee "$RUNNER_TEMP/assemble.log"
       - name: Apply spotless formatting
         if: github.event_name == 'workflow_dispatch'
         run: |
@@ -40,7 +40,7 @@ jobs:
       - name: Full check (spotless + tests)
         id: check
         continue-on-error: true
-        run: ./gradlew --continue --stacktrace build -x assemble 2>&1 | tee check.log; exit ${PIPESTATUS[0]}
+        run: ./gradlew --continue --stacktrace build -x assemble 2>&1 | tee "$RUNNER_TEMP/check.log"; exit ${PIPESTATUS[0]}
       - name: Report to PR
         if: always()
         env:
@@ -54,15 +54,15 @@ jobs:
             ls -1 build/libs 2>/dev/null | sed 's/^/- /'
             echo
             echo '```'
-            grep -nE "FAILED|What went wrong|violations|spotless|error:|Exception|> Task .*FAILED" check.log | head -60
+            grep -nE "FAILED|What went wrong|violations|spotless|error:|Exception|> Task .*FAILED" "$RUNNER_TEMP/check.log" | head -60
             echo '---'
-            tail -n 60 check.log
+            tail -n 60 "$RUNNER_TEMP/check.log"
             echo '```'
-          } > report.md
-          pr=$(gh pr list --head gtnh-2.9 --json number --jq '.[0].number')
-          [ -n "$pr" ] && gh pr comment "$pr" --body-file report.md || cat report.md
+          } > "$RUNNER_TEMP/report.md"
+          pr=$(gh pr list --head "$GITHUB_REF_NAME" --json number --jq '.[0].number')
+          [ -n "$pr" ] && gh pr comment "$pr" --body-file "$RUNNER_TEMP/report.md" || cat "$RUNNER_TEMP/report.md"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: NewGunrizons-gtnh-2.9-jars
+          name: NewGunrizons-${{ github.ref_name }}-jars
           path: build/libs/*.jar
