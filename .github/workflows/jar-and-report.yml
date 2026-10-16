@@ -1,0 +1,58 @@
+name: Jar and report
+
+on:
+  push:
+    branches: [ gtnh-2.9 ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  jar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-java@v4
+        with:
+          distribution: zulu
+          java-version: |
+            8
+            21
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Build jar
+        run: |
+          chmod +x gradlew
+          ./gradlew --stacktrace assemble 2>&1 | tee assemble.log
+      - name: Full check (spotless + tests)
+        id: check
+        continue-on-error: true
+        run: ./gradlew --continue --stacktrace build -x assemble 2>&1 | tee check.log; exit ${PIPESTATUS[0]}
+      - name: Report to PR
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          {
+            echo "### Jar and report (${GITHUB_SHA::7})"
+            echo "check step: ${{ steps.check.outcome }}"
+            echo
+            echo "Jars:"
+            ls -1 build/libs 2>/dev/null | sed 's/^/- /'
+            echo
+            echo '```'
+            grep -nE "FAILED|What went wrong|violations|spotless|error:|Exception|> Task .*FAILED" check.log | head -60
+            echo '---'
+            tail -n 60 check.log
+            echo '```'
+          } > report.md
+          pr=$(gh pr list --head gtnh-2.9 --json number --jq '.[0].number')
+          [ -n "$pr" ] && gh pr comment "$pr" --body-file report.md || cat report.md
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: NewGunrizons-gtnh-2.9-jars
+          path: build/libs/*.jar
