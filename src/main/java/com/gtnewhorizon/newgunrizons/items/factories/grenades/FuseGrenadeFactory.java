@@ -7,8 +7,8 @@ import com.gtnewhorizon.newgunrizons.attachment.Part;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.grenade.GrenadeRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemGrenade;
-import com.gtnewhorizon.newgunrizons.registry.Grenades;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
+import com.gtnewhorizon.newgunrizons.registry.Grenades;
 
 public class FuseGrenadeFactory {
 

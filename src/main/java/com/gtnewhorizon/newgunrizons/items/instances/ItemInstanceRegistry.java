@@ -128,7 +128,8 @@ public class ItemInstanceRegistry {
 
         ItemInstance<?> instance = null;
 
-        if (player.worldObj != null && player.worldObj.isRemote && player instanceof EntityPlayer
+        if (player.worldObj != null && player.worldObj.isRemote
+            && player instanceof EntityPlayer
             && com.gtnewhorizon.newgunrizons.NewGunrizonsMod.proxy.isLocalPlayer(player)) {
             int slot = InventoryUtils.getInventorySlot((EntityPlayer) player, itemStack);
             if (slot >= 0) {

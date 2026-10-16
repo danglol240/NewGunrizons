@@ -1,10 +1,9 @@
 package com.gtnewhorizon.newgunrizons.client.render;
 
+import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-
-import net.minecraft.client.model.ModelBase;
 
 import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;

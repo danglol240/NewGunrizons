@@ -1,5 +1,6 @@
 package com.gtnewhorizon.newgunrizons;
 
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.IItemRenderer;
 
@@ -52,14 +53,10 @@ import com.gtnewhorizon.newgunrizons.weapon.WeaponReloadAspect;
 import com.gtnewhorizon.newgunrizons.weapon.WeaponState;
 
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.simpleimpl.IMessage;
-import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
-
-import net.minecraft.entity.EntityLivingBase;
 
 public class CommonProxy {
 

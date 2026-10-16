@@ -66,8 +66,7 @@ public class ShaderManager {
                 BLUR_SOURCE_UUID,
                 new ResourceLocation(NewGunrizonsMod.MODID, "shaders/post/blur.json"))
                     .withUniform("Radius", (context) -> {
-                        ItemAttachment scope = currentInstance
-                            .getAttachmentItemWithCategory(AttachmentCategory.SCOPE);
+                        ItemAttachment scope = currentInstance.getAttachmentItemWithCategory(AttachmentCategory.SCOPE);
                         return scope instanceof ItemScope && ((ItemScope) scope).isOptical() ? 10.0F : 5.0F;
                     })
                     .withUniform("Progress", (context) -> currentInstance.getAimChangeProgress());

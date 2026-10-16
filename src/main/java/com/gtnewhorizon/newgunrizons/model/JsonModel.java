@@ -28,6 +28,7 @@ import com.google.gson.JsonParser;
  * Not supported: per-face UV mapping (only box UV).
  * <p>
  * Usage:
+ * 
  * <pre>
  *   // Loads /assets/newgunrizons/models/weapon/ak12.geo.json from classpath
  *   new JsonModel("weapon/ak12")
@@ -48,7 +49,7 @@ public class JsonModel extends ModelWithAttachments {
      * Replaces {@code model instanceof SomeModelClass} checks.
      *
      * @param model the model to check
-     * @param path the model path (e.g. "sight/ak47iron")
+     * @param path  the model path (e.g. "sight/ak47iron")
      * @return true if model is a JsonModel loaded from that path
      */
     public static boolean is(ModelBase model, String path) {
@@ -74,7 +75,7 @@ public class JsonModel extends ModelWithAttachments {
     /**
      * Load a Bedrock geometry model from any mod's resources.
      *
-     * @param domain resource domain (mod id)
+     * @param domain    resource domain (mod id)
      * @param modelPath path relative to assets/{domain}/models/, without .geo.json extension
      */
     public JsonModel(String domain, String modelPath) {
@@ -85,7 +86,8 @@ public class JsonModel extends ModelWithAttachments {
             throw new RuntimeException("Model not found on classpath: " + resourcePath);
         }
         try {
-            JsonObject root = new JsonParser().parse(new InputStreamReader(is, StandardCharsets.UTF_8)).getAsJsonObject();
+            JsonObject root = new JsonParser().parse(new InputStreamReader(is, StandardCharsets.UTF_8))
+                .getAsJsonObject();
             parseGeometry(root);
         } catch (RuntimeException e) {
             throw e;
@@ -104,15 +106,18 @@ public class JsonModel extends ModelWithAttachments {
             throw new RuntimeException("No minecraft:geometry array found in .geo.json");
         }
 
-        JsonObject geo = geometries.get(0).getAsJsonObject();
+        JsonObject geo = geometries.get(0)
+            .getAsJsonObject();
         JsonObject desc = geo.getAsJsonObject("description");
 
         if (desc != null) {
             if (desc.has("texture_width")) {
-                this.textureWidth = desc.get("texture_width").getAsInt();
+                this.textureWidth = desc.get("texture_width")
+                    .getAsInt();
             }
             if (desc.has("texture_height")) {
-                this.textureHeight = desc.get("texture_height").getAsInt();
+                this.textureHeight = desc.get("texture_height")
+                    .getAsInt();
             }
         }
 
@@ -126,7 +131,8 @@ public class JsonModel extends ModelWithAttachments {
 
         for (JsonElement boneElem : bones) {
             JsonObject bone = boneElem.getAsJsonObject();
-            String name = bone.get("name").getAsString();
+            String name = bone.get("name")
+                .getAsString();
 
             float[] pivot = getFloatArray(bone, "pivot", new float[] { 0, 0, 0 });
             float[] rotation = getFloatArray(bone, "rotation", new float[] { 0, 0, 0 });
@@ -158,7 +164,10 @@ public class JsonModel extends ModelWithAttachments {
             rendererMap.put(name, renderer);
 
             if (bone.has("parent")) {
-                parentMap.put(name, bone.get("parent").getAsString());
+                parentMap.put(
+                    name,
+                    bone.get("parent")
+                        .getAsString());
             }
         }
 
@@ -195,8 +204,10 @@ public class JsonModel extends ModelWithAttachments {
     private void addCube(ModelRenderer renderer, JsonObject cube, float[] bonePivot) {
         float[] origin = getFloatArray(cube, "origin", new float[] { 0, 0, 0 });
         float[] size = getFloatArray(cube, "size", new float[] { 1, 1, 1 });
-        float inflate = cube.has("inflate") ? cube.get("inflate").getAsFloat() : 0.0f;
-        boolean mirror = cube.has("mirror") && cube.get("mirror").getAsBoolean();
+        float inflate = cube.has("inflate") ? cube.get("inflate")
+            .getAsFloat() : 0.0f;
+        boolean mirror = cube.has("mirror") && cube.get("mirror")
+            .getAsBoolean();
 
         // Box UV: [u, v] array
         int texU = 0;
@@ -205,8 +216,12 @@ public class JsonModel extends ModelWithAttachments {
             JsonElement uvElem = cube.get("uv");
             if (uvElem.isJsonArray()) {
                 JsonArray uv = uvElem.getAsJsonArray();
-                texU = Math.round(uv.get(0).getAsFloat());
-                texV = Math.round(uv.get(1).getAsFloat());
+                texU = Math.round(
+                    uv.get(0)
+                        .getAsFloat());
+                texV = Math.round(
+                    uv.get(1)
+                        .getAsFloat());
             }
             // Per-face UV (object form) is not supported; cube renders with UV [0,0]
         }
@@ -231,7 +246,8 @@ public class JsonModel extends ModelWithAttachments {
         JsonArray arr = obj.getAsJsonArray(key);
         float[] result = new float[arr.size()];
         for (int i = 0; i < arr.size(); i++) {
-            result[i] = arr.get(i).getAsFloat();
+            result[i] = arr.get(i)
+                .getAsFloat();
         }
         return result;
     }
