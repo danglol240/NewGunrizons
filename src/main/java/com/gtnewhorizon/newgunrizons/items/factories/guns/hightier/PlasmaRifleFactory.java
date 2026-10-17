@@ -10,6 +10,7 @@ import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.client.render.WeaponRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
+import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
@@ -20,7 +21,9 @@ public class PlasmaRifleFactory {
 
     public Item createGun() {
         return (new ItemWeapon.Builder()).withName("PlasmaRifle")
-            .withProjectile(ProjectileStyle.PLASMA, 0x28E4F0, 1.0F)
+            .withProjectile(ProjectileStyle.PLASMA, 0xFF781E, 1.0F)
+            .withBehavior(new WeaponBehavior().burn(4).knockback(0.6F).armorPiercing(0.3F))
+            .withShellCasingEjectEnabled(false)
             .withFireRate(1.0F)
             .withRecoil(1.7F)
 
@@ -41,9 +44,11 @@ public class PlasmaRifleFactory {
                 (stack) -> Arrays.asList(
                     "Tier: ZPM",
                     "Type: Plasma rifle",
-                    "Damage: 38",
-                    "Ammo: 80-shot Plasma Rifle Cell",
-                    "Fire Rate: Auto"))
+                    "Damage: 50",
+                    "Sets targets on fire, knockback",
+                    "Armor penetration 30%",
+                    "Ammo: Plasma Rifle Cell",
+                    "Cells recharge in a ZPM Battery Buffer"))
             .withCompatibleAttachment(Magazines.PlasmaRifleCell, ((model) -> {}))
             .withTextureName("PlasmaRifle")
             .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
@@ -257,8 +262,8 @@ public class PlasmaRifleFactory {
                         GL11.glRotatef(-95.0F, 1.0F, 0.0F, 0.0F);
                     }, 250L, 50L))
                     .build())
-            .withSpawnEntityDamage(38.0F)
-            .withSpawnEntityGravityVelocity(0.0118F)
+            .withSpawnEntityDamage(50.0F)
+            .withSpawnEntityGravityVelocity(0.0F)
             .build();
     }
 }

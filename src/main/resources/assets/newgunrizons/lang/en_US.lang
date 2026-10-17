@@ -382,7 +382,7 @@ gui.grenadeExplodes=Explodes in %s sec
 gui.coolingDown=Cooling down...
 
 # High-tier weapons (IV-UHV)
-itemGroup.HighTier_tab=NewGunrizons High-Tier Weapons
+itemGroup.HighTier_tab=NewGunrizons EV-MAX Weapons
 item.newgunrizons_FerroSlug.name=Ferromagnetic Slug
 item.newgunrizons_LaserCharge.name=Laser Charge
 item.newgunrizons_PlasmaCannonCharge.name=Plasma Cannon Charge
@@ -397,7 +397,7 @@ item.newgunrizons_PlasmaRifleCell.name=80-shot Plasma Rifle Cell
 item.newgunrizons_ParticleBeamCell.name=10-shot Particle Beam Cell
 item.newgunrizons_NeutronRifleCell.name=150-shot Neutron Rifle Cell
 item.newgunrizons_ExoticMatterCell.name=40-shot Exotic Matter Cell
-item.XR7.name=XR-7 Smart Rifle
+item.XR7.name=XR-7 Rail-Assisted Rifle
 item.HX9.name=HX-9 Heavy Rifle
 item.Coilgun.name=Coilgun
 item.GaussRifle.name=Gauss Rifle
@@ -427,3 +427,36 @@ item.newgunrizons_ParticleAcceleratorSegment.name=Particle Accelerator Segment
 item.newgunrizons_NeutronEmitter.name=Neutron Emitter
 item.newgunrizons_AntimatterTrap.name=Penning Antimatter Trap
 item.newgunrizons_ExoticMatterStabilizer.name=Exotic Matter Stabilizer
+
+# UEV-MAX weapons
+item.newgunrizons_QuantumCharge.name=Quantum Charge
+item.newgunrizons_GravitonCharge.name=Graviton Charge
+item.newgunrizons_ChronoCharge.name=Chrono Charge
+item.newgunrizons_SingularityCharge.name=Singularity Charge
+item.newgunrizons_DimensionalCharge.name=Dimensional Charge
+item.newgunrizons_InfinityCharge.name=Infinity Charge
+item.newgunrizons_QuantumCell.name=Quantum Cell
+item.newgunrizons_GravitonCore.name=Graviton Core
+item.newgunrizons_TimeCrystal.name=Time Crystal
+item.newgunrizons_DimensionalCore.name=Dimensional Core
+item.newgunrizons_InfinityCatalyst.name=Infinity Catalyst
+item.QuantumPhaseRifle.name=Quantum Phase Rifle
+item.GravitonCannon.name=Graviton Cannon
+item.ChronoRifle.name=Chrono Rifle
+item.SingularityCannon.name=Singularity Cannon
+item.DimensionalCutter.name=Dimensional Cutter
+item.RealityEraser.name=Reality Eraser
+item.newgunrizons_PlasmaCharge.name=Plasma Charge
+
+# UEV-MAX modules
+item.newgunrizons_QuantumEntanglementCore.name=Quantum Entanglement Core
+item.newgunrizons_GravitonFieldEmitter.name=Graviton Field Emitter
+item.newgunrizons_ChronoStabilizer.name=Chrono Stabilizer
+item.newgunrizons_SingularityContainmentUnit.name=Singularity Containment Unit
+item.newgunrizons_DimensionalRiftEmitter.name=Dimensional Rift Emitter
+item.newgunrizons_RealityEngine.name=Reality Engine
+
+# weapon heat
+gui.newgunrizons.heat=Heat [%s] %d%%
+gui.newgunrizons.overheated=Overheated! %s s
+entity.newgunrizons.GravityField.name=Gravity Field

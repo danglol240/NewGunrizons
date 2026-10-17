@@ -28,11 +28,17 @@ WARN = (255, 206, 48)
 
 # Per-tier accent: glow colour, glow core, and the tier's signature metal
 TIERS = {
-    "IV": {"glow": (70, 150, 255), "core": (215, 235, 255), "metal": (112, 116, 150)},  # tungstensteel
-    "LuV": {"glow": (255, 64, 214), "core": (255, 214, 250), "metal": (178, 132, 226)},  # HSS-S
-    "ZPM": {"glow": (40, 228, 240), "core": (210, 252, 255), "metal": (74, 60, 96)},  # naquadah alloy
-    "UV": {"glow": (90, 255, 120), "core": (222, 255, 228), "metal": (206, 208, 220)},  # neutronium
-    "UHV": {"glow": (255, 64, 52), "core": (255, 220, 210), "metal": (44, 34, 64)},  # cosmic neutronium
+    "EV": {"glow": (255, 176, 60), "core": (255, 236, 200), "metal": (150, 150, 170)},  # titanium
+    "IV": {"glow": (40, 200, 255), "core": (210, 245, 255), "metal": (112, 116, 150)},  # tungstensteel
+    "LuV": {"glow": (255, 70, 190), "core": (255, 215, 240), "metal": (178, 132, 226)},  # HSS-S
+    "ZPM": {"glow": (255, 120, 30), "core": (255, 225, 190), "metal": (74, 60, 96)},  # naquadah alloy
+    "UV": {"glow": (110, 160, 255), "core": (225, 235, 255), "metal": (206, 208, 220)},  # neutronium
+    "UHV": {"glow": (180, 70, 255), "core": (240, 215, 255), "metal": (44, 34, 64)},  # cosmic neutronium
+    "UEV": {"glow": (80, 90, 255), "core": (215, 220, 255), "metal": (36, 40, 70)},  # infinity
+    "UIV": {"glow": (40, 230, 200), "core": (205, 255, 245), "metal": (40, 56, 64)},  # transcendent metal
+    "UMV": {"glow": (90, 255, 110), "core": (225, 255, 225), "metal": (40, 58, 44)},  # spacetime
+    "UXV": {"glow": (220, 80, 255), "core": (250, 220, 255), "metal": (26, 14, 40)},  # magnetohydrodynamic matter
+    "MAX": {"glow": (255, 205, 70), "core": (255, 250, 225), "metal": (236, 232, 220)},  # universium
 }
 
 

@@ -119,8 +119,21 @@ import com.gtnewhorizon.newgunrizons.items.factories.guns.sniper.VSSVintorezFact
 import com.gtnewhorizon.newgunrizons.items.factories.guns.special.M41AFactory;
 import com.gtnewhorizon.newgunrizons.items.factories.guns.special.SMAWFactory;
 
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.QuantumPhaseRifleFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.GravitonCannonFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.ChronoRifleFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.SingularityCannonFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.DimensionalCutterFactory;
+import com.gtnewhorizon.newgunrizons.items.factories.guns.hightier.RealityEraserFactory;
+
 public class Guns {
 
+    public static Item QuantumPhaseRifle;
+    public static Item GravitonCannon;
+    public static Item ChronoRifle;
+    public static Item SingularityCannon;
+    public static Item DimensionalCutter;
+    public static Item RealityEraser;
     public static Item XR7;
     public static Item HX9;
     public static Item Coilgun;
@@ -366,5 +379,13 @@ public class Guns {
         NeutronRifle = new NeutronRifleFactory().createGun();
         AntimatterCannon = new AntimatterCannonFactory().createGun();
         ExoticMatterRifle = new ExoticMatterRifleFactory().createGun();
+
+        // UEV-MAX weapons
+        QuantumPhaseRifle = new QuantumPhaseRifleFactory().createGun();
+        GravitonCannon = new GravitonCannonFactory().createGun();
+        ChronoRifle = new ChronoRifleFactory().createGun();
+        SingularityCannon = new SingularityCannonFactory().createGun();
+        DimensionalCutter = new DimensionalCutterFactory().createGun();
+        RealityEraser = new RealityEraserFactory().createGun();
     }
 }

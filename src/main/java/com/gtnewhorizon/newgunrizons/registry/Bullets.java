@@ -8,6 +8,13 @@ import com.gtnewhorizon.newgunrizons.model.JsonModel;
 
 public class Bullets {
 
+    public static ItemBullet PlasmaCharge;
+    public static ItemBullet QuantumCharge;
+    public static ItemBullet GravitonCharge;
+    public static ItemBullet ChronoCharge;
+    public static ItemBullet SingularityCharge;
+    public static ItemBullet DimensionalCharge;
+    public static ItemBullet InfinityCharge;
     public static ItemBullet FerroSlug;
     public static ItemBullet LaserCharge;
     public static ItemBullet PlasmaCannonCharge;
@@ -950,6 +957,171 @@ public class Bullets {
             })
             .withTextureName("Dummy.png")
 
+            .build(ItemBullet.class);
+
+        // ---- UEV-MAX ammo ----
+        QuantumCharge = (new ItemBullet.Builder()).withCreativeTab(NewGunrizonsMod.AmmoTab)
+            .withName("QuantumCharge")
+            .withModel(new JsonModel("ammo/bulletbig"), "QuantumCharge.png")
+
+            .withFirstPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(0.1F, -1.0F, 0.4F);
+                GL11.glRotatef(30.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glScaled(0.4D, 0.7D, 0.4D);
+            })
+            .withThirdPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(-0.7F, -0.29F, 0.7F);
+                GL11.glRotatef(-50.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(80.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.5D, 0.7D, 0.5D);
+            })
+            .withInventoryPositioning((itemStack) -> {
+                GL11.glTranslatef(-0.8F, -0.45F, 0.4F);
+                GL11.glRotatef(10.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(2.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(1.2D, 1.4D, 1.2D);
+            })
+            .withTextureName("Dummy.png")
+            .build(ItemBullet.class);
+        GravitonCharge = (new ItemBullet.Builder()).withCreativeTab(NewGunrizonsMod.AmmoTab)
+            .withName("GravitonCharge")
+            .withModel(new JsonModel("ammo/bulletbig"), "GravitonCharge.png")
+
+            .withFirstPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(0.1F, -1.0F, 0.4F);
+                GL11.glRotatef(30.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glScaled(0.4D, 0.7D, 0.4D);
+            })
+            .withThirdPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(-0.7F, -0.29F, 0.7F);
+                GL11.glRotatef(-50.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(80.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.5D, 0.7D, 0.5D);
+            })
+            .withInventoryPositioning((itemStack) -> {
+                GL11.glTranslatef(-0.8F, -0.45F, 0.4F);
+                GL11.glRotatef(10.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(2.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(1.2D, 1.4D, 1.2D);
+            })
+            .withTextureName("Dummy.png")
+            .build(ItemBullet.class);
+        ChronoCharge = (new ItemBullet.Builder()).withCreativeTab(NewGunrizonsMod.AmmoTab)
+            .withName("ChronoCharge")
+            .withModel(new JsonModel("ammo/bulletbig"), "ChronoCharge.png")
+
+            .withFirstPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(0.1F, -1.0F, 0.4F);
+                GL11.glRotatef(30.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glScaled(0.4D, 0.7D, 0.4D);
+            })
+            .withThirdPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(-0.7F, -0.29F, 0.7F);
+                GL11.glRotatef(-50.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(80.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.5D, 0.7D, 0.5D);
+            })
+            .withInventoryPositioning((itemStack) -> {
+                GL11.glTranslatef(-0.8F, -0.45F, 0.4F);
+                GL11.glRotatef(10.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(2.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(1.2D, 1.4D, 1.2D);
+            })
+            .withTextureName("Dummy.png")
+            .build(ItemBullet.class);
+        SingularityCharge = (new ItemBullet.Builder()).withCreativeTab(NewGunrizonsMod.AmmoTab)
+            .withName("SingularityCharge")
+            .withMaxStackSize(1)
+            .withModel(new JsonModel("ammo/smawrocket"), "SingularityCharge.png")
+            .withFirstPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(0.1F, -1.2F, 0.4F);
+                GL11.glRotatef(30.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glScaled(0.0D, 0.0D, 0.0D);
+            })
+            .withThirdPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(-0.9F, -0.29F, 0.8F);
+                GL11.glRotatef(-50.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(80.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.0D, 0.0D, 0.0D);
+            })
+            .withInventoryPositioning((itemStack) -> {
+                GL11.glTranslatef(-0.8F, 0.8F, -2.1F);
+                GL11.glRotatef(10.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(2.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.6D, 0.6D, 0.6D);
+            })
+            .withTextureName("Dummy.png")
+
+            .build(ItemBullet.class);
+        DimensionalCharge = (new ItemBullet.Builder()).withCreativeTab(NewGunrizonsMod.AmmoTab)
+            .withName("DimensionalCharge")
+            .withModel(new JsonModel("ammo/bulletbig"), "DimensionalCharge.png")
+
+            .withFirstPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(0.1F, -1.0F, 0.4F);
+                GL11.glRotatef(30.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glScaled(0.4D, 0.7D, 0.4D);
+            })
+            .withThirdPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(-0.7F, -0.29F, 0.7F);
+                GL11.glRotatef(-50.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(80.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.5D, 0.7D, 0.5D);
+            })
+            .withInventoryPositioning((itemStack) -> {
+                GL11.glTranslatef(-0.8F, -0.45F, 0.4F);
+                GL11.glRotatef(10.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(2.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(1.2D, 1.4D, 1.2D);
+            })
+            .withTextureName("Dummy.png")
+            .build(ItemBullet.class);
+        InfinityCharge = (new ItemBullet.Builder()).withCreativeTab(NewGunrizonsMod.AmmoTab)
+            .withName("InfinityCharge")
+            .withModel(new JsonModel("ammo/bulletbig"), "InfinityCharge.png")
+
+            .withFirstPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(0.1F, -1.0F, 0.4F);
+                GL11.glRotatef(30.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glScaled(0.4D, 0.7D, 0.4D);
+            })
+            .withThirdPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(-0.7F, -0.29F, 0.7F);
+                GL11.glRotatef(-50.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(80.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.5D, 0.7D, 0.5D);
+            })
+            .withInventoryPositioning((itemStack) -> {
+                GL11.glTranslatef(-0.8F, -0.45F, 0.4F);
+                GL11.glRotatef(10.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(2.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(1.2D, 1.4D, 1.2D);
+            })
+            .withTextureName("Dummy.png")
+            .build(ItemBullet.class);
+
+        PlasmaCharge = (new ItemBullet.Builder()).withCreativeTab(NewGunrizonsMod.AmmoTab)
+            .withName("PlasmaCharge")
+            .withModel(new JsonModel("ammo/bulletbig"), "PlasmaCharge.png")
+
+            .withFirstPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(0.1F, -1.0F, 0.4F);
+                GL11.glRotatef(30.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glScaled(0.4D, 0.7D, 0.4D);
+            })
+            .withThirdPersonPositioning((player, itemStack) -> {
+                GL11.glTranslatef(-0.7F, -0.29F, 0.7F);
+                GL11.glRotatef(-50.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(80.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(0.5D, 0.7D, 0.5D);
+            })
+            .withInventoryPositioning((itemStack) -> {
+                GL11.glTranslatef(-0.8F, -0.45F, 0.4F);
+                GL11.glRotatef(10.0F, 0.0F, 1.0F, 0.0F);
+                GL11.glRotatef(2.0F, 1.0F, 0.0F, 0.0F);
+                GL11.glScaled(1.2D, 1.4D, 1.2D);
+            })
+            .withTextureName("Dummy.png")
             .build(ItemBullet.class);
     }
 }

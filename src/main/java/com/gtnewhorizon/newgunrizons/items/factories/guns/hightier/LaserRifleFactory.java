@@ -10,6 +10,7 @@ import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.client.render.WeaponRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
+import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
@@ -20,7 +21,9 @@ public class LaserRifleFactory {
 
     public Item createGun() {
         return (new ItemWeapon.Builder()).withName("LaserRifle")
-            .withProjectile(ProjectileStyle.LASER, 0x28E4F0, 1.0F)
+            .withProjectile(ProjectileStyle.LASER, 0xFF46BE, 1.0F)
+            .withBehavior(new WeaponBehavior().hitscan(96.0F).heat(7.0F, 100.0F, 2.5F))
+            .withShellCasingEjectEnabled(false)
             .withFireRate(0.9F)
             .withRecoil(2.4F)
 
@@ -41,11 +44,13 @@ public class LaserRifleFactory {
             .withCreativeTab(NewGunrizonsMod.HighTierTab)
             .withInformationProvider(
                 (stack) -> Arrays.asList(
-                    "Tier: ZPM",
-                    "Type: Directed-energy rifle",
-                    "Damage: 32",
-                    "Ammo: 60-shot Laser Rifle Cell",
-                    "Fire Rate: Auto"))
+                    "Tier: LuV",
+                    "Type: Laser rifle",
+                    "Damage: 60",
+                    "Hitscan: instant hit, no drop, 96 m",
+                    "Overheats under sustained fire",
+                    "Ammo: Laser Rifle Cell",
+                    "Cells recharge in a LuV Battery Buffer"))
             .withCompatibleAttachment(Magazines.LaserRifleCell, ((model) -> { GL11.glTranslatef(0.0F, -0.05F, 0.0F); }))
             .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
                 if (JsonModel.is(model, "sight/g36ciron1")) {
@@ -368,8 +373,8 @@ public class LaserRifleFactory {
                         GL11.glRotatef(-100.0F, 1.0F, 0.0F, 0.0F);
                     }, 250L, 50L))
                     .build())
-            .withSpawnEntityDamage(32.0F)
-            .withSpawnEntityGravityVelocity(0.028F)
+            .withSpawnEntityDamage(60.0F)
+            .withSpawnEntityGravityVelocity(0.0F)
             .build();
     }
 }

@@ -10,6 +10,7 @@ import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.client.render.WeaponRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
+import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
@@ -20,7 +21,8 @@ public class XR7Factory {
 
     public Item createGun() {
         return (new ItemWeapon.Builder()).withName("XR7")
-            .withProjectile(ProjectileStyle.TRACER, 0x4696FF, 1.0F)
+            .withProjectile(ProjectileStyle.TRACER, 0xFFB03C, 1.0F)
+            .withBehavior(new WeaponBehavior().pierce(1, 0.5F))
             .withFireRate(0.7F)
             .withRecoil(3.6F)
 
@@ -41,11 +43,11 @@ public class XR7Factory {
             .withCreativeTab(NewGunrizonsMod.HighTierTab)
             .withInformationProvider(
                 (stack) -> Arrays.asList(
-                    "Tier: IV",
-                    "Type: Smart assault rifle",
+                    "Tier: EV",
+                    "Type: Rail-assisted smart rifle",
                     "Damage: 16",
-                    "Ammo: ScarH magazines",
-                    "Fire Rate: Auto/Burst/Semi"))
+                    "Rail-assisted: pierces 1 extra target",
+                    "Ammo: ScarH magazines"))
             .withCompatibleAttachment(Magazines.ScarHMag, ((model) -> {
                 GL11.glTranslatef(-0.342F, 0.6F, -1.43F);
                 GL11.glScaled(1.1D, 1.5D, 1.5D);

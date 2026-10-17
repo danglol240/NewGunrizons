@@ -1,4 +1,4 @@
-"""Designs for the IV-UHV weapons. Each fits inside its base gun's envelope so the
+"""Designs for the EV-MAX weapons. Each fits inside its base gun's envelope so the
 base factory's hand/attachment positioning still applies.
 
 usage: gun_designs.py [NAME ...]        (no names = build all)
@@ -11,8 +11,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from gunforge import Gun  # noqa: E402
 
 
-def xr7():  # IV smart rifle, SCAR-H envelope (cx -1.5)
-    g = Gun("XR7", "IV")
+def xr7():  # EV rail-assisted smart rifle, SCAR-H envelope (cx -1.5)
+    g = Gun("XR7", "EV")
     cx, by = -1.5, -14.5
     g.tube(cx, by, -76, -60, 1, "metal")
     g.tube(cx, by, -79, -76, 2, "frame")  # muzzle brake
@@ -36,8 +36,8 @@ def xr7():  # IV smart rifle, SCAR-H envelope (cx -1.5)
     return g
 
 
-def hx9():  # IV heavy rifle, Mk48 envelope (cx 2.5)
-    g = Gun("HX9", "IV")
+def hx9():  # EV rail-assisted heavy rifle, Mk48 envelope (cx 2.5)
+    g = Gun("HX9", "EV")
     cx, by = 2.5, -17
     g.tube(cx, by, -50, -28, 1, "metal")
     g.box(cx - 1, by - 1, -51, cx + 1, by + 1, -50, "glow")
@@ -59,8 +59,8 @@ def hx9():  # IV heavy rifle, Mk48 envelope (cx 2.5)
     return g
 
 
-def coilgun():  # LuV PDW, P90 bullpup envelope (cx 2.5)
-    g = Gun("Coilgun", "LuV")
+def coilgun():  # IV PDW, P90 bullpup envelope (cx 2.5)
+    g = Gun("Coilgun", "IV")
     cx = 2.5
     g.tube(cx, -13, -12, -6, 1.5, "metal")  # muzzle
     g.tube(cx, -13, -13, -12, 1, "glow")
@@ -81,8 +81,8 @@ def coilgun():  # LuV PDW, P90 bullpup envelope (cx 2.5)
     return g
 
 
-def gauss_rifle():  # LuV marksman, AS50 envelope (cx 2.5)
-    g = Gun("GaussRifle", "LuV")
+def gauss_rifle():  # IV marksman, AS50 envelope (cx 2.5)
+    g = Gun("GaussRifle", "IV")
     cx, by = 2.5, -16.75
     g.tube(cx, by, -60, -28, 1, "metal")
     g.rings(cx, by, -58, -44, 4, 2.5, depth=2)
@@ -104,8 +104,8 @@ def gauss_rifle():  # LuV marksman, AS50 envelope (cx 2.5)
     return g
 
 
-def railgun():  # LuV anti-materiel, M107 envelope (cx -1.5)
-    g = Gun("Railgun", "LuV")
+def railgun():  # IV anti-materiel, M107 envelope (cx -1.5)
+    g = Gun("Railgun", "IV")
     g.box(-5, -17, -140, -3, -12, -80, "metal")
     g.box(0, -17, -140, 2, -12, -80, "metal")
     g.box(-3, -15, -138, 0, -14, -80, "glow")
@@ -151,8 +151,8 @@ def railgun():  # LuV anti-materiel, M107 envelope (cx -1.5)
     return g
 
 
-def laser_rifle():  # ZPM directed-energy rifle, M8A7 envelope (cx -1.5)
-    g = Gun("LaserRifle", "ZPM")
+def laser_rifle():  # LuV directed-energy rifle, M8A7 envelope (cx -1.5)
+    g = Gun("LaserRifle", "LuV")
     cx, by = -1.5, -11.9
     g.tube(cx, by, -72, -60, 1, "lens")
     g.tube(cx, by, -74, -72, 2, "ring")
@@ -296,11 +296,158 @@ def exotic_matter_rifle():  # UHV, MX envelope (cx 2.5)
     return g
 
 
+def quantum_phase_rifle():  # UEV, AUG A3 bullpup envelope (cx -1.5)
+    g = Gun("QuantumPhaseRifle", "UEV")
+    cx, by = -1.5, -10
+    g.tube(cx, by, -50, -34, 1, "glow")  # phase emitter core
+    for z in (-49, -45, -41, -37):
+        g.tube(cx, by, z, z + 2, 3, "ring")  # floating phase rings
+    g.box(cx - 1, by - 5, -52, cx + 1, by - 4, -34, "metal")  # emitter prongs
+    g.box(cx - 1, by + 4, -52, cx + 1, by + 5, -34, "metal")
+    g.box(-4.5, -15, -34, 1.5, -5, -8, "armor")  # forward shell
+    g.box(1.5, -12, -30, 2.5, -10, -12, "glow")
+    g.box(-5.5, -12, -30, -4.5, -10, -12, "glow")
+    g.box(-3.5, -18, -26, 0.5, -15, -10, "dark")  # phase optic
+    g.box(-3, -17.5, -27, 0, -15.5, -26, "lens")
+    g.box(-3.5, -5, -29, 0.5, 5, -24, "grip")  # foregrip
+    g.box(-3, -5, -8, 0, -3.5, -2, "dark")  # trigger guard
+    g.box(-3.5, -5, -2, 0.5, 9, 4, "grip")
+    g.box(-4.5, -15, -8, 1.5, -4, 36, "frame")  # bullpup body
+    g.box(-5, -16, -6, 2, -13, 30, "armor")
+    g.box(1.5, -12, 6, 2.5, -6, 24, "cosmic")  # quantum core windows
+    g.box(-5.5, -12, 6, -4.5, -6, 24, "cosmic")
+    g.box(2, -10, 9, 3, -8, 21, "glow")
+    g.box(-6, -10, 9, -5, -8, 21, "glow")
+    g.fins(-3, -17, 0, -16, 0, 28, 4, "metal")
+    g.box(-4, -4, 26, 1, 6, 36, "frame")
+    g.box(-5, -16, 36, 2, 6, 39, "armor")  # butt
+    return g
+
+
+def graviton_cannon():  # UIV, RPK-74M envelope (cx -1.5)
+    g = Gun("GravitonCannon", "UIV")
+    cx, by = -1.5, -11
+    g.tube(cx, by, -66, -40, 5, "armor")  # graviton projector drum
+    for z in (-64, -57, -50, -43):
+        g.tube(cx, by, z, z + 2, 6, "ring")
+    g.tube(cx, by, -70, -66, 4, "frame")
+    g.tube(cx, by, -71, -70, 2.5, "lens")
+    for x0, y0, x1, y1 in ((cx - 0.5, by - 6, cx + 0.5, by - 5), (cx - 0.5, by + 5, cx + 0.5, by + 6),
+                           (cx + 5, by - 0.5, cx + 6, by + 0.5), (cx - 6, by - 0.5, cx - 5, by + 0.5)):
+        g.box(x0, y0, -90, x1, y1, -70, "metal")  # field prongs
+        g.box(x0, y0, -92, x1, y1, -90, "glow")
+    g.tube(cx, by, -86, -82, 1.5, "glow")  # held singularity
+    g.box(-4.5, -17, -40, 1.5, -6, 6, "frame")  # receiver
+    g.box(-4, -20, -36, 1, -17, -10, "armor")  # core housing
+    g.box(-3.5, -21, -32, 0.5, -20, -14, "glow")
+    g.box(1.5, -14, -36, 2.5, -12, 0, "glow")  # coolant lines
+    g.box(-5.5, -14, -36, -4.5, -12, 0, "glow")
+    g.box(-3, -6, -6, 0, -4.5, 0, "dark")
+    g.box(-3.5, -6, -2, 0.5, 9, 4, "grip")
+    g.box(-4, -13, 6, 1, -7, 34, "armor")  # stock
+    g.box(-3.5, -7, 14, 0.5, 3, 34, "frame")
+    g.box(1, -11, 14, 2, -9, 30, "glow")
+    g.box(-4.5, -14, 34, 1.5, 4, 37, "grip")
+    return g
+
+
+def chrono_rifle():  # UMV, L96 envelope (cx -1.5)
+    g = Gun("ChronoRifle", "UMV")
+    cx, by = -1.5, -14
+    g.tube(cx, by, -130, -44, 1, "metal")
+    g.tube(cx, by, -136, -130, 2, "armor")
+    g.box(cx - 1, by - 1, -137, cx + 1, by + 1, -136, "glow")
+    for z in (-124, -112, -100):  # chrono field rings
+        g.tube(cx, by, z, z + 2, 4, "ring")
+        g.tube(cx, by, z + 2, z + 3, 3, "dark")
+    g.box(cx - 2, by - 3, -90, cx + 2, by + 3, -70, "armor")  # time crystal chamber
+    g.box(cx + 2, by - 2, -88, cx + 3, by + 2, -72, "glow")
+    g.box(cx - 3, by - 2, -88, cx - 2, by + 2, -72, "glow")
+    g.box(-4.5, -12, -70, 1.5, -6, -44, "frame")  # handguard
+    g.box(-4.5, -17, -44, 1.5, -5, -8, "armor")  # receiver
+    g.box(-3.5, -21, -38, 0.5, -17, -14, "dark")  # chrono scope
+    g.box(-3, -20.5, -39, 0, -17.5, -38, "lens")
+    g.box(0.5, -21, -30, 1.5, -17, -22, "ring")  # dial
+    g.box(1.5, -14, -40, 2.5, -12, -12, "glow")
+    g.box(-5.5, -14, -40, -4.5, -12, -12, "glow")
+    g.box(-3, -5, -8, 0, -3.5, -2, "dark")
+    g.box(-3.5, -5, -4, 0.5, 8, 4, "grip")
+    g.box(-4.5, -14, -8, 1.5, -6, 38, "armor")  # stock
+    g.box(-4, -6, 12, 1, 3.5, 36, "frame")
+    g.box(1.5, -12, 14, 2.5, -8, 30, "glow")  # time crystal
+    g.box(-4.5, -15, 38, 1.5, 4, 41, "grip")
+    return g
+
+
+def singularity_cannon():  # UMV, SMAW envelope
+    g = Gun("SingularityCannon", "UMV")
+    _launcher(g, {"tube": "frame"})
+    g.box(-3, -26, -26, 6, -16, -12, "cosmic")  # event-horizon containment
+    for z in (-24, -18):
+        g.box(-4, -27, z, 7, -15, z + 2, "ring")
+    for z in (4, 20, 36, 52):  # accretion stabilisers
+        g.box(-3, -25.5, z, 6, -16, z + 2, "ring")
+    g.box(0, -25.5, -10, 3, -24.5, 60, "glow")
+    g.box(6, -23, 20, 7, -19, 44, "glow")
+    g.box(-2.5, -25, 56, 5.5, -16.5, 64, "armor")
+    return g
+
+
+def dimensional_cutter():  # UXV, Dragunov envelope (cx -1.5)
+    g = Gun("DimensionalCutter", "UXV")
+    cx, by = -1.5, -11.2
+    g.tube(cx, by, -132, -60, 1, "metal")  # blade spine
+    g.box(cx - 0.5, by + 1, -128, cx + 0.5, by + 4, -62, "glow")  # rift edge
+    g.box(cx - 0.5, by - 4, -126, cx + 0.5, by - 1, -62, "cosmic")
+    g.box(cx - 0.5, by - 1, -137, cx + 0.5, by + 1, -132, "glow")  # tip
+    g.tube(cx, by, -62, -58, 4, "ring")  # guard
+    g.box(-4.5, -16, -58, 1.5, -8, -44, "armor")
+    g.box(-4.5, -16, -44, 1.5, -6, -8, "frame")  # receiver
+    g.box(1.5, -14, -40, 2.5, -9, -12, "cosmic")
+    g.box(-5.5, -14, -40, -4.5, -9, -12, "cosmic")
+    g.box(-3.5, -17, -38, 0.5, -16, -14, "dark")
+    g.box(-2.5, -19, -34, -0.5, -17, -18, "glow")  # rift crystal
+    g.box(-3, -6, -10, 0, -4.5, -4, "dark")
+    g.box(-3.5, -6, -4, 0.5, 8, 4, "grip")
+    g.box(-4, -13, 4, 1, -8, 38, "armor")  # stock
+    g.box(-3.5, -8, 20, 0.5, 6, 36, "frame")
+    g.box(1, -12, 8, 2, -10, 36, "glow")
+    g.box(-4.5, -13, 38, 1.5, 8, 41, "cosmic")
+    return g
+
+
+def reality_eraser():  # MAX, SV-98 envelope (cx -1.5)
+    g = Gun("RealityEraser", "MAX")
+    cx, by = -1.5, -14
+    g.tube(cx, by, -120, -44, 1, "glow")
+    for z in range(-118, -50, 12):  # gilded shroud segments
+        g.tube(cx, by, z, z + 8, 2.5, "armor")
+        g.tube(cx, by, z + 8, z + 10, 3, "ring")
+    g.tube(cx, by, -126, -120, 3, "armor")
+    g.box(cx - 1, by - 1, -127, cx + 1, by + 1, -126, "lens")
+    for dx, dy in ((-3.5, -3.5), (2.5, -3.5), (-3.5, 2.5), (2.5, 2.5)):  # crown
+        g.box(cx + dx, by + dy, -130, cx + dx + 1, by + dy + 1, -126, "glow")
+    g.box(-4.5, -18, -44, 1.5, -6, -8, "armor")  # receiver
+    g.box(1.5, -15, -36, 2.5, -9, -16, "glow")  # infinity catalyst windows
+    g.box(-5.5, -15, -36, -4.5, -9, -16, "glow")
+    g.fins(-3, -21, 0, -18, -42, -12, 4, "metal")  # crest
+    g.box(-3, -6, -8, 0, -4.5, -2, "dark")
+    g.box(-3.5, -6, -4, 0.5, 8.5, 4, "grip")
+    g.box(-4.5, -15, -8, 1.5, -7, 38, "armor")  # stock
+    g.box(-4, -7, 12, 1, 6, 36, "metal")
+    g.box(1.5, -13, 12, 2.5, -9, 32, "glow")
+    g.box(-5.5, -13, 12, -4.5, -9, 32, "glow")
+    g.box(-4.5, -15, 38, 1.5, 7, 41, "ring")
+    return g
+
+
 DESIGNS = {
     "XR7": xr7, "HX9": hx9, "Coilgun": coilgun, "GaussRifle": gauss_rifle, "Railgun": railgun,
     "LaserRifle": laser_rifle, "PlasmaRifle": plasma_rifle, "PlasmaCannon": plasma_cannon,
     "ParticleBeamRifle": particle_beam_rifle, "NeutronRifle": neutron_rifle,
     "AntimatterCannon": antimatter_cannon, "ExoticMatterRifle": exotic_matter_rifle,
+    "QuantumPhaseRifle": quantum_phase_rifle, "GravitonCannon": graviton_cannon, "ChronoRifle": chrono_rifle,
+    "SingularityCannon": singularity_cannon, "DimensionalCutter": dimensional_cutter, "RealityEraser": reality_eraser,
 }
 
 

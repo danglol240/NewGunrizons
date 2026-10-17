@@ -10,6 +10,7 @@ import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.client.render.WeaponRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
+import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
@@ -20,7 +21,9 @@ public class ParticleBeamRifleFactory {
 
     public Item createGun() {
         return (new ItemWeapon.Builder()).withName("ParticleBeamRifle")
-            .withProjectile(ProjectileStyle.HELIX, 0x5AFF78, 1.0F)
+            .withProjectile(ProjectileStyle.HELIX, 0x6EA0FF, 1.0F)
+            .withBehavior(new WeaponBehavior().pierce(4, 0.85F).armorPiercing(0.75F))
+            .withShellCasingEjectEnabled(false)
             .withFireRate(0.16F)
             .withEjectRoundRequired()
             .withEjectSpentRoundSound("L96BoltAction")
@@ -42,14 +45,15 @@ public class ParticleBeamRifleFactory {
             .withFlashOffsetX(() -> 0.1F)
             .withFlashOffsetY(() -> 0.1F)
             .withCreativeTab(NewGunrizonsMod.HighTierTab)
-            .withShellCasingEjectEnabled(false)
             .withInformationProvider(
                 (stack) -> Arrays.asList(
                     "Tier: UV",
-                    "Type: Particle beam rifle",
-                    "Damage: 220",
-                    "Ammo: 10-shot Particle Beam Cell",
-                    "Fire Rate: Semi"))
+                    "Type: Particle accelerator rifle",
+                    "Damage: 200",
+                    "Pierces up to 4 extra targets",
+                    "Armor penetration 75%",
+                    "Ammo: Particle Beam Cell",
+                    "Cells recharge in a UV Battery Buffer"))
             .withCompatibleAttachment(Magazines.ParticleBeamCell, ((model) -> {
                 GL11.glTranslatef(0.0F, -0.25F, 0.0F);
                 GL11.glScaled(1.2D, 0.7D, 1.0D);
@@ -476,7 +480,7 @@ public class ParticleBeamRifleFactory {
                         GL11.glRotatef(-95.0F, 1.0F, 0.0F, 0.0F);
                     }, 250L, 50L))
                     .build())
-            .withSpawnEntityDamage(220.0F)
+            .withSpawnEntityDamage(200.0F)
             .withSpawnEntityGravityVelocity(0.0F)
             .build();
     }

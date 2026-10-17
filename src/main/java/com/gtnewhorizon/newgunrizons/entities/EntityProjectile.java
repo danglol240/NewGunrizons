@@ -1,6 +1,10 @@
 package com.gtnewhorizon.newgunrizons.entities;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -199,15 +203,17 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
         }
 
         if (!this.worldObj.isRemote) {
-            Entity hitEntity = this.findClosestEntityOnPath(startPos, endPos);
-            if (hitEntity != null) {
-                blockHit = new MovingObjectPosition(hitEntity);
+            // entities along this tick's path, nearest first; a piercing projectile survives its impacts
+            for (Entity hitEntity : this.findEntitiesOnPath(startPos, endPos)) {
+                this.onImpact(new MovingObjectPosition(hitEntity));
+                if (this.isDead) break;
             }
         }
 
-        if (blockHit != null) {
+        if (blockHit != null && !this.isDead) {
             this.onImpact(blockHit);
         }
+        if (this.isDead) return;
 
         this.posX += this.motionX;
         this.posY += this.motionY;
@@ -255,31 +261,35 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
         this.setPosition(this.posX, this.posY, this.posZ);
     }
 
-    private Entity findClosestEntityOnPath(Vec3 startPos, Vec3 endPos) {
-        Entity closestEntity = null;
+    private List<Entity> findEntitiesOnPath(Vec3 startPos, Vec3 endPos) {
         List<Entity> nearbyEntities = this.worldObj.getEntitiesWithinAABBExcludingEntity(
             this,
             this.boundingBox.addCoord(this.motionX, this.motionY, this.motionZ)
                 .expand(ENTITY_SEARCH_EXPANSION, ENTITY_SEARCH_EXPANSION, ENTITY_SEARCH_EXPANSION));
-        double closestDistance = 0.0;
         EntityLivingBase thrower = this.getThrower();
+        List<Entity> hits = new ArrayList<>();
+        Map<Entity, Double> distances = new HashMap<>();
 
         for (Entity candidate : nearbyEntities) {
-            if (candidate.canBeCollidedWith() && (candidate != thrower || this.ticksInAir >= THROWER_IMMUNITY_TICKS)) {
+            if (candidate.canBeCollidedWith() && this.canHitEntity(candidate)
+                && (candidate != thrower || this.ticksInAir >= THROWER_IMMUNITY_TICKS)) {
                 AxisAlignedBB expandedBbox = candidate.boundingBox
                     .expand(ENTITY_HITBOX_EXPANSION, ENTITY_HITBOX_EXPANSION, ENTITY_HITBOX_EXPANSION);
                 MovingObjectPosition intercept = expandedBbox.calculateIntercept(startPos, endPos);
                 if (intercept != null) {
-                    double hitDistance = startPos.distanceTo(intercept.hitVec);
-                    if (hitDistance < closestDistance || closestDistance == 0.0) {
-                        closestEntity = candidate;
-                        closestDistance = hitDistance;
-                    }
+                    hits.add(candidate);
+                    distances.put(candidate, startPos.distanceTo(intercept.hitVec));
                 }
             }
         }
 
-        return closestEntity;
+        hits.sort(Comparator.comparingDouble(distances::get));
+        return hits;
+    }
+
+    /** Whether this projectile may still hit the entity (piercing projectiles skip what they already hit). */
+    protected boolean canHitEntity(Entity entity) {
+        return true;
     }
 
     /**

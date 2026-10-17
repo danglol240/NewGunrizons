@@ -4,6 +4,7 @@ import static com.gtnewhorizon.structurelib.structure.StructureUtility.isAir;
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
 import static gregtech.api.enums.HatchElement.Energy;
+import static gregtech.api.enums.HatchElement.ExoticEnergy;
 import static gregtech.api.enums.HatchElement.InputBus;
 import static gregtech.api.enums.HatchElement.InputHatch;
 import static gregtech.api.enums.HatchElement.Maintenance;
@@ -16,6 +17,8 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -28,12 +31,14 @@ import com.gtnewhorizon.newgunrizons.client.render.FactoryAssemblyRenderer;
 import com.gtnewhorizon.newgunrizons.registry.MunitionsRecipeMap;
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
+import com.gtnewhorizon.structurelib.structure.IStructureElement;
 import com.gtnewhorizon.structurelib.structure.ISurvivalBuildEnvironment;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
 
 import gregtech.api.GregTechAPI;
 import gregtech.api.casing.Casings;
 import gregtech.api.enums.GTValues;
+import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
@@ -58,7 +63,7 @@ import io.netty.buffer.ByteBuf;
  * A 3x3 production line that grows one segment per era, like an Assembly Line:
  * <ul>
  * <li>the head holds the controller, framed by Heat Proof Machine Casings;</li>
- * <li>segment N behind it has a roof of three tier-N Machine Casings (segment 1 = LV, 2 = MV ... 9 = UHV), glass side
+ * <li>segment N behind it has a roof of three tier-N Machine Casings (segment 1 = LV, 2 = MV ... 14 = MAX), glass side
  * windows around an empty production lane, and a Heat Proof Machine Casing floor;</li>
  * <li>the number of consecutive segments is the factory's era: it accepts recipes up to that voltage tier;</li>
  * <li>every segment adds 4 parallels.</li>
@@ -72,8 +77,8 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
     private static final String SEGMENT = "segment";
     private static final int OFFSET_X = 1;
     private static final int OFFSET_Y = 1;
-    /** Machine Casing meta in sBlockCasings1 equals its voltage tier: 1 = LV ... 9 = UHV. */
-    private static final int MAX_SEGMENTS = 9;
+    /** One segment per era: 1 = LV ... 9 = UHV, 10 = UEV ... 14 = MAX. */
+    private static final int MAX_SEGMENTS = 14;
     private static final int PARALLEL_PER_SEGMENT = 4;
     private static final int MIN_CASINGS = 5;
     private static final Casings CASING = Casings.HeatProofMachineCasing;
@@ -96,18 +101,36 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
             .addElement('-', isAir())
             .addElement(
                 'C',
-                buildHatchAdder(MTEMunitionsFactory.class).atLeast(InputBus, InputHatch, OutputBus, Maintenance, Energy)
+                buildHatchAdder(MTEMunitionsFactory.class)
+                    .atLeast(InputBus, InputHatch, OutputBus, Maintenance, Energy.or(ExoticEnergy))
                     .casingIndex(CASING.textureId)
                     .hint(1)
                     .buildAndChain(onElementPass(m -> ++m.casingAmount, CASING.asElement())));
-        // segment N: roof of tier-N Machine Casings ('1' = LV ... '9' = UHV)
+        // segment N: roof of tier-N Machine Casings ('1' = LV ... '9' = UHV, 'a' = UEV ... 'e' = MAX)
         for (int tier = 1; tier <= MAX_SEGMENTS; tier++) {
-            char c = (char) ('0' + tier);
+            char c = segmentChar(tier);
             String roof = new String(new char[] { c, c, c });
             b.addShape(SEGMENT + tier, new String[][] { { roof, "W-W", "CCC" } })
-                .addElement(c, ofBlock(GregTechAPI.sBlockCasings1, tier));
+                .addElement(c, casingOfTier(tier));
         }
         return b.build();
+    }
+
+    private static char segmentChar(int tier) {
+        return tier <= 9 ? (char) ('0' + tier) : (char) ('a' + tier - 10);
+    }
+
+    /** Machine Casing of a voltage tier: sBlockCasings1 meta = tier up to UHV, the UEV-MAX casings live elsewhere. */
+    private static IStructureElement<MTEMunitionsFactory> casingOfTier(int tier) {
+        if (tier <= 9) return ofBlock(GregTechAPI.sBlockCasings1, tier);
+        // a local array: this runs from the STRUCTURE static initialiser, before later static fields are set
+        ItemList[] high = { ItemList.Casing_UEV, ItemList.Casing_UIV, ItemList.Casing_UMV, ItemList.Casing_UXV,
+            ItemList.Casing_MAXV };
+        ItemList casing = high[tier - 10];
+        ItemStack stack = casing.hasBeenSet() ? casing.get(1) : null;
+        Block block = stack != null ? Block.getBlockFromItem(stack.getItem()) : null;
+        if (block == null || block == Blocks.air) return ofBlock(GregTechAPI.sBlockCasings1, 9);
+        return ofBlock(block, stack.getItemDamage());
     }
 
     public MTEMunitionsFactory(int id, String name, String nameRegional) {
@@ -131,7 +154,7 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
             .addInfo("Weapons and ammo cannot be made anywhere else")
             .addSeparator()
             .addInfo("A production line that grows one segment per era:")
-            .addInfo("segment 1 is roofed with LV Machine Casings, segment 2 with MV, ... segment 9 with UHV")
+            .addInfo("segment 1 is roofed with LV Machine Casings, segment 2 with MV, ... segment 14 with MAX")
             .addInfo("The number of segments is the factory's era; it accepts recipes up to that tier")
             .addInfo("Each segment adds " + PARALLEL_PER_SEGMENT + " parallels")
             .addInfo("Runs recipes at double speed")
@@ -142,7 +165,7 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
             .addCasing("3 per segment", "Machine Casing of the segment's era (LV, MV, HV, ...), as the roof", true)
             .addOtherStructurePart("Any glass", "2 per segment, side windows of the production lane")
             .addOtherStructurePart("Air", "1 per segment, the production lane")
-            .addEnergyHatch("1+", "Any Heat Proof Machine Casing", 1)
+            .addEnergyHatch("1+ (multi-amp and laser hatches allowed)", "Any Heat Proof Machine Casing", 1)
             .addMaintenanceHatch("1", "Any Heat Proof Machine Casing", 1)
             .addInputBus("1+", "Any Heat Proof Machine Casing", 1)
             .addInputHatch("0+", "Any Heat Proof Machine Casing", 1)
@@ -197,7 +220,7 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
             return;
         }
         checkCasingMin(errors, casingAmount, MIN_CASINGS);
-        checkHasEnergyHatch(errors);
+        checkExoticAndNormalEnergyHatches(errors);
         checkHasMaintenanceHatch(errors);
         checkHasInputBus(errors);
         checkHasOutputBus(errors);

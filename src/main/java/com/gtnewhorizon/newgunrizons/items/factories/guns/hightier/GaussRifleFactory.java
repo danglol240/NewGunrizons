@@ -10,6 +10,7 @@ import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.client.render.WeaponRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
+import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
@@ -20,7 +21,9 @@ public class GaussRifleFactory {
 
     public Item createGun() {
         return (new ItemWeapon.Builder()).withName("GaussRifle")
-            .withProjectile(ProjectileStyle.RAIL, 0xFF40D6, 1.0F)
+            .withProjectile(ProjectileStyle.RAIL, 0x28C8FF, 1.0F)
+            .withBehavior(new WeaponBehavior().pierce(3, 0.75F))
+            .withShellCasingEjectEnabled(false)
             .withFireRate(0.16F)
             .withRecoil(4.0F)
 
@@ -41,11 +44,11 @@ public class GaussRifleFactory {
             .withCreativeTab(NewGunrizonsMod.HighTierTab)
             .withInformationProvider(
                 (stack) -> Arrays.asList(
-                    "Tier: LuV",
-                    "Type: Electromagnetic marksman rifle",
-                    "Damage: 75",
-                    "Ammo: 8rnd Gauss Rifle Magazine",
-                    "Fire Rate: Semi"))
+                    "Tier: IV",
+                    "Type: Gauss marksman rifle",
+                    "Damage: 80",
+                    "Pierces up to 3 extra targets, -25% damage each",
+                    "Ammo: Gauss Rifle Magazine"))
             .withCompatibleAttachment(Magazines.GaussRifleMag, ((model) -> {}))
             .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
                 if (JsonModel.is(model, "sight/akmiron1")) {
@@ -364,7 +367,7 @@ public class GaussRifleFactory {
                         GL11.glRotatef(-95.0F, 1.0F, 0.0F, 0.0F);
                     }, 250L, 50L))
                     .build())
-            .withSpawnEntityDamage(75.0F)
+            .withSpawnEntityDamage(80.0F)
             .build();
     }
 }

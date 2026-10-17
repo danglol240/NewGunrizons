@@ -34,6 +34,7 @@ import com.gtnewhorizon.newgunrizons.items.instances.ItemWeaponInstance;
 import com.gtnewhorizon.newgunrizons.network.StatusMessageManager;
 import com.gtnewhorizon.newgunrizons.network.WeaponActionMessage;
 import com.gtnewhorizon.newgunrizons.registry.Sounds;
+import com.gtnewhorizon.newgunrizons.weapon.Hitscan;
 import com.gtnewhorizon.newgunrizons.weapon.Reloadable;
 import com.gtnewhorizon.newgunrizons.weapon.WeaponAttachmentAspect;
 import com.gtnewhorizon.newgunrizons.weapon.WeaponFireAspect;
@@ -98,6 +99,9 @@ public class ItemWeapon extends Item
     /** Size multiplier of the projectile effect. */
     @Getter
     private final float projectileScale;
+    /** Piercing, hitscan, heat, field and other shot behaviour. */
+    @Getter
+    private final WeaponBehavior behavior;
     @Getter
     private final float flashIntensity;
     @Getter
@@ -159,6 +163,7 @@ public class ItemWeapon extends Item
         this.projectileStyle = builder.projectileStyle;
         this.projectileColor = builder.projectileColor;
         this.projectileScale = builder.projectileScale;
+        this.behavior = builder.behavior;
         this.flashIntensity = builder.flashIntensity;
         this.flashScale = builder.flashScale;
         this.flashOffsetX = builder.flashOffsetX;
@@ -348,6 +353,10 @@ public class ItemWeapon extends Item
     }
 
     public void spawnBullet(EntityLivingBase player) {
+        if (this.behavior.isHitscan()) {
+            Hitscan.fire(this, player, this.spawnEntityDamage, this.inaccuracy);
+            return;
+        }
         EntityBullet bullet = new EntityBullet(
             this,
             player.worldObj,
@@ -358,6 +367,7 @@ public class ItemWeapon extends Item
             this.spawnEntityDamage,
             this.spawnEntityExplosionRadius);
         bullet.setPositionAndDirection();
+        bullet.setAltMode(player.isSneaking());
         player.worldObj.spawnEntityInWorld(bullet);
     }
 
@@ -507,6 +517,7 @@ public class ItemWeapon extends Item
         private ProjectileStyle projectileStyle = ProjectileStyle.NONE;
         private int projectileColor = 0xFFFFFF;
         private float projectileScale = 1.0F;
+        private WeaponBehavior behavior = WeaponBehavior.NONE;
         public float flashIntensity = 0.4F;
         public Supplier<Float> flashScale = () -> 1.0F;
         public Supplier<Float> flashOffsetX = () -> 0.0F;
@@ -767,6 +778,11 @@ public class ItemWeapon extends Item
             this.projectileStyle = style;
             this.projectileColor = rgb;
             this.projectileScale = scale;
+            return this;
+        }
+
+        public ItemWeapon.Builder withBehavior(WeaponBehavior behavior) {
+            this.behavior = behavior == null ? WeaponBehavior.NONE : behavior;
             return this;
         }
 

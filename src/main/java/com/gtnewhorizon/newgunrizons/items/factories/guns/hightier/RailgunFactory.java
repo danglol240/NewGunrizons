@@ -10,6 +10,7 @@ import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.client.render.WeaponRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
+import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
@@ -20,7 +21,10 @@ public class RailgunFactory {
 
     public Item createGun() {
         return (new ItemWeapon.Builder()).withName("Railgun")
-            .withProjectile(ProjectileStyle.RAIL, 0xFF40D6, 1.6F)
+            .withProjectile(ProjectileStyle.RAIL, 0x28C8FF, 1.6F)
+            .withBehavior(new WeaponBehavior().pierce(6, 0.8F))
+            .withShellCasingEjectEnabled(false)
+            .withSpawnEntityGravityVelocity(0.0F)
             .withFireRate(0.35F)
             .withRecoil(4.0F)
 
@@ -41,11 +45,11 @@ public class RailgunFactory {
             .withCreativeTab(NewGunrizonsMod.HighTierTab)
             .withInformationProvider(
                 (stack) -> Arrays.asList(
-                    "Tier: LuV",
-                    "Type: Electromagnetic anti-materiel rifle",
+                    "Tier: IV",
+                    "Type: Handheld railgun",
                     "Damage: 120",
-                    "Ammo: 6rnd Railgun Magazine",
-                    "Fire Rate: Semi"))
+                    "Pierces up to 6 extra targets, -20% damage each",
+                    "Ammo: Railgun Magazine (tungsten slugs)"))
             .withCompatibleAttachment(Magazines.RailgunMag, ((model) -> {
                 GL11.glTranslatef(-0.42F, 0.8F, -1.4F);
                 GL11.glScaled(1.5D, 1.5D, 1.5D);

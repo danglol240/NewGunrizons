@@ -10,6 +10,7 @@ import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.client.render.WeaponRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
+import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
@@ -19,7 +20,9 @@ public class AntimatterCannonFactory {
 
     public Item createGun() {
         return (new ItemWeapon.Builder()).withName("AntimatterCannon")
-            .withProjectile(ProjectileStyle.ORB_RING, 0xFF4034, 1.8F)
+            .withProjectile(ProjectileStyle.ORB_RING, 0xB446FF, 1.8F)
+            .withBehavior(new WeaponBehavior().radiation(3).armorPiercing(0.5F))
+            .withShellCasingEjectEnabled(false)
             .withAmmoCapacity(1)
             .withFireRate(0.5F)
             .withRecoil(2.0F)
@@ -31,7 +34,6 @@ public class AntimatterCannonFactory {
             .withCrosshair("gun")
             .withCrosshairRunning("Running")
             .withCrosshairZoomed("Sight")
-            .withShellCasingEjectEnabled(false)
             .withCreativeTab(NewGunrizonsMod.HighTierTab)
             .withInformationProvider(
                 (stack) -> Arrays.asList(
@@ -39,8 +41,10 @@ public class AntimatterCannonFactory {
                     "Type: Antimatter cannon",
                     "Damage: 400",
                     "Blast radius: 5",
-                    "Ammo: Antimatter Charge",
-                    "Fire Rate: Semi"))
+                    "Annihilation blast",
+                    "Leaves targets irradiated",
+                    "Armor penetration 50%",
+                    "Ammo: Antimatter Charge"))
             .withCompatibleAttachment(Attachments.AKMIron, true, (model) -> {
                 if (JsonModel.is(model, "sight/m4iron1")) {
                     GL11.glTranslatef(0.41F, -2.13F, 1.1F);

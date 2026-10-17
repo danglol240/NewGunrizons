@@ -10,6 +10,7 @@ import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.client.render.WeaponRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
+import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
@@ -20,7 +21,9 @@ public class CoilgunFactory {
 
     public Item createGun() {
         return (new ItemWeapon.Builder()).withName("Coilgun")
-            .withProjectile(ProjectileStyle.RAIL, 0xFF40D6, 0.6F)
+            .withProjectile(ProjectileStyle.RAIL, 0x28C8FF, 0.6F)
+            .withBehavior(new WeaponBehavior().pierce(1, 0.6F))
+            .withShellCasingEjectEnabled(false)
             .withFireRate(0.75F)
             .withRecoil(2.8F)
 
@@ -40,11 +43,11 @@ public class CoilgunFactory {
             .withCreativeTab(NewGunrizonsMod.HighTierTab)
             .withInformationProvider(
                 (stack) -> Arrays.asList(
-                    "Tier: LuV",
+                    "Tier: IV",
                     "Type: Electromagnetic PDW",
-                    "Damage: 24",
-                    "Ammo: 50rnd Coilgun Slug Magazine",
-                    "Fire Rate: Auto"))
+                    "Damage: 30",
+                    "Pierces 1 extra target",
+                    "Ammo: Coilgun Slug Magazine"))
             .withCompatibleAttachment(Magazines.CoilgunMag, ((model) -> {}))
             .withCompatibleAttachment(AuxiliaryAttachments.FNP90Sight, true, (model) -> {
                 if (JsonModel.is(model, "sight/fnp90sight")) {
@@ -272,7 +275,7 @@ public class CoilgunFactory {
                         GL11.glTranslatef(0.7F, -0.725F, -0.0F);
                     }, 250L, 50L))
                     .build())
-            .withSpawnEntityDamage(24.0F)
+            .withSpawnEntityDamage(30.0F)
             .withSpawnEntityGravityVelocity(0.028F)
             .build();
     }

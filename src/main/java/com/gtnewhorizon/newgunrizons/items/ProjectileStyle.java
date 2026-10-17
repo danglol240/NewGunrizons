@@ -19,5 +19,17 @@ public enum ProjectileStyle {
     /** Glowing orb inside two rotating containment rings. */
     ORB_RING,
     /** Jittering shards of energy around the flight path. */
-    SHARDS
+    SHARDS,
+    /** Flickering bolt trailed by out-of-phase ghost copies of itself. */
+    PHASE,
+    /** Dark core with rings collapsing inwards. */
+    GRAVITON,
+    /** Green bolt carrying a ticking clock dial. */
+    CHRONO,
+    /** Black core inside a spinning accretion disc. */
+    SINGULARITY,
+    /** Hitscan: jagged tear in space along the beam. */
+    RIFT,
+    /** Hitscan: wide white-gold beam that erases what it touches. */
+    ERASE
 }

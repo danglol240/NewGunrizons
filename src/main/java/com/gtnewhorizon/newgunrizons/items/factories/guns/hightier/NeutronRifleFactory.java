@@ -10,6 +10,7 @@ import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.client.render.WeaponRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
+import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
@@ -20,7 +21,9 @@ public class NeutronRifleFactory {
 
     public Item createGun() {
         return (new ItemWeapon.Builder()).withName("NeutronRifle")
-            .withProjectile(ProjectileStyle.PULSE, 0x5AFF78, 1.0F)
+            .withProjectile(ProjectileStyle.PULSE, 0x6EA0FF, 1.0F)
+            .withBehavior(new WeaponBehavior().pierce(2, 0.7F).armorPiercing(0.5F))
+            .withShellCasingEjectEnabled(false)
             .withFireRate(0.8F)
             .withRecoil(2.5F)
 
@@ -42,9 +45,11 @@ public class NeutronRifleFactory {
                 (stack) -> Arrays.asList(
                     "Tier: UV",
                     "Type: Neutron support weapon",
-                    "Damage: 55",
-                    "Ammo: 150-shot Neutron Rifle Cell",
-                    "Fire Rate: Auto"))
+                    "Damage: 70",
+                    "Pierces up to 2 extra targets",
+                    "Armor penetration 50%",
+                    "Ammo: Neutron Rifle Cell",
+                    "Cells recharge in a UV Battery Buffer"))
             .withCompatibleAttachment(Magazines.NeutronRifleCell, ((model) -> {}))
             .withCompatibleAttachment(
                 AuxiliaryAttachments.M249Action,
@@ -1288,8 +1293,8 @@ public class NeutronRifleFactory {
                         GL11.glTranslatef(0.6F, -0.85F, 0.0F);
                     }, 250L, 50L))
                     .build())
-            .withSpawnEntityDamage(55.0F)
-            .withSpawnEntityGravityVelocity(0.0118F)
+            .withSpawnEntityDamage(70.0F)
+            .withSpawnEntityGravityVelocity(0.0F)
             .build();
     }
 }

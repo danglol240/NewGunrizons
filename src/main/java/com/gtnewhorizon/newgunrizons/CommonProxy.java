@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.IItemRenderer;
 
 import com.gtnewhorizon.newgunrizons.entities.EntityBullet;
+import com.gtnewhorizon.newgunrizons.entities.EntityGravityField;
 import com.gtnewhorizon.newgunrizons.entities.EntityGrenade;
 import com.gtnewhorizon.newgunrizons.entities.EntityShellCasing;
 import com.gtnewhorizon.newgunrizons.grenade.GrenadeAttackAspect;
@@ -30,6 +31,7 @@ import com.gtnewhorizon.newgunrizons.items.instances.ItemGrenadeInstance;
 import com.gtnewhorizon.newgunrizons.items.instances.ItemInstance;
 import com.gtnewhorizon.newgunrizons.items.instances.ItemMagazineInstance;
 import com.gtnewhorizon.newgunrizons.items.instances.ItemWeaponInstance;
+import com.gtnewhorizon.newgunrizons.network.BeamMessage;
 import com.gtnewhorizon.newgunrizons.network.BlockHitMessage;
 import com.gtnewhorizon.newgunrizons.network.ExplosionMessage;
 import com.gtnewhorizon.newgunrizons.network.GrenadeMessage;
@@ -119,6 +121,14 @@ public class CommonProxy {
             500,
             true);
         EntityRegistry.registerModEntity(
+            EntityGravityField.class,
+            "GravityField" + this.modEntityID,
+            this.modEntityID++,
+            mod,
+            96,
+            20,
+            false);
+        EntityRegistry.registerModEntity(
             EntityGrenade.class,
             "Grenade" + this.modEntityID,
             this.modEntityID++,
@@ -179,6 +189,7 @@ public class CommonProxy {
         channel.registerMessage((msg, ctx) -> null, SpawnParticleMessage.class, 18, Side.CLIENT);
         channel.registerMessage((msg, ctx) -> null, BlockHitMessage.class, 19, Side.CLIENT);
         channel.registerMessage((msg, ctx) -> null, ExplosionMessage.class, 21, Side.CLIENT);
+        channel.registerMessage((msg, ctx) -> null, BeamMessage.class, 22, Side.CLIENT);
     }
 
     public void onWeaponFireEffects(EntityLivingBase player, float smokeOffsetX, float smokeOffsetY,

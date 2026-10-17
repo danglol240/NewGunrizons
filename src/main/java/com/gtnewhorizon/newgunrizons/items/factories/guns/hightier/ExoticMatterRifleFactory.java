@@ -10,6 +10,7 @@ import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.client.render.WeaponRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
+import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
@@ -19,7 +20,9 @@ public class ExoticMatterRifleFactory {
 
     public Item createGun() {
         return (new ItemWeapon.Builder()).withName("ExoticMatterRifle")
-            .withProjectile(ProjectileStyle.SHARDS, 0xFF4034, 1.0F)
+            .withProjectile(ProjectileStyle.SHARDS, 0xB446FF, 1.0F)
+            .withBehavior(new WeaponBehavior().radiation(1).armorPiercing(0.4F))
+            .withShellCasingEjectEnabled(false)
             .withFireRate(0.55F)
             .withRecoil(3.0F)
 
@@ -42,9 +45,11 @@ public class ExoticMatterRifleFactory {
                 (stack) -> Arrays.asList(
                     "Tier: UHV",
                     "Type: Exotic matter rifle",
-                    "Damage: 90",
-                    "Ammo: 40-shot Exotic Matter Cell",
-                    "Fire Rate: Auto/Burst/Semi"))
+                    "Damage: 110",
+                    "Irradiates targets",
+                    "Armor penetration 40%",
+                    "Ammo: Exotic Matter Cell",
+                    "Cells recharge in a UHV Battery Buffer"))
             .withCompatibleAttachment(
                 Magazines.ExoticMatterCell,
                 ((model) -> { GL11.glTranslatef(0.0F, 0.0F, 0.07F); }))
@@ -450,8 +455,8 @@ public class ExoticMatterRifleFactory {
                         GL11.glRotatef(-95.0F, 1.0F, 0.0F, 0.0F);
                     }, 250L, 50L))
                     .build())
-            .withSpawnEntityDamage(90.0F)
-            .withSpawnEntityGravityVelocity(0.0118F)
+            .withSpawnEntityDamage(110.0F)
+            .withSpawnEntityGravityVelocity(0.0F)
             .build();
     }
 }

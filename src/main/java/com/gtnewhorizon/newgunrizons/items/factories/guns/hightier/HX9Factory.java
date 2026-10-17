@@ -10,6 +10,7 @@ import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.client.render.WeaponRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
+import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
@@ -20,7 +21,8 @@ public class HX9Factory {
 
     public Item createGun() {
         return (new ItemWeapon.Builder()).withName("HX9")
-            .withProjectile(ProjectileStyle.TRACER, 0x4696FF, 1.4F)
+            .withProjectile(ProjectileStyle.TRACER, 0xFFB03C, 1.4F)
+            .withBehavior(new WeaponBehavior().pierce(1, 0.5F))
             .withFireRate(0.75F)
             .withRecoil(3.5F)
 
@@ -40,11 +42,11 @@ public class HX9Factory {
             .withCreativeTab(NewGunrizonsMod.HighTierTab)
             .withInformationProvider(
                 (stack) -> Arrays.asList(
-                    "Tier: IV",
-                    "Type: Heavy support rifle",
+                    "Tier: EV",
+                    "Type: Rail-assisted heavy rifle",
                     "Damage: 20",
-                    "Ammo: Mk48 belts",
-                    "Fire Rate: Auto"))
+                    "Rail-assisted: pierces 1 extra target",
+                    "Ammo: Mk48 belts"))
             .withCompatibleAttachment(Magazines.Mk48Mag, ((model) -> {}))
             .withCompatibleAttachment(
                 AuxiliaryAttachments.M249Action,

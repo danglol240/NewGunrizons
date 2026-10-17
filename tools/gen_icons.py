@@ -18,12 +18,26 @@ GUNMETAL = [(40, 42, 50), (64, 68, 78), (92, 96, 108), (128, 132, 144)]
 BRASS = [(120, 84, 30), (176, 128, 46), (222, 178, 76), (250, 222, 140)]
 COPPER = [(110, 50, 24), (170, 86, 40), (222, 128, 64), (250, 180, 120)]
 POLYMER = [(28, 28, 32), (44, 44, 50), (62, 62, 70), (84, 84, 94)]
-GLOW = {
-    "IV": [(30, 60, 160), (70, 150, 255), (150, 200, 255), (225, 240, 255)],
-    "LuV": [(140, 20, 120), (255, 64, 214), (255, 150, 236), (255, 225, 250)],
-    "ZPM": [(10, 110, 130), (40, 228, 240), (140, 245, 250), (225, 255, 255)],
-    "UV": [(20, 120, 40), (90, 255, 120), (170, 255, 185), (230, 255, 235)],
-    "UHV": [(130, 20, 20), (255, 64, 52), (255, 150, 130), (255, 225, 215)],
+
+
+def _ramp(glow, core):
+    dark = tuple(int(c * 0.45) for c in glow)
+    light = tuple((g + c) // 2 for g, c in zip(glow, core))
+    return [dark, glow, light, core]
+
+
+GLOW = {  # same tier accents as the weapon models (tools/gunforge.py)
+    "EV": _ramp((255, 176, 60), (255, 236, 200)),
+    "IV": _ramp((40, 200, 255), (210, 245, 255)),
+    "LuV": _ramp((255, 70, 190), (255, 215, 240)),
+    "ZPM": _ramp((255, 120, 30), (255, 225, 190)),
+    "UV": _ramp((110, 160, 255), (225, 235, 255)),
+    "UHV": _ramp((180, 70, 255), (240, 215, 255)),
+    "UEV": _ramp((80, 90, 255), (215, 220, 255)),
+    "UIV": _ramp((40, 230, 200), (205, 255, 245)),
+    "UMV": _ramp((90, 255, 110), (225, 255, 225)),
+    "UXV": _ramp((220, 80, 255), (250, 220, 255)),
+    "MAX": _ramp((255, 205, 70), (255, 250, 225)),
 }
 
 
@@ -154,7 +168,7 @@ def belt_feed_mechanism():
 
 def smart_targeting_module():
     i = Icon()
-    g = GLOW["IV"]
+    g = GLOW["EV"]
     i.rect(2, 3, 13, 12, POLYMER)
     i.disc(7.5, 7.5, 3.2, g)
     i.px(7, 7, g[3])
@@ -171,14 +185,14 @@ def electromagnetic_coil():
         i.line(x, 4, x, 11, COPPER[0])  # windings
     i.rect(0, 6, 1, 9, STEEL)  # core ends
     i.rect(14, 6, 15, 9, STEEL)
-    i.px(7, 3, GLOW["LuV"][1])
-    i.px(8, 3, GLOW["LuV"][1])
+    i.px(7, 3, GLOW["IV"][1])
+    i.px(8, 3, GLOW["IV"][1])
     return i.outline()
 
 
 def superconducting_rail():
     i = Icon()
-    g = GLOW["LuV"]
+    g = GLOW["IV"]
     i.line(1, 12, 12, 1, STEEL[1], width=3)
     i.line(1, 12, 12, 1, STEEL[3])
     i.line(3, 12, 14, 1, g[1])  # glowing superconducting strip
@@ -188,7 +202,7 @@ def superconducting_rail():
 
 def focusing_lens_array():
     i = Icon()
-    g = GLOW["ZPM"]
+    g = GLOW["LuV"]
     i.rect(1, 5, 14, 10, GUNMETAL)
     for cx in (3.5, 7.5, 11.5):
         i.disc(cx, 7.5, 1.8, g)
@@ -263,6 +277,92 @@ def exotic_matter_stabilizer():
     return i.outline()
 
 
+def quantum_entanglement_core():
+    i = Icon()
+    g = GLOW["UEV"]
+    i.rect(3, 3, 12, 12, GUNMETAL)
+    i.disc(5.5, 7.5, 2.2, g)  # entangled pair
+    i.disc(10.5, 7.5, 2.2, g)
+    i.line(7, 7, 9, 7, g[3])
+    i.line(7, 8, 9, 8, g[2])
+    i.px(5, 7, g[3])
+    i.px(10, 7, g[3])
+    for x in (1, 14):
+        i.rect(x, 6, x, 9, STEEL)
+    return i.outline()
+
+
+def graviton_field_emitter():
+    i = Icon()
+    g = GLOW["UIV"]
+    i.rect(1, 5, 7, 10, GUNMETAL)  # emitter body
+    i.rect(8, 3, 9, 12, STEEL)  # dish
+    for k, r in enumerate((2.0, 3.5, 5.0)):  # field arcs
+        for a in range(-60, 61, 12):
+            x = 9 + r * math.cos(math.radians(a))
+            y = 7.5 + r * math.sin(math.radians(a))
+            i.px(round(x), round(y), g[3 - k])
+    i.px(4, 7, g[2])
+    return i.outline()
+
+
+def chrono_stabilizer():
+    i = Icon()
+    g = GLOW["UMV"]
+    i.ring(7.5, 7.5, 6.5, 5.2, BRASS)
+    i.disc(7.5, 7.5, 4.6, [(20, 40, 24), (30, 60, 34), (40, 80, 44), (60, 110, 64)])
+    for a in range(0, 360, 30):
+        i.px(round(7.5 + 4 * math.cos(math.radians(a))), round(7.5 + 4 * math.sin(math.radians(a))), g[2])
+    i.line(7, 7, 7, 3, g[3])  # hands
+    i.line(8, 8, 11, 9, g[1])
+    i.rect(6, 0, 9, 1, BRASS)  # crown
+    return i.outline()
+
+
+def singularity_containment_unit():
+    i = Icon()
+    g = GLOW["UMV"]
+    i.rect(2, 1, 13, 2, STEEL)
+    i.rect(2, 13, 13, 14, STEEL)
+    i.rect(2, 3, 2, 12, GUNMETAL)
+    i.rect(13, 3, 13, 12, GUNMETAL)
+    for a in range(0, 360, 10):  # accretion disc
+        x = 7.5 + 5.0 * math.cos(math.radians(a))
+        y = 7.5 + 1.8 * math.sin(math.radians(a))
+        i.px(round(x), round(y), g[2] if a < 180 else g[1])
+    i.disc(7.5, 7.5, 2.2, [(4, 4, 6), (8, 8, 10), (12, 12, 16), (20, 20, 26)])
+    i.px(7, 5, g[3])
+    return i.outline()
+
+
+def dimensional_rift_emitter():
+    i = Icon()
+    g = GLOW["UXV"]
+    i.rect(1, 9, 9, 13, GUNMETAL)  # emitter
+    i.rect(2, 10, 3, 12, g, shade=False)
+    pts = [(9, 10), (11, 7), (10, 5), (13, 3), (12, 1), (15, 0)]  # rift tear
+    for (x0, y0), (x1, y1) in zip(pts, pts[1:]):
+        i.line(x0, y0, x1, y1, g[1], width=2)
+        i.line(x0, y0, x1, y1, g[3])
+    i.px(14, 6, g[2])
+    i.px(8, 4, g[2])
+    return i.outline()
+
+
+def reality_engine():
+    i = Icon()
+    g = GLOW["MAX"]
+    for y in range(16):
+        for x in range(16):
+            d = abs(x - 7.5) + abs(y - 7.5)
+            if d <= 7:
+                i.px(x, y, g[1] if d > 5.5 else (236, 232, 220) if d > 3 else g[2])
+    for a in range(0, 360, 45):
+        i.px(round(7.5 + 5 * math.cos(math.radians(a))), round(7.5 + 5 * math.sin(math.radians(a))), g[0])
+    i.disc(7.5, 7.5, 1.8, [(150, 190, 255), (190, 215, 255), (225, 240, 255), (255, 255, 255)])
+    return i.outline()
+
+
 ICONS = {
     "pistol_slide": pistol_slide,
     "blowback_bolt": blowback_bolt,
@@ -279,6 +379,12 @@ ICONS = {
     "neutron_emitter": neutron_emitter,
     "antimatter_trap": antimatter_trap,
     "exotic_matter_stabilizer": exotic_matter_stabilizer,
+    "quantum_entanglement_core": quantum_entanglement_core,
+    "graviton_field_emitter": graviton_field_emitter,
+    "chrono_stabilizer": chrono_stabilizer,
+    "singularity_containment_unit": singularity_containment_unit,
+    "dimensional_rift_emitter": dimensional_rift_emitter,
+    "reality_engine": reality_engine,
 }
 
 
@@ -290,10 +396,10 @@ def main():
         imgs.append(img)
     if len(sys.argv) > 1:
         cell = 112
-        sheet = Image.new("RGBA", (cell * 5, cell * 3), (40, 44, 52, 255))
+        sheet = Image.new("RGBA", (cell * 7, cell * 3), (40, 44, 52, 255))
         for k, img in enumerate(imgs):
             big = img.resize((96, 96), Image.NEAREST)
-            sheet.paste(big, ((k % 5) * cell + 8, (k // 5) * cell + 8), big)
+            sheet.paste(big, ((k % 7) * cell + 8, (k // 7) * cell + 8), big)
         sheet.save(sys.argv[1])
 
 

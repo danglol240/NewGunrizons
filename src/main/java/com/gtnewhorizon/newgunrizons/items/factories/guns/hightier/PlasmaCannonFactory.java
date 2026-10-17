@@ -10,6 +10,7 @@ import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.client.render.WeaponRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
+import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
@@ -19,7 +20,9 @@ public class PlasmaCannonFactory {
 
     public Item createGun() {
         return (new ItemWeapon.Builder()).withName("PlasmaCannon")
-            .withProjectile(ProjectileStyle.PLASMA, 0x28E4F0, 2.2F)
+            .withProjectile(ProjectileStyle.PLASMA, 0xFF781E, 2.2F)
+            .withBehavior(new WeaponBehavior().burn(6).knockback(2.0F).armorPiercing(0.3F))
+            .withShellCasingEjectEnabled(false)
             .withAmmoCapacity(1)
             .withFireRate(0.5F)
             .withRecoil(2.0F)
@@ -31,16 +34,16 @@ public class PlasmaCannonFactory {
             .withCrosshair("gun")
             .withCrosshairRunning("Running")
             .withCrosshairZoomed("Sight")
-            .withShellCasingEjectEnabled(false)
             .withCreativeTab(NewGunrizonsMod.HighTierTab)
             .withInformationProvider(
                 (stack) -> Arrays.asList(
                     "Tier: ZPM",
                     "Type: Plasma cannon",
-                    "Damage: 140",
+                    "Damage: 150",
                     "Blast radius: 4",
-                    "Ammo: Plasma Cannon Charge",
-                    "Fire Rate: Semi"))
+                    "Plasma blast: fire and heavy knockback",
+                    "Armor penetration 30%",
+                    "Ammo: Plasma Cannon Charge"))
             .withCompatibleAttachment(Attachments.AKMIron, true, (model) -> {
                 if (JsonModel.is(model, "sight/m4iron1")) {
                     GL11.glTranslatef(0.41F, -2.13F, 1.1F);
@@ -206,7 +209,7 @@ public class PlasmaCannonFactory {
                     }, 250L, 1000L))
                     .build())
             .withSpawnEntitySpeed(5.0F)
-            .withSpawnEntityDamage(140.0F)
+            .withSpawnEntityDamage(150.0F)
             .withSpawnEntityExplosionRadius(4.0F)
             .build();
     }

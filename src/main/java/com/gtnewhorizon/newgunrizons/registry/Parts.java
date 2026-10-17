@@ -9,7 +9,7 @@ import com.gtnewhorizon.newgunrizons.items.parts.ItemPart;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
-/** Weapon-class mechanisms (LV-EV guns) and themed modules (IV-UHV guns). */
+/** Weapon-class mechanisms (LV-HV guns) and themed technology modules (EV-MAX guns). */
 public final class Parts {
 
     // weapon-class mechanisms
@@ -30,6 +30,12 @@ public final class Parts {
     public static Item NeutronEmitter;
     public static Item AntimatterTrap;
     public static Item ExoticMatterStabilizer;
+    public static Item QuantumEntanglementCore;
+    public static Item GravitonFieldEmitter;
+    public static Item ChronoStabilizer;
+    public static Item SingularityContainmentUnit;
+    public static Item DimensionalRiftEmitter;
+    public static Item RealityEngine;
 
     private Parts() {}
 
@@ -44,10 +50,10 @@ public final class Parts {
         PumpActionAssembly = part("PumpActionAssembly", "pump_action_assembly", "Used in every shotgun");
         BeltFeedMechanism = part("BeltFeedMechanism", "belt_feed_mechanism", "Used in machine guns and heavy weapons");
 
-        SmartTargetingModule = part("SmartTargetingModule", "smart_targeting_module", "IV: XR-7, HX-9");
-        ElectromagneticCoil = part("ElectromagneticCoil", "electromagnetic_coil", "LuV: Coilgun, Gauss Rifle, Railgun");
-        SuperconductingRail = part("SuperconductingRail", "superconducting_rail", "LuV: Railgun");
-        FocusingLensArray = part("FocusingLensArray", "focusing_lens_array", "ZPM: Laser Rifle, Plasma Rifle");
+        SmartTargetingModule = part("SmartTargetingModule", "smart_targeting_module", "EV: XR-7, HX-9");
+        ElectromagneticCoil = part("ElectromagneticCoil", "electromagnetic_coil", "IV: Coilgun, Gauss Rifle, Railgun");
+        SuperconductingRail = part("SuperconductingRail", "superconducting_rail", "IV: Railgun; UHV: Antimatter Cannon");
+        FocusingLensArray = part("FocusingLensArray", "focusing_lens_array", "LuV: Laser Rifle; ZPM: Plasma Rifle");
         PlasmaContainmentChamber = part(
             "PlasmaContainmentChamber",
             "plasma_containment_chamber",
@@ -59,6 +65,18 @@ public final class Parts {
         NeutronEmitter = part("NeutronEmitter", "neutron_emitter", "UV: Neutron Rifle");
         AntimatterTrap = part("AntimatterTrap", "antimatter_trap", "UHV: Antimatter Cannon");
         ExoticMatterStabilizer = part("ExoticMatterStabilizer", "exotic_matter_stabilizer", "UHV: Exotic Matter Rifle");
+        QuantumEntanglementCore = part(
+            "QuantumEntanglementCore",
+            "quantum_entanglement_core",
+            "UEV: Quantum Phase Rifle");
+        GravitonFieldEmitter = part("GravitonFieldEmitter", "graviton_field_emitter", "UIV: Graviton Cannon");
+        ChronoStabilizer = part("ChronoStabilizer", "chrono_stabilizer", "UMV: Chrono Rifle");
+        SingularityContainmentUnit = part(
+            "SingularityContainmentUnit",
+            "singularity_containment_unit",
+            "UMV: Singularity Cannon");
+        DimensionalRiftEmitter = part("DimensionalRiftEmitter", "dimensional_rift_emitter", "UXV: Dimensional Cutter");
+        RealityEngine = part("RealityEngine", "reality_engine", "MAX: Reality Eraser");
     }
 
     private static Item part(String name, String texture, String usage) {
