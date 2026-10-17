@@ -222,7 +222,7 @@ public class XR7Factory {
             })
             .withTextureName("XR7")
             .withRenderer(
-                (new WeaponRenderer.Builder()).withModel(new JsonModel("weapon/scar"))
+                (new WeaponRenderer.Builder()).withModel(new JsonModel("weapon/xr7"))
                     .withEntityPositioning((itemStack) -> {
                         GL11.glScaled(0.4D, 0.4D, 0.4D);
                         GL11.glRotatef(-90.0F, 0.0F, 0.0F, 4.0F);

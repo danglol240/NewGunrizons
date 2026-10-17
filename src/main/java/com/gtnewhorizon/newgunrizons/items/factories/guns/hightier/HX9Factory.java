@@ -203,7 +203,7 @@ public class HX9Factory {
             })
             .withTextureName("HX9")
             .withRenderer(
-                (new WeaponRenderer.Builder()).withModel(new JsonModel("weapon/mk48mod1"))
+                (new WeaponRenderer.Builder()).withModel(new JsonModel("weapon/hx9"))
                     .withEntityPositioning((itemStack) -> {
                         GL11.glScaled(0.5D, 0.5D, 0.5D);
                         GL11.glRotatef(-90.0F, 0.0F, 0.0F, 4.0F);

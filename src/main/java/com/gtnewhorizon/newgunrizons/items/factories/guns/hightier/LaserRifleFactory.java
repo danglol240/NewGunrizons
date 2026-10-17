@@ -110,7 +110,7 @@ public class LaserRifleFactory {
             })
             .withTextureName("LaserRifle")
             .withRenderer(
-                (new WeaponRenderer.Builder()).withModel(new JsonModel("weapon/m8a7"))
+                (new WeaponRenderer.Builder()).withModel(new JsonModel("weapon/laserrifle"))
                     .withEntityPositioning((itemStack) -> {
                         GL11.glScaled(0.45D, 0.45D, 0.45D);
                         GL11.glRotatef(-90.0F, 0.0F, 0.0F, 4.0F);

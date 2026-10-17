@@ -114,7 +114,7 @@ VIEWS = {
     # yaw (around Y), pitch (around X) applied to the Java-space model; Y-down
     "side": (math.radians(90), 0.0),
     "side_left": (math.radians(-90), 0.0),
-    "three_quarter": (math.radians(135), math.radians(-25)),
+    "three_quarter": (math.radians(135), math.radians(25)),  # from above (Y is down)
     "top": (math.radians(90), math.radians(-89)),
     "front": (0.0, 0.0),
 }
@@ -180,8 +180,9 @@ def render(quads, tex, view, size=900):
         sub_d = depth[y0:y1 + 1, x0:x1 + 1]
         m &= z < sub_d
         sub_d[m] = z[m]
-        glow = (texel[..., :3].max(axis=-1) > 235)[..., None]  # bright texels ignore shading
-        lit = np.where(glow, texel[..., :3], texel[..., :3] * shade)
+        rgb = texel[..., :3]
+        glow = ((rgb.max(axis=-1) > 200) & (rgb.max(axis=-1) - rgb.min(axis=-1) > 70))[..., None]  # saturated brights are emissive
+        lit = np.where(glow, rgb, rgb * shade)
         sub_c = color[y0:y1 + 1, x0:x1 + 1]
         sub_c[m] = lit[m]
     img = Image.fromarray(np.clip(color, 0, 255).astype(np.uint8))

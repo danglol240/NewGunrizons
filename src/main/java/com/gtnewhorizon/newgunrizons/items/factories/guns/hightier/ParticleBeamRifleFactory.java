@@ -76,7 +76,7 @@ public class ParticleBeamRifleFactory {
             })
             .withTextureName("ParticleBeamRifle")
             .withRenderer(
-                (new WeaponRenderer.Builder()).withModel(new JsonModel("weapon/hecateii"))
+                (new WeaponRenderer.Builder()).withModel(new JsonModel("weapon/particlebeamrifle"))
                     .withEntityPositioning((itemStack) -> {
                         GL11.glScaled(0.6D, 0.6D, 0.6D);
                         GL11.glRotatef(-90.0F, 0.0F, 0.0F, 4.0F);

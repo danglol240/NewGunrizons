@@ -139,7 +139,7 @@ public class GaussRifleFactory {
             })
             .withTextureName("GaussRifle")
             .withRenderer(
-                (new WeaponRenderer.Builder()).withModel(new JsonModel("weapon/as50"))
+                (new WeaponRenderer.Builder()).withModel(new JsonModel("weapon/gaussrifle"))
                     .withEntityPositioning((itemStack) -> {
                         GL11.glScaled(0.5D, 0.5D, 0.5D);
                         GL11.glRotatef(-90.0F, 0.0F, 0.0F, 4.0F);

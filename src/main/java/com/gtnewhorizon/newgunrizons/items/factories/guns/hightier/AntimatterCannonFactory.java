@@ -98,7 +98,7 @@ public class AntimatterCannonFactory {
             .withCompatibleAttachment(Bullets.AntimatterCharge, ((model) -> { GL11.glTranslatef(0.0F, 0.0F, 0.07F); }))
             .withTextureName("AntimatterCannon")
             .withRenderer(
-                (new WeaponRenderer.Builder()).withModel(new JsonModel("weapon/smaw"))
+                (new WeaponRenderer.Builder()).withModel(new JsonModel("weapon/antimattercannon"))
                     .withEntityPositioning((itemStack) -> {
                         GL11.glScaled(0.6D, 0.6D, 0.6D);
                         GL11.glRotatef(-90.0F, 0.0F, 0.0F, 4.0F);

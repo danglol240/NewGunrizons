@@ -88,7 +88,7 @@ public class PlasmaRifleFactory {
 
             })
             .withRenderer(
-                (new WeaponRenderer.Builder()).withModel(new JsonModel("weapon/m41a"))
+                (new WeaponRenderer.Builder()).withModel(new JsonModel("weapon/plasmarifle"))
                     .withEntityPositioning((itemStack) -> {
                         GL11.glScaled(0.5D, 0.5D, 0.5D);
                         GL11.glRotatef(-90.0F, 0.0F, 0.0F, 4.0F);

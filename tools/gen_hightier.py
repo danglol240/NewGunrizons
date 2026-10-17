@@ -3,6 +3,9 @@
 Each new gun is a copy of a base gun factory (so all first/third-person positioning
 stays correct for that model) with a new name, stats, info text, tier-tinted
 texture and, from LuV up, its own magazine/charge and ammo.
+
+The weapons later got their own models: after running this, run gun_designs.py
+to rebuild their .geo.json files and textures (it overwrites the tinted ones).
 """
 import re
 import sys

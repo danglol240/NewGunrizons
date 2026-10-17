@@ -203,7 +203,7 @@ public class NeutronRifleFactory {
             })
             .withTextureName("NeutronRifle")
             .withRenderer(
-                (new WeaponRenderer.Builder()).withModel(new JsonModel("weapon/m249"))
+                (new WeaponRenderer.Builder()).withModel(new JsonModel("weapon/neutronrifle"))
                     .withEntityPositioning((itemStack) -> {
                         GL11.glScaled(0.5D, 0.5D, 0.5D);
                         GL11.glRotatef(-90.0F, 0.0F, 0.0F, 4.0F);

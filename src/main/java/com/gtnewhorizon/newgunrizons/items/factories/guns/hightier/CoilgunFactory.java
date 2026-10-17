@@ -64,7 +64,7 @@ public class CoilgunFactory {
             })
             .withTextureName("Coilgun")
             .withRenderer(
-                (new WeaponRenderer.Builder()).withModel(new JsonModel("weapon/fnp90"))
+                (new WeaponRenderer.Builder()).withModel(new JsonModel("weapon/coilgun"))
                     .withEntityPositioning((itemStack) -> {
                         GL11.glScaled(0.35D, 0.35D, 0.35D);
                         GL11.glRotatef(-90.0F, 0.0F, 0.0F, 4.0F);
