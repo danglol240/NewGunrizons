@@ -114,7 +114,9 @@ public final class HitEffects {
 
     /** Adds velocity along direction (with a little lift) and makes sure players receive it. */
     public static void push(Entity target, Vec3 direction, double strength) {
-        target.addVelocity(direction.xCoord * strength, 0.1D * strength + direction.yCoord * strength * 0.5D,
+        target.addVelocity(
+            direction.xCoord * strength,
+            0.1D * strength + direction.yCoord * strength * 0.5D,
             direction.zCoord * strength);
         target.velocityChanged = true;
         if (target instanceof EntityPlayerMP) {
@@ -141,9 +143,18 @@ public final class HitEffects {
         World world = target.worldObj;
         if (world instanceof WorldServer) {
             double cx = target.posX, cy = target.posY + target.height / 2.0D, cz = target.posZ;
+            ((WorldServer) world).func_147487_a(
+                "fireworksSpark",
+                cx,
+                cy,
+                cz,
+                60,
+                target.width / 2,
+                target.height / 2,
+                target.width / 2,
+                0.08D);
             ((WorldServer) world)
-                .func_147487_a("fireworksSpark", cx, cy, cz, 60, target.width / 2, target.height / 2, target.width / 2, 0.08D);
-            ((WorldServer) world).func_147487_a("portal", cx, cy, cz, 80, target.width / 2, target.height / 2, target.width / 2, 0.5D);
+                .func_147487_a("portal", cx, cy, cz, 80, target.width / 2, target.height / 2, target.width / 2, 0.5D);
             world.playSoundEffect(cx, cy, cz, "mob.endermen.portal", 2.0F, 0.5F);
         }
         target.setDead();

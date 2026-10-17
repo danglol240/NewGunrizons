@@ -10,8 +10,8 @@ import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.client.render.WeaponRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
-import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
+import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
 import com.gtnewhorizon.newgunrizons.registry.Bullets;
@@ -21,7 +21,10 @@ public class PlasmaCannonFactory {
     public Item createGun() {
         return (new ItemWeapon.Builder()).withName("PlasmaCannon")
             .withProjectile(ProjectileStyle.PLASMA, 0xFF781E, 2.2F)
-            .withBehavior(new WeaponBehavior().burn(6).knockback(2.0F).armorPiercing(0.3F))
+            .withBehavior(
+                new WeaponBehavior().burn(6)
+                    .knockback(2.0F)
+                    .armorPiercing(0.3F))
             .withShellCasingEjectEnabled(false)
             .withAmmoCapacity(1)
             .withFireRate(0.5F)

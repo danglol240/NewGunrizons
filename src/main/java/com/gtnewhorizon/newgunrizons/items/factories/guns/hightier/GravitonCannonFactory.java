@@ -10,9 +10,9 @@ import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.client.render.WeaponRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
-import com.gtnewhorizon.newgunrizons.items.WeaponBehavior.FieldKind;
-import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
+import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
+import com.gtnewhorizon.newgunrizons.items.WeaponBehavior.FieldKind;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
 import com.gtnewhorizon.newgunrizons.registry.AuxiliaryAttachments;
@@ -23,7 +23,9 @@ public class GravitonCannonFactory {
     public Item createGun() {
         return (new ItemWeapon.Builder()).withName("GravitonCannon")
             .withProjectile(ProjectileStyle.GRAVITON, 0x28E6C8, 1.2F)
-            .withBehavior(new WeaponBehavior().field(FieldKind.GRAVITY_WELL, 7.0F, 60, 8.0F).altField(FieldKind.REPULSE, 7.0F, 10, 0.0F))
+            .withBehavior(
+                new WeaponBehavior().field(FieldKind.GRAVITY_WELL, 7.0F, 60, 8.0F)
+                    .altField(FieldKind.REPULSE, 7.0F, 10, 0.0F))
             .withShellCasingEjectEnabled(false)
             .withFireRate(0.05F)
             .withRecoil(4.0F)

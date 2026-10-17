@@ -598,7 +598,10 @@ public final class HighTierRecipes {
     // ==================== MAX: ultimate ====================
 
     private static void addMAX() {
-        ItemStack metal = first(plate(Materials.MagMatter, 1), plate(Materials.Eternity, 1), plate(Materials.Universium, 1));
+        ItemStack metal = first(
+            plate(Materials.MagMatter, 1),
+            plate(Materials.Eternity, 1),
+            plate(Materials.Universium, 1));
         gun(
             Guns.RealityEraser,
             EUT_MAX,

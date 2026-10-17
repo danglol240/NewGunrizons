@@ -167,10 +167,22 @@ public final class FxDraw {
             line(add(c, mul(u, radius * 0.8D)), add(c, mul(u, radius)), r, g, b, alpha, i % 3 == 0 ? 3.0F : 1.5F);
         }
         double big = -t * 0.12D, small = -t * 0.01D;
-        line(c, add(c, add(mul(basis[0], Math.cos(big) * radius * 0.85D), mul(basis[1], Math.sin(big) * radius * 0.85D))),
-            WHITE, WHITE, WHITE, alpha, 2.5F);
-        line(c, add(c, add(mul(basis[0], Math.cos(small) * radius * 0.5D), mul(basis[1], Math.sin(small) * radius * 0.5D))),
-            r, g, b, alpha, 3.0F);
+        line(
+            c,
+            add(c, add(mul(basis[0], Math.cos(big) * radius * 0.85D), mul(basis[1], Math.sin(big) * radius * 0.85D))),
+            WHITE,
+            WHITE,
+            WHITE,
+            alpha,
+            2.5F);
+        line(
+            c,
+            add(c, add(mul(basis[0], Math.cos(small) * radius * 0.5D), mul(basis[1], Math.sin(small) * radius * 0.5D))),
+            r,
+            g,
+            b,
+            alpha,
+            3.0F);
     }
 
     // ---------------- vector maths ----------------

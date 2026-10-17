@@ -207,7 +207,8 @@ public class EntityBulletRenderer extends Render {
         // two containment rings spinning on different axes
         double a1 = t * 0.35D, a2 = -t * 0.27D;
         double[] axis1 = FxDraw.norm(FxDraw.add(FxDraw.mul(d, Math.cos(a1)), FxDraw.mul(basis[0], Math.sin(a1))));
-        double[] axis2 = FxDraw.norm(FxDraw.add(FxDraw.mul(basis[0], Math.cos(a2)), FxDraw.mul(basis[1], Math.sin(a2))));
+        double[] axis2 = FxDraw
+            .norm(FxDraw.add(FxDraw.mul(basis[0], Math.cos(a2)), FxDraw.mul(basis[1], Math.sin(a2))));
         FxDraw.ring(p, axis1, 0.6D * s, r, g, b, 0.9F, 3.0F);
         FxDraw.ring(p, axis2, 0.48D * s, WHITE, g * 0.6F + 0.4F, b * 0.6F + 0.4F, 0.8F, 2.0F);
     }
@@ -322,7 +323,9 @@ public class EntityBulletRenderer extends Render {
                 boolean firstPerson = bullet.getThrower() != null && bullet.getThrower() == mc.renderViewEntity
                     && mc.gameSettings.thirdPersonView == 0;
                 double[] o = firstPerson ? MUZZLE_FIRST_PERSON : MUZZLE_THIRD_PERSON;
-                origin = FxDraw.add(origin, FxDraw.add(FxDraw.add(FxDraw.mul(right, o[0]), FxDraw.mul(up, o[1])), FxDraw.mul(dir, o[2])));
+                origin = FxDraw.add(
+                    origin,
+                    FxDraw.add(FxDraw.add(FxDraw.mul(right, o[0]), FxDraw.mul(up, o[1])), FxDraw.mul(dir, o[2])));
             }
         }
         bullet.originX = origin[0];

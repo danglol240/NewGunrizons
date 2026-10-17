@@ -203,7 +203,8 @@ public class EntityGravityField extends Entity implements IEntityAdditionalSpawn
         if (rand.nextInt(2) != 0) return;
         double a = rand.nextDouble() * Math.PI * 2, b = rand.nextDouble() * Math.PI - Math.PI / 2;
         double r = radius * (0.6D + rand.nextDouble() * 0.4D);
-        double x = posX + Math.cos(a) * Math.cos(b) * r, y = posY + Math.sin(b) * r, z = posZ + Math.sin(a) * Math.cos(b) * r;
+        double x = posX + Math.cos(a) * Math.cos(b) * r, y = posY + Math.sin(b) * r,
+            z = posZ + Math.sin(a) * Math.cos(b) * r;
         switch (kind) {
             case GRAVITY_WELL:
             case SINGULARITY:

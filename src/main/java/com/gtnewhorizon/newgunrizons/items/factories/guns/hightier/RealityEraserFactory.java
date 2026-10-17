@@ -10,8 +10,8 @@ import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.client.render.WeaponRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
-import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
+import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
 import com.gtnewhorizon.newgunrizons.registry.AuxiliaryAttachments;
@@ -22,7 +22,11 @@ public class RealityEraserFactory {
     public Item createGun() {
         return (new ItemWeapon.Builder()).withName("RealityEraser")
             .withProjectile(ProjectileStyle.ERASE, 0xFFCD46, 1.0F)
-            .withBehavior(new WeaponBehavior().hitscan(96.0F).eraser().armorPiercing(1.0F).heat(100.0F, 100.0F, 0.1667F))
+            .withBehavior(
+                new WeaponBehavior().hitscan(96.0F)
+                    .eraser()
+                    .armorPiercing(1.0F)
+                    .heat(100.0F, 100.0F, 0.1667F))
             .withShellCasingEjectEnabled(false)
             .withFireRate(0.025F)
             .withEjectRoundRequired()

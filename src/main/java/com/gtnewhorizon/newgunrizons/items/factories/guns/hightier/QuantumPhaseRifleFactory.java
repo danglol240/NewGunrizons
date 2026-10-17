@@ -10,8 +10,8 @@ import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.client.render.WeaponRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
-import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
+import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
 import com.gtnewhorizon.newgunrizons.registry.AuxiliaryAttachments;
@@ -22,7 +22,9 @@ public class QuantumPhaseRifleFactory {
     public Item createGun() {
         return (new ItemWeapon.Builder()).withName("QuantumPhaseRifle")
             .withProjectile(ProjectileStyle.PHASE, 0x505AFF, 1.0F)
-            .withBehavior(new WeaponBehavior().phase(12).armorPiercing(0.6F))
+            .withBehavior(
+                new WeaponBehavior().phase(12)
+                    .armorPiercing(0.6F))
             .withShellCasingEjectEnabled(false)
             .withFireRate(0.075F)
             .withRecoil(3.5F)
@@ -372,13 +374,16 @@ public class QuantumPhaseRifleFactory {
                         GL11.glRotatef(25.0F, 0.0F, 0.0F, 1.0F);
                         GL11.glTranslatef(-1.15F, 0.825F, -0.875F);
                     }, 150L, 50L))
-                    .withFirstPersonCustomPositioningUnloading(Magazines.QuantumCell, new Transition((renderContext) -> {
-                        GL11.glTranslatef(0.2F, 0.5F, -0.2F);
-                        GL11.glRotatef(-20.0F, 1.0F, 0.0F, 0.0F);
-                    }, 250L, 1000L), new Transition((renderContext) -> {
-                        GL11.glTranslatef(0.2F, 0.9F, -0.2F);
-                        GL11.glRotatef(-20.0F, 1.0F, 0.0F, 0.0F);
-                    }, 250L, 1000L))
+                    .withFirstPersonCustomPositioningUnloading(
+                        Magazines.QuantumCell,
+                        new Transition((renderContext) -> {
+                            GL11.glTranslatef(0.2F, 0.5F, -0.2F);
+                            GL11.glRotatef(-20.0F, 1.0F, 0.0F, 0.0F);
+                        }, 250L, 1000L),
+                        new Transition((renderContext) -> {
+                            GL11.glTranslatef(0.2F, 0.9F, -0.2F);
+                            GL11.glRotatef(-20.0F, 1.0F, 0.0F, 0.0F);
+                        }, 250L, 1000L))
                     .withFirstPersonCustomPositioningReloading(
                         Magazines.QuantumCell,
                         new Transition((renderContext) -> { GL11.glTranslatef(0.05F, 1.3F, 0.0F); }, 250L, 1000L),

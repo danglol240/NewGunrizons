@@ -10,8 +10,8 @@ import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.client.render.WeaponRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
-import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
+import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
 import com.gtnewhorizon.newgunrizons.registry.AuxiliaryAttachments;
@@ -22,7 +22,10 @@ public class PlasmaRifleFactory {
     public Item createGun() {
         return (new ItemWeapon.Builder()).withName("PlasmaRifle")
             .withProjectile(ProjectileStyle.PLASMA, 0xFF781E, 1.0F)
-            .withBehavior(new WeaponBehavior().burn(4).knockback(0.6F).armorPiercing(0.3F))
+            .withBehavior(
+                new WeaponBehavior().burn(4)
+                    .knockback(0.6F)
+                    .armorPiercing(0.3F))
             .withShellCasingEjectEnabled(false)
             .withFireRate(1.0F)
             .withRecoil(1.7F)

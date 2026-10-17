@@ -10,8 +10,8 @@ import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.client.render.WeaponRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
-import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
+import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
 import com.gtnewhorizon.newgunrizons.registry.AuxiliaryAttachments;
@@ -22,7 +22,11 @@ public class DimensionalCutterFactory {
     public Item createGun() {
         return (new ItemWeapon.Builder()).withName("DimensionalCutter")
             .withProjectile(ProjectileStyle.RIFT, 0xDC50FF, 1.0F)
-            .withBehavior(new WeaponBehavior().hitscan(50.0F).throughBlocks().pierce(64, 1.0F).armorPiercing(1.0F))
+            .withBehavior(
+                new WeaponBehavior().hitscan(50.0F)
+                    .throughBlocks()
+                    .pierce(64, 1.0F)
+                    .armorPiercing(1.0F))
             .withShellCasingEjectEnabled(false)
             .withSpawnEntityGravityVelocity(0.0F)
             .withFireRate(0.06F)

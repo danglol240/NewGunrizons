@@ -104,16 +104,15 @@ public class EntityBullet extends EntityProjectile {
             for (int i = 1; i <= steps; i++) {
                 double f = (double) i / steps;
                 double px = posX + motionX * f, py = posY + motionY * f, pz = posZ + motionZ * f;
-                Block block = worldObj.getBlock(
-                    MathHelper.floor_double(px),
-                    MathHelper.floor_double(py),
-                    MathHelper.floor_double(pz));
+                Block block = worldObj
+                    .getBlock(MathHelper.floor_double(px), MathHelper.floor_double(py), MathHelper.floor_double(pz));
                 if (block.getMaterial()
                     .blocksMovement()) {
                     phasedDistance += speed / steps;
                     if (phasedDistance > phase) {
                         setPosition(px, py, pz);
-                        if (!worldObj.isRemote) spawnField(px - motionX / speed, py - motionY / speed, pz - motionZ / speed);
+                        if (!worldObj.isRemote)
+                            spawnField(px - motionX / speed, py - motionY / speed, pz - motionZ / speed);
                         setDead();
                         return;
                     }

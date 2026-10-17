@@ -52,7 +52,10 @@ public final class Parts {
 
         SmartTargetingModule = part("SmartTargetingModule", "smart_targeting_module", "EV: XR-7, HX-9");
         ElectromagneticCoil = part("ElectromagneticCoil", "electromagnetic_coil", "IV: Coilgun, Gauss Rifle, Railgun");
-        SuperconductingRail = part("SuperconductingRail", "superconducting_rail", "IV: Railgun; UHV: Antimatter Cannon");
+        SuperconductingRail = part(
+            "SuperconductingRail",
+            "superconducting_rail",
+            "IV: Railgun; UHV: Antimatter Cannon");
         FocusingLensArray = part("FocusingLensArray", "focusing_lens_array", "LuV: Laser Rifle; ZPM: Plasma Rifle");
         PlasmaContainmentChamber = part(
             "PlasmaContainmentChamber",

@@ -86,7 +86,15 @@ public class GravityFieldRenderer extends Render {
         for (int i = 0; i < 3; i++) {
             double k = Math.max(0.0D, age * 1.2D - i * 0.12D);
             FxDraw.ring(c, view, k * radius, r, g, b, a, 3.0F);
-            FxDraw.ring(c, new double[] { 0, 1, 0 }, k * radius, FxDraw.WHITE, FxDraw.WHITE, FxDraw.WHITE, 0.6F * a, 2.0F);
+            FxDraw.ring(
+                c,
+                new double[] { 0, 1, 0 },
+                k * radius,
+                FxDraw.WHITE,
+                FxDraw.WHITE,
+                FxDraw.WHITE,
+                0.6F * a,
+                2.0F);
         }
     }
 
