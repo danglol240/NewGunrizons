@@ -106,8 +106,10 @@ public class CommonProxy {
             Side.SERVER);
         registerClientMessageHandlers(channel);
 
+        // No velocity updates: they are clamped to 3.9 blocks/tick per axis and would bend the client-side path of
+        // fast projectiles. The exact velocity travels in the spawn data and the client simulates the same physics.
         EntityRegistry
-            .registerModEntity(EntityBullet.class, "Ammo" + this.modEntityID, this.modEntityID++, mod, 64, 3, true);
+            .registerModEntity(EntityBullet.class, "Ammo" + this.modEntityID, this.modEntityID++, mod, 64, 3, false);
         EntityRegistry.registerModEntity(
             EntityShellCasing.class,
             "ShellCasing" + this.modEntityID,

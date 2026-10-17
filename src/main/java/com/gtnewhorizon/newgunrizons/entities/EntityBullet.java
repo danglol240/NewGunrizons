@@ -73,7 +73,12 @@ public class EntityBullet extends EntityProjectile {
     }
 
     public void onImpact(MovingObjectPosition position) {
-        if (worldObj.isRemote || weapon == null) return;
+        if (worldObj.isRemote) {
+            // visual copy: stop where it hits instead of flying through walls until the server removes it
+            this.setDead();
+            return;
+        }
+        if (weapon == null) return;
 
         if (explosionRadius > 0.0F) {
             handleExplosiveImpact(position);
