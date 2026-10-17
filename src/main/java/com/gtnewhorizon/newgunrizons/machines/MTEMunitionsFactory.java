@@ -96,8 +96,7 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
             .addElement('-', isAir())
             .addElement(
                 'C',
-                buildHatchAdder(MTEMunitionsFactory.class)
-                    .atLeast(InputBus, InputHatch, OutputBus, Maintenance, Energy)
+                buildHatchAdder(MTEMunitionsFactory.class).atLeast(InputBus, InputHatch, OutputBus, Maintenance, Energy)
                     .casingIndex(CASING.textureId)
                     .hint(1)
                     .buildAndChain(onElementPass(m -> ++m.casingAmount, CASING.asElement())));
