@@ -21,15 +21,18 @@ TW, TH = 512, 256
 rnd = random.Random(1707)
 
 # palette
-GUNMETAL = (58, 62, 70)
-DARK = (34, 36, 42)
-STEEL = (112, 118, 128)
-HSSS = (150, 128, 160)  # HSS-S has a violet sheen in GregTech
-COPPER = (196, 112, 58)
-GRIP = (28, 28, 30)
-GLOW = (255, 120, 235)  # LuV accent
-GLOW_CORE = (255, 225, 252)
-WARN = (232, 186, 52)
+GUNMETAL = (52, 56, 74)  # graphite frame
+DARK = (30, 32, 44)
+STEEL = (170, 182, 200)
+HSSS = (178, 132, 226)  # HSS-S has a violet sheen in GregTech
+COPPER = (238, 136, 54)
+GRIP = (36, 34, 46)
+GLOW = (255, 64, 214)  # LuV accent
+GLOW_CORE = (255, 214, 250)
+WARN = (255, 206, 48)
+ARMOR = (226, 232, 242)  # pearl-white armour shell
+WHITE = (246, 248, 252)
+SEAM = (255, 92, 222)  # glowing seam lines on the armour
 
 cubes = []  # (name, (x0,y0,z0), (dx,dy,dz), material)
 
@@ -53,21 +56,21 @@ for i, z in enumerate(range(-140, -80, 12)):
     box(f"bridge_{i}", -3, -17, z, 0, -16, z + 4, "dark")
 # electromagnetic coils: chunky copper rings with a dark collar
 for i, z in enumerate(range(-132, -86, 12)):
-    box(f"coil_{i}", -8, -20, z, 5, -9, z + 3, "copper")
+    box(f"coil_{i}", -8, -20, z, 5, -9, z + 3, "ring")
     box(f"collar_{i}", -7, -19, z + 3, 4, -10, z + 4, "dark")
 # glowing slits on the outer rail faces between the coils
 for i, z in enumerate(range(-127, -87, 12)):
     box(f"slit_l_{i}", -5.5, -15, z, -4.5, -14, z + 6, "glow")
     box(f"slit_r_{i}", 1.5, -15, z, 2.5, -14, z + 6, "glow")
 # muzzle: emitter block with four prongs and a bright aperture
-box("muzzle", -7, -19, -144, 4, -10, -140, "gunmetal")
+box("muzzle", -7, -19, -144, 4, -10, -140, "armor")
 for i, (x0, y0) in enumerate([(-7, -19), (2, -19), (-7, -12), (2, -12)]):
     box(f"prong_{i}", x0, y0, -150, x0 + 2, y0 + 2, -144, "hsss")
 box("muzzle_glow", -3, -16, -145, 0, -13, -144, "glow")
 
 # receiver
 box("receiver", -5, -15.7, -80, 2, -10.9, 8, "gunmetal")
-box("receiver_top", -4, -16.7, -80, 1, -15.7, 8, "dark")
+box("receiver_top", -4, -16.7, -80, 1, -15.7, 8, "armor")
 box("top_rail", -3.5, -17.7, -62, 0.5, -15.7, -6, "rail")
 box("cap_bank", -4.5, -10.9, -78, 1.5, -7, -48, "dark")
 for i, z in enumerate(range(-76, -50, 6)):
@@ -76,20 +79,24 @@ box("side_cell_l", -6, -16, -44, -5, -12, -14, "glow")
 box("side_cell_r", 2, -16, -44, 3, -12, -14, "glow")
 box("vent_l", -6, -17, -74, -5, -12, -56, "vent")
 box("vent_r", 2, -17, -74, 3, -12, -56, "vent")
-box("magwell", -4.5, -10.9, -34, 1.5, -3, -16, "gunmetal")
+box("shell_l", -6, -16.7, -46, -5, -11.7, -44, "armor")
+box("shell_r", 2, -16.7, -46, 3, -11.7, -44, "armor")
+box("shell_lb", -6, -16.7, -14, -5, -11.7, 6, "armor")
+box("shell_rb", 2, -16.7, -14, 3, -11.7, 6, "armor")
+box("magwell", -4.5, -10.9, -34, 1.5, -3, -16, "armor")
 box("trigger_guard", -3, -4, -16, 0, -2.5, -6, "dark")
 box("trigger", -2, -9, -12, -1, -5, -11, "steel")
 box("grip", -4, -10.9, -8, 1, 8, 0, "grip")
-box("grip_cap", -4.5, 6, -9, 1.5, 9, 1, "dark")
+box("grip_cap", -4.5, 6, -9, 1.5, 9, 1, "armor")
 box("warning", -6, -16.5, -10, -5, -14.5, 4, "warn")
 
 # skeleton stock with a power pack
-box("stock_top", -4, -17, 8, 1, -14, 40, "gunmetal")
+box("stock_top", -4, -17, 8, 1, -14, 40, "armor")
 box("stock_bottom", -4, -4, 14, 1, -1, 40, "gunmetal")
 box("stock_strut", -3.5, -14, 18, 0.5, -4, 22, "dark")
 box("power_pack", -5, -13, 26, 2, -5, 36, "dark")
 box("power_glow", -5.5, -11, 28, 2.5, -7, 34, "glow")
-box("butt", -4.5, -18, 40, 1.5, 0, 44, "grip")
+box("butt", -4.5, -18, 40, 1.5, 0, 44, "armor")
 
 # ---------------- texture ----------------
 img = Image.new("RGBA", (TW, TH), (0, 0, 0, 0))
@@ -118,18 +125,34 @@ def paint_rect(x0, y0, w, h, mat):
                 c = list(DARK if lx % 3 == 0 else STEEL)  # picatinny teeth
             elif mat == "vent":
                 c = list(GRIP if ly % 2 == 0 else GUNMETAL)
+            elif mat == "ring":
+                band = abs((lx + 0.5) / w - 0.5) < 0.2 or abs((ly + 0.5) / h - 0.5) < 0.2
+                c = list(GLOW_CORE if band and min(w, h) > 2 else (GLOW if band else DARK))
+                n *= 0.3
+            elif mat == "armor":
+                seam = (w > 6 and lx % 10 == 5) or (h > 6 and ly == h // 2)
+                if seam:
+                    c = list(SEAM)
+                    n *= 0.2
+                else:
+                    shade = 1.0 - 0.14 * (ly / max(1, h - 1))  # soft top-lit gradient
+                    c = [v * shade for v in ARMOR]
+                    c[2] = min(255, c[2] + 6)
+                    n *= 0.35
             elif mat == "warn":
                 c = list(WARN if ((lx + ly) // 2) % 2 == 0 else GRIP)
             else:
-                base = {"gunmetal": GUNMETAL, "dark": DARK, "steel": STEEL, "hsss": HSSS, "grip": GRIP}[mat]
+                base = {"gunmetal": GUNMETAL, "dark": DARK, "steel": STEEL, "hsss": HSSS, "grip": GRIP, "armor": ARMOR, "white": WHITE}[mat]
                 c = list(base)
-                if mat in ("gunmetal", "hsss") and w > 12 and lx % 12 == 11:
+                if mat in ("gunmetal", "hsss", "armor") and w > 12 and lx % 12 == 11:
                     c = [v * 0.72 for v in c]  # panel seams
                 if mat == "grip" and (lx + ly) % 4 == 0:
                     c = [v + 14 for v in c]  # stippling
-            if edge_hi and mat != "glow":
+            if edge_hi and mat not in ("glow", "ring", "armor"):
                 c = [v * 1.22 + 6 for v in c]
-            elif edge_lo and mat != "glow":
+            elif edge_lo and mat == "armor":
+                c = [v * 0.86 for v in c]
+            elif edge_lo and mat not in ("glow", "ring"):
                 c = [v * 0.7 for v in c]
             px[x, y] = (clamp(c[0] + n), clamp(c[1] + n), clamp(c[2] + n), 255)
 
