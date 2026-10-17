@@ -51,7 +51,15 @@ public final class HighTierRecipes {
 
     private static void addMechanisms() {
         Materials st = Materials.Steel;
-        part(Parts.PistolSlide, 1, EUT_LV, 200, 21, plate(st, 2), of(OrePrefixes.spring, st, 1), of(OrePrefixes.screw, st, 2));
+        part(
+            Parts.PistolSlide,
+            1,
+            EUT_LV,
+            200,
+            21,
+            plate(st, 2),
+            of(OrePrefixes.spring, st, 1),
+            of(OrePrefixes.screw, st, 2));
         part(Parts.BlowbackBolt, 1, EUT_LV, 200, 22, stick(st, 2), of(OrePrefixes.spring, st, 2), plate(st, 1));
         part(
             Parts.GasPistonSystem,

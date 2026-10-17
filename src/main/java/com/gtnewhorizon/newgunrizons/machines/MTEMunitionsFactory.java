@@ -18,8 +18,8 @@ import java.util.stream.IntStream;
 
 import javax.annotation.Nonnull;
 
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.EnumChatFormatting;
@@ -28,7 +28,6 @@ import net.minecraftforge.common.util.ForgeDirection;
 import org.apache.commons.lang3.tuple.Pair;
 
 import com.google.common.io.ByteArrayDataInput;
-
 import com.gtnewhorizon.newgunrizons.client.render.FactoryAssemblyRenderer;
 import com.gtnewhorizon.newgunrizons.registry.MunitionsRecipeMap;
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;

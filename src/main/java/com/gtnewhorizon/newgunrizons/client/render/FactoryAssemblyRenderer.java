@@ -25,8 +25,8 @@ public final class FactoryAssemblyRenderer {
 
     private FactoryAssemblyRenderer() {}
 
-    public static void render(IGregTechTileEntity tile, ItemStack product, int segments, double x, double y,
-        double z, float partialTicks) {
+    public static void render(IGregTechTileEntity tile, ItemStack product, int segments, double x, double y, double z,
+        float partialTicks) {
         if (tile == null || !tile.isActive()) return;
         World world = tile.getWorld();
         if (world == null) return;

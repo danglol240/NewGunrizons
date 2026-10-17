@@ -37,7 +37,10 @@ public final class Parts {
         PistolSlide = part("PistolSlide", "pistol_slide", "Used in every pistol");
         BlowbackBolt = part("BlowbackBolt", "blowback_bolt", "Used in every SMG");
         GasPistonSystem = part("GasPistonSystem", "gas_piston_system", "Used in assault rifles and carbines");
-        PrecisionBoltAction = part("PrecisionBoltAction", "precision_bolt_action", "Used in sniper and marksman rifles");
+        PrecisionBoltAction = part(
+            "PrecisionBoltAction",
+            "precision_bolt_action",
+            "Used in sniper and marksman rifles");
         PumpActionAssembly = part("PumpActionAssembly", "pump_action_assembly", "Used in every shotgun");
         BeltFeedMechanism = part("BeltFeedMechanism", "belt_feed_mechanism", "Used in machine guns and heavy weapons");
 

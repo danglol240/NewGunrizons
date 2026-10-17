@@ -47,8 +47,9 @@ public class EntityBulletRenderer extends Render {
 
         double[] pos = { x, y, z };
         double[] dir = norm(new double[] { bullet.motionX, bullet.motionY, bullet.motionZ });
-        if (dir == null) dir = norm(new double[] { bullet.posX - bullet.prevPosX, bullet.posY - bullet.prevPosY,
-            bullet.posZ - bullet.prevPosZ });
+        if (dir == null) dir = norm(
+            new double[] { bullet.posX - bullet.prevPosX, bullet.posY - bullet.prevPosY,
+                bullet.posZ - bullet.prevPosZ });
         if (dir == null) return;
 
         int rgb = weapon.getProjectileColor();
@@ -177,7 +178,15 @@ public class EntityBulletRenderer extends Render {
         // three shock rings expanding out of the pulse as it travels
         for (int i = 0; i < 3; i++) {
             double phase = ((t * 0.12D) + i / 3.0D) % 1.0D;
-            ring(add(p, mul(d, -phase * 1.5D * s)), d, (0.15D + phase * 0.6D) * s, r, g, b, (float) (0.8D * (1 - phase)), 2.0F);
+            ring(
+                add(p, mul(d, -phase * 1.5D * s)),
+                d,
+                (0.15D + phase * 0.6D) * s,
+                r,
+                g,
+                b,
+                (float) (0.8D * (1 - phase)),
+                2.0F);
         }
     }
 
