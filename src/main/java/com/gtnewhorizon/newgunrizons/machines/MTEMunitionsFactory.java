@@ -1,12 +1,12 @@
 package com.gtnewhorizon.newgunrizons.machines;
 
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
 import static gregtech.api.enums.HatchElement.Energy;
 import static gregtech.api.enums.HatchElement.InputBus;
 import static gregtech.api.enums.HatchElement.InputHatch;
 import static gregtech.api.enums.HatchElement.Maintenance;
 import static gregtech.api.enums.HatchElement.OutputBus;
 import static gregtech.api.util.GTStructureUtility.buildHatchAdder;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
 
 import java.util.List;
 

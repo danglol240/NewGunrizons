@@ -60,14 +60,15 @@ public final class Machines {
                 id,
                 id);
         }
-        munitionsFactory = new MTEMunitionsFactory(id, "multimachine.newgunrizons.munitionsfactory", "Munitions Factory")
-            .getStackForm(1);
+        munitionsFactory = new MTEMunitionsFactory(
+            id,
+            "multimachine.newgunrizons.munitionsfactory",
+            "Munitions Factory").getStackForm(1);
 
         GTModHandler.addCraftingRecipe(
             munitionsFactory.copy(),
             GTModHandler.RecipeBits.BITSD,
-            new Object[] { "CRC", "AHA", "CPC", 'C', OrePrefixes.circuit.get(Materials.LV), 'R',
-                ItemList.Robot_Arm_LV, 'A', ItemList.Conveyor_Module_LV, 'H', ItemList.Hull_LV, 'P',
-                ItemList.Electric_Piston_LV });
+            new Object[] { "CRC", "AHA", "CPC", 'C', OrePrefixes.circuit.get(Materials.LV), 'R', ItemList.Robot_Arm_LV,
+                'A', ItemList.Conveyor_Module_LV, 'H', ItemList.Hull_LV, 'P', ItemList.Electric_Piston_LV });
     }
 }
