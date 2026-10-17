@@ -43,6 +43,7 @@ import com.gtnewhorizon.newgunrizons.registry.AuxiliaryAttachments;
 import com.gtnewhorizon.newgunrizons.registry.Bullets;
 import com.gtnewhorizon.newgunrizons.registry.Grenades;
 import com.gtnewhorizon.newgunrizons.registry.Guns;
+import com.gtnewhorizon.newgunrizons.registry.Parts;
 import com.gtnewhorizon.newgunrizons.registry.Magazines;
 import com.gtnewhorizon.newgunrizons.state.StateManager;
 import com.gtnewhorizon.newgunrizons.weapon.MagazineReloadAspect;
@@ -168,6 +169,7 @@ public class CommonProxy {
         Bullets.init();
         Magazines.init();
         Guns.init();
+        Parts.init();
         Grenades.init();
     }
 

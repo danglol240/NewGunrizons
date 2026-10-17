@@ -88,6 +88,8 @@ public class ItemWeapon extends Item
 
     @Getter
     private final int pellets;
+    /** Creative tab the weapon was built for; readable on both sides (Item#getCreativeTab is client-only). */
+    private final CreativeTabs homeTab;
     @Getter
     private final float flashIntensity;
     @Getter
@@ -145,6 +147,7 @@ public class ItemWeapon extends Item
         this.spawnEntityGravityVelocity = builder.spawnEntityGravityVelocity;
         this.inaccuracy = builder.inaccuracy;
         this.pellets = builder.pellets;
+        this.homeTab = builder.creativeTab;
         this.flashIntensity = builder.flashIntensity;
         this.flashScale = builder.flashScale;
         this.flashOffsetX = builder.flashOffsetX;
@@ -444,6 +447,10 @@ public class ItemWeapon extends Item
 
     public boolean hasIteratedLoad() {
         return this.hasIteratedLoad;
+    }
+
+    public CreativeTabs getHomeTab() {
+        return this.homeTab;
     }
 
     public static class Builder {

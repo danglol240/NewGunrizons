@@ -410,3 +410,20 @@ item.NeutronRifle.name=Neutron Rifle
 item.AntimatterCannon.name=Antimatter Cannon
 item.ExoticMatterRifle.name=Exotic Matter Rifle
 newgunrizons.recipe.munitions=Munitions Factory
+
+# Mechanisms and technology modules
+item.newgunrizons_PistolSlide.name=Pistol Slide Assembly
+item.newgunrizons_BlowbackBolt.name=Blowback Bolt Group
+item.newgunrizons_GasPistonSystem.name=Gas Piston System
+item.newgunrizons_PrecisionBoltAction.name=Precision Bolt Action
+item.newgunrizons_PumpActionAssembly.name=Pump-Action Assembly
+item.newgunrizons_BeltFeedMechanism.name=Belt Feed Mechanism
+item.newgunrizons_SmartTargetingModule.name=Smart Targeting Module
+item.newgunrizons_ElectromagneticCoil.name=Electromagnetic Coil Assembly
+item.newgunrizons_SuperconductingRail.name=Superconducting Rail
+item.newgunrizons_FocusingLensArray.name=Focusing Lens Array
+item.newgunrizons_PlasmaContainmentChamber.name=Plasma Containment Chamber
+item.newgunrizons_ParticleAcceleratorSegment.name=Particle Accelerator Segment
+item.newgunrizons_NeutronEmitter.name=Neutron Emitter
+item.newgunrizons_AntimatterTrap.name=Penning Antimatter Trap
+item.newgunrizons_ExoticMatterStabilizer.name=Exotic Matter Stabilizer

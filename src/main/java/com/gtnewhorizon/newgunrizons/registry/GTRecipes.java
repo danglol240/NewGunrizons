@@ -1,5 +1,6 @@
 package com.gtnewhorizon.newgunrizons.registry;
 
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import com.gtnewhorizon.newgunrizons.CommonProxy;
@@ -373,12 +374,15 @@ public class GTRecipes {
 
     private static void addLVGun(Object gunItem, int circuit, int eut, int dur) {
         if (gunItem == null) return;
+        Item mechanism = Parts.mechanismFor((Item) gunItem);
+        if (mechanism == null) return;
         GTValues.RA.stdBuilder()
             .itemInputs(
                 new ItemStack(CommonProxy.GunBarrelSteel),
                 new ItemStack(CommonProxy.GunReceiverSteel),
                 new ItemStack(CommonProxy.FiringMechanism),
                 new ItemStack(CommonProxy.GunStockWood),
+                new ItemStack(mechanism),
                 GTUtility.getIntegratedCircuit(circuit))
             .itemOutputs(new ItemStack((net.minecraft.item.Item) gunItem))
             .duration(dur)
@@ -388,12 +392,15 @@ public class GTRecipes {
 
     private static void addMVGun(Object gunItem, int circuit, int eut, int dur) {
         if (gunItem == null) return;
+        Item mechanism = Parts.mechanismFor((Item) gunItem);
+        if (mechanism == null) return;
         GTValues.RA.stdBuilder()
             .itemInputs(
                 new ItemStack(CommonProxy.GunBarrelStainless),
                 new ItemStack(CommonProxy.GunReceiverSteel),
                 new ItemStack(CommonProxy.FiringMechanism),
                 new ItemStack(CommonProxy.GunStockPlastic),
+                new ItemStack(mechanism),
                 GTUtility.getIntegratedCircuit(circuit))
             .itemOutputs(new ItemStack((net.minecraft.item.Item) gunItem))
             .duration(dur)
@@ -403,12 +410,15 @@ public class GTRecipes {
 
     private static void addHVGun(Object gunItem, int circuit, int eut, int dur) {
         if (gunItem == null) return;
+        Item mechanism = Parts.mechanismFor((Item) gunItem);
+        if (mechanism == null) return;
         GTValues.RA.stdBuilder()
             .itemInputs(
                 new ItemStack(CommonProxy.GunBarrelTitanium),
                 new ItemStack(CommonProxy.GunReceiverStainless),
                 new ItemStack(CommonProxy.FiringMechanismAdvanced),
                 new ItemStack(CommonProxy.GunStockPlastic),
+                new ItemStack(mechanism),
                 GTUtility.getIntegratedCircuit(circuit))
             .fluidInputs(Materials.SolderingAlloy.getMolten(144))
             .itemOutputs(new ItemStack((net.minecraft.item.Item) gunItem))
@@ -419,12 +429,15 @@ public class GTRecipes {
 
     private static void addEVGun(Object gunItem, int circuit, int eut, int dur) {
         if (gunItem == null) return;
+        Item mechanism = Parts.mechanismFor((Item) gunItem);
+        if (mechanism == null) return;
         GTValues.RA.stdBuilder()
             .itemInputs(
                 new ItemStack(CommonProxy.GunBarrelTungstenSteel),
                 new ItemStack(CommonProxy.GunReceiverTitanium),
                 new ItemStack(CommonProxy.FiringMechanismAdvanced),
                 new ItemStack(CommonProxy.GunStockCarbon),
+                new ItemStack(mechanism),
                 GTUtility.getIntegratedCircuit(circuit))
             .fluidInputs(Materials.SolderingAlloy.getMolten(288))
             .itemOutputs(new ItemStack((net.minecraft.item.Item) gunItem))
