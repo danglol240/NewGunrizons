@@ -178,7 +178,7 @@ public class RailgunFactory {
                 (model) -> { GL11.glScaled(1.0D, 1.0D, 1.0D); })
             .withTextureName("Railgun")
             .withRenderer(
-                (new WeaponRenderer.Builder()).withModel(new JsonModel("weapon/m107"))
+                (new WeaponRenderer.Builder()).withModel(new JsonModel("weapon/railgun"))
                     .withEntityPositioning((itemStack) -> {
                         GL11.glScaled(0.5D, 0.5D, 0.5D);
                         GL11.glRotatef(-90.0F, 0.0F, 0.0F, 4.0F);
