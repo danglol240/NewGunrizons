@@ -29,6 +29,9 @@ public class EntityBulletRenderer extends Render {
     private static final float WHITE = 1.0F;
     private static final double MAX_BEAM = 48.0D;
 
+    /** Distance flown since the muzzle for the projectile being drawn; tails are clamped to it. */
+    private static double travelled = Double.MAX_VALUE;
+
     @Override
     public void doRender(Entity entity, double x, double y, double z, float yaw, float partialTicks) {
         if (!(entity instanceof EntityBullet)) return;
@@ -47,15 +50,18 @@ public class EntityBulletRenderer extends Render {
 
         double[] pos = { x, y, z };
         double[] dir = norm(new double[] { bullet.motionX, bullet.motionY, bullet.motionZ });
-        if (dir == null) dir = norm(
-            new double[] { bullet.posX - bullet.prevPosX, bullet.posY - bullet.prevPosY,
-                bullet.posZ - bullet.prevPosZ });
+        if (dir == null) dir = norm(new double[] { bullet.posX - bullet.prevPosX, bullet.posY - bullet.prevPosY,
+            bullet.posZ - bullet.prevPosZ });
         if (dir == null) return;
 
         int rgb = weapon.getProjectileColor();
         float r = ((rgb >> 16) & 255) / 255.0F, g = ((rgb >> 8) & 255) / 255.0F, b = (rgb & 255) / 255.0F;
         float scale = weapon.getProjectileScale();
         double t = bullet.ticksExisted + partialTicks;
+        travelled = Math.sqrt(
+            (bullet.posX - bullet.originX) * (bullet.posX - bullet.originX)
+                + (bullet.posY - bullet.originY) * (bullet.posY - bullet.originY)
+                + (bullet.posZ - bullet.originZ) * (bullet.posZ - bullet.originZ));
 
         int savedProgram = GL11.glGetInteger(GL20.GL_CURRENT_PROGRAM);
         GL20.glUseProgram(0);
@@ -109,13 +115,13 @@ public class EntityBulletRenderer extends Render {
     // ---------------- styles ----------------
 
     private static void tracer(double[] p, double[] d, float r, float g, float b, float s) {
-        double[] tail = add(p, mul(d, -2.5D * s));
+        double[] tail = add(p, mul(d, -tail(2.5D * s)));
         ribbon(tail, p, 0.10D * s, r, g, b, 0.0F, 0.55F);
         ribbon(tail, p, 0.03D * s, WHITE, WHITE, WHITE, 0.0F, 0.9F);
     }
 
     private static void rail(double[] p, double[] d, float r, float g, float b, float s, double t) {
-        double len = 6.0D * s;
+        double len = tail(6.0D * s);
         double[] tail = add(p, mul(d, -len));
         ribbon(tail, p, 0.22D * s, r, g, b, 0.0F, 0.45F);
         ribbon(tail, p, 0.06D * s, WHITE, WHITE, WHITE, 0.1F, 1.0F);
@@ -144,13 +150,14 @@ public class EntityBulletRenderer extends Render {
 
     private static void plasma(double[] p, double[] d, float r, float g, float b, float s, double t) {
         double radius = (0.22D + 0.04D * Math.sin(t * 1.3D)) * s;
-        ribbon(add(p, mul(d, -1.6D * s)), p, radius * 1.3D, r, g, b, 0.0F, 0.5F);
+        ribbon(add(p, mul(d, -tail(1.6D * s))), p, radius * 1.3D, r, g, b, 0.0F, 0.5F);
         glow(p, radius * 2.2D, r, g, b, 0.45F);
         glow(p, radius, WHITE, WHITE, WHITE, 0.9F);
     }
 
     private static void helix(double[] p, double[] d, float r, float g, float b, float s, double t) {
-        double len = 4.0D * s;
+        double len = tail(4.0D * s);
+        if (len < 0.05D) return;
         ribbon(add(p, mul(d, -len)), p, 0.05D * s, WHITE, WHITE, WHITE, 0.0F, 1.0F);
         double[][] basis = basis(d);
         double radius = 0.16D * s;
@@ -172,26 +179,18 @@ public class EntityBulletRenderer extends Render {
     }
 
     private static void pulse(double[] p, double[] d, float r, float g, float b, float s, double t) {
-        ribbon(add(p, mul(d, -2.0D * s)), p, 0.12D * s, r, g, b, 0.0F, 0.5F);
+        ribbon(add(p, mul(d, -tail(2.0D * s))), p, 0.12D * s, r, g, b, 0.0F, 0.5F);
         glow(p, 0.26D * s, WHITE, WHITE, WHITE, 0.8F);
         glow(p, 0.5D * s, r, g, b, 0.4F);
         // three shock rings expanding out of the pulse as it travels
         for (int i = 0; i < 3; i++) {
             double phase = ((t * 0.12D) + i / 3.0D) % 1.0D;
-            ring(
-                add(p, mul(d, -phase * 1.5D * s)),
-                d,
-                (0.15D + phase * 0.6D) * s,
-                r,
-                g,
-                b,
-                (float) (0.8D * (1 - phase)),
-                2.0F);
+            ring(add(p, mul(d, -Math.min(phase * 1.5D * s, travelled))), d, (0.15D + phase * 0.6D) * s, r, g, b, (float) (0.8D * (1 - phase)), 2.0F);
         }
     }
 
     private static void orbRing(double[] p, double[] d, float r, float g, float b, float s, double t) {
-        ribbon(add(p, mul(d, -2.5D * s)), p, 0.3D * s, r, g, b, 0.0F, 0.35F);
+        ribbon(add(p, mul(d, -tail(2.5D * s))), p, 0.3D * s, r, g, b, 0.0F, 0.35F);
         glow(p, 0.55D * s, r, g, b, 0.5F);
         glow(p, 0.22D * s, WHITE, WHITE, WHITE, 0.9F);
         double[][] basis = basis(d);
@@ -207,9 +206,9 @@ public class EntityBulletRenderer extends Render {
         double t) {
         Random rnd = new Random(bullet.getEntityId() * 31L + (long) (t * 2.0D));
         double[][] basis = basis(d);
-        ribbon(add(p, mul(d, -2.0D * s)), p, 0.04D * s, WHITE, WHITE, WHITE, 0.0F, 0.9F);
+        ribbon(add(p, mul(d, -tail(2.0D * s))), p, 0.04D * s, WHITE, WHITE, WHITE, 0.0F, 0.9F);
         for (int i = 0; i < 9; i++) {
-            double back = rnd.nextDouble() * 2.5D * s;
+            double back = rnd.nextDouble() * tail(2.5D * s);
             double off = 0.1D + rnd.nextDouble() * 0.35D * s;
             double ang = rnd.nextDouble() * Math.PI * 2;
             double[] c = add(
@@ -220,6 +219,11 @@ public class EntityBulletRenderer extends Render {
             ribbon(c, tip, 0.06D * s, purple ? 0.65F : r, purple ? 0.25F : g, purple ? 1.0F : b, 0.9F, 0.2F);
         }
         glow(p, 0.3D * s, r, g, b, 0.7F);
+    }
+
+    /** Tail length clamped so it never extends behind the muzzle (or through the shooter's view). */
+    private static double tail(double wanted) {
+        return Math.min(wanted, travelled);
     }
 
     // ---------------- primitives ----------------
