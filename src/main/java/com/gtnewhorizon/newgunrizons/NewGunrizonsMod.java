@@ -4,6 +4,7 @@ import net.minecraft.creativetab.CreativeTabs;
 
 import com.gtnewhorizon.newgunrizons.registry.GTRecipes;
 import com.gtnewhorizon.newgunrizons.registry.HighTierRecipes;
+import com.gtnewhorizon.newgunrizons.registry.Machines;
 import com.gtnewhorizon.newgunrizons.tabs.AmmoTab;
 import com.gtnewhorizon.newgunrizons.tabs.AssaultRiflesTab;
 import com.gtnewhorizon.newgunrizons.tabs.AttachmentsTab;
@@ -23,7 +24,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
-@Mod(modid = NewGunrizonsMod.MODID, version = NewGunrizonsMod.VERSION)
+@Mod(modid = NewGunrizonsMod.MODID, version = NewGunrizonsMod.VERSION, dependencies = "required-after:gregtech")
 public class NewGunrizonsMod {
 
     public static final String MODID = "newgunrizons";
@@ -49,6 +50,7 @@ public class NewGunrizonsMod {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         proxy.init(this, event);
+        Machines.loadConfig(event.getSuggestedConfigurationFile());
     }
 
     @EventHandler
@@ -58,6 +60,7 @@ public class NewGunrizonsMod {
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
+        Machines.register();
         GTRecipes.init();
     }
 

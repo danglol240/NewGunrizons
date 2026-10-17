@@ -8,7 +8,6 @@ import cpw.mods.fml.common.Loader;
 import gregtech.api.enums.GTValues;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
-import gregtech.api.recipe.RecipeMaps;
 import gregtech.api.util.GTOreDictUnificator;
 import gregtech.api.util.GTUtility;
 
@@ -37,7 +36,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack(CommonProxy.GunBarrelSteel))
             .duration(200)
             .eut(30)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
 
         GTValues.RA.stdBuilder()
             .itemInputs(
@@ -47,7 +46,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack(CommonProxy.GunBarrelStainless))
             .duration(200)
             .eut(120)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
 
         GTValues.RA.stdBuilder()
             .itemInputs(
@@ -57,7 +56,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack(CommonProxy.GunBarrelTitanium))
             .duration(300)
             .eut(480)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
 
         GTValues.RA.stdBuilder()
             .itemInputs(
@@ -67,7 +66,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack(CommonProxy.GunBarrelTungstenSteel))
             .duration(400)
             .eut(1920)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
 
         // --- Forming Press: Receivers ---
         GTValues.RA.stdBuilder()
@@ -77,7 +76,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack(CommonProxy.GunReceiverSteel))
             .duration(200)
             .eut(30)
-            .addTo(RecipeMaps.formingPressRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
 
         GTValues.RA.stdBuilder()
             .itemInputs(
@@ -86,7 +85,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack(CommonProxy.GunReceiverStainless))
             .duration(200)
             .eut(120)
-            .addTo(RecipeMaps.formingPressRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
 
         GTValues.RA.stdBuilder()
             .itemInputs(
@@ -95,7 +94,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack(CommonProxy.GunReceiverTitanium))
             .duration(300)
             .eut(480)
-            .addTo(RecipeMaps.formingPressRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
 
         GTValues.RA.stdBuilder()
             .itemInputs(
@@ -104,7 +103,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack(CommonProxy.GunReceiverTungstenSteel))
             .duration(400)
             .eut(1920)
-            .addTo(RecipeMaps.formingPressRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
 
         // --- Forming Press: Bullet Casings ---
         ItemStack smallCasing = new ItemStack(CommonProxy.BulletCasingSmall, 16);
@@ -115,7 +114,7 @@ public class GTRecipes {
             .itemOutputs(smallCasing)
             .duration(100)
             .eut(30)
-            .addTo(RecipeMaps.formingPressRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
 
         ItemStack mediumCasing = new ItemStack(CommonProxy.BulletCasingMedium, 8);
         GTValues.RA.stdBuilder()
@@ -125,7 +124,7 @@ public class GTRecipes {
             .itemOutputs(mediumCasing)
             .duration(100)
             .eut(30)
-            .addTo(RecipeMaps.formingPressRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
 
         ItemStack largeCasing = new ItemStack(CommonProxy.BulletCasingLarge, 4);
         GTValues.RA.stdBuilder()
@@ -135,7 +134,7 @@ public class GTRecipes {
             .itemOutputs(largeCasing)
             .duration(100)
             .eut(120)
-            .addTo(RecipeMaps.formingPressRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
 
         // --- Forming Press: Firing Mechanisms ---
         GTValues.RA.stdBuilder()
@@ -147,7 +146,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack(CommonProxy.FiringMechanism))
             .duration(200)
             .eut(30)
-            .addTo(RecipeMaps.formingPressRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
 
         GTValues.RA.stdBuilder()
             .itemInputs(
@@ -158,7 +157,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack(CommonProxy.FiringMechanismAdvanced))
             .duration(300)
             .eut(480)
-            .addTo(RecipeMaps.formingPressRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
 
         // --- Forming Press: Weapon Part Kit ---
         GTValues.RA.stdBuilder()
@@ -168,7 +167,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack(CommonProxy.WeaponPartKit, 4))
             .duration(100)
             .eut(30)
-            .addTo(RecipeMaps.formingPressRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
 
         // --- Assembler: Stocks ---
         GTValues.RA.stdBuilder()
@@ -179,7 +178,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack(CommonProxy.GunStockWood))
             .duration(200)
             .eut(30)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
 
         GTValues.RA.stdBuilder()
             .itemInputs(
@@ -189,7 +188,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack(CommonProxy.GunStockPlastic))
             .duration(200)
             .eut(120)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
 
         GTValues.RA.stdBuilder()
             .itemInputs(
@@ -199,7 +198,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack(CommonProxy.GunStockCarbon))
             .duration(200)
             .eut(480)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
 
         // --- Assembler: Precision Lens ---
         GTValues.RA.stdBuilder()
@@ -210,7 +209,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack(CommonProxy.PrecisionLens))
             .duration(200)
             .eut(120)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
     }
 
     // ==================== Gun Assembly Recipes ====================
@@ -356,7 +355,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack(Guns.M41A))
             .duration(ivDur)
             .eut(ivEut)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
 
         GTValues.RA.stdBuilder()
             .itemInputs(
@@ -369,7 +368,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack(Guns.SMAW))
             .duration(ivDur)
             .eut(ivEut)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
     }
 
     private static void addLVGun(Object gunItem, int circuit, int eut, int dur) {
@@ -384,7 +383,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack((net.minecraft.item.Item) gunItem))
             .duration(dur)
             .eut(eut)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
     }
 
     private static void addMVGun(Object gunItem, int circuit, int eut, int dur) {
@@ -399,7 +398,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack((net.minecraft.item.Item) gunItem))
             .duration(dur)
             .eut(eut)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
     }
 
     private static void addHVGun(Object gunItem, int circuit, int eut, int dur) {
@@ -415,7 +414,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack((net.minecraft.item.Item) gunItem))
             .duration(dur)
             .eut(eut)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
     }
 
     private static void addEVGun(Object gunItem, int circuit, int eut, int dur) {
@@ -431,7 +430,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack((net.minecraft.item.Item) gunItem))
             .duration(dur)
             .eut(eut)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
     }
 
     // ==================== Ammo Recipes ====================
@@ -482,7 +481,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack(Bullets.ShotgunShell, 8))
             .duration(100)
             .eut(30)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
 
         if (Bullets.ShotgunShell410 != null) {
             GTValues.RA.stdBuilder()
@@ -493,7 +492,7 @@ public class GTRecipes {
                 .itemOutputs(new ItemStack(Bullets.ShotgunShell410, 8))
                 .duration(100)
                 .eut(30)
-                .addTo(RecipeMaps.assemblerRecipes);
+                .addTo(MunitionsRecipeMap.MUNITIONS);
         }
 
         // SMAW Rocket
@@ -507,7 +506,7 @@ public class GTRecipes {
                 .itemOutputs(new ItemStack(Bullets.SMAWRocket, 1))
                 .duration(200)
                 .eut(480)
-                .addTo(RecipeMaps.assemblerRecipes);
+                .addTo(MunitionsRecipeMap.MUNITIONS);
         }
     }
 
@@ -522,7 +521,7 @@ public class GTRecipes {
             .itemOutputs(output)
             .duration(100)
             .eut(30)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
     }
 
     private static void addMediumAmmo(Object bullet, int circuit, int count) {
@@ -536,7 +535,7 @@ public class GTRecipes {
             .itemOutputs(output)
             .duration(100)
             .eut(30)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
     }
 
     private static void addLargeAmmo(Object bullet, int circuit, int count) {
@@ -550,7 +549,7 @@ public class GTRecipes {
             .itemOutputs(output)
             .duration(100)
             .eut(120)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
     }
 
     // ==================== Magazine Recipes ====================
@@ -652,7 +651,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack((net.minecraft.item.Item) mag))
             .duration(200)
             .eut(eut)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
     }
 
     // ==================== Attachment Recipes ====================
@@ -694,7 +693,7 @@ public class GTRecipes {
                 .itemOutputs(new ItemStack(Attachments.Bipod))
                 .duration(200)
                 .eut(120)
-                .addTo(RecipeMaps.assemblerRecipes);
+                .addTo(MunitionsRecipeMap.MUNITIONS);
         }
 
         // Laser
@@ -707,7 +706,7 @@ public class GTRecipes {
                 .itemOutputs(new ItemStack(Attachments.Laser))
                 .duration(200)
                 .eut(480)
-                .addTo(RecipeMaps.assemblerRecipes);
+                .addTo(MunitionsRecipeMap.MUNITIONS);
         }
 
         if (Attachments.Laser2 != null) {
@@ -719,7 +718,7 @@ public class GTRecipes {
                 .itemOutputs(new ItemStack(Attachments.Laser2))
                 .duration(200)
                 .eut(480)
-                .addTo(RecipeMaps.assemblerRecipes);
+                .addTo(MunitionsRecipeMap.MUNITIONS);
         }
 
         // Suppressors (Assembler)
@@ -749,7 +748,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack((net.minecraft.item.Item) scope))
             .duration(dur)
             .eut(eut)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
     }
 
     private static void addGrip(Object grip, int circuit) {
@@ -763,7 +762,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack((net.minecraft.item.Item) grip))
             .duration(200)
             .eut(30)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
     }
 
     private static void addSuppressor(Object suppressor, Materials material, int circuit, int eut) {
@@ -776,7 +775,7 @@ public class GTRecipes {
             .itemOutputs(new ItemStack((net.minecraft.item.Item) suppressor))
             .duration(200)
             .eut(eut)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
     }
 
     // ==================== Grenade Recipes ====================
@@ -793,7 +792,7 @@ public class GTRecipes {
                 .itemOutputs(new ItemStack(Grenades.FuseGrenade, 2))
                 .duration(200)
                 .eut(120)
-                .addTo(RecipeMaps.assemblerRecipes);
+                .addTo(MunitionsRecipeMap.MUNITIONS);
         }
 
         if (Grenades.ImpactGrenade != null) {
@@ -807,7 +806,7 @@ public class GTRecipes {
                 .itemOutputs(new ItemStack(Grenades.ImpactGrenade, 2))
                 .duration(200)
                 .eut(480)
-                .addTo(RecipeMaps.assemblerRecipes);
+                .addTo(MunitionsRecipeMap.MUNITIONS);
         }
     }
 }

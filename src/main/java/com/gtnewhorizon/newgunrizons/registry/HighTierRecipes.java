@@ -10,12 +10,11 @@ import gregtech.api.enums.GTValues;
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
-import gregtech.api.recipe.RecipeMaps;
 import gregtech.api.util.GTOreDictUnificator;
 import gregtech.api.util.GTUtility;
 
 /**
- * GregTech Assembler recipes for the IV-UHV weapons, their magazines/cells and ammo.
+ * Munitions Factory recipes for the IV-UHV weapons, their magazines/cells and ammo.
  * <p>
  * Registered in post-init so the tiered circuit ore-dictionary entries added by
  * GregTech and the GTNH core mod are already present.
@@ -271,7 +270,7 @@ public final class HighTierRecipes {
             .itemOutputs(new ItemStack(gun))
             .duration(duration)
             .eut(eut)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
     }
 
     private static void ammo(Item ammo, int count, int eut, int programmed, ItemStack... parts) {
@@ -284,7 +283,7 @@ public final class HighTierRecipes {
             .itemOutputs(new ItemStack(ammo, count))
             .duration(100)
             .eut(eut)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
     }
 
     private static void magazine(Item magazine, Materials m, int eut, int programmed) {
@@ -295,6 +294,6 @@ public final class HighTierRecipes {
             .itemOutputs(new ItemStack(magazine))
             .duration(200)
             .eut(eut)
-            .addTo(RecipeMaps.assemblerRecipes);
+            .addTo(MunitionsRecipeMap.MUNITIONS);
     }
 }
