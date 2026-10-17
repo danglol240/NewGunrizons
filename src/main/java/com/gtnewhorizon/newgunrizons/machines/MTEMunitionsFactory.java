@@ -1,7 +1,7 @@
 package com.gtnewhorizon.newgunrizons.machines;
 
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.isAir;
-import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlocksTiered;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
 import static gregtech.api.enums.HatchElement.Energy;
 import static gregtech.api.enums.HatchElement.InputBus;
@@ -13,8 +13,6 @@ import static gregtech.api.util.GTStructureUtility.chainAllGlasses;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 import javax.annotation.Nonnull;
 
@@ -24,8 +22,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import org.apache.commons.lang3.tuple.Pair;
 
 import com.google.common.io.ByteArrayDataInput;
 import com.gtnewhorizon.newgunrizons.client.render.FactoryAssemblyRenderer;
@@ -59,34 +55,30 @@ import io.netty.buffer.ByteBuf;
 /**
  * Munitions Factory: the only machine that makes NewGunrizons weapons, components, magazines and ammunition.
  * <p>
- * The factory grows with the player's progression:
+ * A 3x3 production line that grows one segment per era, like an Assembly Line:
  * <ul>
- * <li>a 5x4 head with the controller between two Steel Gear Box Casings;</li>
- * <li>1-7 production line segments behind it: a 5x4 ring of Solid Steel Machine Casings with glass side windows, an
- * empty production lane and a conveyor floor of three tiered Machine Casings (LV..UHV);</li>
- * <li>the Machine Casing tier (all segments must match) is the factory's era: it caps the voltage tier of the recipes
- * the factory accepts;</li>
+ * <li>the head holds the controller, framed by Heat Proof Machine Casings;</li>
+ * <li>segment N behind it has a roof of three tier-N Machine Casings (segment 1 = LV, 2 = MV ... 9 = UHV), glass side
+ * windows around an empty production lane, and a Heat Proof Machine Casing floor;</li>
+ * <li>the number of consecutive segments is the factory's era: it accepts recipes up to that voltage tier;</li>
  * <li>every segment adds 4 parallels.</li>
  * </ul>
- * While running, the product being made is rendered gliding along the lane behind the glass.
+ * While running, the product is shown being assembled as it travels along the lane.
  */
 public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunitionsFactory>
     implements ISurvivalConstructable, ICasingTextureProvider, IMTERenderer {
 
     private static final String HEAD = "head";
     private static final String SEGMENT = "segment";
-    private static final int OFFSET_X = 2;
+    private static final int OFFSET_X = 1;
     private static final int OFFSET_Y = 1;
-    private static final int MAX_SEGMENTS = 7;
-    private static final int PARALLEL_PER_SEGMENT = 4;
-    private static final int MIN_CASINGS = 16;
     /** Machine Casing meta in sBlockCasings1 equals its voltage tier: 1 = LV ... 9 = UHV. */
-    private static final int MIN_TIER = 1;
-    private static final int MAX_TIER = 9;
-    private static final int TIER_NOT_SET = -1;
+    private static final int MAX_SEGMENTS = 9;
+    private static final int PARALLEL_PER_SEGMENT = 4;
+    private static final int MIN_CASINGS = 5;
+    private static final Casings CASING = Casings.HeatProofMachineCasing;
 
     private int casingAmount;
-    private int casingTier = TIER_NOT_SET;
     private int segments;
 
     // client-side render state, synced from the server by render-data packets
@@ -94,33 +86,30 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
     private int renderItemId = -1;
     private int renderItemMeta;
 
-    private static final IStructureDefinition<MTEMunitionsFactory> STRUCTURE = StructureDefinition
-        .<MTEMunitionsFactory>builder()
-        // rows top to bottom; the controller row (index 1) is the production lane
-        .addShape(HEAD, new String[][] { { "CCCCC", "CG~GC", "CCCCC", "CCCCC" } })
-        .addShape(SEGMENT, new String[][] { { "CCCCC", "W---W", "CTTTC", "CCCCC" } })
-        .addElement('G', Casings.SteelGearBoxCasing.asElement())
-        .addElement('W', chainAllGlasses())
-        .addElement('-', isAir())
-        .addElement(
-            'T',
-            GTStructureChannels.TIER_MACHINE_CASING.use(
-                ofBlocksTiered(
-                    (block, meta) -> block == GregTechAPI.sBlockCasings1 && meta >= MIN_TIER && meta <= MAX_TIER ? meta
-                        : null,
-                    IntStream.rangeClosed(MIN_TIER, MAX_TIER)
-                        .mapToObj(i -> Pair.of(GregTechAPI.sBlockCasings1, i))
-                        .collect(Collectors.toList()),
-                    TIER_NOT_SET,
-                    (MTEMunitionsFactory m, Integer tier) -> m.casingTier = tier,
-                    (MTEMunitionsFactory m) -> m.casingTier)))
-        .addElement(
-            'C',
-            buildHatchAdder(MTEMunitionsFactory.class).atLeast(InputBus, InputHatch, OutputBus, Maintenance, Energy)
-                .casingIndex(Casings.SolidSteelMachineCasing.textureId)
-                .hint(1)
-                .buildAndChain(onElementPass(m -> ++m.casingAmount, Casings.SolidSteelMachineCasing.asElement())))
-        .build();
+    private static final IStructureDefinition<MTEMunitionsFactory> STRUCTURE = buildStructure();
+
+    private static IStructureDefinition<MTEMunitionsFactory> buildStructure() {
+        StructureDefinition.Builder<MTEMunitionsFactory> b = StructureDefinition.<MTEMunitionsFactory>builder()
+            // rows top to bottom; the controller row is the production lane
+            .addShape(HEAD, new String[][] { { "CCC", "C~C", "CCC" } })
+            .addElement('W', chainAllGlasses())
+            .addElement('-', isAir())
+            .addElement(
+                'C',
+                buildHatchAdder(MTEMunitionsFactory.class)
+                    .atLeast(InputBus, InputHatch, OutputBus, Maintenance, Energy)
+                    .casingIndex(CASING.textureId)
+                    .hint(1)
+                    .buildAndChain(onElementPass(m -> ++m.casingAmount, CASING.asElement())));
+        // segment N: roof of tier-N Machine Casings ('1' = LV ... '9' = UHV)
+        for (int tier = 1; tier <= MAX_SEGMENTS; tier++) {
+            char c = (char) ('0' + tier);
+            String roof = new String(new char[] { c, c, c });
+            b.addShape(SEGMENT + tier, new String[][] { { roof, "W-W", "CCC" } })
+                .addElement(c, ofBlock(GregTechAPI.sBlockCasings1, tier));
+        }
+        return b.build();
+    }
 
     public MTEMunitionsFactory(int id, String name, String nameRegional) {
         super(id, name, nameRegional);
@@ -142,26 +131,23 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
             .addInfo("Manufactures every NewGunrizons weapon, part, magazine and round")
             .addInfo("Weapons and ammo cannot be made anywhere else")
             .addSeparator()
-            .addInfo("Grows with your progression:")
-            .addInfo("Add production line segments behind the head, up to " + MAX_SEGMENTS)
+            .addInfo("A production line that grows one segment per era:")
+            .addInfo("segment 1 is roofed with LV Machine Casings, segment 2 with MV, ... segment 9 with UHV")
+            .addInfo("The number of segments is the factory's era; it accepts recipes up to that tier")
             .addInfo("Each segment adds " + PARALLEL_PER_SEGMENT + " parallels")
-            .addInfo("The Machine Casings in the segments set the factory's era:")
-            .addInfo("recipes above that voltage tier are refused (LV casings = LV era ... UHV casings = UHV era)")
-            .addInfo("All segments must use the same Machine Casing tier")
             .addInfo("Runs recipes at double speed")
-            .addInfo("While running, the product glides along the production lane behind the glass")
-            .beginVariableStructureBlock(5, 5, 4, 4, 2, 1 + MAX_SEGMENTS, false)
-            .addController("Front center, between the two Steel Gear Box Casings")
-            .addCasingInfoMin("Solid Steel Machine Casing", MIN_CASINGS, false)
-            .addCasing("2", "Steel Gear Box Casing", false)
-            .addCasing("3 per segment", "Machine Casing (LV-UHV, sets the era), as the conveyor floor", true)
+            .addInfo("While running, the product is assembled along the lane behind the glass")
+            .beginVariableStructureBlock(3, 3, 3, 3, 2, 1 + MAX_SEGMENTS, false)
+            .addController("Front center")
+            .addCasingInfoMin("Heat Proof Machine Casing", MIN_CASINGS, false)
+            .addCasing("3 per segment", "Machine Casing of the segment's era (LV, MV, HV, ...), as the roof", true)
             .addOtherStructurePart("Any glass", "2 per segment, side windows of the production lane")
-            .addOtherStructurePart("Air", "3 per segment, the production lane")
-            .addEnergyHatch("1+", "Any Solid Steel Machine Casing", 1)
-            .addMaintenanceHatch("1", "Any Solid Steel Machine Casing", 1)
-            .addInputBus("1+", "Any Solid Steel Machine Casing", 1)
-            .addInputHatch("0+", "Any Solid Steel Machine Casing", 1)
-            .addOutputBus("1+", "Any Solid Steel Machine Casing", 1)
+            .addOtherStructurePart("Air", "1 per segment, the production lane")
+            .addEnergyHatch("1+", "Any Heat Proof Machine Casing", 1)
+            .addMaintenanceHatch("1", "Any Heat Proof Machine Casing", 1)
+            .addInputBus("1+", "Any Heat Proof Machine Casing", 1)
+            .addInputHatch("0+", "Any Heat Proof Machine Casing", 1)
+            .addOutputBus("1+", "Any Heat Proof Machine Casing", 1)
             .addStructureAuthors(EnumChatFormatting.GOLD + "NewGunrizons")
             .toolTipFinisher();
         return tt;
@@ -177,7 +163,7 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
         buildPiece(HEAD, stackSize, hintsOnly, OFFSET_X, OFFSET_Y, 0);
         int count = GTStructureChannels.STRUCTURE_LENGTH.getValueClamped(stackSize, 1, MAX_SEGMENTS);
         for (int i = 1; i <= count; i++) {
-            buildPiece(SEGMENT, stackSize, hintsOnly, OFFSET_X, OFFSET_Y, -i);
+            buildPiece(SEGMENT + i, stackSize, hintsOnly, OFFSET_X, OFFSET_Y, -i);
         }
     }
 
@@ -188,7 +174,7 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
         if (built >= 0) return built;
         int count = GTStructureChannels.STRUCTURE_LENGTH.getValueClamped(stackSize, 1, MAX_SEGMENTS);
         for (int i = 1; i <= count; i++) {
-            built = survivalBuildPiece(SEGMENT, stackSize, OFFSET_X, OFFSET_Y, -i, elementBudget, env, false, true);
+            built = survivalBuildPiece(SEGMENT + i, stackSize, OFFSET_X, OFFSET_Y, -i, elementBudget, env, false, true);
             if (built >= 0) return built;
         }
         return -1;
@@ -197,19 +183,17 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
     @Override
     public void checkMachine(IGregTechTileEntity baseMetaTileEntity, ItemStack stack, List<StructureError> errors) {
         casingAmount = 0;
-        casingTier = TIER_NOT_SET;
         segments = 0;
         if (!checkPiece(HEAD, OFFSET_X, OFFSET_Y, 0, errors)) return;
 
-        // Count segments until the first one that is missing or incomplete.
+        // Count consecutive segments: segment i must carry tier-i Machine Casings.
         List<StructureError> segmentErrors = new ArrayList<>();
         for (int i = 1; i <= MAX_SEGMENTS; i++) {
             segmentErrors.clear();
-            if (!checkPiece(SEGMENT, OFFSET_X, OFFSET_Y, -i, segmentErrors)) break;
+            if (!checkPiece(SEGMENT + i, OFFSET_X, OFFSET_Y, -i, segmentErrors)) break;
             segments = i;
         }
         if (segments == 0) {
-            // Report why the first segment is not recognised.
             errors.addAll(segmentErrors);
             return;
         }
@@ -236,7 +220,7 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
 
     @Override
     public ITexture getCasingTexture() {
-        return Casings.SolidSteelMachineCasing.getCasingTexture();
+        return CASING.getCasingTexture();
     }
 
     @Override
@@ -252,7 +236,7 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
             @Override
             protected CheckRecipeResult validateRecipe(@Nonnull GTRecipe recipe) {
                 int recipeTier = GTUtility.getTier(recipe.mEUt);
-                if (recipeTier > casingTier) {
+                if (recipeTier > segments) {
                     return CheckRecipeResultRegistry.insufficientMachineTier(recipeTier);
                 }
                 return CheckRecipeResultRegistry.SUCCESSFUL;
@@ -271,7 +255,7 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
         String[] base = super.getInfoData();
         String[] info = new String[base.length + 2];
         System.arraycopy(base, 0, info, 0, base.length);
-        String era = casingTier >= MIN_TIER ? GTValues.VN[casingTier] : "none";
+        String era = segments >= 1 ? GTValues.VN[segments] : "none";
         info[base.length] = "Era: " + EnumChatFormatting.YELLOW + era + EnumChatFormatting.RESET;
         info[base.length + 1] = "Segments: " + EnumChatFormatting.YELLOW
             + segments
@@ -285,14 +269,12 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
     @Override
     public void saveNBTData(NBTTagCompound nbt) {
         super.saveNBTData(nbt);
-        nbt.setInteger("casingTier", casingTier);
         nbt.setInteger("segments", segments);
     }
 
     @Override
     public void loadNBTData(NBTTagCompound nbt) {
         super.loadNBTData(nbt);
-        casingTier = nbt.getInteger("casingTier");
         segments = nbt.getInteger("segments");
     }
 

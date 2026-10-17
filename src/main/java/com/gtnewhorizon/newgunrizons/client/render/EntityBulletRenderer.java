@@ -2,6 +2,7 @@ package com.gtnewhorizon.newgunrizons.client.render;
 
 import java.util.Random;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
@@ -31,6 +32,13 @@ public class EntityBulletRenderer extends Render {
 
     /** Distance flown since the muzzle for the projectile being drawn; tails are clamped to it. */
     private static double travelled = Double.MAX_VALUE;
+    /** Camera-relative position of the muzzle for the projectile being drawn. */
+    private static double[] originRel = { 0, 0, 0 };
+
+    // muzzle position relative to the projectile's spawn point (already 0.16 right / 0.1 below the eye):
+    // right, up and forward offsets for the shooter's own first-person view and for everyone else
+    private static final double[] MUZZLE_FIRST_PERSON = { 0.10D, -0.14D, 0.55D };
+    private static final double[] MUZZLE_THIRD_PERSON = { 0.22D, -0.38D, 0.60D };
 
     @Override
     public void doRender(Entity entity, double x, double y, double z, float yaw, float partialTicks) {
@@ -41,12 +49,7 @@ public class EntityBulletRenderer extends Render {
             || weapon.getProjectileStyle() == ProjectileStyle.NONE) {
             return;
         }
-        if (!bullet.hasOrigin) {
-            bullet.originX = bullet.posX;
-            bullet.originY = bullet.posY;
-            bullet.originZ = bullet.posZ;
-            bullet.hasOrigin = true;
-        }
+        if (!bullet.hasOrigin) initOrigin(bullet);
 
         double[] pos = { x, y, z };
         double[] dir = norm(new double[] { bullet.motionX, bullet.motionY, bullet.motionZ });
@@ -59,6 +62,8 @@ public class EntityBulletRenderer extends Render {
         float r = ((rgb >> 16) & 255) / 255.0F, g = ((rgb >> 8) & 255) / 255.0F, b = (rgb & 255) / 255.0F;
         float scale = weapon.getProjectileScale();
         double t = bullet.ticksExisted + partialTicks;
+        originRel = new double[] { x + (bullet.originX - bullet.posX), y + (bullet.originY - bullet.posY),
+            z + (bullet.originZ - bullet.posZ) };
         travelled = Math.sqrt(
             (bullet.posX - bullet.originX) * (bullet.posX - bullet.originX)
                 + (bullet.posY - bullet.originY) * (bullet.posY - bullet.originY)
@@ -116,14 +121,14 @@ public class EntityBulletRenderer extends Render {
     // ---------------- styles ----------------
 
     private static void tracer(double[] p, double[] d, float r, float g, float b, float s) {
-        double[] tail = add(p, mul(d, -tail(2.5D * s)));
+        double[] tail = tailStart(p, d, 2.5D * s);
         ribbon(tail, p, 0.10D * s, r, g, b, 0.0F, 0.55F);
         ribbon(tail, p, 0.03D * s, WHITE, WHITE, WHITE, 0.0F, 0.9F);
     }
 
     private static void rail(double[] p, double[] d, float r, float g, float b, float s, double t) {
-        double len = tail(6.0D * s);
-        double[] tail = add(p, mul(d, -len));
+        double[] tail = tailStart(p, d, 6.0D * s);
+        double len = length(sub(p, tail));
         ribbon(tail, p, 0.22D * s, r, g, b, 0.0F, 0.45F);
         ribbon(tail, p, 0.06D * s, WHITE, WHITE, WHITE, 0.1F, 1.0F);
         // fading coil rings left behind along the path
@@ -138,8 +143,7 @@ public class EntityBulletRenderer extends Render {
     private static void laser(EntityBullet bullet, double[] p, double[] d, double x, double y, double z, float r,
         float g, float b, float s, double t) {
         // the muzzle end is where the bolt was first seen, in camera-relative space
-        double[] start = { x + (bullet.originX - bullet.posX), y + (bullet.originY - bullet.posY),
-            z + (bullet.originZ - bullet.posZ) };
+        double[] start = originRel;
         double[] span = sub(p, start);
         double len = length(span);
         if (len > MAX_BEAM) start = add(p, mul(d, -MAX_BEAM));
@@ -151,7 +155,7 @@ public class EntityBulletRenderer extends Render {
 
     private static void plasma(double[] p, double[] d, float r, float g, float b, float s, double t) {
         double radius = (0.22D + 0.04D * Math.sin(t * 1.3D)) * s;
-        ribbon(add(p, mul(d, -tail(1.6D * s))), p, radius * 1.3D, r, g, b, 0.0F, 0.5F);
+        ribbon(tailStart(p, d, 1.6D * s), p, radius * 1.3D, r, g, b, 0.0F, 0.5F);
         glow(p, radius * 2.2D, r, g, b, 0.45F);
         glow(p, radius, WHITE, WHITE, WHITE, 0.9F);
     }
@@ -180,7 +184,7 @@ public class EntityBulletRenderer extends Render {
     }
 
     private static void pulse(double[] p, double[] d, float r, float g, float b, float s, double t) {
-        ribbon(add(p, mul(d, -tail(2.0D * s))), p, 0.12D * s, r, g, b, 0.0F, 0.5F);
+        ribbon(tailStart(p, d, 2.0D * s), p, 0.12D * s, r, g, b, 0.0F, 0.5F);
         glow(p, 0.26D * s, WHITE, WHITE, WHITE, 0.8F);
         glow(p, 0.5D * s, r, g, b, 0.4F);
         // three shock rings expanding out of the pulse as it travels
@@ -199,7 +203,7 @@ public class EntityBulletRenderer extends Render {
     }
 
     private static void orbRing(double[] p, double[] d, float r, float g, float b, float s, double t) {
-        ribbon(add(p, mul(d, -tail(2.5D * s))), p, 0.3D * s, r, g, b, 0.0F, 0.35F);
+        ribbon(tailStart(p, d, 2.5D * s), p, 0.3D * s, r, g, b, 0.0F, 0.35F);
         glow(p, 0.55D * s, r, g, b, 0.5F);
         glow(p, 0.22D * s, WHITE, WHITE, WHITE, 0.9F);
         double[][] basis = basis(d);
@@ -215,7 +219,7 @@ public class EntityBulletRenderer extends Render {
         double t) {
         Random rnd = new Random(bullet.getEntityId() * 31L + (long) (t * 2.0D));
         double[][] basis = basis(d);
-        ribbon(add(p, mul(d, -tail(2.0D * s))), p, 0.04D * s, WHITE, WHITE, WHITE, 0.0F, 0.9F);
+        ribbon(tailStart(p, d, 2.0D * s), p, 0.04D * s, WHITE, WHITE, WHITE, 0.0F, 0.9F);
         for (int i = 0; i < 9; i++) {
             double back = rnd.nextDouble() * tail(2.5D * s);
             double off = 0.1D + rnd.nextDouble() * 0.35D * s;
@@ -233,6 +237,41 @@ public class EntityBulletRenderer extends Render {
     /** Tail length clamped so it never extends behind the muzzle (or through the shooter's view). */
     private static double tail(double wanted) {
         return Math.min(wanted, travelled);
+    }
+
+    /**
+     * Back end of a tail of the wanted length behind p; once the projectile is closer to the muzzle than that, the
+     * tail runs straight back to the muzzle so the effect visibly leaves the barrel.
+     */
+    private static double[] tailStart(double[] p, double[] d, double wanted) {
+        return wanted < travelled ? add(p, mul(d, -wanted)) : originRel;
+    }
+
+    /** Puts the effect's start point at the shooter's muzzle instead of the eye line the projectile flies along. */
+    private static void initOrigin(EntityBullet bullet) {
+        double sx = bullet.spawnX, sy = bullet.spawnY, sz = bullet.spawnZ;
+        if (sx == 0 && sy == 0 && sz == 0) {
+            sx = bullet.posX;
+            sy = bullet.posY;
+            sz = bullet.posZ;
+        }
+        double[] origin = { sx, sy, sz };
+        double[] dir = norm(new double[] { bullet.motionX, bullet.motionY, bullet.motionZ });
+        if (dir != null) {
+            double[] right = norm(cross(dir, new double[] { 0, 1, 0 }));
+            if (right != null) {
+                double[] up = cross(right, dir);
+                Minecraft mc = Minecraft.getMinecraft();
+                boolean firstPerson = bullet.getThrower() != null && bullet.getThrower() == mc.renderViewEntity
+                    && mc.gameSettings.thirdPersonView == 0;
+                double[] o = firstPerson ? MUZZLE_FIRST_PERSON : MUZZLE_THIRD_PERSON;
+                origin = add(origin, add(add(mul(right, o[0]), mul(up, o[1])), mul(dir, o[2])));
+            }
+        }
+        bullet.originX = origin[0];
+        bullet.originY = origin[1];
+        bullet.originZ = origin[2];
+        bullet.hasOrigin = true;
     }
 
     // ---------------- primitives ----------------

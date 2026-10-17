@@ -53,7 +53,10 @@ public class EntityBullet extends EntityProjectile {
     private float damage = DEFAULT_DAMAGE;
     private float explosionRadius;
 
-    // client-side render bookkeeping: where the projectile was first seen
+    // client-side render bookkeeping
+    /** Where the projectile entered the world (the shooter's eye line). */
+    public double spawnX, spawnY, spawnZ;
+    /** Where its visual effect starts: the shooter's muzzle, set on first render. */
     public double originX, originY, originZ;
     public boolean hasOrigin;
 
@@ -159,6 +162,12 @@ public class EntityBullet extends EntityProjectile {
         buffer.writeInt(Item.getIdFromItem(this.weapon));
         buffer.writeFloat(this.damage);
         buffer.writeFloat(this.explosionRadius);
+        // Exact velocity: the vanilla spawn packet clamps each component to +-3.9 blocks/tick, which bends the
+        // client-side flight path of fast projectiles away from the real one.
+        buffer.writeDouble(this.motionX);
+        buffer.writeDouble(this.motionY);
+        buffer.writeDouble(this.motionZ);
+        buffer.writeInt(this.thrower != null ? this.thrower.getEntityId() : -1);
     }
 
     public void readSpawnData(ByteBuf buffer) {
@@ -166,6 +175,19 @@ public class EntityBullet extends EntityProjectile {
         this.weapon = (ItemWeapon) Item.getItemById(buffer.readInt());
         this.damage = buffer.readFloat();
         this.explosionRadius = buffer.readFloat();
+        this.motionX = buffer.readDouble();
+        this.motionY = buffer.readDouble();
+        this.motionZ = buffer.readDouble();
+        int throwerId = buffer.readInt();
+        if (throwerId >= 0 && this.worldObj != null) {
+            Entity shooter = this.worldObj.getEntityByID(throwerId);
+            if (shooter instanceof EntityLivingBase) {
+                this.thrower = (EntityLivingBase) shooter;
+            }
+        }
+        this.spawnX = this.posX;
+        this.spawnY = this.posY;
+        this.spawnZ = this.posZ;
     }
 
     public void readEntityFromNBT(NBTTagCompound tagCompound) {
