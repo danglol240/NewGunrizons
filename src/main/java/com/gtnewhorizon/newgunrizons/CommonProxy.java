@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.IItemRenderer;
 
 import com.gtnewhorizon.newgunrizons.entities.EntityBullet;
+import com.gtnewhorizon.newgunrizons.entities.EntityGravityField;
 import com.gtnewhorizon.newgunrizons.entities.EntityGrenade;
 import com.gtnewhorizon.newgunrizons.entities.EntityShellCasing;
 import com.gtnewhorizon.newgunrizons.grenade.GrenadeAttackAspect;
@@ -30,6 +31,7 @@ import com.gtnewhorizon.newgunrizons.items.instances.ItemGrenadeInstance;
 import com.gtnewhorizon.newgunrizons.items.instances.ItemInstance;
 import com.gtnewhorizon.newgunrizons.items.instances.ItemMagazineInstance;
 import com.gtnewhorizon.newgunrizons.items.instances.ItemWeaponInstance;
+import com.gtnewhorizon.newgunrizons.network.BeamMessage;
 import com.gtnewhorizon.newgunrizons.network.BlockHitMessage;
 import com.gtnewhorizon.newgunrizons.network.ExplosionMessage;
 import com.gtnewhorizon.newgunrizons.network.GrenadeMessage;
@@ -44,6 +46,7 @@ import com.gtnewhorizon.newgunrizons.registry.Bullets;
 import com.gtnewhorizon.newgunrizons.registry.Grenades;
 import com.gtnewhorizon.newgunrizons.registry.Guns;
 import com.gtnewhorizon.newgunrizons.registry.Magazines;
+import com.gtnewhorizon.newgunrizons.registry.Parts;
 import com.gtnewhorizon.newgunrizons.state.StateManager;
 import com.gtnewhorizon.newgunrizons.weapon.MagazineReloadAspect;
 import com.gtnewhorizon.newgunrizons.weapon.MagazineState;
@@ -105,8 +108,10 @@ public class CommonProxy {
             Side.SERVER);
         registerClientMessageHandlers(channel);
 
+        // No velocity updates: they are clamped to 3.9 blocks/tick per axis and would bend the client-side path of
+        // fast projectiles. The exact velocity travels in the spawn data and the client simulates the same physics.
         EntityRegistry
-            .registerModEntity(EntityBullet.class, "Ammo" + this.modEntityID, this.modEntityID++, mod, 64, 3, true);
+            .registerModEntity(EntityBullet.class, "Ammo" + this.modEntityID, this.modEntityID++, mod, 64, 3, false);
         EntityRegistry.registerModEntity(
             EntityShellCasing.class,
             "ShellCasing" + this.modEntityID,
@@ -115,6 +120,14 @@ public class CommonProxy {
             64,
             500,
             true);
+        EntityRegistry.registerModEntity(
+            EntityGravityField.class,
+            "GravityField" + this.modEntityID,
+            this.modEntityID++,
+            mod,
+            96,
+            20,
+            false);
         EntityRegistry.registerModEntity(
             EntityGrenade.class,
             "Grenade" + this.modEntityID,
@@ -168,6 +181,7 @@ public class CommonProxy {
         Bullets.init();
         Magazines.init();
         Guns.init();
+        Parts.init();
         Grenades.init();
     }
 
@@ -175,6 +189,7 @@ public class CommonProxy {
         channel.registerMessage((msg, ctx) -> null, SpawnParticleMessage.class, 18, Side.CLIENT);
         channel.registerMessage((msg, ctx) -> null, BlockHitMessage.class, 19, Side.CLIENT);
         channel.registerMessage((msg, ctx) -> null, ExplosionMessage.class, 21, Side.CLIENT);
+        channel.registerMessage((msg, ctx) -> null, BeamMessage.class, 22, Side.CLIENT);
     }
 
     public void onWeaponFireEffects(EntityLivingBase player, float smokeOffsetX, float smokeOffsetY,

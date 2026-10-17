@@ -43,6 +43,10 @@ public class WeaponFireAspect implements Aspect<WeaponState, ItemWeaponInstance>
         >= ALERT_TIMEOUT + instance.getStateUpdateTimestamp();
     private static final Predicate<ItemWeaponInstance> sprinting = (instance) -> instance.getPlayer()
         .isSprinting();
+    private static final Predicate<ItemWeaponInstance> overheated = (instance) -> {
+        EntityLivingBase player = instance.getPlayer();
+        return player != null && WeaponHeat.isLocked(player.getHeldItem(), player.worldObj.getTotalWorldTime());
+    };
     private static final Set<WeaponState> allowedFireOrEjectFromStates;
     private static final Set<WeaponState> allowedUpdateFromStates;
     public static final WeaponFireAspect INSTANCE = new WeaponFireAspect();
@@ -69,6 +73,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, ItemWeaponInstance>
             .to(WeaponState.FIRING)
             .when(
                 hasAmmo.and(sprinting.negate())
+                    .and(overheated.negate())
                     .and(readyToShootAccordingToFireRate))
             .withAction(this::fire)
             .manual()
@@ -100,6 +105,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, ItemWeaponInstance>
             .to(WeaponState.FIRING)
             .when(
                 hasAmmo.and(sprinting.negate())
+                    .and(overheated.negate())
                     .and(readyToShootAccordingToFireMode)
                     .and(readyToShootAccordingToFireRate))
             .withAction(this::fire)
@@ -116,6 +122,15 @@ public class WeaponFireAspect implements Aspect<WeaponState, ItemWeaponInstance>
         ItemWeaponInstance weaponInstance = ItemInstanceRegistry.INSTANCE
             .getMainHandItemInstance(player, ItemWeaponInstance.class);
         if (weaponInstance != null) {
+            if (overheated.test(weaponInstance)) {
+                float left = WeaponHeat.secondsLeft(player.getHeldItem(), player.worldObj.getTotalWorldTime());
+                StatusMessageManager.INSTANCE.addAlertMessage(
+                    StatCollector.translateToLocalFormatted("gui.newgunrizons.overheated", String.format("%.1f", left)),
+                    1,
+                    250L,
+                    200L);
+                return;
+            }
             this.stateManager.changeStateFromAnyOf(
                 this,
                 weaponInstance,
@@ -200,6 +215,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, ItemWeaponInstance>
                 .get(),
             silencerOn);
 
+        WeaponHeat.addShot(player.getHeldItem(), player.worldObj.getTotalWorldTime());
         weaponInstance.setSeriesShotCount(weaponInstance.getSeriesShotCount() + 1);
         weaponInstance.setLastFireTimestamp(System.currentTimeMillis());
         weaponInstance.setAmmo(weaponInstance.getAmmo() - 1);
@@ -230,11 +246,16 @@ public class WeaponFireAspect implements Aspect<WeaponState, ItemWeaponInstance>
         }
         instance.setPlayer(player);
 
-        // Server-authoritative ammo check
+        // Server-authoritative ammo and heat checks
         int ammo = instance.getAmmo();
         if (ammo <= 0) {
             return;
         }
+        long now = player.worldObj.getTotalWorldTime();
+        if (WeaponHeat.isLocked(itemStack, now)) {
+            return;
+        }
+        WeaponHeat.addShot(itemStack, now);
         instance.setAmmo(ammo - 1);
         ItemInstance.setAmmo(itemStack, ammo - 1);
         ItemInstance.toStack(itemStack, instance);

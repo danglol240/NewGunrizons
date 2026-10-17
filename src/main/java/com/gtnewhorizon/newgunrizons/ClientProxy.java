@@ -14,12 +14,17 @@ import com.gtnewhorizon.newgunrizons.client.handlers.WeaponInputHandler;
 import com.gtnewhorizon.newgunrizons.client.handlers.WeaponRenderHandler;
 import com.gtnewhorizon.newgunrizons.client.input.KeyBindings;
 import com.gtnewhorizon.newgunrizons.client.particle.ParticleManager;
+import com.gtnewhorizon.newgunrizons.client.render.BeamEffects;
 import com.gtnewhorizon.newgunrizons.client.render.EntityBulletRenderer;
 import com.gtnewhorizon.newgunrizons.client.render.EntityGrenadeRenderer;
 import com.gtnewhorizon.newgunrizons.client.render.EntityShellRenderer;
+import com.gtnewhorizon.newgunrizons.client.render.GravityFieldRenderer;
 import com.gtnewhorizon.newgunrizons.entities.EntityBullet;
+import com.gtnewhorizon.newgunrizons.entities.EntityGravityField;
 import com.gtnewhorizon.newgunrizons.entities.EntityGrenade;
 import com.gtnewhorizon.newgunrizons.entities.EntityShellCasing;
+import com.gtnewhorizon.newgunrizons.network.BeamMessage;
+import com.gtnewhorizon.newgunrizons.network.BeamMessageHandler;
 import com.gtnewhorizon.newgunrizons.network.BlockHitMessage;
 import com.gtnewhorizon.newgunrizons.network.BlockHitMessageHandler;
 import com.gtnewhorizon.newgunrizons.network.ExplosionMessage;
@@ -63,6 +68,8 @@ public class ClientProxy extends CommonProxy {
         RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, new EntityBulletRenderer());
         RenderingRegistry.registerEntityRenderingHandler(EntityShellCasing.class, new EntityShellRenderer());
         RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new EntityGrenadeRenderer());
+        RenderingRegistry.registerEntityRenderingHandler(EntityGravityField.class, new GravityFieldRenderer());
+        MinecraftForge.EVENT_BUS.register(new BeamEffects());
     }
 
     @Override
@@ -70,6 +77,7 @@ public class ClientProxy extends CommonProxy {
         channel.registerMessage(new SpawnParticleMessageHandler(), SpawnParticleMessage.class, 18, Side.CLIENT);
         channel.registerMessage(new BlockHitMessageHandler(), BlockHitMessage.class, 19, Side.CLIENT);
         channel.registerMessage(new ExplosionMessageHandler(), ExplosionMessage.class, 21, Side.CLIENT);
+        channel.registerMessage(new BeamMessageHandler(), BeamMessage.class, 22, Side.CLIENT);
     }
 
     @Override
