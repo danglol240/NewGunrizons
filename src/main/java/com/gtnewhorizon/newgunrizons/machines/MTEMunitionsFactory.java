@@ -1,5 +1,6 @@
 package com.gtnewhorizon.newgunrizons.machines;
 
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.isAir;
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlocksTiered;
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
 import static gregtech.api.enums.HatchElement.Energy;
@@ -8,6 +9,7 @@ import static gregtech.api.enums.HatchElement.InputHatch;
 import static gregtech.api.enums.HatchElement.Maintenance;
 import static gregtech.api.enums.HatchElement.OutputBus;
 import static gregtech.api.util.GTStructureUtility.buildHatchAdder;
+import static gregtech.api.util.GTStructureUtility.chainAllGlasses;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,12 +19,17 @@ import java.util.stream.IntStream;
 import javax.annotation.Nonnull;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import org.apache.commons.lang3.tuple.Pair;
 
+import com.google.common.io.ByteArrayDataInput;
+
+import com.gtnewhorizon.newgunrizons.client.render.FactoryAssemblyRenderer;
 import com.gtnewhorizon.newgunrizons.registry.MunitionsRecipeMap;
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
@@ -47,22 +54,25 @@ import gregtech.api.util.GTRecipe;
 import gregtech.api.util.GTUtility;
 import gregtech.api.util.MultiblockTooltipBuilder;
 import gregtech.common.misc.GTStructureChannels;
+import gregtech.common.render.IMTERenderer;
+import io.netty.buffer.ByteBuf;
 
 /**
  * Munitions Factory: the only machine that makes NewGunrizons weapons, components, magazines and ammunition.
  * <p>
  * The factory grows with the player's progression:
  * <ul>
- * <li>a 5x3 head with the controller between two Steel Gear Box Casings;</li>
- * <li>1-7 production line segments behind it, each a 5x3 ring of Solid Steel Machine Casings around three tiered
- * Machine Casings (LV..UHV);</li>
+ * <li>a 5x4 head with the controller between two Steel Gear Box Casings;</li>
+ * <li>1-7 production line segments behind it: a 5x4 ring of Solid Steel Machine Casings with glass side windows, an
+ * empty production lane and a conveyor floor of three tiered Machine Casings (LV..UHV);</li>
  * <li>the Machine Casing tier (all segments must match) is the factory's era: it caps the voltage tier of the recipes
  * the factory accepts;</li>
  * <li>every segment adds 4 parallels.</li>
  * </ul>
+ * While running, the product being made is rendered gliding along the lane behind the glass.
  */
 public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunitionsFactory>
-    implements ISurvivalConstructable, ICasingTextureProvider {
+    implements ISurvivalConstructable, ICasingTextureProvider, IMTERenderer {
 
     private static final String HEAD = "head";
     private static final String SEGMENT = "segment";
@@ -80,11 +90,19 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
     private int casingTier = TIER_NOT_SET;
     private int segments;
 
+    // client-side render state, synced from the server by render-data packets
+    private int renderSegments;
+    private int renderItemId = -1;
+    private int renderItemMeta;
+
     private static final IStructureDefinition<MTEMunitionsFactory> STRUCTURE = StructureDefinition
         .<MTEMunitionsFactory>builder()
-        .addShape(HEAD, new String[][] { { "CCCCC", "CG~GC", "CCCCC" } })
-        .addShape(SEGMENT, new String[][] { { "CCCCC", "CTTTC", "CCCCC" } })
+        // rows top to bottom; the controller row (index 1) is the production lane
+        .addShape(HEAD, new String[][] { { "CCCCC", "CG~GC", "CCCCC", "CCCCC" } })
+        .addShape(SEGMENT, new String[][] { { "CCCCC", "W---W", "CTTTC", "CCCCC" } })
         .addElement('G', Casings.SteelGearBoxCasing.asElement())
+        .addElement('W', chainAllGlasses())
+        .addElement('-', isAir())
         .addElement(
             'T',
             GTStructureChannels.TIER_MACHINE_CASING.use(
@@ -132,11 +150,14 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
             .addInfo("recipes above that voltage tier are refused (LV casings = LV era ... UHV casings = UHV era)")
             .addInfo("All segments must use the same Machine Casing tier")
             .addInfo("Runs recipes at double speed")
-            .beginVariableStructureBlock(5, 5, 3, 3, 2, 1 + MAX_SEGMENTS, false)
+            .addInfo("While running, the product glides along the production lane behind the glass")
+            .beginVariableStructureBlock(5, 5, 4, 4, 2, 1 + MAX_SEGMENTS, false)
             .addController("Front center, between the two Steel Gear Box Casings")
             .addCasingInfoMin("Solid Steel Machine Casing", MIN_CASINGS, false)
             .addCasing("2", "Steel Gear Box Casing", false)
-            .addCasing("3 per segment", "Machine Casing (LV-UHV, sets the era)", true)
+            .addCasing("3 per segment", "Machine Casing (LV-UHV, sets the era), as the conveyor floor", true)
+            .addOtherStructurePart("Any glass", "2 per segment, side windows of the production lane")
+            .addOtherStructurePart("Air", "3 per segment, the production lane")
             .addEnergyHatch("1+", "Any Solid Steel Machine Casing", 1)
             .addMaintenanceHatch("1", "Any Solid Steel Machine Casing", 1)
             .addInputBus("1+", "Any Solid Steel Machine Casing", 1)
@@ -274,6 +295,52 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
         super.loadNBTData(nbt);
         casingTier = nbt.getInteger("casingTier");
         segments = nbt.getInteger("segments");
+    }
+
+    // ---------------- assembly scene ----------------
+
+    @Override
+    public void onPostTick(IGregTechTileEntity baseMetaTileEntity, long tick) {
+        super.onPostTick(baseMetaTileEntity, tick);
+        if (baseMetaTileEntity.isServerSide() && tick % 40 == 0 && mMachine) {
+            sendRenderDataToClient(this);
+        }
+    }
+
+    @Override
+    public void encodeRenderData(ByteBuf buffer) {
+        ItemStack product = mOutputItems != null && mOutputItems.length > 0 ? mOutputItems[0] : null;
+        buffer.writeInt(segments);
+        buffer.writeInt(product != null && product.getItem() != null ? Item.getIdFromItem(product.getItem()) : -1);
+        buffer.writeInt(product != null ? product.getItemDamage() : 0);
+    }
+
+    @Override
+    public void decodeRenderData(ByteArrayDataInput buffer) {
+        renderSegments = buffer.readInt();
+        renderItemId = buffer.readInt();
+        renderItemMeta = buffer.readInt();
+    }
+
+    @Override
+    public void renderTESR(double x, double y, double z, float partialTicks) {
+        if (renderItemId < 0 || renderSegments <= 0) return;
+        Item item = Item.getItemById(renderItemId);
+        if (item == null) return;
+        FactoryAssemblyRenderer.render(
+            getBaseMetaTileEntity(),
+            new ItemStack(item, 1, renderItemMeta),
+            renderSegments,
+            x,
+            y,
+            z,
+            partialTicks);
+    }
+
+    @Override
+    public AxisAlignedBB getRenderBoundingBox(int x, int y, int z) {
+        int r = MAX_SEGMENTS + 2;
+        return AxisAlignedBB.getBoundingBox(x - r, y - r, z - r, x + r + 1, y + r + 1, z + r + 1);
     }
 
     @Override

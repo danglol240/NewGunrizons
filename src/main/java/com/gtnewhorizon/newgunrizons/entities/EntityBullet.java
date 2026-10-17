@@ -53,6 +53,10 @@ public class EntityBullet extends EntityProjectile {
     private float damage = DEFAULT_DAMAGE;
     private float explosionRadius;
 
+    // client-side render bookkeeping: where the projectile was first seen
+    public double originX, originY, originZ;
+    public boolean hasOrigin;
+
     public EntityBullet(World world) {
         super(world);
     }

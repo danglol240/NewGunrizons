@@ -10,6 +10,7 @@ import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.client.render.WeaponRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
+import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
 import com.gtnewhorizon.newgunrizons.registry.AuxiliaryAttachments;
@@ -19,6 +20,7 @@ public class NeutronRifleFactory {
 
     public Item createGun() {
         return (new ItemWeapon.Builder()).withName("NeutronRifle")
+            .withProjectile(ProjectileStyle.PULSE, 0x5AFF78, 1.0F)
             .withFireRate(0.8F)
             .withRecoil(2.5F)
 

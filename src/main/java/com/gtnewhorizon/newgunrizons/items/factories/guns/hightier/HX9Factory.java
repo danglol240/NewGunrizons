@@ -10,6 +10,7 @@ import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.client.render.WeaponRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
+import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
 import com.gtnewhorizon.newgunrizons.registry.AuxiliaryAttachments;
@@ -19,6 +20,7 @@ public class HX9Factory {
 
     public Item createGun() {
         return (new ItemWeapon.Builder()).withName("HX9")
+            .withProjectile(ProjectileStyle.TRACER, 0x4696FF, 1.4F)
             .withFireRate(0.75F)
             .withRecoil(3.5F)
 

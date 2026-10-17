@@ -10,6 +10,7 @@ import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.client.render.WeaponRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
+import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
 import com.gtnewhorizon.newgunrizons.registry.AuxiliaryAttachments;
@@ -19,6 +20,7 @@ public class LaserRifleFactory {
 
     public Item createGun() {
         return (new ItemWeapon.Builder()).withName("LaserRifle")
+            .withProjectile(ProjectileStyle.LASER, 0x28E4F0, 1.0F)
             .withFireRate(0.9F)
             .withRecoil(2.4F)
 

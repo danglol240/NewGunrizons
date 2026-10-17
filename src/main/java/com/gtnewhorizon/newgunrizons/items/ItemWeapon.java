@@ -91,6 +91,14 @@ public class ItemWeapon extends Item
     /** Creative tab the weapon was built for; readable on both sides (Item#getCreativeTab is client-only). */
     private final CreativeTabs homeTab;
     @Getter
+    private final ProjectileStyle projectileStyle;
+    /** RGB colour of the projectile effect. */
+    @Getter
+    private final int projectileColor;
+    /** Size multiplier of the projectile effect. */
+    @Getter
+    private final float projectileScale;
+    @Getter
     private final float flashIntensity;
     @Getter
     private final Supplier<Float> flashScale;
@@ -148,6 +156,9 @@ public class ItemWeapon extends Item
         this.inaccuracy = builder.inaccuracy;
         this.pellets = builder.pellets;
         this.homeTab = builder.creativeTab;
+        this.projectileStyle = builder.projectileStyle;
+        this.projectileColor = builder.projectileColor;
+        this.projectileScale = builder.projectileScale;
         this.flashIntensity = builder.flashIntensity;
         this.flashScale = builder.flashScale;
         this.flashOffsetX = builder.flashOffsetX;
@@ -493,6 +504,9 @@ public class ItemWeapon extends Item
         public long pumpTimeoutMilliseconds;
         private float inaccuracy = 1.0F;
         public int pellets = 1;
+        private ProjectileStyle projectileStyle = ProjectileStyle.NONE;
+        private int projectileColor = 0xFFFFFF;
+        private float projectileScale = 1.0F;
         public float flashIntensity = 0.4F;
         public Supplier<Float> flashScale = () -> 1.0F;
         public Supplier<Float> flashOffsetX = () -> 0.0F;
@@ -742,6 +756,17 @@ public class ItemWeapon extends Item
 
         public ItemWeapon.Builder withPumpTimeout(long pumpTimeoutMilliseconds) {
             this.pumpTimeoutMilliseconds = pumpTimeoutMilliseconds;
+            return this;
+        }
+
+        public ItemWeapon.Builder withProjectile(ProjectileStyle style, int rgb) {
+            return withProjectile(style, rgb, 1.0F);
+        }
+
+        public ItemWeapon.Builder withProjectile(ProjectileStyle style, int rgb, float scale) {
+            this.projectileStyle = style;
+            this.projectileColor = rgb;
+            this.projectileScale = scale;
             return this;
         }
 

@@ -10,6 +10,7 @@ import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.client.render.WeaponRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
+import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
 import com.gtnewhorizon.newgunrizons.registry.Bullets;
@@ -18,6 +19,7 @@ public class AntimatterCannonFactory {
 
     public Item createGun() {
         return (new ItemWeapon.Builder()).withName("AntimatterCannon")
+            .withProjectile(ProjectileStyle.ORB_RING, 0xFF4034, 1.8F)
             .withAmmoCapacity(1)
             .withFireRate(0.5F)
             .withRecoil(2.0F)

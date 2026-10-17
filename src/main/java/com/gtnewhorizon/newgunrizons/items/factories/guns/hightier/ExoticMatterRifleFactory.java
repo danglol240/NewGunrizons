@@ -10,6 +10,7 @@ import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.client.animation.Transition;
 import com.gtnewhorizon.newgunrizons.client.render.WeaponRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
+import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
 import com.gtnewhorizon.newgunrizons.model.JsonModel;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
 import com.gtnewhorizon.newgunrizons.registry.Magazines;
@@ -18,6 +19,7 @@ public class ExoticMatterRifleFactory {
 
     public Item createGun() {
         return (new ItemWeapon.Builder()).withName("ExoticMatterRifle")
+            .withProjectile(ProjectileStyle.SHARDS, 0xFF4034, 1.0F)
             .withFireRate(0.55F)
             .withRecoil(3.0F)
 
