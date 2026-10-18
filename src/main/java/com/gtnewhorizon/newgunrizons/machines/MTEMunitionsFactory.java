@@ -67,6 +67,8 @@ import io.netty.buffer.ByteBuf;
  * <li>the head holds the controller, framed by Heat Proof Machine Casings;</li>
  * <li>segment N behind it has a roof of three tier-N Machine Casings (segment 1 = LV, 2 = MV ... 14 = MAX), glass side
  * windows around an empty production lane, and a Heat Proof Machine Casing floor;</li>
+ * <li>a back cap of Heat Proof Machine Casings closes the line behind the last segment (so the smallest factory is
+ * 3x3x3);</li>
  * <li>the number of consecutive segments is the factory's era: it accepts recipes up to that voltage tier;</li>
  * <li>every segment adds 4 parallels.</li>
  * </ul>
@@ -77,6 +79,7 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
 
     private static final String HEAD = "head";
     private static final String SEGMENT = "segment";
+    private static final String BACK = "back";
     private static final int OFFSET_X = 1;
     private static final int OFFSET_Y = 1;
     /** One segment per era: 1 = LV ... 9 = UHV, 10 = UEV ... 14 = MAX. */
@@ -99,6 +102,7 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
         StructureDefinition.Builder<MTEMunitionsFactory> b = StructureDefinition.<MTEMunitionsFactory>builder()
             // rows top to bottom; the controller row is the production lane
             .addShape(HEAD, new String[][] { { "CCC", "C~C", "CCC" } })
+            .addShape(BACK, new String[][] { { "CCC", "CCC", "CCC" } })
             .addElement('W', chainAllGlasses())
             .addElement('-', isAir())
             .addElement(
@@ -164,11 +168,13 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
             .addInfo("segment 1 is roofed with LV Assembly Frames, segment 2 with MV, ... segment 14 with MAX")
             .addInfo("(each tier's GregTech Machine Casing also works as roof)")
             .addInfo("The number of segments is the factory's era; it accepts recipes up to that tier")
+            .addInfo("A back cap of Heat Proof Machine Casings closes the line behind the last segment")
             .addInfo("Each segment adds " + PARALLEL_PER_SEGMENT + " parallels")
             .addInfo("Runs recipes at double speed")
             .addInfo("While running, the product is assembled along the lane behind the glass")
-            .beginVariableStructureBlock(3, 3, 3, 3, 2, 1 + MAX_SEGMENTS, false)
+            .beginVariableStructureBlock(3, 3, 3, 3, 3, 2 + MAX_SEGMENTS, false)
             .addController("Front center")
+            .addStructureInfo("Front and back: 3x3 Heat Proof Machine Casings; each segment between them: 3x3")
             .addCasingInfoMin("Heat Proof Machine Casing", MIN_CASINGS, false)
             .addCasing("3 per segment", "Assembly Frame (or Machine Casing) of the segment's era, as the roof", true)
             .addOtherStructurePart("Any glass", "2 per segment, side windows of the production lane")
@@ -195,6 +201,7 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
         for (int i = 1; i <= count; i++) {
             buildPiece(SEGMENT + i, stackSize, hintsOnly, OFFSET_X, OFFSET_Y, -i);
         }
+        buildPiece(BACK, stackSize, hintsOnly, OFFSET_X, OFFSET_Y, -(count + 1));
     }
 
     @Override
@@ -208,7 +215,7 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
             built = survivalBuildPiece(SEGMENT + i, stackSize, OFFSET_X, OFFSET_Y, -i, elementBudget, env, false, true);
             if (built >= 0) return built;
         }
-        return -1;
+        return survivalBuildPiece(BACK, stackSize, OFFSET_X, OFFSET_Y, -(count + 1), elementBudget, env, false, true);
     }
 
     @Override
@@ -226,6 +233,11 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
         }
         if (segments == 0) {
             errors.addAll(segmentErrors);
+            return;
+        }
+        // the back cap closes the line right behind the last segment
+        if (!checkPiece(BACK, OFFSET_X, OFFSET_Y, -(segments + 1), errors)) {
+            segments = 0;
             return;
         }
         checkCasingMin(errors, casingAmount, MIN_CASINGS);

@@ -17,7 +17,7 @@
         "id:8": "minecraft:stick"
       },
       "countAsQuest:1": 1,
-      "desc:8": "Add segment 4 behind segment 3: a roof of 3 EV Titanium Assembly Frames, glass on both sides, a floor of 3 Heat Proof Machine Casings. Upgrade the Energy Hatch to EV.\nThe factory needs every segment from LV to EV in a row to run EV recipes.",
+      "desc:8": "Add segment 4 behind segment 3: a roof of 3 EV Titanium Assembly Frames, glass on both sides, a floor of 3 Heat Proof Machine Casings, then move the back cap one block further back. Upgrade the Energy Hatch to EV.\nThe factory needs every segment from LV to EV in a row to run EV recipes.",
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,

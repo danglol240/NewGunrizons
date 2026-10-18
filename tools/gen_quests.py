@@ -108,7 +108,9 @@ FACTORY_GUIDE = (
     "  F F F   <- roof: 3 Assembly Frames of the segment's tier\n"
     "  G . G   <- 2 glass, empty in the middle (the assembly lane)\n"
     "  C C C   <- floor: Heat Proof Machine Casings\n"
-    "C = Heat Proof Machine Casing (hatches go here), K = controller.\n"
+    "Back cap, right behind the last segment, 3x3:\n"
+    "  C C C\n  C C C\n  C C C\n"
+    "C = Heat Proof Machine Casing (hatches go here), K = controller. The smallest factory is 3x3x3.\n"
     "Segment 1 is roofed with LV (Steel) frames, segment 2 with MV (Aluminium)... segment 14 with MAX (Magmatter). "
     "The GregTech Machine Casing of the same tier also works as roof.\n"
     "The number of consecutive segments is the factory's era (highest recipe tier). Each segment adds 4 parallels.\n"
@@ -131,7 +133,8 @@ for i in range(1, 14):
     q(f"era_{tier}", f"Factory Era: {tier}", frame(i), retrieval(frame(i, 3)),
       [f"era_{TIERS[i - 1]}" if i > 1 else "factory"], *pos(i, "era"),
       f"Add segment {i + 1} behind segment {i}: a roof of 3 {tier} {MATERIALS[i]} Assembly Frames, glass on both "
-      f"sides, a floor of 3 Heat Proof Machine Casings. Upgrade the Energy Hatch to {tier}"
+      f"sides, a floor of 3 Heat Proof Machine Casings, then move the back cap one block further back. "
+      f"Upgrade the Energy Hatch to {tier}"
       + (f" ({POWER[tier]})" if tier in POWER else "") + ".\n"
       f"The factory needs every segment from LV to {tier} in a row to run {tier} recipes.")
 

@@ -17,7 +17,7 @@
         "id:8": "minecraft:stick"
       },
       "countAsQuest:1": 1,
-      "desc:8": "Add segment 5 behind segment 4: a roof of 3 IV Tungstensteel Assembly Frames, glass on both sides, a floor of 3 Heat Proof Machine Casings. Upgrade the Energy Hatch to IV.\nThe factory needs every segment from LV to IV in a row to run IV recipes.",
+      "desc:8": "Add segment 5 behind segment 4: a roof of 3 IV Tungstensteel Assembly Frames, glass on both sides, a floor of 3 Heat Proof Machine Casings, then move the back cap one block further back. Upgrade the Energy Hatch to IV.\nThe factory needs every segment from LV to IV in a row to run IV recipes.",
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,

@@ -17,7 +17,7 @@
         "id:8": "minecraft:stick"
       },
       "countAsQuest:1": 1,
-      "desc:8": "Add segment 14 behind segment 13: a roof of 3 MAX Magmatter Assembly Frames, glass on both sides, a floor of 3 Heat Proof Machine Casings. Upgrade the Energy Hatch to MAX (laser hatch).\nThe factory needs every segment from LV to MAX in a row to run MAX recipes.",
+      "desc:8": "Add segment 14 behind segment 13: a roof of 3 MAX Magmatter Assembly Frames, glass on both sides, a floor of 3 Heat Proof Machine Casings, then move the back cap one block further back. Upgrade the Energy Hatch to MAX (laser hatch).\nThe factory needs every segment from LV to MAX in a row to run MAX recipes.",
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,
