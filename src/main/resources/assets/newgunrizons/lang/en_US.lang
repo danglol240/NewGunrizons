@@ -460,3 +460,10 @@ item.newgunrizons_RealityEngine.name=Reality Engine
 gui.newgunrizons.heat=Heat [%s] %d%%
 gui.newgunrizons.overheated=Overheated! %s s
 entity.newgunrizons.GravityField.name=Gravity Field
+
+# Weapon chassis (Extreme Crafting Table)
+item.newgunrizons_CrystalMatrixChassis.name=Crystal Matrix Weapon Chassis
+item.newgunrizons_NeutroniumChassis.name=Neutronium Weapon Chassis
+item.newgunrizons_InfinityChassis.name=Infinity Weapon Chassis
+item.newgunrizons_SpacetimeChassis.name=Spacetime Weapon Chassis
+item.newgunrizons_EternalChassis.name=Eternal Weapon Chassis

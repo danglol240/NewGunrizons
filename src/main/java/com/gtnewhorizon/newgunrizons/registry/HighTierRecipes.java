@@ -54,6 +54,7 @@ public final class HighTierRecipes {
         addMechanisms();
         addModules();
         addEndgameModules();
+        addChassis();
         addEV();
         addIV();
         addLuV();
@@ -340,6 +341,95 @@ public final class HighTierRecipes {
                 copy(m.circuit, 2),
                 copy(m.extra, 4));
         }
+    }
+
+    // ==================== weapon chassis (UV-MAX, Extreme Crafting Table) ====================
+
+    private static void addChassis() {
+        chassis(
+            Parts.CrystalMatrixChassis,
+            EUT_UV,
+            31,
+            plate(Materials.Neutronium, 1),
+            circuit(Materials.UV, 1),
+            ItemList.Field_Generator_UV.get(1),
+            plate(Materials.Osmiridium, 1),
+            ExtremeRecipes.resource(ExtremeRecipes.CRYSTAL_MATRIX_INGOT, 1),
+            ExtremeRecipes.resource(ExtremeRecipes.DIAMOND_LATTICE, 1));
+        chassis(
+            Parts.NeutroniumChassis,
+            EUT_UHV,
+            32,
+            plate(Materials.CosmicNeutronium, 1),
+            circuit(Materials.UHV, 1),
+            ItemList.Field_Generator_UHV.get(1),
+            of(OrePrefixes.wireGt02, Materials.SuperconductorUHV, 1),
+            ExtremeRecipes.resource(ExtremeRecipes.NEUTRONIUM_INGOT, 1),
+            ExtremeRecipes.resource(ExtremeRecipes.NEUTRONIUM_GEAR, 1));
+        chassis(
+            Parts.InfinityChassis,
+            EUT_UEV,
+            33,
+            plate(Materials.Infinity, 1),
+            circuitTier(TIER_UEV, 1),
+            item(ItemList.Field_Generator_UEV, 1),
+            first(
+                of(OrePrefixes.wireGt02, Materials.SuperconductorUEV, 1),
+                of(OrePrefixes.wireGt02, Materials.SuperconductorUHV, 1)),
+            ExtremeRecipes.resource(ExtremeRecipes.INFINITY_INGOT, 1),
+            ExtremeRecipes.resource(ExtremeRecipes.INFINITY_CATALYST, 1));
+        chassis(
+            Parts.SpacetimeChassis,
+            EUT_UMV,
+            34,
+            first(plate(Materials.SpaceTime, 1), plate(Materials.TranscendentMetal, 1)),
+            circuitTier(TIER_UMV, 1),
+            item(ItemList.Field_Generator_UMV, 1),
+            first(plate(Materials.TranscendentMetal, 1), plate(Materials.Infinity, 1)),
+            ExtremeRecipes.resource(ExtremeRecipes.INFINITY_INGOT, 1),
+            new ItemStack(Parts.InfinityChassis));
+        chassis(
+            Parts.EternalChassis,
+            EUT_MAX,
+            35,
+            first(plate(Materials.MagMatter, 1), plate(Materials.Eternity, 1), plate(Materials.Universium, 1)),
+            circuitTier(TIER_MAX, 1),
+            item(ItemList.Field_Generator_MAX, 1),
+            first(plate(Materials.Universium, 1), plate(Materials.SpaceTime, 1)),
+            first(ExtremeRecipes.resourceBlock(1, 1), ExtremeRecipes.resource(ExtremeRecipes.INFINITY_INGOT, 1)),
+            new ItemStack(Parts.SpacetimeChassis));
+    }
+
+    /**
+     * A chassis is made only in the Extreme Crafting Table. Without Avaritia the factory makes it from the GregTech
+     * ingredients so the weapons stay obtainable.
+     */
+    private static void chassis(Item output, int eut, int programmed, ItemStack edge, ItemStack circuit,
+        ItemStack field, ItemStack secondary, ItemStack ingot, ItemStack core) {
+        if (ExtremeRecipes.available()) {
+            if (valid(output, edge, circuit, field, secondary, ingot, core)) {
+                ExtremeRecipes.addChassis(output, edge, circuit, field, secondary, ingot, core);
+            }
+            return;
+        }
+        // without Avaritia its ingots and catalysts are null; a previous chassis core still applies
+        ItemStack[] parts = core == null
+            ? new ItemStack[] { copy(edge, 16), copy(circuit, 4), copy(field, 4), copy(secondary, 8) }
+            : new ItemStack[] { copy(edge, 16), copy(circuit, 4), copy(field, 4), copy(secondary, 8), core.copy() };
+        part(output, 1, eut, 1600, programmed % 24 + 1, parts);
+    }
+
+    /** The Avaritia chassis a UV-MAX weapon is assembled on, or null below UV. */
+    private static Item chassisFor(Item gun) {
+        if (gun == null) return null;
+        if (gun == Guns.ParticleBeamRifle || gun == Guns.NeutronRifle) return Parts.CrystalMatrixChassis;
+        if (gun == Guns.AntimatterCannon || gun == Guns.ExoticMatterRifle) return Parts.NeutroniumChassis;
+        if (gun == Guns.QuantumPhaseRifle || gun == Guns.GravitonCannon) return Parts.InfinityChassis;
+        if (gun == Guns.ChronoRifle || gun == Guns.SingularityCannon || gun == Guns.DimensionalCutter) {
+            return Parts.SpacetimeChassis;
+        }
+        if (gun == Guns.RealityEraser) return Parts.EternalChassis;
+        return null;
     }
 
     // ==================== EV: rail-assisted ====================
@@ -705,6 +795,13 @@ public final class HighTierRecipes {
     }
 
     private static void gun(Item gun, int eut, int duration, int programmed, ItemStack... parts) {
+        Item frame = chassisFor(gun);
+        if (frame != null) {
+            ItemStack[] withFrame = new ItemStack[parts.length + 1];
+            System.arraycopy(parts, 0, withFrame, 0, parts.length);
+            withFrame[parts.length] = new ItemStack(frame);
+            parts = withFrame;
+        }
         if (!valid(gun, parts)) return;
         GTValues.RA.stdBuilder()
             .itemInputs(withCircuit(programmed, parts))

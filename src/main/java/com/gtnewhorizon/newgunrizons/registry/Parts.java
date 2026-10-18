@@ -37,6 +37,13 @@ public final class Parts {
     public static Item DimensionalRiftEmitter;
     public static Item RealityEngine;
 
+    // weapon chassis, made only in the Extreme Crafting Table (Avaritia)
+    public static Item CrystalMatrixChassis;
+    public static Item NeutroniumChassis;
+    public static Item InfinityChassis;
+    public static Item SpacetimeChassis;
+    public static Item EternalChassis;
+
     private Parts() {}
 
     public static void init() {
@@ -80,6 +87,15 @@ public final class Parts {
             "UMV: Singularity Cannon");
         DimensionalRiftEmitter = part("DimensionalRiftEmitter", "dimensional_rift_emitter", "UXV: Dimensional Cutter");
         RealityEngine = part("RealityEngine", "reality_engine", "MAX: Reality Eraser");
+
+        CrystalMatrixChassis = part(
+            "CrystalMatrixChassis",
+            "crystal_matrix_chassis",
+            "UV weapon frame (Extreme Crafting Table)");
+        NeutroniumChassis = part("NeutroniumChassis", "neutronium_chassis", "UHV weapon frame (Extreme Crafting Table)");
+        InfinityChassis = part("InfinityChassis", "infinity_chassis", "UEV-UIV weapon frame (Extreme Crafting Table)");
+        SpacetimeChassis = part("SpacetimeChassis", "spacetime_chassis", "UMV-UXV weapon frame (Extreme Crafting Table)");
+        EternalChassis = part("EternalChassis", "eternal_chassis", "MAX weapon frame (Extreme Crafting Table)");
     }
 
     private static Item part(String name, String texture, String usage) {

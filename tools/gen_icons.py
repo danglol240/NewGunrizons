@@ -363,6 +363,54 @@ def reality_engine():
     return i.outline()
 
 
+def _chassis(ramp, accent, sparkle=None, rainbow=False):
+    """Gun-frame silhouette: receiver rail, open body frame, grip and stock, in an Avaritia material."""
+    i = Icon()
+    i.rect(1, 4, 14, 5, ramp)  # top rail
+    i.rect(1, 6, 2, 9, ramp)  # front post
+    i.rect(13, 6, 14, 10, ramp)  # stock post
+    i.rect(1, 9, 9, 10, ramp)  # lower rail
+    i.rect(7, 11, 9, 14, ramp)  # grip
+    i.rect(10, 9, 14, 10, ramp)
+    for x in range(4, 12, 2):  # lightening cuts glow with the tier accent
+        i.px(x, 7, accent[1])
+    i.px(5, 7, accent[3])
+    if rainbow:
+        cols = [(255, 90, 90), (255, 200, 80), (120, 255, 120), (90, 200, 255), (200, 120, 255)]
+        for k, x in enumerate(range(2, 14, 3)):
+            i.px(x, 4, cols[k % len(cols)])
+    if sparkle:
+        for x, y in ((3, 5), (11, 4), (13, 8), (8, 12)):
+            i.px(x, y, sparkle)
+    return i.outline()
+
+
+CRYSTAL = [(70, 130, 150), (120, 200, 220), (180, 240, 255), (235, 255, 255)]
+NEUTRONIUM = [(30, 30, 34), (52, 52, 58), (74, 74, 82), (110, 110, 120)]
+SPACETIME = [(14, 10, 30), (28, 20, 52), (44, 32, 76), (70, 56, 110)]
+ETERNAL = [(170, 160, 140), (215, 208, 190), (240, 236, 224), (255, 252, 244)]
+
+
+def crystal_matrix_chassis():
+    return _chassis(CRYSTAL, GLOW["UV"], sparkle=(255, 255, 255))
+
+
+def neutronium_chassis():
+    return _chassis(NEUTRONIUM, GLOW["UHV"], sparkle=(220, 220, 230))
+
+
+def infinity_chassis():
+    return _chassis(STEEL, GLOW["UEV"], rainbow=True)
+
+
+def spacetime_chassis():
+    return _chassis(SPACETIME, GLOW["UMV"], sparkle=(200, 255, 210))
+
+
+def eternal_chassis():
+    return _chassis(ETERNAL, GLOW["MAX"], sparkle=(255, 220, 120))
+
+
 ICONS = {
     "pistol_slide": pistol_slide,
     "blowback_bolt": blowback_bolt,
@@ -385,6 +433,11 @@ ICONS = {
     "singularity_containment_unit": singularity_containment_unit,
     "dimensional_rift_emitter": dimensional_rift_emitter,
     "reality_engine": reality_engine,
+    "crystal_matrix_chassis": crystal_matrix_chassis,
+    "neutronium_chassis": neutronium_chassis,
+    "infinity_chassis": infinity_chassis,
+    "spacetime_chassis": spacetime_chassis,
+    "eternal_chassis": eternal_chassis,
 }
 
 
@@ -396,7 +449,7 @@ def main():
         imgs.append(img)
     if len(sys.argv) > 1:
         cell = 112
-        sheet = Image.new("RGBA", (cell * 7, cell * 3), (40, 44, 52, 255))
+        sheet = Image.new("RGBA", (cell * 7, cell * 4), (40, 44, 52, 255))
         for k, img in enumerate(imgs):
             big = img.resize((96, 96), Image.NEAREST)
             sheet.paste(big, ((k % 7) * cell + 8, (k // 7) * cell + 8), big)
