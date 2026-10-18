@@ -156,8 +156,8 @@ public class MTEDroneAssemblyBay extends MTEExtendedPowerMultiBlockBase<MTEDrone
         for (int x = -3; x <= 3; x++) for (int z = -3; z <= 3; z++) {
             if (x * x + z * z <= 12) g.set(x, -1, z, 'C'); // round platform
         }
-        for (int y = 0; y <= 2; y++) for (int x = -TOWER_HALF; x <= TOWER_HALF; x++)
-            for (int z = -TOWER_HALF; z <= TOWER_HALF; z++) {
+        for (int y = 0; y <= 2; y++)
+            for (int x = -TOWER_HALF; x <= TOWER_HALF; x++) for (int z = -TOWER_HALF; z <= TOWER_HALF; z++) {
                 if (!onPerimeter(x, z)) g.set(x, y, z, '-'); // hangar
                 else if (y == 1 && !corner(x, z)) g.set(x, y, z, 'G'); // windows
                 else g.set(x, y, z, 'C');

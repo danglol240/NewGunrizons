@@ -13,7 +13,8 @@ import gregtech.api.enums.OrePrefixes;
 import gregtech.api.util.GTOreDictUnificator;
 
 /**
- * Drone Assembly Complex recipes. A drone is built like a real one: a frame of the tier's metal, one motor and one rotor
+ * Drone Assembly Complex recipes. A drone is built like a real one: a frame of the tier's metal, one motor and one
+ * rotor
  * per arm, a flight controller (circuits), a sensor, a battery and its weapon. The weapon is the same hardware as the
  * guns of that tier (barrels and firing mechanisms up to EV, the technology modules from IV on).
  */
