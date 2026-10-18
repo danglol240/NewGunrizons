@@ -1,0 +1,110 @@
+{
+  "preRequisites:9": {
+    "0:10": {
+      "questIDHigh:4": 5907581924672099847,
+      "questIDLow:4": -5042515619724047169
+    }
+  },
+  "properties:10": {
+    "betterquesting:10": {
+      "autoClaim:1": 0,
+      "completion_animation:8": "default",
+      "completion_particle:8": "default",
+      "confetti_icon:10": {
+        "Count:3": 0,
+        "Damage:2": 0,
+        "OreDict:8": "",
+        "id:8": "minecraft:stick"
+      },
+      "countAsQuest:1": 1,
+      "desc:8": "§6Machine type: §aEssentia Synthesizer§r\n\nWir müssen wissen. Wir werden wissen.\nThaumaturgical research confirms: Essentia degradation occurs spontaneously. while recombination demands human intervention to overcome inherent resistance.\nSynthesizes compound aspects. Requires at least 1A EV. Processing time depends on aspect tier: primal aspects are tier 0; a compound aspect's tier is the max tier of its components plus 1.\nA tier 1 aspect takes 2 seconds. Each additional tier multiplies the time by 3/2, rounded down.\nEssentia Mode: Supply essentia via Infusion Provider. Automatically matches two combinable aspects from the network, outputs through Essentia Output Hatch. Each ring adds 16 parallels and enables perfect overclocking.\nPassive Mode: Select aspects manually for continuous synthesis. Each ring adds 6 parallels and divides time by 1.2^rings (≈1/10 time at 13 rings).\nCrystal Essence Mode: Input crystals via Input Bus, output through Output Bus. Bonuses same as Passive Mode.\nNote: Non‑passive modes require blocking to ensure only one type of aspect is synthesized at a time; otherwise it may interfere or even jam (also does not support color input).\n\n[note]Hatches[/note]: Input Bus, Output Bus, Energy Hatch\n[note]Structure[/note]: the casings in the optional task.\nUse a Hologram Projector (or the NEI structure preview) to see and auto-build the structure.\n\n[note]Controller recipe[/note]: Thaumcraft Infusion\nResearch: Skypiercer Tower (Thaumonomicon, TST tab).\n - Machine IV Assembler\n - 4x Hui Circuit\n - 4x IV Circuit",
+      "globalShare:1": 0,
+      "icon:10": {
+        "Count:3": 1,
+        "Damage:2": 19071,
+        "OreDict:8": "",
+        "id:8": "gregtech:gt.blockmachines"
+      },
+      "isMain:1": 0,
+      "isSilent:1": 0,
+      "lockedProgress:1": 0,
+      "name:8": "Skypiercer Tower",
+      "notification_duration:5": -1.0,
+      "notification_effect:3": -1,
+      "notification_fade_in:5": -1.0,
+      "notification_fade_out:5": -1.0,
+      "notification_icon_offset_y:3": -2147483648,
+      "notification_icon_scale:5": -1.0,
+      "notification_pos_x:3": -2147483648,
+      "notification_pos_y:3": -2147483648,
+      "notification_show_icon:8": "default",
+      "notification_style:8": "default",
+      "notification_subtitle:8": "",
+      "notification_subtitle_scale:5": -1.0,
+      "notification_title:8": "",
+      "notification_title_scale:5": -1.0,
+      "particle_count:3": -1,
+      "questLogic:8": "AND",
+      "repeatTime:3": -1,
+      "repeat_relative:1": 1,
+      "simultaneous:1": 0,
+      "snd_complete:8": "random.levelup",
+      "snd_update:8": "random.levelup",
+      "taskLogic:8": "AND",
+      "visibility:8": "ALWAYS"
+    }
+  },
+  "questIDHigh:4": -5904358082106007611,
+  "questIDLow:4": -4985302904358031196,
+  "rewards:9": {},
+  "tasks:9": {
+    "0:10": {
+      "autoConsume:1": 0,
+      "consume:1": 0,
+      "groupDetect:1": 0,
+      "ignoreNBT:1": 1,
+      "index:3": 0,
+      "partialMatch:1": 1,
+      "requireOnlyOneItem:1": 0,
+      "requiredItems:9": {
+        "0:10": {
+          "Count:3": 1,
+          "Damage:2": 19071,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockmachines"
+        }
+      },
+      "taskID:8": "bq_standard:retrieval"
+    },
+    "1:10": {
+      "autoConsume:1": 0,
+      "consume:1": 0,
+      "groupDetect:1": 0,
+      "ignoreNBT:1": 1,
+      "index:3": 1,
+      "partialMatch:1": 1,
+      "requireOnlyOneItem:1": 0,
+      "requiredItems:9": {
+        "0:10": {
+          "Count:3": 1,
+          "Damage:2": 0,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockcasings8"
+        },
+        "1:10": {
+          "Count:3": 1,
+          "Damage:2": 8,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockcasings8"
+        },
+        "2:10": {
+          "Count:3": 1,
+          "Damage:2": 9,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockcasings2"
+        }
+      },
+      "taskID:8": "bq_standard:optional_retrieval"
+    }
+  }
+}

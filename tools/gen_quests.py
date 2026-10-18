@@ -7,61 +7,27 @@ the line from QuestLinesOrder-append.txt to config/betterquesting/DefaultQuests/
 
 usage: gen_quests.py REPO_ROOT
 """
-import base64
 import math
-import json
-import re
-import shutil
 import sys
-import uuid
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from bq import QuestLine, item, machine, retrieval  # noqa: E402
 
 ROOT = Path(sys.argv[1])
 OUT = ROOT / "quests/DefaultQuests"
-NS = uuid.UUID("6e657767-756e-7269-7a6f-6e7351756573")  # fixed namespace: ids stay the same between runs
 FACTORY_ID = 17920
 BAY_ID = 17921
-
-
-def qid(key):
-    u = uuid.uuid5(NS, key)
-    hi = int.from_bytes(u.bytes[:8], "big", signed=True)
-    lo = int.from_bytes(u.bytes[8:], "big", signed=True)
-    return hi, lo, base64.urlsafe_b64encode(u.bytes).decode()
-
-
-def file_prefix(name):
-    return re.sub(r"[^A-Za-z0-9]", "", re.sub(r"§.", "", name))[:16]
-
-
-def item(id_, damage=0, count=1):
-    return {"Count:3": count, "Damage:2": damage, "OreDict:8": "", "id:8": id_}
 
 
 def ng(name, count=1):
     return item("newgunrizons:" + name, 0, count)
 
 
-def machine(meta):
-    return item("gregtech:gt.blockmachines", meta)
-
-
-def retrieval(*items):
-    return {"0:10": {"autoConsume:1": 0, "consume:1": 0, "groupDetect:1": 0, "ignoreNBT:1": 1, "index:3": 0,
-                     "partialMatch:1": 1, "requireOnlyOneItem:1": 0,
-                     "requiredItems:9": {f"{i}:10": it for i, it in enumerate(items)},
-                     "taskID:8": "bq_standard:retrieval"}}
-
-
-def checkbox():
-    return {"0:10": {"index:3": 0, "taskID:8": "bq_standard:checkbox"}}
-
-
-QUESTS = []  # (key, name, icon, tasks, prereq keys, x, y, desc, main)
-
-
-def q(key, name, icon, tasks, prereqs, x, y, desc, main=False):
-    QUESTS.append((key, name, icon, tasks, prereqs, x, y, desc, main))
+LINE = QuestLine("6e657767-756e-7269-7a6f-6e7351756573", "NewGunrizons",
+                 "Weapons from LV to MAX made in the Munitions Factory, Avaritia components, and combat drones from "
+                 "the Drone Assembly Complex.", ng("SentinelDrone"))
+q = LINE.q
 
 
 # ---------------------------------------------------------------- content
@@ -249,66 +215,6 @@ for i, (name, desc) in enumerate(DRONES):
       [("bay" if i == 0 else f"storey_{tier}")] + ([f"drone_{DRONES[i - 1][0]}"] if i else []),
       *pos(i, "drone", main_), desc + (DRONE_INTRO if i == 0 else ""), main=main_)
 
-# ---------------------------------------------------------------- writer
-LINE_NAME = "NewGunrizons"
-LINE_DESC = ("Weapons from LV to MAX made in the Munitions Factory, Avaritia components, and combat drones from the "
-             "Drone Assembly Complex.")
-
-
-def quest_json(key, name, icon, tasks, prereqs, desc, main):
-    hi, lo, _ = qid(key)
-    pre = {}
-    for i, p in enumerate(prereqs):
-        phi, plo, _ = qid(p)
-        pre[f"{i}:10"] = {"questIDHigh:4": phi, "questIDLow:4": plo}
-    return {
-        "preRequisites:9": pre,
-        "properties:10": {"betterquesting:10": {
-            "autoClaim:1": 0, "completion_animation:8": "default", "completion_particle:8": "default",
-            "confetti_icon:10": item("minecraft:stick", 0, 0), "countAsQuest:1": 1, "desc:8": desc,
-            "globalShare:1": 0, "icon:10": icon, "isMain:1": 1 if main else 0, "isSilent:1": 0,
-            "lockedProgress:1": 0, "name:8": name, "notification_duration:5": -1.0, "notification_effect:3": -1,
-            "notification_fade_in:5": -1.0, "notification_fade_out:5": -1.0,
-            "notification_icon_offset_y:3": -2147483648, "notification_icon_scale:5": -1.0,
-            "notification_pos_x:3": -2147483648, "notification_pos_y:3": -2147483648,
-            "notification_show_icon:8": "default", "notification_style:8": "default",
-            "notification_subtitle:8": "", "notification_subtitle_scale:5": -1.0, "notification_title:8": "",
-            "notification_title_scale:5": -1.0, "particle_count:3": -1, "questLogic:8": "AND",
-            "repeatTime:3": -1, "repeat_relative:1": 1, "simultaneous:1": 0, "snd_complete:8": "random.levelup",
-            "snd_update:8": "random.levelup", "taskLogic:8": "AND", "visibility:8": "ALWAYS"}},
-        "questIDHigh:4": hi,
-        "questIDLow:4": lo,
-        "rewards:9": {},
-        "tasks:9": tasks,
-    }
-
-
-def main():
-    lhi, llo, lb64 = qid("questline")
-    folder = f"{file_prefix(LINE_NAME)}-{lb64}"
-    if OUT.exists():
-        shutil.rmtree(OUT)
-    line_dir = OUT / "QuestLines" / folder
-    quest_dir = OUT / "Quests" / folder
-    line_dir.mkdir(parents=True)
-    quest_dir.mkdir(parents=True)
-    (line_dir / "QuestLine.json").write_text(json.dumps({
-        "properties:10": {"betterquesting:10": {
-            "bg_image:8": "", "bg_size:3": 256, "desc:8": LINE_DESC, "icon:10": ng("SentinelDrone"),
-            "name:8": LINE_NAME, "visibility:8": "UNLOCKED"}},
-        "questLineIDHigh:4": lhi, "questLineIDLow:4": llo}, indent=2, ensure_ascii=False))
-    for key, name, icon, tasks, prereqs, x, y, desc, main_ in QUESTS:
-        hi, lo, b64 = qid(key)
-        fname = f"{file_prefix(name)}-{b64}.json"
-        (line_dir / fname).write_text(json.dumps(
-            {"questIDHigh:4": hi, "questIDLow:4": lo, "sizeX:3": 32 if main_ else 24, "sizeY:3": 32 if main_ else 24,
-             "x:3": x, "y:3": y},
-            indent=2))
-        (quest_dir / fname).write_text(json.dumps(
-            quest_json(key, name, icon, tasks, prereqs, desc, main_), indent=2, ensure_ascii=False))
-    (OUT / "QuestLinesOrder-append.txt").write_text(f"{lb64}: {LINE_NAME}\n")
-    print(f"{len(QUESTS)} quests in {folder}")
-
 
 if __name__ == "__main__":
-    main()
+    LINE.write(OUT)
