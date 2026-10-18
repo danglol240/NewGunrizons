@@ -116,12 +116,12 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
         return b.build();
     }
 
-    private static char segmentChar(int tier) {
+    static char segmentChar(int tier) {
         return tier <= 9 ? (char) ('0' + tier) : (char) ('a' + tier - 10);
     }
 
     /** Machine Casing of a voltage tier: sBlockCasings1 meta = tier up to UHV, the UEV-MAX casings live elsewhere. */
-    private static IStructureElement<MTEMunitionsFactory> casingOfTier(int tier) {
+    static <T> IStructureElement<T> casingOfTier(int tier) {
         if (tier <= 9) return ofBlock(GregTechAPI.sBlockCasings1, tier);
         // a local array: this runs from the STRUCTURE static initialiser, before later static fields are set
         ItemList[] high = { ItemList.Casing_UEV, ItemList.Casing_UIV, ItemList.Casing_UMV, ItemList.Casing_UXV,

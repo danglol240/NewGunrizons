@@ -17,7 +17,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 /**
  * Combat drones from a hobby-grade LV quadcopter to the MAX Sentinel. LV-IV drones fire real rounds that have to be
- * loaded; from LuV on they fire from the battery. Built in the Drone Assembly Bay.
+ * loaded; from LuV on they fire from the battery. Built in the Drone Assembly Complex.
  */
 public final class Drones {
 

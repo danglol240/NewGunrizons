@@ -155,16 +155,19 @@ for i, (tier, casing, power) in enumerate(ERAS[1:], start=1):
     prev_era, prev_gun = era_key, gun_key
 
 # ---------------- drones
-q("bay", "§b§lDrone Assembly Bay", machine(BAY_ID), retrieval(machine(BAY_ID)), ["factory"], 216, 0,
-  "Nhà chứa 5x3x5 để lắp drone. Controller: 2 mạch LV, Sensor LV, 2 Motor LV, Hull LV, 2 Robot Arm LV... "
-  "(xem NEI).\n\n"
-  "[note]Cấu trúc (5 rộng, 3 cao, 5 sâu), controller giữa tường trước:[/note]\n"
-  "Tường, mái viền và sàn viền: Solid Steel Machine Casing (gắn hatch ở đây, tối thiểu 20 casing).\n"
-  "Giữa mái 3x3 và 2 bên hông tầng giữa: kính bất kỳ.\n"
-  "Sàn giữa 3x3: Steel Gear Box Casing (bãi đáp).\n"
-  "Lòng 3x3 tầng giữa: để trống.\n"
-  "Tường sau: kín casing.\n\n"
-  "Tier của Energy Hatch quyết định drone nào lắp được (hatch LV -> drone LV...).",
+q("bay", "§b§lDrone Assembly Complex", machine(BAY_ID), retrieval(machine(BAY_ID)), ["factory"], 216, 0,
+  "Tháp lắp drone, lớn dần theo từng thời kỳ. Controller: 2 mạch LV, Sensor LV, 2 Motor LV, Hull LV, "
+  "2 Robot Arm LV (xem NEI).\n\n"
+  "[note]Phần gốc (luôn cần):[/note]\n"
+  "- Sân tròn bán kính 3 bằng Solid Steel Machine Casing (gắn hatch ở đây, tối thiểu 30 casing).\n"
+  "- Trên sân là xưởng 5x5 cao 3: viền Solid Steel, hàng giữa là kính, lòng 3x3 để trống. "
+  "Controller ở giữa tường trước, tầng dưới cùng.\n\n"
+  "[note]Mỗi tier thêm:[/note]\n"
+  "- 1 tầng tháp chồng lên trên: hàng dưới 4 góc là Machine Casing tier đó, giữa là kính; hàng trên là "
+  "1 vòng kín Machine Casing tier đó (20 casing/tier).\n"
+  "- 1 vòng bãi đáp trên mặt đất (cùng cao độ với sân): Steel Gear Box Casing ở bán kính 4 + 2 x tier "
+  "(LV = 6, MV = 8, ... MAX = 32) tính từ tâm tháp, với 1 Machine Casing tier đó ở 4 hướng Bắc/Đông/Nam/Tây.\n\n"
+  "Số tầng liên tiếp = tier drone cao nhất lắp được. Dùng Hologram Projector, stack size = số tier muốn hiện.",
   main=True)
 
 DRONES = [
@@ -202,7 +205,7 @@ for i, (name, tier, desc) in enumerate(DRONES):
 # ---------------------------------------------------------------- writer
 LINE_NAME = "NewGunrizons: Arms & Drones"
 LINE_DESC = ("Súng từ LV tới MAX trong Munitions Factory, linh kiện Avaritia, và drone chiến đấu từ "
-             "Drone Assembly Bay.")
+             "Drone Assembly Complex.")
 
 
 def quest_json(key, name, icon, tasks, prereqs, desc, main):

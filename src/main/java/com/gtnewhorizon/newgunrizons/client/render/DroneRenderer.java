@@ -48,7 +48,7 @@ public class DroneRenderer extends Render {
     }
 
     /**
-     * Draws a drone model centred on (x, y, z). Also used by the Drone Assembly Bay to show the drone being built.
+     * Draws a drone model centred on (x, y, z). Also used by the Drone Assembly Complex to show the drone being built.
      *
      * @param rotorSpeed 0 = blades only, 1 = full blur disc
      */

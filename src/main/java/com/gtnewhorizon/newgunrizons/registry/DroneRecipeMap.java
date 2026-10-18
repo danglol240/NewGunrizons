@@ -5,7 +5,7 @@ import gregtech.api.recipe.RecipeMap;
 import gregtech.api.recipe.RecipeMapBackend;
 import gregtech.api.recipe.RecipeMapBuilder;
 
-/** Recipe map of the Drone Assembly Bay. */
+/** Recipe map of the Drone Assembly Complex. */
 public final class DroneRecipeMap {
 
     public static final RecipeMap<RecipeMapBackend> DRONES = RecipeMapBuilder.of("newgunrizons.recipe.drones")

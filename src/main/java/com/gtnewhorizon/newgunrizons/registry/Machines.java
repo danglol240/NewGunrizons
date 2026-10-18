@@ -17,7 +17,7 @@ import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.util.GTModHandler;
 
-/** Registers the Munitions Factory and Drone Assembly Bay controllers and their crafting recipes. */
+/** Registers the Munitions Factory and Drone Assembly Complex controllers and their crafting recipes. */
 public final class Machines {
 
     private static final Logger LOG = LogManager.getLogger("NewGunrizons");
@@ -49,7 +49,7 @@ public final class Machines {
             DEFAULT_DRONE_BAY_ID,
             1,
             32765,
-            "GregTech MetaTileEntity ID of the Drone Assembly Bay controller. Same rules as munitionsFactoryId.");
+            "GregTech MetaTileEntity ID of the Drone Assembly Complex controller. Same rules as munitionsFactoryId.");
         if (config.hasChanged()) config.save();
     }
 
@@ -68,12 +68,12 @@ public final class Machines {
                     ItemList.Electric_Piston_LV });
         }
 
-        int bayId = freeId(configuredDroneBayId, "Drone Assembly Bay", "droneAssemblyBayId");
+        int bayId = freeId(configuredDroneBayId, "Drone Assembly Complex", "droneAssemblyBayId");
         if (bayId > 0) {
             droneAssemblyBay = new MTEDroneAssemblyBay(
                 bayId,
                 "multimachine.newgunrizons.droneassemblybay",
-                "Drone Assembly Bay").getStackForm(1);
+                "Drone Assembly Complex").getStackForm(1);
             GTModHandler.addCraftingRecipe(
                 droneAssemblyBay.copy(),
                 GTModHandler.RecipeBits.BITSD,

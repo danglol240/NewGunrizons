@@ -483,4 +483,4 @@ item.newgunrizons_GravitonDrone.name=UIV Graviton Drone
 item.newgunrizons_ChronoDrone.name=UMV Chrono Drone
 item.newgunrizons_RiftDrone.name=UXV Rift Drone
 item.newgunrizons_SentinelDrone.name=MAX Sentinel Drone
-newgunrizons.recipe.drones=Drone Assembly Bay
+newgunrizons.recipe.drones=Drone Assembly Complex
