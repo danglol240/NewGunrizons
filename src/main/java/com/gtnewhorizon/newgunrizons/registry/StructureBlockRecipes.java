@@ -94,7 +94,10 @@ public final class StructureBlockRecipes {
                 GTModHandler.RecipeBits.BITSD,
                 new Object[] { "PPP", "hFw", 'P', one, 'F', box })) crafting++;
         }
-        LOG.info("Registered {} Assembler and {} crafting recipes for Assembly Frames and Landing Pads.", assembler, crafting);
+        LOG.info(
+            "Registered {} Assembler and {} crafting recipes for Assembly Frames and Landing Pads.",
+            assembler,
+            crafting);
     }
 
     private static ItemStack circuit(int tier) {
