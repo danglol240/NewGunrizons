@@ -31,15 +31,15 @@ final class ExtremeRecipes {
      * Technology module: P plates, C circuits, F field generators, E emitters, S sensors, M the previous module, K the
      * module's key ingredient, X its superconductor or exotic plate.
      */
-    private static final String[] MODULE_PATTERN = { "C  PPP  C", "  F X F  ", " P E S P ", "P   M   P",
-        "PX  K  XP", "P   M   P", " P S E P ", "  F X F  ", "C  PPP  C" };
+    private static final String[] MODULE_PATTERN = { "C  PPP  C", "  F X F  ", " P E S P ", "P   M   P", "PX  K  XP",
+        "P   M   P", " P S E P ", "  F X F  ", "C  PPP  C" };
 
     /**
      * Weapon chassis: O tier plates around the edge, C circuits, F field generators, G secondary metal, I Avaritia
      * ingots around the K core.
      */
-    private static final String[] CHASSIS_PATTERN = { "OOO   OOO", "O  CFC  O", "O G   G O", " G  I  G ",
-        " F IKI F ", " G  I  G ", "O G   G O", "O  CFC  O", "OOO   OOO" };
+    private static final String[] CHASSIS_PATTERN = { "OOO   OOO", "O  CFC  O", "O G   G O", " G  I  G ", " F IKI F ",
+        " G  I  G ", "O G   G O", "O  CFC  O", "OOO   OOO" };
 
     private static Object manager;
     private static Method addShaped;

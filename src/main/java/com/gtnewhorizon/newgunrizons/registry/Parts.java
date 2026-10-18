@@ -92,9 +92,15 @@ public final class Parts {
             "CrystalMatrixChassis",
             "crystal_matrix_chassis",
             "UV weapon frame (Extreme Crafting Table)");
-        NeutroniumChassis = part("NeutroniumChassis", "neutronium_chassis", "UHV weapon frame (Extreme Crafting Table)");
+        NeutroniumChassis = part(
+            "NeutroniumChassis",
+            "neutronium_chassis",
+            "UHV weapon frame (Extreme Crafting Table)");
         InfinityChassis = part("InfinityChassis", "infinity_chassis", "UEV-UIV weapon frame (Extreme Crafting Table)");
-        SpacetimeChassis = part("SpacetimeChassis", "spacetime_chassis", "UMV-UXV weapon frame (Extreme Crafting Table)");
+        SpacetimeChassis = part(
+            "SpacetimeChassis",
+            "spacetime_chassis",
+            "UMV-UXV weapon frame (Extreme Crafting Table)");
         EternalChassis = part("EternalChassis", "eternal_chassis", "MAX weapon frame (Extreme Crafting Table)");
     }
 
