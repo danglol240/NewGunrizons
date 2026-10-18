@@ -24,9 +24,8 @@ public final class StructureBlockRecipes {
         return new Materials[][] { { Materials.Steel }, { Materials.Aluminium }, { Materials.StainlessSteel },
             { Materials.Titanium }, { Materials.TungstenSteel }, { Materials.HSSS }, { Materials.NaquadahAlloy },
             { Materials.Neutronium }, { Materials.CosmicNeutronium, Materials.Neutronium },
-            { Materials.Infinity, Materials.CosmicNeutronium },
-            { Materials.TranscendentMetal, Materials.Infinity }, { Materials.SpaceTime, Materials.TranscendentMetal },
-            { Materials.Universium, Materials.SpaceTime },
+            { Materials.Infinity, Materials.CosmicNeutronium }, { Materials.TranscendentMetal, Materials.Infinity },
+            { Materials.SpaceTime, Materials.TranscendentMetal }, { Materials.Universium, Materials.SpaceTime },
             { Materials.MagMatter, Materials.Eternity, Materials.Universium } };
     }
 
@@ -46,7 +45,11 @@ public final class StructureBlockRecipes {
             long eut = 30L << (2 * (tier - 1));
             if (circuit != null) {
                 GTValues.RA.stdBuilder()
-                    .itemInputs(HighTierRecipes.copy(plate, 6), frameBox.copy(), circuit, GTUtility.getIntegratedCircuit(4))
+                    .itemInputs(
+                        HighTierRecipes.copy(plate, 6),
+                        frameBox.copy(),
+                        circuit,
+                        GTUtility.getIntegratedCircuit(4))
                     .itemOutputs(new ItemStack(NGBlocks.TierFrame, 2, i))
                     .duration(200)
                     .eut(eut)

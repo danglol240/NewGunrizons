@@ -24,7 +24,10 @@ public class ItemBlockTiered extends ItemBlockWithMetadata {
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced) {
         int i = Math.max(0, Math.min(BlockTiered.TIERS - 1, stack.getItemDamage()));
-        tooltip.add(EnumChatFormatting.GOLD + BlockTiered.TIER_NAMES[i] + EnumChatFormatting.GRAY + " - "
-            + BlockTiered.MATERIALS[i]);
+        tooltip.add(
+            EnumChatFormatting.GOLD + BlockTiered.TIER_NAMES[i]
+                + EnumChatFormatting.GRAY
+                + " - "
+                + BlockTiered.MATERIALS[i]);
     }
 }
