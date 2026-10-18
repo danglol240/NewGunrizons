@@ -56,8 +56,9 @@ public class DroneRenderer extends Render {
         float rotorAngle, float rotorSpeed) {
         JsonModel model = MODELS.get(item);
         if (model == null) {
-            model = new JsonModel("drone/drone_" + item.getName()
-                .toLowerCase());
+            model = new JsonModel(
+                "drone/drone_" + item.getName()
+                    .toLowerCase());
             MODELS.put(item, model);
         }
         float s = item.getRenderScale();

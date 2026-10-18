@@ -12,8 +12,8 @@ import org.lwjgl.opengl.GL11;
 
 import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.entities.EntityBullet;
-import com.gtnewhorizon.newgunrizons.items.ShotProfile;
 import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
+import com.gtnewhorizon.newgunrizons.items.ShotProfile;
 
 /**
  * Draws projectiles of weapons that declare a {@link ProjectileStyle}. Classic firearms keep invisible bullets.

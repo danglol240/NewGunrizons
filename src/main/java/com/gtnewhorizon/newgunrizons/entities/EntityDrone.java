@@ -183,7 +183,11 @@ public class EntityDrone extends EntityLiving implements IEntityAdditionalSpawnD
             engage();
         } else {
             double a = ticksExisted * 0.03D + orbitPhase;
-            flyTo(owner.posX + Math.cos(a) * 2.5D, owner.posY + owner.height + 1.0D, owner.posZ + Math.sin(a) * 2.5D, 0.6D);
+            flyTo(
+                owner.posX + Math.cos(a) * 2.5D,
+                owner.posY + owner.height + 1.0D,
+                owner.posZ + Math.sin(a) * 2.5D,
+                0.6D);
             faceMovement();
         }
     }
@@ -243,12 +247,8 @@ public class EntityDrone extends EntityLiving implements IEntityAdditionalSpawnD
                 drone.getDamage(),
                 0.0F);
             bullet.setLocationAndAngles(from.xCoord, from.yCoord, from.zCoord, rotationYaw, 0.0F);
-            bullet.setThrowableHeading(
-                aim.xCoord,
-                aim.yCoord,
-                aim.zCoord,
-                drone.getProjectileSpeed(),
-                drone.getSpread());
+            bullet
+                .setThrowableHeading(aim.xCoord, aim.yCoord, aim.zCoord, drone.getProjectileSpeed(), drone.getSpread());
             worldObj.spawnEntityInWorld(bullet);
         }
         if (drone.usesRounds()) rounds--;

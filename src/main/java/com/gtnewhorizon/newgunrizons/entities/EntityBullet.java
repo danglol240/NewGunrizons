@@ -319,7 +319,8 @@ public class EntityBullet extends EntityProjectile {
 
     public void writeEntityToNBT(NBTTagCompound tagCompound) {
         super.writeEntityToNBT(tagCompound);
-        tagCompound.setInteger(TAG_ENTITY_ITEM, this.source instanceof Item ? Item.getIdFromItem((Item) this.source) : -1);
+        tagCompound
+            .setInteger(TAG_ENTITY_ITEM, this.source instanceof Item ? Item.getIdFromItem((Item) this.source) : -1);
         tagCompound.setFloat(TAG_DAMAGE, this.damage);
         tagCompound.setFloat(TAG_EXPLOSION_RADIUS, this.explosionRadius);
     }

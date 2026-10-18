@@ -140,14 +140,8 @@ public class CommonProxy {
             96,
             20,
             false);
-        EntityRegistry.registerModEntity(
-            EntityDrone.class,
-            "Drone" + this.modEntityID,
-            this.modEntityID++,
-            mod,
-            96,
-            2,
-            true);
+        EntityRegistry
+            .registerModEntity(EntityDrone.class, "Drone" + this.modEntityID, this.modEntityID++, mod, 96, 2, true);
 
         // Register gun component items
         GunBarrelSteel = new ItemGunBarrelSteel();

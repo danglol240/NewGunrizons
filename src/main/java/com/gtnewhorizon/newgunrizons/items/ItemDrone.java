@@ -260,11 +260,7 @@ public class ItemDrone extends Item implements ShotProfile, ISpecialElectricItem
         double charge = getStoredCharge(stack);
         tooltip.add(EnumChatFormatting.GOLD + "Tier: " + GTValues.VN[tier] + EnumChatFormatting.GRAY + " - " + role);
         tooltip.add(
-            "Damage: " + fmt(damage)
-                + (burst > 1 ? " x" + burst + " burst" : "")
-                + ", range "
-                + fmt(range)
-                + " m");
+            "Damage: " + fmt(damage) + (burst > 1 ? " x" + burst + " burst" : "") + ", range " + fmt(range) + " m");
         tooltip.add(String.format("Battery: %.0f%% (%,.0f EU)", 100.0D * charge / getCapacity(), charge));
         if (usesRounds()) {
             tooltip.add("Magazine: " + getRounds(stack) + "/" + magazine + " " + ammoName());
@@ -273,7 +269,8 @@ public class ItemDrone extends Item implements ShotProfile, ISpecialElectricItem
         }
         tooltip.add(EnumChatFormatting.DARK_GRAY + "Right click: deploy. Right click the drone: recall.");
         if (usesRounds()) tooltip.add(EnumChatFormatting.DARK_GRAY + "Sneak + right click: load rounds.");
-        tooltip.add(EnumChatFormatting.DARK_GRAY + "Recharge in a " + GTValues.VN[tier] + " Battery Buffer or Charger.");
+        tooltip
+            .add(EnumChatFormatting.DARK_GRAY + "Recharge in a " + GTValues.VN[tier] + " Battery Buffer or Charger.");
     }
 
     private static String fmt(float v) {
