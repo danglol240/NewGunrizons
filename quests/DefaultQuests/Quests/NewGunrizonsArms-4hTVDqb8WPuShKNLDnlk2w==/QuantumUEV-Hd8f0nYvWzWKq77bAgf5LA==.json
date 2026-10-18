@@ -1,8 +1,8 @@
 {
   "preRequisites:9": {
     "0:10": {
-      "questIDHigh:4": -7765344968649321756,
-      "questIDLow:4": -4732229607808156604
+      "questIDHigh:4": 6812928051797317951,
+      "questIDLow:4": -5084902505421437907
     },
     "1:10": {
       "questIDHigh:4": -8862182674580217997,
@@ -21,15 +21,15 @@
         "id:8": "minecraft:stick"
       },
       "countAsQuest:1": 1,
-      "desc:8": "Đạn lượng tử xuyên qua tối đa 12 block. Module UEV+ cũng chỉ làm ở Extreme Crafting Table.",
+      "desc:8": "Đạn lượng tử xuyên qua tối đa 12 block.",
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,
-        "Damage:2": 0,
+        "Damage:2": 9,
         "OreDict:8": "",
-        "id:8": "newgunrizons:QuantumPhaseRifle"
+        "id:8": "newgunrizons:Emblem"
       },
-      "isMain:1": 1,
+      "isMain:1": 0,
       "isSilent:1": 0,
       "lockedProgress:1": 0,
       "name:8": "Quantum (UEV)",
@@ -76,18 +76,6 @@
           "Damage:2": 0,
           "OreDict:8": "",
           "id:8": "newgunrizons:QuantumPhaseRifle"
-        },
-        "1:10": {
-          "Count:3": 1,
-          "Damage:2": 0,
-          "OreDict:8": "",
-          "id:8": "newgunrizons:InfinityChassis"
-        },
-        "2:10": {
-          "Count:3": 1,
-          "Damage:2": 0,
-          "OreDict:8": "",
-          "id:8": "newgunrizons:QuantumEntanglementCore"
         }
       },
       "taskID:8": "bq_standard:retrieval"

@@ -4,6 +4,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.IItemRenderer;
 
+import com.gtnewhorizon.newgunrizons.blocks.NGBlocks;
 import com.gtnewhorizon.newgunrizons.entities.EntityBullet;
 import com.gtnewhorizon.newgunrizons.entities.EntityDrone;
 import com.gtnewhorizon.newgunrizons.entities.EntityGravityField;
@@ -182,6 +183,7 @@ public class CommonProxy {
         GameRegistry.registerItem(PrecisionLens, "PrecisionLens");
         GameRegistry.registerItem(WeaponPartKit, "WeaponPartKit");
 
+        NGBlocks.init();
         Attachments.init();
         AuxiliaryAttachments.init();
         Bullets.init();

@@ -1,12 +1,12 @@
 {
   "preRequisites:9": {
     "0:10": {
-      "questIDHigh:4": 4787845328611596284,
-      "questIDLow:4": -4794092414302061461
+      "questIDHigh:4": -5748068410126544548,
+      "questIDLow:4": -6346590061303028770
     },
     "1:10": {
-      "questIDHigh:4": -1652302528287056191,
-      "questIDLow:4": -6803563645738248910
+      "questIDHigh:4": 4787845328611596284,
+      "questIDLow:4": -4794092414302061461
     }
   },
   "properties:10": {
@@ -29,7 +29,7 @@
         "OreDict:8": "",
         "id:8": "newgunrizons:LaserDrone"
       },
-      "isMain:1": 1,
+      "isMain:1": 0,
       "isSilent:1": 0,
       "lockedProgress:1": 0,
       "name:8": "LuV Drone",

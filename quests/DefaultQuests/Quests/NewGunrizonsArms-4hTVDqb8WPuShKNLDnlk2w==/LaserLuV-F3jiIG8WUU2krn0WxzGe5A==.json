@@ -1,8 +1,8 @@
 {
   "preRequisites:9": {
     "0:10": {
-      "questIDHigh:4": -1652302528287056191,
-      "questIDLow:4": -6803563645738248910
+      "questIDHigh:4": -6920393719854245994,
+      "questIDLow:4": -8038595870477930108
     },
     "1:10": {
       "questIDHigh:4": 2311872247061371249,
@@ -21,13 +21,13 @@
         "id:8": "minecraft:stick"
       },
       "countAsQuest:1": 1,
-      "desc:8": "Laser bắn trúng ngay lập tức. Bắn liên tục sẽ quá nhiệt (thanh nhiệt trên HUD).\nCell năng lượng sạc lại được: bỏ vào Battery Buffer hoặc Charger LuV.",
+      "desc:8": "Bắn trúng tức thì, quá nhiệt khi bắn liên tục. Cell sạc lại trong Battery Buffer LuV.",
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,
-        "Damage:2": 0,
+        "Damage:2": 5,
         "OreDict:8": "",
-        "id:8": "newgunrizons:LaserRifle"
+        "id:8": "newgunrizons:Emblem"
       },
       "isMain:1": 0,
       "isSilent:1": 0,
@@ -76,12 +76,6 @@
           "Damage:2": 0,
           "OreDict:8": "",
           "id:8": "newgunrizons:LaserRifle"
-        },
-        "1:10": {
-          "Count:3": 1,
-          "Damage:2": 0,
-          "OreDict:8": "",
-          "id:8": "newgunrizons:LaserRifleCell"
         }
       },
       "taskID:8": "bq_standard:retrieval"

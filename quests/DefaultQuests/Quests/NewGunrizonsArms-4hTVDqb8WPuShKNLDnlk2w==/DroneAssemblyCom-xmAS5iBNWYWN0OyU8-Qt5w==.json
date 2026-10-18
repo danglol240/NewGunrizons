@@ -1,8 +1,8 @@
 {
   "preRequisites:9": {
     "0:10": {
-      "questIDHigh:4": -5036013259489980321,
-      "questIDLow:4": -4621164777217749174
+      "questIDHigh:4": 4231594254914637902,
+      "questIDLow:4": -5744897708165222306
     }
   },
   "properties:10": {
@@ -17,7 +17,7 @@
         "id:8": "minecraft:stick"
       },
       "countAsQuest:1": 1,
-      "desc:8": "Tháp lắp drone, lớn dần theo từng thời kỳ. Controller: 2 mạch LV, Sensor LV, 2 Motor LV, Hull LV, 2 Robot Arm LV (xem NEI).\n\n[note]Phần gốc (luôn cần):[/note]\n- Sân tròn bán kính 3 bằng Solid Steel Machine Casing (gắn hatch ở đây, tối thiểu 30 casing).\n- Trên sân là xưởng 5x5 cao 3: viền Solid Steel, hàng giữa là kính, lòng 3x3 để trống. Controller ở giữa tường trước, tầng dưới cùng.\n\n[note]Mỗi tier thêm:[/note]\n- 1 tầng tháp chồng lên trên: hàng dưới 4 góc là Machine Casing tier đó, giữa là kính; hàng trên là 1 vòng kín Machine Casing tier đó (20 casing/tier).\n- 1 vòng bãi đáp trên mặt đất (cùng cao độ với sân): Steel Gear Box Casing ở bán kính 4 + 2 x tier (LV = 6, MV = 8, ... MAX = 32) tính từ tâm tháp, với 1 Machine Casing tier đó ở 4 hướng Bắc/Đông/Nam/Tây.\n\nSố tầng liên tiếp = tier drone cao nhất lắp được. Dùng Hologram Projector, stack size = số tier muốn hiện.",
+      "desc:8": "Tháp lắp drone, lớn dần theo từng thời kỳ. Controller: 2 mạch LV, Sensor LV, 2 Motor LV, Hull LV, 2 Robot Arm LV.\n\n[note]Phần gốc:[/note]\n- Sân tròn bán kính 3 bằng Solid Steel Machine Casing (gắn hatch, tối thiểu 30 casing).\n- Xưởng 5x5 cao 3 trên sân: viền Solid Steel, hàng giữa kính, lòng 3x3 trống. Controller giữa tường trước, tầng dưới.\n\n[note]Mỗi tier thêm:[/note]\n- 1 tầng tháp chồng lên: hàng dưới 4 góc là Assembly Frame tier đó, giữa là kính; hàng trên 1 vòng kín Assembly Frame.\n- 1 vòng bãi đáp trên mặt đất (cao độ của sân): Landing Pad của tier đó ở bán kính 4 + 2 x tier tính từ tâm tháp, với 1 Assembly Frame ở 4 hướng Bắc/Đông/Nam/Tây.\nLanding Pad làm trong Assembler: 4 plate + 1 frame box vật liệu tier -> 8 pad.\nSố tầng liên tiếp = tier drone cao nhất. Hologram Projector: stack size = số tier.",
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,
@@ -72,6 +72,18 @@
           "Damage:2": 17921,
           "OreDict:8": "",
           "id:8": "gregtech:gt.blockmachines"
+        },
+        "1:10": {
+          "Count:3": 36,
+          "Damage:2": 0,
+          "OreDict:8": "",
+          "id:8": "newgunrizons:LandingPad"
+        },
+        "2:10": {
+          "Count:3": 24,
+          "Damage:2": 0,
+          "OreDict:8": "",
+          "id:8": "newgunrizons:TierFrame"
         }
       },
       "taskID:8": "bq_standard:retrieval"

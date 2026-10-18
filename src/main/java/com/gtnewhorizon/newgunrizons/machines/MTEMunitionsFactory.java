@@ -2,6 +2,7 @@ package com.gtnewhorizon.newgunrizons.machines;
 
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.isAir;
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofChain;
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
 import static gregtech.api.enums.HatchElement.Energy;
 import static gregtech.api.enums.HatchElement.ExoticEnergy;
@@ -27,6 +28,7 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import com.google.common.io.ByteArrayDataInput;
+import com.gtnewhorizon.newgunrizons.blocks.NGBlocks;
 import com.gtnewhorizon.newgunrizons.client.render.FactoryAssemblyRenderer;
 import com.gtnewhorizon.newgunrizons.registry.MunitionsRecipeMap;
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
@@ -111,9 +113,14 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
             char c = segmentChar(tier);
             String roof = new String(new char[] { c, c, c });
             b.addShape(SEGMENT + tier, new String[][] { { roof, "W-W", "CCC" } })
-                .addElement(c, casingOfTier(tier));
+                .addElement(c, frameOrCasing(tier));
         }
         return b.build();
+    }
+
+    /** A tier's Assembly Frame (preferred, used by the hologram) or that tier's GregTech Machine Casing. */
+    static <T> IStructureElement<T> frameOrCasing(int tier) {
+        return ofChain(ofBlock(NGBlocks.TierFrame, tier - 1), casingOfTier(tier));
     }
 
     static char segmentChar(int tier) {
@@ -154,7 +161,8 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
             .addInfo("Weapons and ammo cannot be made anywhere else")
             .addSeparator()
             .addInfo("A production line that grows one segment per era:")
-            .addInfo("segment 1 is roofed with LV Machine Casings, segment 2 with MV, ... segment 14 with MAX")
+            .addInfo("segment 1 is roofed with LV Assembly Frames, segment 2 with MV, ... segment 14 with MAX")
+            .addInfo("(each tier's GregTech Machine Casing also works as roof)")
             .addInfo("The number of segments is the factory's era; it accepts recipes up to that tier")
             .addInfo("Each segment adds " + PARALLEL_PER_SEGMENT + " parallels")
             .addInfo("Runs recipes at double speed")
@@ -162,7 +170,7 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
             .beginVariableStructureBlock(3, 3, 3, 3, 2, 1 + MAX_SEGMENTS, false)
             .addController("Front center")
             .addCasingInfoMin("Heat Proof Machine Casing", MIN_CASINGS, false)
-            .addCasing("3 per segment", "Machine Casing of the segment's era (LV, MV, HV, ...), as the roof", true)
+            .addCasing("3 per segment", "Assembly Frame (or Machine Casing) of the segment's era, as the roof", true)
             .addOtherStructurePart("Any glass", "2 per segment, side windows of the production lane")
             .addOtherStructurePart("Air", "1 per segment, the production lane")
             .addEnergyHatch("1+ (multi-amp and laser hatches allowed)", "Any Heat Proof Machine Casing", 1)

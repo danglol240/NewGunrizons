@@ -1,8 +1,8 @@
 {
   "preRequisites:9": {
     "0:10": {
-      "questIDHigh:4": 7909837432777626875,
-      "questIDLow:4": -8168584444923044399
+      "questIDHigh:4": -5455077295052202630,
+      "questIDLow:4": -6250289950203614512
     },
     "1:10": {
       "questIDHigh:4": 2152474135692794677,
@@ -21,13 +21,13 @@
         "id:8": "minecraft:stick"
       },
       "countAsQuest:1": 1,
-      "desc:8": "Tạo hố trọng lực hút mob lại rồi nghiền. Ngồi (sneak) khi bắn để đẩy văng.",
+      "desc:8": "Hố trọng lực hút mob lại rồi nghiền. Sneak khi bắn để đẩy văng.",
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,
-        "Damage:2": 0,
+        "Damage:2": 10,
         "OreDict:8": "",
-        "id:8": "newgunrizons:GravitonCannon"
+        "id:8": "newgunrizons:Emblem"
       },
       "isMain:1": 0,
       "isSilent:1": 0,
@@ -76,12 +76,6 @@
           "Damage:2": 0,
           "OreDict:8": "",
           "id:8": "newgunrizons:GravitonCannon"
-        },
-        "1:10": {
-          "Count:3": 1,
-          "Damage:2": 0,
-          "OreDict:8": "",
-          "id:8": "newgunrizons:GravitonFieldEmitter"
         }
       },
       "taskID:8": "bq_standard:retrieval"

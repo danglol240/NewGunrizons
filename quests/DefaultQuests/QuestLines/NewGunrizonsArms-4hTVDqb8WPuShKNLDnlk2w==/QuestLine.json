@@ -6,9 +6,9 @@
       "desc:8": "Súng từ LV tới MAX trong Munitions Factory, linh kiện Avaritia, và drone chiến đấu từ Drone Assembly Complex.",
       "icon:10": {
         "Count:3": 1,
-        "Damage:2": 0,
+        "Damage:2": 13,
         "OreDict:8": "",
-        "id:8": "newgunrizons:RealityEraser"
+        "id:8": "newgunrizons:Emblem"
       },
       "name:8": "NewGunrizons: Arms & Drones",
       "visibility:8": "UNLOCKED"

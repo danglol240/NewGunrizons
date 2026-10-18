@@ -1,12 +1,12 @@
 {
   "preRequisites:9": {
     "0:10": {
-      "questIDHigh:4": 4513632195334397214,
-      "questIDLow:4": -5076554594370175457
+      "questIDHigh:4": -8918184161299309149,
+      "questIDLow:4": -8748919416317052532
     },
     "1:10": {
-      "questIDHigh:4": -2337822192574374805,
-      "questIDLow:4": -6112180056106330930
+      "questIDHigh:4": 4231594254914637902,
+      "questIDLow:4": -5744897708165222306
     }
   },
   "properties:10": {
@@ -25,9 +25,9 @@
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,
-        "Damage:2": 0,
+        "Damage:2": 1,
         "OreDict:8": "",
-        "id:8": "newgunrizons:MP40"
+        "id:8": "newgunrizons:Emblem"
       },
       "isMain:1": 0,
       "isSilent:1": 0,

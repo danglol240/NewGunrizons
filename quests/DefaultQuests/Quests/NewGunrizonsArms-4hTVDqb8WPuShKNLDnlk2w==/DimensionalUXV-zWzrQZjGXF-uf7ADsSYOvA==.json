@@ -1,8 +1,8 @@
 {
   "preRequisites:9": {
     "0:10": {
-      "questIDHigh:4": -4638118210421762407,
-      "questIDLow:4": -7237958856034192860
+      "questIDHigh:4": -6108228699795468073,
+      "questIDLow:4": -7098441681694808947
     },
     "1:10": {
       "questIDHigh:4": -6144712251525735416,
@@ -21,13 +21,13 @@
         "id:8": "minecraft:stick"
       },
       "countAsQuest:1": 1,
-      "desc:8": "Chém xuyên không gian: trúng mọi thứ trên đường thẳng 50 block, xuyên tường và giáp.",
+      "desc:8": "Chém mọi thứ trên đường thẳng 50 block, xuyên tường và giáp.",
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,
-        "Damage:2": 0,
+        "Damage:2": 12,
         "OreDict:8": "",
-        "id:8": "newgunrizons:DimensionalCutter"
+        "id:8": "newgunrizons:Emblem"
       },
       "isMain:1": 0,
       "isSilent:1": 0,
@@ -76,12 +76,6 @@
           "Damage:2": 0,
           "OreDict:8": "",
           "id:8": "newgunrizons:DimensionalCutter"
-        },
-        "1:10": {
-          "Count:3": 1,
-          "Damage:2": 0,
-          "OreDict:8": "",
-          "id:8": "newgunrizons:DimensionalRiftEmitter"
         }
       },
       "taskID:8": "bq_standard:retrieval"

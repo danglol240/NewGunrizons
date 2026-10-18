@@ -1,8 +1,8 @@
 {
   "preRequisites:9": {
     "0:10": {
-      "questIDHigh:4": 4232722213926099493,
-      "questIDLow:4": -8267025303523516150
+      "questIDHigh:4": -5708397013616076364,
+      "questIDLow:4": -7624520905970729210
     },
     "1:10": {
       "questIDHigh:4": 8404012373299583005,
@@ -21,13 +21,13 @@
         "id:8": "minecraft:stick"
       },
       "countAsQuest:1": 1,
-      "desc:8": "XR-7 và HX-9 có ray hỗ trợ: đạn xuyên thêm 1 mục tiêu. Cần Smart Targeting Module.",
+      "desc:8": "XR-7 và HX-9 có ray hỗ trợ: đạn xuyên thêm 1 mục tiêu.",
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,
-        "Damage:2": 0,
+        "Damage:2": 3,
         "OreDict:8": "",
-        "id:8": "newgunrizons:XR7"
+        "id:8": "newgunrizons:Emblem"
       },
       "isMain:1": 0,
       "isSilent:1": 0,
@@ -76,12 +76,6 @@
           "Damage:2": 0,
           "OreDict:8": "",
           "id:8": "newgunrizons:XR7"
-        },
-        "1:10": {
-          "Count:3": 1,
-          "Damage:2": 0,
-          "OreDict:8": "",
-          "id:8": "newgunrizons:SmartTargetingModule"
         }
       },
       "taskID:8": "bq_standard:retrieval"

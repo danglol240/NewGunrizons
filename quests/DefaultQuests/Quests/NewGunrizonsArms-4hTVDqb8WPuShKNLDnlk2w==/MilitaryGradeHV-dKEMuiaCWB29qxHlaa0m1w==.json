@@ -1,8 +1,8 @@
 {
   "preRequisites:9": {
     "0:10": {
-      "questIDHigh:4": -5802880893464717908,
-      "questIDLow:4": -8519855118425078932
+      "questIDHigh:4": -8150391088407620116,
+      "questIDLow:4": -4818887058534675137
     },
     "1:10": {
       "questIDHigh:4": 5180851230549889850,
@@ -25,9 +25,9 @@
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,
-        "Damage:2": 0,
+        "Damage:2": 2,
         "OreDict:8": "",
-        "id:8": "newgunrizons:M4A1"
+        "id:8": "newgunrizons:Emblem"
       },
       "isMain:1": 0,
       "isSilent:1": 0,

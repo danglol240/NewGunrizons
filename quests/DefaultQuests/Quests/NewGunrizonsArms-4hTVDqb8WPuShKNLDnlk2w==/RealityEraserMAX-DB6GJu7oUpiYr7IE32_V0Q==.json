@@ -1,8 +1,8 @@
 {
   "preRequisites:9": {
     "0:10": {
-      "questIDHigh:4": 7796738139126190231,
-      "questIDLow:4": -8965703428860878455
+      "questIDHigh:4": -12860164563381610,
+      "questIDLow:4": -6974492765294317072
     },
     "1:10": {
       "questIDHigh:4": -3644279331481035681,
@@ -25,9 +25,9 @@
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,
-        "Damage:2": 0,
+        "Damage:2": 13,
         "OreDict:8": "",
-        "id:8": "newgunrizons:RealityEraser"
+        "id:8": "newgunrizons:Emblem"
       },
       "isMain:1": 1,
       "isSilent:1": 0,
@@ -76,18 +76,6 @@
           "Damage:2": 0,
           "OreDict:8": "",
           "id:8": "newgunrizons:RealityEraser"
-        },
-        "1:10": {
-          "Count:3": 1,
-          "Damage:2": 0,
-          "OreDict:8": "",
-          "id:8": "newgunrizons:EternalChassis"
-        },
-        "2:10": {
-          "Count:3": 1,
-          "Damage:2": 0,
-          "OreDict:8": "",
-          "id:8": "newgunrizons:RealityEngine"
         }
       },
       "taskID:8": "bq_standard:retrieval"

@@ -8,6 +8,7 @@ import net.minecraft.item.Item;
 
 import com.gtnewhorizon.newgunrizons.items.DroneLayout;
 import com.gtnewhorizon.newgunrizons.items.ItemDrone;
+import com.gtnewhorizon.newgunrizons.items.ItemEmblem;
 import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
 import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
 import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
@@ -36,6 +37,9 @@ public final class Drones {
     public static ItemDrone RiftDrone;
     public static ItemDrone SentinelDrone;
 
+    /** Flat weapon icons for the quest book. */
+    public static Item Emblem;
+
     private static final List<ItemDrone> ALL = new ArrayList<>();
 
     private Drones() {}
@@ -46,6 +50,8 @@ public final class Drones {
     }
 
     public static void init() {
+        Emblem = new ItemEmblem();
+        GameRegistry.registerItem(Emblem, "Emblem");
         ScoutDrone = register(
             new ItemDrone.Builder("ScoutDrone", 1).role("Scout quadcopter, 9mm pistol")
                 .frame(DroneLayout.QUAD, 0.45F)

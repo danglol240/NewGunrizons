@@ -17,7 +17,7 @@
         "id:8": "minecraft:stick"
       },
       "countAsQuest:1": 1,
-      "desc:8": "Quadcopter đầu tiên, bắn 9mm. Phải nạp đạn: cầm drone, sneak + chuột phải để nạp 9mm từ túi đồ.\n\n[note]Cách dùng drone:[/note]\n- Drone ra khỏi máy với pin rỗng: sạc trong Battery Buffer hoặc Charger đúng tier.\n- Chuột phải: thả drone. Chuột phải vào drone: thu về.\n- Drone đi theo bạn, tự bắn mob thù địch và kẻ đang đánh bạn, không bao giờ bắn xuyên qua bạn.\n- Hết pin hoặc hết đạn: tự bay về và nằm lại trong túi đồ. Bay quá xa: mất sóng và hạ cánh tại chỗ.\n- Có thể bị bắn rơi: rơi ra drone với pin cạn.",
+      "desc:8": "Quadcopter đầu tiên, bắn 9mm. Nạp đạn: cầm drone, sneak + chuột phải.\n\n[note]Cách dùng drone:[/note]\n- Drone ra khỏi máy với pin rỗng: sạc trong Battery Buffer hoặc Charger đúng tier.\n- Chuột phải: thả drone. Chuột phải vào drone: thu về.\n- Drone đi theo bạn, bắn mob thù địch và kẻ đang đánh bạn, không bắn xuyên qua bạn.\n- Hết pin hoặc hết đạn: tự bay về túi đồ. Bay quá xa: mất sóng và hạ cánh tại chỗ.\n- Có thể bị bắn rơi: rơi ra drone với pin cạn.",
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,

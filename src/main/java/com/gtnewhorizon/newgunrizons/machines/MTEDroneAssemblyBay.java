@@ -1,6 +1,7 @@
 package com.gtnewhorizon.newgunrizons.machines;
 
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.isAir;
+import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
 import static gregtech.api.enums.HatchElement.Energy;
 import static gregtech.api.enums.HatchElement.ExoticEnergy;
@@ -25,6 +26,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import com.google.common.io.ByteArrayDataInput;
+import com.gtnewhorizon.newgunrizons.blocks.NGBlocks;
 import com.gtnewhorizon.newgunrizons.client.render.DroneRenderer;
 import com.gtnewhorizon.newgunrizons.items.ItemDrone;
 import com.gtnewhorizon.newgunrizons.registry.DroneRecipeMap;
@@ -59,9 +61,9 @@ import io.netty.buffer.ByteBuf;
  * <ul>
  * <li>Base: a 5x5, 3 high hangar (the tower's ground floor, glass windows, empty 3x3 inside) on a round platform of
  * radius 3, all Solid Steel Machine Casings; the controller is in the middle of the hangar's front wall.</li>
- * <li>Each tier adds one storey on top of the tower (corners and the band above of that tier's Machine Casing, glass
- * between) and one landing ring around it on the ground: Steel Gear Box Casings at radius 4 + 2 x tier, with a
- * beacon of the tier's Machine Casing at each of the four compass points.</li>
+ * <li>Each tier adds one storey on top of the tower (corners and the band above of that tier's Assembly Frame, glass
+ * between) and one landing ring around it on the ground: that tier's Landing Pads at radius 4 + 2 x tier, with an
+ * Assembly Frame beacon at each of the four compass points. Frames and pads are made of the tier's material.</li>
  * <li>The number of consecutive storeys (LV, MV, ... MAX) is the highest drone tier it can build.</li>
  * </ul>
  * While it works, the drone being built lifts off inside the hangar and a drone of every built tier circles its ring.
@@ -77,7 +79,6 @@ public class MTEDroneAssemblyBay extends MTEExtendedPowerMultiBlockBase<MTEDrone
     /** The tower centre is this far behind the controller. */
     private static final int CENTER_DEPTH = 2;
     private static final Casings CASING = Casings.SolidSteelMachineCasing;
-    private static final Casings PAD = Casings.SteelGearBoxCasing;
 
     private int casingAmount;
     private int tiers;
@@ -147,6 +148,11 @@ public class MTEDroneAssemblyBay extends MTEExtendedPowerMultiBlockBase<MTEDrone
         return Math.abs(x) == TOWER_HALF && Math.abs(z) == TOWER_HALF;
     }
 
+    /** Structure key of the landing pads of a tier's ring (generated shapes, so any char works). */
+    private static char padChar(int tier) {
+        return (char) (0x100 + tier);
+    }
+
     static int ringRadius(int tier) {
         return 4 + 2 * tier;
     }
@@ -176,8 +182,9 @@ public class MTEDroneAssemblyBay extends MTEExtendedPowerMultiBlockBase<MTEDrone
             g.set(x, y + 1, z, t); // band
         }
         int r = ringRadius(tier);
+        char pad = padChar(tier);
         for (int x = -r - 1; x <= r + 1; x++) for (int z = -r - 1; z <= r + 1; z++) {
-            if (Math.round(Math.sqrt(x * x + z * z)) == r) g.set(x, -1, z, 'P');
+            if (Math.round(Math.sqrt(x * x + z * z)) == r) g.set(x, -1, z, pad);
         }
         g.set(r, -1, 0, t);
         g.set(-r, -1, 0, t);
@@ -198,11 +205,11 @@ public class MTEDroneAssemblyBay extends MTEExtendedPowerMultiBlockBase<MTEDrone
             Grid g = tierGrid(tier);
             b.addShape(TIER + tier, g.shape());
             OFFSETS[tier] = g.offset();
-            b.addElement(MTEMunitionsFactory.segmentChar(tier), MTEMunitionsFactory.casingOfTier(tier));
+            b.addElement(MTEMunitionsFactory.segmentChar(tier), MTEMunitionsFactory.frameOrCasing(tier));
+            b.addElement(padChar(tier), ofBlock(NGBlocks.LandingPad, tier - 1));
         }
         return b.addElement('G', chainAllGlasses())
             .addElement('-', isAir())
-            .addElement('P', PAD.asElement())
             .addElement(
                 'C',
                 buildHatchAdder(MTEDroneAssemblyBay.class)
@@ -238,16 +245,16 @@ public class MTEDroneAssemblyBay extends MTEExtendedPowerMultiBlockBase<MTEDrone
             .addSeparator()
             .addInfo("Base: 5x5x3 hangar of Solid Steel Machine Casings, glass windows in the middle row,")
             .addInfo("empty 3x3 inside, on a round Solid Steel platform of radius 3; controller front middle")
-            .addInfo("Storey N: 5x5 ring on top of the tower, tier-N Machine Casing corners and glass, then")
-            .addInfo("a full band of tier-N Machine Casing")
-            .addInfo("Ring N: Steel Gear Box Casings on the ground at radius 4 + 2N around the tower centre,")
-            .addInfo("with a tier-N Machine Casing at north, east, south and west")
+            .addInfo("Storey N: 5x5 ring on top of the tower, tier-N Assembly Frame corners and glass, then")
+            .addInfo("a full band of tier-N Assembly Frames (the tier's Machine Casing also works)")
+            .addInfo("Ring N: tier-N Landing Pads on the ground at radius 4 + 2N around the tower centre,")
+            .addInfo("with a tier-N Assembly Frame at north, east, south and west")
             .addInfo("Use a Hologram Projector: the stack size is the number of tiers to show")
             .beginVariableStructureBlock(7, 65, 4, 31, 7, 65, false)
             .addController("Middle of the hangar's front wall")
             .addCasingInfoMin("Solid Steel Machine Casing", MIN_CASINGS, false)
-            .addCasing("Machine Casing of each storey's tier", "20 per tier", true)
-            .addOtherStructurePart("Steel Gear Box Casing", "The landing rings")
+            .addCasing("Assembly Frame of each storey's tier", "24 per tier", true)
+            .addOtherStructurePart("Landing Pad of each ring's tier", "The landing rings")
             .addOtherStructurePart("Any glass", "Hangar and storey windows")
             .addEnergyHatch("1+ (multi-amp and laser hatches allowed)", "Any Solid Steel Machine Casing", 1)
             .addMaintenanceHatch("1", "Any Solid Steel Machine Casing", 1)

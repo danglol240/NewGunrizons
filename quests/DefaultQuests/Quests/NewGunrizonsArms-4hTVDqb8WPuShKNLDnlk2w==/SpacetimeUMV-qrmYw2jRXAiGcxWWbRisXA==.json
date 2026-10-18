@@ -1,8 +1,8 @@
 {
   "preRequisites:9": {
     "0:10": {
-      "questIDHigh:4": 5041301474547290346,
-      "questIDLow:4": -8079057766022080151
+      "questIDHigh:4": 7817882618588453512,
+      "questIDLow:4": -9024803786292153498
     },
     "1:10": {
       "questIDHigh:4": -9017038146424055127,
@@ -21,13 +21,13 @@
         "id:8": "minecraft:stick"
       },
       "countAsQuest:1": 1,
-      "desc:8": "Chrono Rifle đóng băng mục tiêu; Singularity Cannon mở hố đen 6 giây hút mob và item.",
+      "desc:8": "Chrono Rifle đóng băng mục tiêu; Singularity Cannon mở hố đen 6 giây.",
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,
-        "Damage:2": 0,
+        "Damage:2": 11,
         "OreDict:8": "",
-        "id:8": "newgunrizons:ChronoRifle"
+        "id:8": "newgunrizons:Emblem"
       },
       "isMain:1": 0,
       "isSilent:1": 0,
@@ -76,18 +76,6 @@
           "Damage:2": 0,
           "OreDict:8": "",
           "id:8": "newgunrizons:ChronoRifle"
-        },
-        "1:10": {
-          "Count:3": 1,
-          "Damage:2": 0,
-          "OreDict:8": "",
-          "id:8": "newgunrizons:SpacetimeChassis"
-        },
-        "2:10": {
-          "Count:3": 1,
-          "Damage:2": 0,
-          "OreDict:8": "",
-          "id:8": "newgunrizons:SingularityCannon"
         }
       },
       "taskID:8": "bq_standard:retrieval"

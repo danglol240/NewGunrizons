@@ -1,8 +1,8 @@
 {
   "preRequisites:9": {
     "0:10": {
-      "questIDHigh:4": -933679863506512677,
-      "questIDLow:4": -5036207533860967384
+      "questIDHigh:4": 8293043274911143483,
+      "questIDLow:4": -7599380099575829505
     },
     "1:10": {
       "questIDHigh:4": 8502721261927355068,
@@ -25,11 +25,11 @@
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,
-        "Damage:2": 0,
+        "Damage:2": 4,
         "OreDict:8": "",
-        "id:8": "newgunrizons:Railgun"
+        "id:8": "newgunrizons:Emblem"
       },
-      "isMain:1": 1,
+      "isMain:1": 0,
       "isSilent:1": 0,
       "lockedProgress:1": 0,
       "name:8": "Electromagnetic (IV)",
@@ -76,12 +76,6 @@
           "Damage:2": 0,
           "OreDict:8": "",
           "id:8": "newgunrizons:Railgun"
-        },
-        "1:10": {
-          "Count:3": 1,
-          "Damage:2": 0,
-          "OreDict:8": "",
-          "id:8": "newgunrizons:ElectromagneticCoil"
         }
       },
       "taskID:8": "bq_standard:retrieval"

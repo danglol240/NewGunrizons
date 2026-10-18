@@ -120,7 +120,7 @@ VIEWS = {
 }
 
 
-def render(quads, tex, view, size=900):
+def render(quads, tex, view, size=900, transparent=False):
     """Z-buffered rasterizer: each face is an affine parallelogram in orthographic view."""
     import numpy as np
 
@@ -154,6 +154,7 @@ def render(quads, tex, view, size=900):
     color = np.zeros((H, W, 3), dtype=np.float32)
     color[:] = (38, 42, 50)
     depth = np.full((H, W), np.inf)
+    drawn = np.zeros((H, W), dtype=bool)
     for pts, (u0, v0, u1, v1), shade in faces:
         sp = np.stack([(pts[:, 0] * scale + ox) * ss, (pts[:, 1] * scale + oy) * ss], axis=1)
         a, b, d = sp[0], sp[1], sp[3]
@@ -185,6 +186,10 @@ def render(quads, tex, view, size=900):
         lit = np.where(glow, rgb, rgb * shade)
         sub_c = color[y0:y1 + 1, x0:x1 + 1]
         sub_c[m] = lit[m]
+        drawn[y0:y1 + 1, x0:x1 + 1] |= m
+    if transparent:
+        rgba = np.dstack([np.clip(color, 0, 255), drawn * 255.0]).astype(np.uint8)
+        return Image.fromarray(rgba, "RGBA").resize((w, h), Image.LANCZOS)
     img = Image.fromarray(np.clip(color, 0, 255).astype(np.uint8))
     return img.resize((w, h), Image.LANCZOS)
 

@@ -8,6 +8,7 @@ the line from QuestLinesOrder-append.txt to config/betterquesting/DefaultQuests/
 usage: gen_quests.py REPO_ROOT
 """
 import base64
+import math
 import json
 import re
 import shutil
@@ -64,143 +65,180 @@ def q(key, name, icon, tasks, prereqs, x, y, desc, main=False):
 
 
 # ---------------------------------------------------------------- content
-ERAS = [
-    # tier, roof casing, power advice
-    ("LV", "LV Machine Casing", "1 năng lượng LV (32 EU/t) là đủ"),
-    ("MV", "MV Machine Casing", "hatch MV"),
-    ("HV", "HV Machine Casing", "hatch HV"),
-    ("EV", "EV Machine Casing", "hatch EV"),
-    ("IV", "IV Machine Casing", "hatch IV"),
-    ("LuV", "LuV Machine Casing", "hatch LuV"),
-    ("ZPM", "ZPM Machine Casing", "hatch ZPM"),
-    ("UV", "UV Machine Casing", "hatch UV"),
-    ("UHV", "UHV Machine Casing", "hatch UHV (2A trở lên nên dùng multi-amp)"),
-    ("UEV", "UEV Machine Casing", "multi-amp hoặc laser hatch UEV"),
-    ("UIV", "UIV Machine Casing", "multi-amp hoặc laser hatch UIV"),
-    ("UMV", "UMV Machine Casing", "multi-amp hoặc laser hatch UMV"),
-    ("UXV", "UXV Machine Casing", "multi-amp hoặc laser hatch UXV"),
-    ("MAX", "MAX Machine Casing", "laser hatch MAX"),
-]
+# Layout: one column per tier (LV left ... MAX right), one row per kind of quest, so every tier reads top to bottom
+# (factory era -> components -> weapon -> drone complex storey -> drone) and every row left to right.
+TIERS = ["LV", "MV", "HV", "EV", "IV", "LuV", "ZPM", "UV", "UHV", "UEV", "UIV", "UMV", "UXV", "MAX"]
+MATERIALS = ["Steel", "Aluminium", "Stainless Steel", "Titanium", "Tungstensteel", "HSS-S", "Naquadah Alloy",
+             "Neutronium", "Cosmic Neutronium", "Infinity", "Transcendent Metal", "Spacetime", "Universium",
+             "Magmatter"]
+COL, ROW = 56, 64
+ROWS = {"era": 0, "part": 1, "gun": 2, "storey": 3, "drone": 4}
 
-STRUCTURE = (
-    "[note]Cấu trúc (nhìn từ phía trước, controller ở giữa):[/note]\n"
+
+def pos(tier_index, row, main=False):
+    # main quests are drawn bigger (32 instead of 24): shift them so their centres stay on the grid
+    off = -4 if main else 0
+    return tier_index * COL + off, ROWS[row] * ROW + off
+
+
+def frame(tier_index, n=1):
+    return item("newgunrizons:TierFrame", tier_index, n)
+
+
+def pad(tier_index, n=1):
+    return item("newgunrizons:LandingPad", tier_index, n)
+
+
+def emblem(i):
+    return item("newgunrizons:Emblem", i)
+
+
+def ring_pads(tier):
+    r = 4 + 2 * tier
+    cells = sum(1 for x in range(-r - 1, r + 2) for z in range(-r - 1, r + 2)
+                if round(math.sqrt(x * x + z * z)) == r)
+    return cells - 4  # four of them are frame beacons
+
+
+FACTORY_GUIDE = (
+    "[note]Cấu trúc (controller ở giữa mặt trước):[/note]\n"
     "Đầu nhà máy (lát 0), 3x3:\n"
     "  C C C\n  C [K] C\n  C C C\n"
     "Mỗi đoạn phía sau (lát 1, 2, 3...), 3x3:\n"
-    "  T T T   <- mái: 3 Machine Casing đúng tier của đoạn\n"
-    "  G . G   <- 2 kính bất kỳ, giữa là không khí (đường lắp ráp)\n"
+    "  F F F   <- mái: 3 Assembly Frame của tier đoạn đó\n"
+    "  G . G   <- 2 kính, giữa để trống (đường lắp ráp)\n"
     "  C C C   <- sàn: Heat Proof Machine Casing\n"
-    "C = Heat Proof Machine Casing (gắn hatch ở đây), K = controller.\n"
-    "Đoạn 1 lợp LV casing, đoạn 2 lợp MV, ... đoạn 14 lợp MAX. Số đoạn liên tiếp = thời kỳ của nhà máy: "
-    "nó chỉ chạy công thức tới tier đó. Mỗi đoạn +4 parallel.\n"
-    "Mẹo: dùng Structure Lib Hologram Projector trên controller để hiện khung, chuột phải với stack size = số đoạn muốn xây."
+    "C = Heat Proof Machine Casing (gắn hatch), K = controller.\n"
+    "Đoạn 1 lợp frame LV (thép), đoạn 2 frame MV (nhôm)... đoạn 14 frame MAX (magmatter). "
+    "Machine Casing GT cùng tier cũng dùng làm mái được.\n"
+    "Số đoạn liên tiếp = thời kỳ nhà máy (tier công thức cao nhất). Mỗi đoạn +4 parallel.\n"
+    "Mẹo: Hologram Projector, stack size = số đoạn."
 )
 
-q("factory", "§6§lMunitions Factory", machine(FACTORY_ID), retrieval(machine(FACTORY_ID)), [], 0, 0,
+q("factory", "§6§lMunitions Factory", machine(FACTORY_ID), retrieval(machine(FACTORY_ID), frame(0, 3)), [],
+  *pos(0, "era", True),
   "Mọi khẩu súng, linh kiện, băng đạn và đạn của NewGunrizons chỉ được làm trong Munitions Factory.\n\n"
-  "Chế controller trên bàn chế tạo: 2 mạch LV, Robot Arm LV, 2 Conveyor LV, Hull LV, 2 Piston LV.\n\n"
-  + STRUCTURE + "\n\nHatch cần có: 1 Energy, 1 Maintenance, 1 Input Bus, 1 Output Bus (Input Hatch nếu dùng soldering).",
+  "Controller: 2 mạch LV, Robot Arm LV, 2 Conveyor LV, Hull LV, 2 Piston LV.\n"
+  "Assembly Frame làm trong Assembler: 6 plate + 1 frame box của vật liệu tier + 1 mạch tier.\n\n"
+  + FACTORY_GUIDE + "\n\nHatch: 1 Energy, 1 Maintenance, 1 Input Bus, 1 Output Bus (+ Input Hatch cho soldering).",
   main=True)
 
-q("mech", "Weapon Mechanisms", ng("PistolSlide"), retrieval(ng("PistolSlide")), ["factory"], 48, 0,
-  "Súng LV-HV lắp từ nòng, thân, báng và bộ cơ khí theo loại súng: Pistol Slide (súng lục), Blowback Bolt (SMG), "
-  "Gas Piston (súng trường), Precision Bolt (bắn tỉa), Pump Action (shotgun), Belt Feed (súng máy). "
-  "Tất cả làm trong nhà máy, mỗi loại có mạch lập trình riêng.")
+POWER = {"UHV": "nên dùng multi-amp hatch", "UEV": "multi-amp hoặc laser hatch", "UIV": "laser hatch",
+         "UMV": "laser hatch", "UXV": "laser hatch", "MAX": "laser hatch"}
+for i in range(1, 14):
+    tier = TIERS[i]
+    q(f"era_{tier}", f"Factory Era: {tier}", frame(i), retrieval(frame(i, 3)), [f"era_{TIERS[i - 1]}" if i > 1 else "factory"],
+      *pos(i, "era"),
+      f"Nối đoạn {i + 1} ra sau đoạn {i}: mái 3 {tier} {MATERIALS[i]} Assembly Frame, 2 kính hai bên, "
+      f"sàn 3 Heat Proof Machine Casing. Đổi Energy Hatch lên {tier}"
+      + (f" ({POWER[tier]})" if tier in POWER else "") + ".\n"
+      f"Nhà máy cần đủ đoạn liên tiếp LV -> {tier} để chạy công thức {tier}.")
 
-q("lvgun", "Chemical Firearms (LV)", ng("M1911"), retrieval(ng("M1911")), ["mech"], 96, 0,
-  "Thời kỳ LV: súng thế chiến (M1911, Kar98K, Mosin, Garand, STG44...). Băng đạn và đạn cũng ra từ nhà máy.")
+PARTS = [  # tier -> (quest name, items, description)
+    ("Weapon Mechanisms", ["PistolSlide"],
+     "Súng LV-HV lắp từ nòng, thân, báng và bộ cơ khí theo loại súng: Pistol Slide (súng lục), Blowback Bolt "
+     "(SMG), Gas Piston (súng trường), Precision Bolt (bắn tỉa), Pump Action (shotgun), Belt Feed (súng máy)."),
+    ("Blowback Bolt", ["BlowbackBolt"], "Bộ khóa nòng cho SMG thời MV."),
+    ("Gas Piston System", ["GasPistonSystem"], "Hệ trích khí cho súng trường quân đội."),
+    ("Smart Targeting", ["SmartTargetingModule"], "Module ngắm thông minh cho súng ray hỗ trợ EV."),
+    ("Electromagnetic Coil", ["ElectromagneticCoil", "SuperconductingRail"], "Cuộn từ và ray siêu dẫn cho súng điện từ."),
+    ("Focusing Lens Array", ["FocusingLensArray"], "Dãy thấu kính hội tụ cho laser."),
+    ("Plasma Containment", ["PlasmaContainmentChamber"], "Buồng giam plasma."),
+    ("Crystal Matrix Chassis", ["CrystalMatrixChassis", "ParticleAcceleratorSegment"],
+     "Từ UV, súng cần khung làm ở Extreme Crafting Table (Avaritia): Crystal Matrix Weapon Chassis "
+     "(thỏi Crystal Matrix + Diamond Lattice). Sau đó lắp trong nhà máy."),
+    ("Neutronium Chassis", ["NeutroniumChassis", "AntimatterTrap"],
+     "Neutronium Weapon Chassis (thỏi Neutronium + Neutronium Gear) ở Extreme Crafting Table."),
+    ("Infinity Chassis", ["InfinityChassis", "QuantumEntanglementCore"],
+     "Infinity Weapon Chassis và các module UEV+ chỉ làm ở Extreme Crafting Table."),
+    ("Graviton Field Emitter", ["GravitonFieldEmitter"], "Module trường graviton (Extreme Crafting Table)."),
+    ("Spacetime Chassis", ["SpacetimeChassis", "ChronoStabilizer"],
+     "Spacetime Weapon Chassis (từ Infinity Chassis) và Chrono Stabilizer."),
+    ("Dimensional Rift Emitter", ["DimensionalRiftEmitter"], "Module xé không gian (Extreme Crafting Table)."),
+    ("Eternal Chassis", ["EternalChassis", "RealityEngine"], "Khung vĩnh cửu và Reality Engine cho vũ khí MAX."),
+]
+for i, (name, items, desc) in enumerate(PARTS):
+    tier = TIERS[i]
+    q(f"part_{tier}", name, ng(items[0]), retrieval(*[ng(x) for x in items]),
+      ["factory" if i == 0 else f"era_{tier}"], *pos(i, "part"), desc)
 
-GUNS = {  # tier -> (quest name, gun, extra items, description)
-    "MV": ("Advanced Firearms (MV)", "MP40", [], "SMG, shotgun, súng lục hiện đại."),
-    "HV": ("Military Grade (HV)", "M4A1", [], "AK, M4, G36, P90, Dragunov và các súng quân đội."),
-    "EV": ("Rail-Assisted (EV)", "XR7", ["SmartTargetingModule"],
-           "XR-7 và HX-9 có ray hỗ trợ: đạn xuyên thêm 1 mục tiêu. Cần Smart Targeting Module."),
-    "IV": ("Electromagnetic (IV)", "Railgun", ["ElectromagneticCoil"],
-           "Coilgun, Gauss Rifle, Railgun: đạn xuyên nhiều mob, mỗi mob sau giảm damage."),
-    "LuV": ("Laser (LuV)", "LaserRifle", ["LaserRifleCell"],
-            "Laser bắn trúng ngay lập tức. Bắn liên tục sẽ quá nhiệt (thanh nhiệt trên HUD).\n"
-            "Cell năng lượng sạc lại được: bỏ vào Battery Buffer hoặc Charger LuV."),
-    "ZPM": ("Plasma (ZPM)", "PlasmaCannon", ["PlasmaRifle"],
-            "Plasma đốt cháy, đẩy lùi, xuyên 30% giáp. Plasma Cannon nổ."),
-    "UV": ("Particle (UV)", "ParticleBeamRifle", ["CrystalMatrixChassis"],
-           "Từ UV trở đi, súng cần khung (chassis) làm ở Extreme Crafting Table của Avaritia, rồi mới lắp trong nhà máy.\n"
-           "Crystal Matrix Weapon Chassis: thỏi Crystal Matrix + Diamond Lattice."),
-    "UHV": ("Antimatter (UHV)", "AntimatterCannon", ["NeutroniumChassis"],
-            "Antimatter gây phóng xạ GT. Khung: Neutronium Weapon Chassis (thỏi Neutronium + Neutronium Gear)."),
-    "UEV": ("Quantum (UEV)", "QuantumPhaseRifle", ["InfinityChassis", "QuantumEntanglementCore"],
-            "Đạn lượng tử xuyên qua tối đa 12 block. Module UEV+ cũng chỉ làm ở Extreme Crafting Table."),
-    "UIV": ("Gravity (UIV)", "GravitonCannon", ["GravitonFieldEmitter"],
-            "Tạo hố trọng lực hút mob lại rồi nghiền. Ngồi (sneak) khi bắn để đẩy văng."),
-    "UMV": ("Spacetime (UMV)", "ChronoRifle", ["SpacetimeChassis", "SingularityCannon"],
-            "Chrono Rifle đóng băng mục tiêu; Singularity Cannon mở hố đen 6 giây hút mob và item."),
-    "UXV": ("Dimensional (UXV)", "DimensionalCutter", ["DimensionalRiftEmitter"],
-            "Chém xuyên không gian: trúng mọi thứ trên đường thẳng 50 block, xuyên tường và giáp."),
-    "MAX": ("§d§lReality Eraser (MAX)", "RealityEraser", ["EternalChassis", "RealityEngine"],
-            "Xóa mục tiêu khỏi thực tại. Boss và người chơi nhận 1000 damage. Hồi chiêu 30 giây."),
-}
+GUNS = [  # (quest name, gun registry name, emblem index, description)
+    ("Chemical Firearms", "M1911", 0, "Súng thế chiến: M1911, Kar98K, Mosin, Garand, STG44..."),
+    ("Advanced Firearms", "MP40", 1, "SMG, shotgun, súng lục hiện đại."),
+    ("Military Grade", "M4A1", 2, "AK, M4, G36, P90, Dragunov và các súng quân đội."),
+    ("Rail-Assisted", "XR7", 3, "XR-7 và HX-9 có ray hỗ trợ: đạn xuyên thêm 1 mục tiêu."),
+    ("Electromagnetic", "Railgun", 4, "Coilgun, Gauss Rifle, Railgun: đạn xuyên nhiều mob, mỗi mob sau giảm damage."),
+    ("Laser", "LaserRifle", 5, "Bắn trúng tức thì, quá nhiệt khi bắn liên tục. Cell sạc lại trong Battery Buffer LuV."),
+    ("Plasma", "PlasmaCannon", 6, "Plasma đốt cháy, đẩy lùi, xuyên 30% giáp. Plasma Cannon nổ."),
+    ("Particle", "ParticleBeamRifle", 7, "Chùm hạt xuyên giáp và xuyên nhiều mob."),
+    ("Antimatter", "AntimatterCannon", 8, "Phản vật chất gây phóng xạ GT."),
+    ("Quantum", "QuantumPhaseRifle", 9, "Đạn lượng tử xuyên qua tối đa 12 block."),
+    ("Gravity", "GravitonCannon", 10, "Hố trọng lực hút mob lại rồi nghiền. Sneak khi bắn để đẩy văng."),
+    ("Spacetime", "ChronoRifle", 11, "Chrono Rifle đóng băng mục tiêu; Singularity Cannon mở hố đen 6 giây."),
+    ("Dimensional", "DimensionalCutter", 12, "Chém mọi thứ trên đường thẳng 50 block, xuyên tường và giáp."),
+    ("§d§lReality Eraser", "RealityEraser", 13, "Xóa mục tiêu khỏi thực tại. Boss và người chơi nhận 1000 damage. "
+                                                 "Hồi chiêu 30 giây."),
+]
+for i, (name, gun, em, desc) in enumerate(GUNS):
+    tier = TIERS[i]
+    main_ = i == 13
+    q(f"gun_{tier}", f"{name} ({tier})", emblem(em), retrieval(ng(gun)),
+      [f"part_{tier}"] + ([f"gun_{TIERS[i - 1]}"] if i else []), *pos(i, "gun", main_), desc, main=main_)
 
-prev_era, prev_gun = "factory", "lvgun"
-for i, (tier, casing, power) in enumerate(ERAS[1:], start=1):
-    y = i * 36
-    era_key = f"era_{tier}"
-    q(era_key, f"Factory Era {i + 1}: {tier}", machine(FACTORY_ID),
-      checkbox(), [prev_era], 0, y,
-      f"Nối thêm đoạn {i + 1} vào sau đoạn {i}: mái 3 {casing}, 2 kính hai bên, sàn 3 Heat Proof Machine Casing.\n"
-      f"Năng lượng: {power}. Nhà máy cần đủ đoạn liên tiếp từ LV tới {tier} mới chạy được công thức {tier}.\n"
-      "Đánh dấu khi đã xây xong.")
-    name, gun, extra, desc = GUNS[tier]
-    gun_key = f"gun_{tier}"
-    q(gun_key, name, ng(gun), retrieval(*([ng(gun)] + [ng(e) for e in extra])), [era_key, prev_gun], 96, y, desc,
-      main=tier in ("IV", "UV", "UEV", "MAX"))
-    prev_era, prev_gun = era_key, gun_key
-
-# ---------------- drones
-q("bay", "§b§lDrone Assembly Complex", machine(BAY_ID), retrieval(machine(BAY_ID)), ["factory"], 216, 0,
+COMPLEX_GUIDE = (
+    "[note]Phần gốc:[/note]\n"
+    "- Sân tròn bán kính 3 bằng Solid Steel Machine Casing (gắn hatch, tối thiểu 30 casing).\n"
+    "- Xưởng 5x5 cao 3 trên sân: viền Solid Steel, hàng giữa kính, lòng 3x3 trống. "
+    "Controller giữa tường trước, tầng dưới.\n\n"
+    "[note]Mỗi tier thêm:[/note]\n"
+    "- 1 tầng tháp chồng lên: hàng dưới 4 góc là Assembly Frame tier đó, giữa là kính; hàng trên 1 vòng kín "
+    "Assembly Frame.\n"
+    "- 1 vòng bãi đáp trên mặt đất (cao độ của sân): Landing Pad của tier đó ở bán kính 4 + 2 x tier tính từ "
+    "tâm tháp, với 1 Assembly Frame ở 4 hướng Bắc/Đông/Nam/Tây.\n"
+    "Landing Pad làm trong Assembler: 4 plate + 1 frame box vật liệu tier -> 8 pad.\n"
+    "Số tầng liên tiếp = tier drone cao nhất. Hologram Projector: stack size = số tier."
+)
+q("bay", "§b§lDrone Assembly Complex", machine(BAY_ID),
+  retrieval(machine(BAY_ID), pad(0, ring_pads(1)), frame(0, 24)), ["gun_LV"], *pos(0, "storey", True),
   "Tháp lắp drone, lớn dần theo từng thời kỳ. Controller: 2 mạch LV, Sensor LV, 2 Motor LV, Hull LV, "
-  "2 Robot Arm LV (xem NEI).\n\n"
-  "[note]Phần gốc (luôn cần):[/note]\n"
-  "- Sân tròn bán kính 3 bằng Solid Steel Machine Casing (gắn hatch ở đây, tối thiểu 30 casing).\n"
-  "- Trên sân là xưởng 5x5 cao 3: viền Solid Steel, hàng giữa là kính, lòng 3x3 để trống. "
-  "Controller ở giữa tường trước, tầng dưới cùng.\n\n"
-  "[note]Mỗi tier thêm:[/note]\n"
-  "- 1 tầng tháp chồng lên trên: hàng dưới 4 góc là Machine Casing tier đó, giữa là kính; hàng trên là "
-  "1 vòng kín Machine Casing tier đó (20 casing/tier).\n"
-  "- 1 vòng bãi đáp trên mặt đất (cùng cao độ với sân): Steel Gear Box Casing ở bán kính 4 + 2 x tier "
-  "(LV = 6, MV = 8, ... MAX = 32) tính từ tâm tháp, với 1 Machine Casing tier đó ở 4 hướng Bắc/Đông/Nam/Tây.\n\n"
-  "Số tầng liên tiếp = tier drone cao nhất lắp được. Dùng Hologram Projector, stack size = số tier muốn hiện.",
-  main=True)
+  "2 Robot Arm LV.\n\n" + COMPLEX_GUIDE, main=True)
+for i in range(1, 14):
+    tier = TIERS[i]
+    q(f"storey_{tier}", f"Complex Storey: {tier}", pad(i), retrieval(pad(i, ring_pads(i + 1)), frame(i, 24)),
+      [("bay" if i == 1 else f"storey_{TIERS[i - 1]}"), f"gun_{tier}"], *pos(i, "storey"),
+      f"Thêm tầng {tier} cho tháp (20 {tier} Assembly Frame) và vòng bãi đáp bán kính {4 + 2 * (i + 1)}: "
+      f"{ring_pads(i + 1)} {tier} {MATERIALS[i]} Landing Pad + 4 frame làm cột mốc.")
 
 DRONES = [
-    ("ScoutDrone", "LV", "Quadcopter đầu tiên, bắn 9mm. Phải nạp đạn: cầm drone, sneak + chuột phải để nạp 9mm từ túi đồ."),
-    ("AssaultDrone", "MV", "SMG .45, bắn loạt 3 viên."),
-    ("GunshipDrone", "HV", "Hexacopter, súng trường 5.56."),
-    ("HeavyDrone", "EV", "Octocopter 2 súng máy 7.62, đạn xuyên 1 mục tiêu."),
-    ("RailDrone", "IV", "Railgun, dùng Ferromagnetic Slug, xuyên 3 mục tiêu."),
-    ("LaserDrone", "LuV", "Từ LuV drone bắn bằng pin, không cần đạn. Laser bắn trúng tức thì."),
-    ("PlasmaDrone", "ZPM", "Plasma đốt cháy và đẩy lùi."),
-    ("ParticleDrone", "UV", "Chùm hạt xuyên giáp, xuyên 3 mob."),
-    ("AntimatterDrone", "UHV", "Đạn phản vật chất gây phóng xạ."),
-    ("QuantumDrone", "UEV", "Đạn xuyên 8 block tường."),
-    ("GravitonDrone", "UIV", "Tạo hố trọng lực nhỏ."),
-    ("ChronoDrone", "UMV", "Đóng băng thời gian của mục tiêu."),
-    ("RiftDrone", "UXV", "Tia rạn không gian chém mọi thứ trên đường thẳng."),
-    ("SentinelDrone", "MAX", "Hộ vệ tối thượng."),
+    ("ScoutDrone", "Quadcopter đầu tiên, bắn 9mm. Nạp đạn: cầm drone, sneak + chuột phải."),
+    ("AssaultDrone", "SMG .45, bắn loạt 3 viên."),
+    ("GunshipDrone", "Hexacopter, súng trường 5.56."),
+    ("HeavyDrone", "Octocopter 2 súng máy 7.62, đạn xuyên 1 mục tiêu."),
+    ("RailDrone", "Railgun, dùng Ferromagnetic Slug, xuyên 3 mục tiêu."),
+    ("LaserDrone", "Từ LuV drone bắn bằng pin, không cần đạn. Laser bắn trúng tức thì."),
+    ("PlasmaDrone", "Plasma đốt cháy và đẩy lùi."),
+    ("ParticleDrone", "Chùm hạt xuyên giáp, xuyên 3 mob."),
+    ("AntimatterDrone", "Đạn phản vật chất gây phóng xạ."),
+    ("QuantumDrone", "Đạn xuyên 8 block tường."),
+    ("GravitonDrone", "Tạo hố trọng lực nhỏ."),
+    ("ChronoDrone", "Đóng băng thời gian của mục tiêu."),
+    ("RiftDrone", "Tia rạn không gian chém mọi thứ trên đường thẳng."),
+    ("SentinelDrone", "Hộ vệ tối thượng."),
 ]
 DRONE_INTRO = (
     "\n\n[note]Cách dùng drone:[/note]\n"
     "- Drone ra khỏi máy với pin rỗng: sạc trong Battery Buffer hoặc Charger đúng tier.\n"
     "- Chuột phải: thả drone. Chuột phải vào drone: thu về.\n"
-    "- Drone đi theo bạn, tự bắn mob thù địch và kẻ đang đánh bạn, không bao giờ bắn xuyên qua bạn.\n"
-    "- Hết pin hoặc hết đạn: tự bay về và nằm lại trong túi đồ. Bay quá xa: mất sóng và hạ cánh tại chỗ.\n"
+    "- Drone đi theo bạn, bắn mob thù địch và kẻ đang đánh bạn, không bắn xuyên qua bạn.\n"
+    "- Hết pin hoặc hết đạn: tự bay về túi đồ. Bay quá xa: mất sóng và hạ cánh tại chỗ.\n"
     "- Có thể bị bắn rơi: rơi ra drone với pin cạn."
 )
-prev = "bay"
-for i, (name, tier, desc) in enumerate(DRONES):
-    key = f"drone_{name}"
-    prereqs = [prev] + ([f"era_{tier}"] if tier != "LV" else [])
-    q(key, f"{tier} Drone", ng(name), retrieval(ng(name)), prereqs, 216, 36 + i * 36,
-      desc + (DRONE_INTRO if i == 0 else ""), main=i in (0, 5, 13))
-    prev = key
+for i, (name, desc) in enumerate(DRONES):
+    tier = TIERS[i]
+    main_ = i in (0, 13)
+    q(f"drone_{name}", f"{tier} Drone", ng(name), retrieval(ng(name)),
+      [("bay" if i == 0 else f"storey_{tier}")] + ([f"drone_{DRONES[i - 1][0]}"] if i else []),
+      *pos(i, "drone", main_), desc + (DRONE_INTRO if i == 0 else ""), main=main_)
 
 # ---------------------------------------------------------------- writer
 LINE_NAME = "NewGunrizons: Arms & Drones"
@@ -247,14 +285,15 @@ def main():
     quest_dir.mkdir(parents=True)
     (line_dir / "QuestLine.json").write_text(json.dumps({
         "properties:10": {"betterquesting:10": {
-            "bg_image:8": "", "bg_size:3": 256, "desc:8": LINE_DESC, "icon:10": ng("RealityEraser"),
+            "bg_image:8": "", "bg_size:3": 256, "desc:8": LINE_DESC, "icon:10": item("newgunrizons:Emblem", 13),
             "name:8": LINE_NAME, "visibility:8": "UNLOCKED"}},
         "questLineIDHigh:4": lhi, "questLineIDLow:4": llo}, indent=2, ensure_ascii=False))
     for key, name, icon, tasks, prereqs, x, y, desc, main_ in QUESTS:
         hi, lo, b64 = qid(key)
         fname = f"{file_prefix(name)}-{b64}.json"
         (line_dir / fname).write_text(json.dumps(
-            {"questIDHigh:4": hi, "questIDLow:4": lo, "sizeX:3": 24, "sizeY:3": 24, "x:3": x, "y:3": y},
+            {"questIDHigh:4": hi, "questIDLow:4": lo, "sizeX:3": 32 if main_ else 24, "sizeY:3": 32 if main_ else 24,
+             "x:3": x, "y:3": y},
             indent=2))
         (quest_dir / fname).write_text(json.dumps(
             quest_json(key, name, icon, tasks, prereqs, desc, main_), indent=2, ensure_ascii=False))

@@ -12,7 +12,7 @@
         "id:8": "minecraft:stick"
       },
       "countAsQuest:1": 1,
-      "desc:8": "Mọi khẩu súng, linh kiện, băng đạn và đạn của NewGunrizons chỉ được làm trong Munitions Factory.\n\nChế controller trên bàn chế tạo: 2 mạch LV, Robot Arm LV, 2 Conveyor LV, Hull LV, 2 Piston LV.\n\n[note]Cấu trúc (nhìn từ phía trước, controller ở giữa):[/note]\nĐầu nhà máy (lát 0), 3x3:\n  C C C\n  C [K] C\n  C C C\nMỗi đoạn phía sau (lát 1, 2, 3...), 3x3:\n  T T T   <- mái: 3 Machine Casing đúng tier của đoạn\n  G . G   <- 2 kính bất kỳ, giữa là không khí (đường lắp ráp)\n  C C C   <- sàn: Heat Proof Machine Casing\nC = Heat Proof Machine Casing (gắn hatch ở đây), K = controller.\nĐoạn 1 lợp LV casing, đoạn 2 lợp MV, ... đoạn 14 lợp MAX. Số đoạn liên tiếp = thời kỳ của nhà máy: nó chỉ chạy công thức tới tier đó. Mỗi đoạn +4 parallel.\nMẹo: dùng Structure Lib Hologram Projector trên controller để hiện khung, chuột phải với stack size = số đoạn muốn xây.\n\nHatch cần có: 1 Energy, 1 Maintenance, 1 Input Bus, 1 Output Bus (Input Hatch nếu dùng soldering).",
+      "desc:8": "Mọi khẩu súng, linh kiện, băng đạn và đạn của NewGunrizons chỉ được làm trong Munitions Factory.\n\nController: 2 mạch LV, Robot Arm LV, 2 Conveyor LV, Hull LV, 2 Piston LV.\nAssembly Frame làm trong Assembler: 6 plate + 1 frame box của vật liệu tier + 1 mạch tier.\n\n[note]Cấu trúc (controller ở giữa mặt trước):[/note]\nĐầu nhà máy (lát 0), 3x3:\n  C C C\n  C [K] C\n  C C C\nMỗi đoạn phía sau (lát 1, 2, 3...), 3x3:\n  F F F   <- mái: 3 Assembly Frame của tier đoạn đó\n  G . G   <- 2 kính, giữa để trống (đường lắp ráp)\n  C C C   <- sàn: Heat Proof Machine Casing\nC = Heat Proof Machine Casing (gắn hatch), K = controller.\nĐoạn 1 lợp frame LV (thép), đoạn 2 frame MV (nhôm)... đoạn 14 frame MAX (magmatter). Machine Casing GT cùng tier cũng dùng làm mái được.\nSố đoạn liên tiếp = thời kỳ nhà máy (tier công thức cao nhất). Mỗi đoạn +4 parallel.\nMẹo: Hologram Projector, stack size = số đoạn.\n\nHatch: 1 Energy, 1 Maintenance, 1 Input Bus, 1 Output Bus (+ Input Hatch cho soldering).",
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,
@@ -67,6 +67,12 @@
           "Damage:2": 17920,
           "OreDict:8": "",
           "id:8": "gregtech:gt.blockmachines"
+        },
+        "1:10": {
+          "Count:3": 3,
+          "Damage:2": 0,
+          "OreDict:8": "",
+          "id:8": "newgunrizons:TierFrame"
         }
       },
       "taskID:8": "bq_standard:retrieval"
