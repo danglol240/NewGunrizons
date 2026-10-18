@@ -1,0 +1,93 @@
+{
+  "preRequisites:9": {},
+  "properties:10": {
+    "betterquesting:10": {
+      "autoClaim:1": 0,
+      "completion_animation:8": "default",
+      "completion_particle:8": "default",
+      "confetti_icon:10": {
+        "Count:3": 0,
+        "Damage:2": 0,
+        "OreDict:8": "",
+        "id:8": "minecraft:stick"
+      },
+      "countAsQuest:1": 1,
+      "desc:8": "§6Machine type: §aMagical Energy Absorber§r\n\nThis is where the ultimate destiny of the Dragon's Children lies.\nWith the help of the Magic Egg, it draws in endless magical power as effortlessly as a soul-sucking sorcerer.\nEvery dragon egg generates 1A EV & every creeper's generates 1A HV.\nInfinity egg generates 2A IV, but you can put only one for one each piece you add.\nBut quantitative change leads to qualitative change,\nEvery 2^n pieces give 2% max efficiency bonus, and every infinity egg gives 1%.\nYou can also put nothing on the egg pos, but every empty pos decreases 5% max efficiency.\nWarm-up process for 0.01% per second as base, each pair of Dragon Eggs add 0.01% but limit for 50 pairs, each Infinity Egg add 1% with no limits.\nThe process will take about 3 hours if put Creeper Eggs only, but who really care about?\nWhether it is the Dragon Egg, Creeper Egg, or the Egg of Infinity, only their presence can drive the full circulation of power.\n\n[note]Structure[/note]: Trinium Frame Boxes; Iridium Frame Boxes; Photonic Intensifiers (optional speed upgrades); the casings in the optional task.\nUse a Hologram Projector (or the NEI structure preview) to see and auto-build the structure.\n\n[note]Controller recipe[/note]: Assembler, LuV\n - 4x Magic Energy Absorber LV\n - 4x Magic Energy Absorber MV\n - 4x Magic Energy Absorber HV\n - 4x Magic Energy Absorber EV\n - 4x Magic Energy Converter LV\n - 4x Magic Energy Converter MV\n - 4x Magic Energy Converter HV\n - 4x Void Pollen",
+      "globalShare:1": 0,
+      "icon:10": {
+        "Count:3": 1,
+        "Damage:2": 19026,
+        "OreDict:8": "",
+        "id:8": "gregtech:gt.blockmachines"
+      },
+      "isMain:1": 0,
+      "isSilent:1": 0,
+      "lockedProgress:1": 0,
+      "name:8": "Tower of Abstraction",
+      "notification_duration:5": -1.0,
+      "notification_effect:3": -1,
+      "notification_fade_in:5": -1.0,
+      "notification_fade_out:5": -1.0,
+      "notification_icon_offset_y:3": -2147483648,
+      "notification_icon_scale:5": -1.0,
+      "notification_pos_x:3": -2147483648,
+      "notification_pos_y:3": -2147483648,
+      "notification_show_icon:8": "default",
+      "notification_style:8": "default",
+      "notification_subtitle:8": "",
+      "notification_subtitle_scale:5": -1.0,
+      "notification_title:8": "",
+      "notification_title_scale:5": -1.0,
+      "particle_count:3": -1,
+      "questLogic:8": "AND",
+      "repeatTime:3": -1,
+      "repeat_relative:1": 1,
+      "simultaneous:1": 0,
+      "snd_complete:8": "random.levelup",
+      "snd_update:8": "random.levelup",
+      "taskLogic:8": "AND",
+      "visibility:8": "ALWAYS"
+    }
+  },
+  "questIDHigh:4": -8152928166369339079,
+  "questIDLow:4": -7234438487599012827,
+  "rewards:9": {},
+  "tasks:9": {
+    "0:10": {
+      "autoConsume:1": 0,
+      "consume:1": 0,
+      "groupDetect:1": 0,
+      "ignoreNBT:1": 1,
+      "index:3": 0,
+      "partialMatch:1": 1,
+      "requireOnlyOneItem:1": 0,
+      "requiredItems:9": {
+        "0:10": {
+          "Count:3": 1,
+          "Damage:2": 19026,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockmachines"
+        }
+      },
+      "taskID:8": "bq_standard:retrieval"
+    },
+    "1:10": {
+      "autoConsume:1": 0,
+      "consume:1": 0,
+      "groupDetect:1": 0,
+      "ignoreNBT:1": 1,
+      "index:3": 1,
+      "partialMatch:1": 1,
+      "requireOnlyOneItem:1": 0,
+      "requiredItems:9": {
+        "0:10": {
+          "Count:3": 1,
+          "Damage:2": 7,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockcasings8"
+        }
+      },
+      "taskID:8": "bq_standard:optional_retrieval"
+    }
+  }
+}

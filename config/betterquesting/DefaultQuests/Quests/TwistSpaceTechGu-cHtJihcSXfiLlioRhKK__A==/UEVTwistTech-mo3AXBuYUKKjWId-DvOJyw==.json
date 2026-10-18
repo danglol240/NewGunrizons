@@ -1,0 +1,66 @@
+{
+  "preRequisites:9": {
+    "0:10": {
+      "questIDHigh:4": -2891723769447818451,
+      "questIDLow:4": -5007743981547275587
+    }
+  },
+  "properties:10": {
+    "betterquesting:10": {
+      "autoClaim:1": 0,
+      "completion_animation:8": "default",
+      "completion_particle:8": "default",
+      "confetti_icon:10": {
+        "Count:3": 0,
+        "Damage:2": 0,
+        "OreDict:8": "",
+        "id:8": "minecraft:stick"
+      },
+      "countAsQuest:1": 1,
+      "desc:8": "[note]UEV[/note]\nTST machines you can build at UEV:\n - Space Scaler: Compressor\n - Crystalline Infinitier: Autoclave\n - General Ore Processing Factory TST: Ore Processor\n - Biosphere III: Bacterial Vat\n - Astral Computing Array\n - Thermal Energy Devourer: Vacuum Freezer\n - Vacuum Filter Extractor: Distillation Tower\n - Hephaestus' Atelier: Furnace\n - TST Large Disassembler: Disassembler\n - Ball Lightning: (Plasma / Electric) Arc Furnace / Fusion Reactor / Star Kernel Generator\n - Large Neutron Oscillator: Modularized Machine - Neutron Activator\n - PULSAR - Incompact Cyclotron: Particle Accelerator\n - Integrated Assembly Matrix: Assembly Line\n - Super Stocking Input (ME)",
+      "globalShare:1": 0,
+      "icon:10": {
+        "Count:3": 1,
+        "Damage:2": 19010,
+        "OreDict:8": "",
+        "id:8": "gregtech:gt.blockmachines"
+      },
+      "isMain:1": 0,
+      "isSilent:1": 0,
+      "lockedProgress:1": 0,
+      "name:8": "§aUEV§r Twist Tech",
+      "notification_duration:5": -1.0,
+      "notification_effect:3": -1,
+      "notification_fade_in:5": -1.0,
+      "notification_fade_out:5": -1.0,
+      "notification_icon_offset_y:3": -2147483648,
+      "notification_icon_scale:5": -1.0,
+      "notification_pos_x:3": -2147483648,
+      "notification_pos_y:3": -2147483648,
+      "notification_show_icon:8": "default",
+      "notification_style:8": "default",
+      "notification_subtitle:8": "",
+      "notification_subtitle_scale:5": -1.0,
+      "notification_title:8": "",
+      "notification_title_scale:5": -1.0,
+      "particle_count:3": -1,
+      "questLogic:8": "AND",
+      "repeatTime:3": -1,
+      "repeat_relative:1": 1,
+      "simultaneous:1": 0,
+      "snd_complete:8": "random.levelup",
+      "snd_update:8": "random.levelup",
+      "taskLogic:8": "AND",
+      "visibility:8": "ALWAYS"
+    }
+  },
+  "questIDHigh:4": -7309975118319955806,
+  "questIDLow:4": -6676437472090289717,
+  "rewards:9": {},
+  "tasks:9": {
+    "0:10": {
+      "index:3": 0,
+      "taskID:8": "bq_standard:checkbox"
+    }
+  }
+}
