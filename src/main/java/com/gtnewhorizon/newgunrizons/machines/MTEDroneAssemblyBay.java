@@ -288,7 +288,8 @@ public class MTEDroneAssemblyBay extends MTEExtendedPowerMultiBlockBase<MTEDrone
 
     @Override
     public int survivalConstruct(ItemStack stackSize, int elementBudget, ISurvivalBuildEnvironment env) {
-        if (mMachine) return -1;
+        // No 'already formed' shortcut: the structure is valid from its first era on, so stopping once it forms
+        // would never build the later segments (NEI preview tier slider, hologram auto-build).
         int[] o = OFFSETS[0];
         int built = survivalBuildPiece(BASE, stackSize, o[0], o[1], o[2], elementBudget, env, false, true);
         if (built >= 0) return built;

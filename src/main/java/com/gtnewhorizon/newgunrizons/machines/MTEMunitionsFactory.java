@@ -199,7 +199,8 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
 
     @Override
     public int survivalConstruct(ItemStack stackSize, int elementBudget, ISurvivalBuildEnvironment env) {
-        if (mMachine) return -1;
+        // No 'already formed' shortcut: the structure is valid from its first era on, so stopping once it forms
+        // would never build the later segments (NEI preview tier slider, hologram auto-build).
         int built = survivalBuildPiece(HEAD, stackSize, OFFSET_X, OFFSET_Y, 0, elementBudget, env, false, true);
         if (built >= 0) return built;
         int count = GTStructureChannels.STRUCTURE_LENGTH.getValueClamped(stackSize, 1, MAX_SEGMENTS);
