@@ -6,7 +6,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 
 import com.gtnewhorizon.newgunrizons.client.render.BeamEffects;
-import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
+import com.gtnewhorizon.newgunrizons.items.ShotProfile;
 
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
@@ -19,10 +19,10 @@ public class BeamMessageHandler implements IMessageHandler<BeamMessage, IMessage
         Minecraft mc = Minecraft.getMinecraft();
         if (mc.theWorld == null) return null;
         Item item = Item.getItemById(message.getWeaponId());
-        if (!(item instanceof ItemWeapon)) return null;
+        if (!(item instanceof ShotProfile)) return null;
         Entity shooter = mc.theWorld.getEntityByID(message.getShooterId());
         BeamEffects.add(
-            (ItemWeapon) item,
+            (ShotProfile) item,
             shooter instanceof EntityLivingBase ? (EntityLivingBase) shooter : null,
             message.getStartX(),
             message.getStartY(),

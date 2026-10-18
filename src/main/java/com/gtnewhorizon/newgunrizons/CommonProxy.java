@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.IItemRenderer;
 
 import com.gtnewhorizon.newgunrizons.entities.EntityBullet;
+import com.gtnewhorizon.newgunrizons.entities.EntityDrone;
 import com.gtnewhorizon.newgunrizons.entities.EntityGravityField;
 import com.gtnewhorizon.newgunrizons.entities.EntityGrenade;
 import com.gtnewhorizon.newgunrizons.entities.EntityShellCasing;
@@ -43,6 +44,7 @@ import com.gtnewhorizon.newgunrizons.network.WeaponActionMessageHandler;
 import com.gtnewhorizon.newgunrizons.registry.Attachments;
 import com.gtnewhorizon.newgunrizons.registry.AuxiliaryAttachments;
 import com.gtnewhorizon.newgunrizons.registry.Bullets;
+import com.gtnewhorizon.newgunrizons.registry.Drones;
 import com.gtnewhorizon.newgunrizons.registry.Grenades;
 import com.gtnewhorizon.newgunrizons.registry.Guns;
 import com.gtnewhorizon.newgunrizons.registry.Magazines;
@@ -120,6 +122,16 @@ public class CommonProxy {
             64,
             500,
             true);
+
+        EntityRegistry.registerModEntity(
+            EntityGrenade.class,
+            "Grenade" + this.modEntityID,
+            this.modEntityID++,
+            mod,
+            64,
+            10000,
+            false);
+        // added after the original entities so their network IDs stay the same
         EntityRegistry.registerModEntity(
             EntityGravityField.class,
             "GravityField" + this.modEntityID,
@@ -129,13 +141,13 @@ public class CommonProxy {
             20,
             false);
         EntityRegistry.registerModEntity(
-            EntityGrenade.class,
-            "Grenade" + this.modEntityID,
+            EntityDrone.class,
+            "Drone" + this.modEntityID,
             this.modEntityID++,
             mod,
-            64,
-            10000,
-            false);
+            96,
+            2,
+            true);
 
         // Register gun component items
         GunBarrelSteel = new ItemGunBarrelSteel();
@@ -182,6 +194,7 @@ public class CommonProxy {
         Magazines.init();
         Guns.init();
         Parts.init();
+        Drones.init();
         Grenades.init();
     }
 

@@ -16,7 +16,8 @@ import net.minecraft.world.World;
 
 import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.entities.EntityBullet;
-import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
+import com.gtnewhorizon.newgunrizons.entities.EntityDrone;
+import com.gtnewhorizon.newgunrizons.items.ShotProfile;
 import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.network.BeamMessage;
 import com.gtnewhorizon.newgunrizons.network.BlockHitMessage;
@@ -38,19 +39,26 @@ public final class Hitscan {
 
     private Hitscan() {}
 
-    public static void fire(ItemWeapon weapon, EntityLivingBase shooter, float damage, float inaccuracy) {
+    /** A hand-held weapon's beam, along the shooter's aim from their eyes. */
+    public static void fire(ShotProfile weapon, EntityLivingBase shooter, float damage, float inaccuracy) {
+        Vec3 eye = Vec3.createVectorHelper(shooter.posX, shooter.posY + shooter.getEyeHeight(), shooter.posZ);
+        fire(weapon, shooter, eye, shooter.getLookVec(), damage, inaccuracy);
+    }
+
+    /** A beam from a given point and direction (drones fire from their own body). */
+    public static void fire(ShotProfile weapon, EntityLivingBase shooter, Vec3 eye, Vec3 aim, float damage,
+        float inaccuracy) {
         World world = shooter.worldObj;
         if (world.isRemote) return;
         WeaponBehavior b = weapon.getBehavior();
         Random rnd = shooter.getRNG();
+        Entity friend = shooter instanceof EntityDrone ? ((EntityDrone) shooter).getOwner() : null;
 
-        Vec3 eye = Vec3.createVectorHelper(shooter.posX, shooter.posY + shooter.getEyeHeight(), shooter.posZ);
-        Vec3 look = shooter.getLookVec();
-        look = Vec3
+        Vec3 look = Vec3
             .createVectorHelper(
-                look.xCoord + rnd.nextGaussian() * INACCURACY_SPREAD * inaccuracy,
-                look.yCoord + rnd.nextGaussian() * INACCURACY_SPREAD * inaccuracy,
-                look.zCoord + rnd.nextGaussian() * INACCURACY_SPREAD * inaccuracy)
+                aim.xCoord + rnd.nextGaussian() * INACCURACY_SPREAD * inaccuracy,
+                aim.yCoord + rnd.nextGaussian() * INACCURACY_SPREAD * inaccuracy,
+                aim.zCoord + rnd.nextGaussian() * INACCURACY_SPREAD * inaccuracy)
             .normalize();
         double range = b.getHitscanRange();
         Vec3 end = eye.addVector(look.xCoord * range, look.yCoord * range, look.zCoord * range);
@@ -79,7 +87,8 @@ public final class Hitscan {
             .expand(1.0D, 1.0D, 1.0D);
         for (Object o : world.getEntitiesWithinAABBExcludingEntity(shooter, area)) {
             Entity e = (Entity) o;
-            if (!e.canBeCollidedWith()) continue;
+            if (!e.canBeCollidedWith() || e == friend) continue;
+            if (e instanceof EntityDrone && ((EntityDrone) e).isOwnedBy(friend != null ? friend : shooter)) continue;
             MovingObjectPosition hit = e.boundingBox.expand(HITBOX_EXPANSION, HITBOX_EXPANSION, HITBOX_EXPANSION)
                 .calculateIntercept(eye, end);
             if (hit == null) continue;
@@ -118,7 +127,7 @@ public final class Hitscan {
         NewGunrizonsMod.CHANNEL.sendToAllAround(
             new BeamMessage(
                 shooter.getEntityId(),
-                Item.getIdFromItem(weapon),
+                Item.getIdFromItem((Item) weapon),
                 eye.xCoord,
                 eye.yCoord,
                 eye.zCoord,

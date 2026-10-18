@@ -5,13 +5,14 @@ import java.util.Random;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
 import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.entities.EntityBullet;
-import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
+import com.gtnewhorizon.newgunrizons.items.ShotProfile;
 import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
 
 /**
@@ -43,7 +44,7 @@ public class EntityBulletRenderer extends Render {
     public void doRender(Entity entity, double x, double y, double z, float yaw, float partialTicks) {
         if (!(entity instanceof EntityBullet)) return;
         EntityBullet bullet = (EntityBullet) entity;
-        ItemWeapon weapon = bullet.getWeapon();
+        ShotProfile weapon = bullet.getSource();
         if (weapon == null || weapon.getProjectileStyle() == null
             || weapon.getProjectileStyle() == ProjectileStyle.NONE) {
             return;
@@ -317,7 +318,7 @@ public class EntityBulletRenderer extends Render {
         double[] dir = FxDraw.norm(new double[] { bullet.motionX, bullet.motionY, bullet.motionZ });
         if (dir != null) {
             double[] right = FxDraw.norm(FxDraw.cross(dir, new double[] { 0, 1, 0 }));
-            if (right != null) {
+            if (right != null && bullet.getThrower() instanceof EntityPlayer) {
                 double[] up = FxDraw.cross(right, dir);
                 Minecraft mc = Minecraft.getMinecraft();
                 boolean firstPerson = bullet.getThrower() != null && bullet.getThrower() == mc.renderViewEntity

@@ -8,11 +8,12 @@ import java.util.Random;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 
 import org.lwjgl.opengl.GL11;
 
-import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
+import com.gtnewhorizon.newgunrizons.items.ShotProfile;
 import com.gtnewhorizon.newgunrizons.items.ProjectileStyle;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -29,14 +30,14 @@ public class BeamEffects {
 
     private static final class Beam {
 
-        final ItemWeapon weapon;
+        final ShotProfile weapon;
         final double[] start;
         final double[] end;
         final long born;
         final int duration;
         final int seed;
 
-        Beam(ItemWeapon weapon, double[] start, double[] end, long born, int duration, int seed) {
+        Beam(ShotProfile weapon, double[] start, double[] end, long born, int duration, int seed) {
             this.weapon = weapon;
             this.start = start;
             this.end = end;
@@ -46,14 +47,15 @@ public class BeamEffects {
         }
     }
 
-    public static void add(ItemWeapon weapon, EntityLivingBase shooter, double sx, double sy, double sz, double ex,
+    public static void add(ShotProfile weapon, EntityLivingBase shooter, double sx, double sy, double sz, double ex,
         double ey, double ez) {
         Minecraft mc = Minecraft.getMinecraft();
         if (mc.theWorld == null) return;
         double[] eye = { sx, sy, sz };
         double[] end = { ex, ey, ez };
         double[] dir = FxDraw.norm(FxDraw.sub(end, eye));
-        double[] start = dir == null ? eye : FxDraw.muzzle(shooter, eye, dir);
+        // players fire from the muzzle of the gun in their hands; drones from their own body
+        double[] start = dir == null || !(shooter instanceof EntityPlayer) ? eye : FxDraw.muzzle(shooter, eye, dir);
         int duration;
         switch (weapon.getProjectileStyle()) {
             case RIFT:

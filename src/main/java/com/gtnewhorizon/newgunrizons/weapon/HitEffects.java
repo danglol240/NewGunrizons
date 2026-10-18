@@ -17,7 +17,8 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
-import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
+import com.gtnewhorizon.newgunrizons.entities.EntityDrone;
+import com.gtnewhorizon.newgunrizons.items.ShotProfile;
 import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 
 import gregtech.api.util.GTUtility;
@@ -48,7 +49,7 @@ public final class HitEffects {
      * @param direction normalised flight direction, used for knockback
      * @return whether the target took damage (or was erased)
      */
-    public static boolean hit(Entity target, Entity direct, EntityLivingBase shooter, ItemWeapon weapon, float damage,
+    public static boolean hit(Entity target, Entity direct, EntityLivingBase shooter, ShotProfile weapon, float damage,
         Vec3 direction) {
         WeaponBehavior b = weapon.getBehavior();
         if (b.isEraser()) {
@@ -60,6 +61,10 @@ public final class HitEffects {
         }
         float ignoring = b.isEraser() ? 1.0F : b.getArmorPiercing();
         Entity source = direct != null ? direct : shooter;
+        // a drone's kills count as its owner's (loot, experience, and who the mob turns on)
+        if (shooter instanceof EntityDrone && ((EntityDrone) shooter).getOwner() != null) {
+            shooter = ((EntityDrone) shooter).getOwner();
+        }
         boolean hurt = false;
         float normal = damage * (1.0F - ignoring);
         float piercing = damage * ignoring;

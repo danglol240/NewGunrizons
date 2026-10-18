@@ -3,6 +3,7 @@ package com.gtnewhorizon.newgunrizons;
 import net.minecraft.creativetab.CreativeTabs;
 
 import com.gtnewhorizon.newgunrizons.registry.GTRecipes;
+import com.gtnewhorizon.newgunrizons.registry.DroneRecipes;
 import com.gtnewhorizon.newgunrizons.registry.HighTierRecipes;
 import com.gtnewhorizon.newgunrizons.registry.Machines;
 import com.gtnewhorizon.newgunrizons.tabs.AmmoTab;
@@ -56,6 +57,7 @@ public class NewGunrizonsMod {
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         HighTierRecipes.init();
+        DroneRecipes.init();
     }
 
     @EventHandler

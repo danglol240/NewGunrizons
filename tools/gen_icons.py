@@ -411,6 +411,46 @@ def eternal_chassis():
     return _chassis(ETERNAL, GLOW["MAX"], sparkle=(255, 220, 120))
 
 
+GLOW.setdefault("LV", _ramp((220, 225, 235), (255, 255, 255)))
+GLOW.setdefault("MV", _ramp((255, 140, 60), (255, 220, 190)))
+GLOW.setdefault("HV", _ramp((255, 220, 60), (255, 245, 200)))
+
+# name -> (tier, rotors, ducted)
+DRONES = {
+    "ScoutDrone": ("LV", 4, False), "AssaultDrone": ("MV", 4, False), "GunshipDrone": ("HV", 6, False),
+    "HeavyDrone": ("EV", 8, False), "RailDrone": ("IV", 4, True), "LaserDrone": ("LuV", 4, True),
+    "PlasmaDrone": ("ZPM", 6, True), "ParticleDrone": ("UV", 6, True), "AntimatterDrone": ("UHV", 8, True),
+    "QuantumDrone": ("UEV", 4, True), "GravitonDrone": ("UIV", 6, True), "ChronoDrone": ("UMV", 6, True),
+    "RiftDrone": ("UXV", 8, True), "SentinelDrone": ("MAX", 8, True),
+}
+
+
+def drone_icon(tier, rotors, ducted):
+    """Top-down view: arms, rotor discs (ringed when ducted) and a body lit in the tier colour."""
+    i = Icon()
+    g = GLOW[tier]
+    first = {4: 45.0, 6: 30.0, 8: 22.5}[rotors]
+    reach = 5.2 if rotors == 4 else 5.6
+    rad = 2.2 if rotors == 4 else (1.7 if rotors == 6 else 1.4)
+    hubs = []
+    for k in range(rotors):
+        a = math.radians(first + 360.0 * k / rotors)
+        hubs.append((7.5 + reach * math.cos(a), 7.5 + reach * math.sin(a)))
+    for hx, hy in hubs:
+        i.line(7, 7, round(hx), round(hy), GUNMETAL[2])
+    for hx, hy in hubs:
+        if ducted:
+            i.ring(hx, hy, rad + 0.6, rad - 0.2, g)
+        else:
+            i.disc(hx, hy, rad, [(60, 62, 70), (90, 92, 100), (120, 122, 130), (160, 162, 170)])
+        i.px(round(hx), round(hy), STEEL[3])
+    i.rect(5, 5, 10, 10, STEEL if tier in ("LV", "MV", "HV", "EV") else GUNMETAL)
+    i.rect(6, 6, 9, 9, g, shade=False)
+    i.px(7, 7, g[3])
+    i.px(7, 4, g[3])  # nose camera
+    return i.outline()
+
+
 ICONS = {
     "pistol_slide": pistol_slide,
     "blowback_bolt": blowback_bolt,
@@ -439,6 +479,8 @@ ICONS = {
     "spacetime_chassis": spacetime_chassis,
     "eternal_chassis": eternal_chassis,
 }
+for _name, (_tier, _rotors, _ducted) in DRONES.items():
+    ICONS["drone_" + _name.lower()] = (lambda t=_tier, r=_rotors, d=_ducted: drone_icon(t, r, d))
 
 
 def main():
@@ -449,7 +491,7 @@ def main():
         imgs.append(img)
     if len(sys.argv) > 1:
         cell = 112
-        sheet = Image.new("RGBA", (cell * 7, cell * 4), (40, 44, 52, 255))
+        sheet = Image.new("RGBA", (cell * 7, cell * 6), (40, 44, 52, 255))
         for k, img in enumerate(imgs):
             big = img.resize((96, 96), Image.NEAREST)
             sheet.paste(big, ((k % 7) * cell + 8, (k // 7) * cell + 8), big)

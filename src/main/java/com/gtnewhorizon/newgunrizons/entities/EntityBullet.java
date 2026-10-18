@@ -17,7 +17,7 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
 import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
-import com.gtnewhorizon.newgunrizons.items.ItemWeapon;
+import com.gtnewhorizon.newgunrizons.items.ShotProfile;
 import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.items.WeaponBehavior.FieldKind;
 import com.gtnewhorizon.newgunrizons.network.BlockHitMessage;
@@ -54,8 +54,9 @@ public class EntityBullet extends EntityProjectile {
                 Blocks.web,
                 Blocks.wheat)));
 
+    /** Weapon or drone that fired this; drives its behaviour and look. */
     @Getter
-    private ItemWeapon weapon;
+    private ShotProfile source;
     private float damage = DEFAULT_DAMAGE;
     private float explosionRadius;
 
@@ -78,10 +79,10 @@ public class EntityBullet extends EntityProjectile {
         super(world);
     }
 
-    public EntityBullet(ItemWeapon weapon, World world, EntityLivingBase thrower, float speed, float gravityVelocity,
+    public EntityBullet(ShotProfile source, World world, EntityLivingBase thrower, float speed, float gravityVelocity,
         float inaccuracy, float damage, float explosionRadius) {
         super(world, thrower, speed, gravityVelocity, inaccuracy);
-        this.weapon = weapon;
+        this.source = source;
         this.damage = damage;
         this.explosionRadius = explosionRadius;
     }
@@ -91,7 +92,7 @@ public class EntityBullet extends EntityProjectile {
     }
 
     private WeaponBehavior behavior() {
-        return weapon != null ? weapon.getBehavior() : WeaponBehavior.NONE;
+        return source != null ? source.getBehavior() : WeaponBehavior.NONE;
     }
 
     @Override
@@ -124,7 +125,12 @@ public class EntityBullet extends EntityProjectile {
 
     @Override
     protected boolean canHitEntity(Entity entity) {
-        return !hitEntities.contains(entity.getEntityId());
+        if (hitEntities.contains(entity.getEntityId())) return false;
+        // never the drone's owner, nor a drone of whoever fired
+        EntityLivingBase shooter = getThrower();
+        if (shooter instanceof EntityDrone && entity == ((EntityDrone) shooter).getOwner()) return false;
+        if (entity instanceof EntityDrone && ((EntityDrone) entity).isOwnedBy(shooter)) return false;
+        return true;
     }
 
     public void onImpact(MovingObjectPosition position) {
@@ -133,7 +139,7 @@ public class EntityBullet extends EntityProjectile {
             this.setDead();
             return;
         }
-        if (weapon == null) {
+        if (source == null) {
             this.setDead();
             return;
         }
@@ -212,7 +218,7 @@ public class EntityBullet extends EntityProjectile {
     private void handleEntityHit(Entity target) {
         double speed = Math.sqrt(motionX * motionX + motionY * motionY + motionZ * motionZ) + 1.0E-6D;
         Vec3 dir = Vec3.createVectorHelper(motionX / speed, motionY / speed, motionZ / speed);
-        HitEffects.hit(target, this, getThrower(), weapon, damage, dir);
+        HitEffects.hit(target, this, getThrower(), source, damage, dir);
         target.prevRotationYaw -= 0.3F;
 
         spawnBloodParticles(target);
@@ -232,7 +238,7 @@ public class EntityBullet extends EntityProjectile {
 
     @Override
     protected void onWaterImpact(double x, double y, double z) {
-        if (weapon == null) return;
+        if (source == null) return;
         NetworkRegistry.TargetPoint broadcastPoint = new NetworkRegistry.TargetPoint(
             dimension,
             x,
@@ -269,7 +275,7 @@ public class EntityBullet extends EntityProjectile {
 
     public void writeSpawnData(ByteBuf buffer) {
         super.writeSpawnData(buffer);
-        buffer.writeInt(Item.getIdFromItem(this.weapon));
+        buffer.writeInt(this.source instanceof Item ? Item.getIdFromItem((Item) this.source) : -1);
         buffer.writeFloat(this.damage);
         buffer.writeFloat(this.explosionRadius);
         // Exact velocity: the vanilla spawn packet clamps each component to +-3.9 blocks/tick, which bends the
@@ -282,7 +288,8 @@ public class EntityBullet extends EntityProjectile {
 
     public void readSpawnData(ByteBuf buffer) {
         super.readSpawnData(buffer);
-        this.weapon = (ItemWeapon) Item.getItemById(buffer.readInt());
+        Item sourceItem = Item.getItemById(buffer.readInt());
+        this.source = sourceItem instanceof ShotProfile ? (ShotProfile) sourceItem : null;
         this.damage = buffer.readFloat();
         this.explosionRadius = buffer.readFloat();
         this.motionX = buffer.readDouble();
@@ -303,8 +310,8 @@ public class EntityBullet extends EntityProjectile {
     public void readEntityFromNBT(NBTTagCompound tagCompound) {
         super.readEntityFromNBT(tagCompound);
         Item item = Item.getItemById(tagCompound.getInteger(TAG_ENTITY_ITEM));
-        if (item instanceof ItemWeapon) {
-            this.weapon = (ItemWeapon) item;
+        if (item instanceof ShotProfile) {
+            this.source = (ShotProfile) item;
         }
         this.damage = tagCompound.getFloat(TAG_DAMAGE);
         this.explosionRadius = tagCompound.getFloat(TAG_EXPLOSION_RADIUS);
@@ -312,7 +319,7 @@ public class EntityBullet extends EntityProjectile {
 
     public void writeEntityToNBT(NBTTagCompound tagCompound) {
         super.writeEntityToNBT(tagCompound);
-        tagCompound.setInteger(TAG_ENTITY_ITEM, Item.getIdFromItem(this.weapon));
+        tagCompound.setInteger(TAG_ENTITY_ITEM, this.source instanceof Item ? Item.getIdFromItem((Item) this.source) : -1);
         tagCompound.setFloat(TAG_DAMAGE, this.damage);
         tagCompound.setFloat(TAG_EXPLOSION_RADIUS, this.explosionRadius);
     }

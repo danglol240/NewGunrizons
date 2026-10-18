@@ -467,3 +467,20 @@ item.newgunrizons_NeutroniumChassis.name=Neutronium Weapon Chassis
 item.newgunrizons_InfinityChassis.name=Infinity Weapon Chassis
 item.newgunrizons_SpacetimeChassis.name=Spacetime Weapon Chassis
 item.newgunrizons_EternalChassis.name=Eternal Weapon Chassis
+
+# Drones
+item.newgunrizons_ScoutDrone.name=LV Scout Quadcopter
+item.newgunrizons_AssaultDrone.name=MV Assault Quadcopter
+item.newgunrizons_GunshipDrone.name=HV Gunship Hexacopter
+item.newgunrizons_HeavyDrone.name=EV Heavy Octocopter
+item.newgunrizons_RailDrone.name=IV Railgun Drone
+item.newgunrizons_LaserDrone.name=LuV Laser Drone
+item.newgunrizons_PlasmaDrone.name=ZPM Plasma Drone
+item.newgunrizons_ParticleDrone.name=UV Particle Beam Drone
+item.newgunrizons_AntimatterDrone.name=UHV Antimatter Drone
+item.newgunrizons_QuantumDrone.name=UEV Quantum Drone
+item.newgunrizons_GravitonDrone.name=UIV Graviton Drone
+item.newgunrizons_ChronoDrone.name=UMV Chrono Drone
+item.newgunrizons_RiftDrone.name=UXV Rift Drone
+item.newgunrizons_SentinelDrone.name=MAX Sentinel Drone
+newgunrizons.recipe.drones=Drone Assembly Bay

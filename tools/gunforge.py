@@ -47,8 +47,9 @@ def _clamp(v):
 
 
 class Gun:
-    def __init__(self, name, tier, tex_w=512, tex_h=256, seed=1707):
+    def __init__(self, name, tier, tex_w=512, tex_h=256, seed=1707, subdir="weapon"):
         self.name = name
+        self.subdir = subdir
         self.tier = TIERS[tier]
         self.tw, self.th = tex_w, tex_h
         self.cubes = []
@@ -186,7 +187,8 @@ class Gun:
                 "bones": [{"name": "root", "pivot": [0, 0, 0], "cubes": cubes}],
             }],
         }
-        model = ASSETS / "models/weapon" / f"{key}.geo.json"
+        model = ASSETS / "models" / self.subdir / f"{key}.geo.json"
+        model.parent.mkdir(parents=True, exist_ok=True)
         tex = ASSETS / "textures/models" / f"{key}.png"
         model.write_text(json.dumps(geo, indent=2) + "\n")
         img.save(tex)
