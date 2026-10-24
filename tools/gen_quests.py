@@ -286,10 +286,12 @@ VEHICLE_INTRO = (
     "- Load rounds by right clicking the vehicle with them. Repair with plates. A wreck drops the vehicle with a "
     "broken hull: repair it before driving into battle again."
 )
+LANG = dict(line.split("=", 1) for line in (ROOT / "src/main/resources/assets/newgunrizons/lang/en_US.lang")
+            .read_text(encoding="utf-8").splitlines() if "=" in line and not line.startswith("#"))
 for i, (name, desc) in enumerate(VEHICLES):
     tier = TIERS[i]
     main_ = i in (0, 13)
-    q(f"vehicle_{name}", f"{tier} Vehicle", ng(name), retrieval(ng(name)),
+    q(f"vehicle_{name}", LANG.get(f"item.newgunrizons_{name}.name", f"{tier} Vehicle"), ng(name), retrieval(ng(name)),
       [f"vpart_{tier}"] + ([f"vehicle_{VEHICLES[i - 1][0]}"] if i else []), *pos(i, "vehicle", main_),
       desc + (VEHICLE_INTRO if i == 0 else ""), main=main_)
 

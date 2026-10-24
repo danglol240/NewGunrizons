@@ -1,12 +1,12 @@
 {
   "preRequisites:9": {
     "0:10": {
-      "questIDHigh:4": 801224512928633277,
-      "questIDLow:4": -8632873594248098192
+      "questIDHigh:4": 3856194655367418034,
+      "questIDLow:4": -8896938897972538979
     },
     "1:10": {
-      "questIDHigh:4": 2768923604243537570,
-      "questIDLow:4": -6039032068248625933
+      "questIDHigh:4": 4401307670198179575,
+      "questIDLow:4": -5203398827678591432
     }
   },
   "properties:10": {
@@ -21,18 +21,18 @@
         "id:8": "minecraft:stick"
       },
       "countAsQuest:1": 1,
-      "desc:8": "Capital ship: rift beam and three void laser turrets. Core: Dimensional Rift Emitter.",
+      "desc:8": "The last ship. Core: Reality Engine.",
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,
         "Damage:2": 0,
         "OreDict:8": "",
-        "id:8": "newgunrizons:DimensionalLeviathan"
+        "id:8": "newgunrizons:GenesisArk"
       },
-      "isMain:1": 0,
+      "isMain:1": 1,
       "isSilent:1": 0,
       "lockedProgress:1": 0,
-      "name:8": "UXV Vehicle",
+      "name:8": "MAX Genesis Ark",
       "notification_duration:5": -1.0,
       "notification_effect:3": -1,
       "notification_fade_in:5": -1.0,
@@ -58,8 +58,8 @@
       "visibility:8": "ALWAYS"
     }
   },
-  "questIDHigh:4": 4401307670198179575,
-  "questIDLow:4": -5203398827678591432,
+  "questIDHigh:4": 2653578992315488750,
+  "questIDLow:4": -7787528354645912344,
   "rewards:9": {},
   "tasks:9": {
     "0:10": {
@@ -75,7 +75,7 @@
           "Count:3": 1,
           "Damage:2": 0,
           "OreDict:8": "",
-          "id:8": "newgunrizons:DimensionalLeviathan"
+          "id:8": "newgunrizons:GenesisArk"
         }
       },
       "taskID:8": "bq_standard:retrieval"

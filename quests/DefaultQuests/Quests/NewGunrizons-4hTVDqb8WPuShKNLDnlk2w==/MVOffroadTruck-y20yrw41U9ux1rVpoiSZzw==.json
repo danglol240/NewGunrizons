@@ -1,12 +1,12 @@
 {
   "preRequisites:9": {
     "0:10": {
-      "questIDHigh:4": -6119796948817586265,
-      "questIDLow:4": -5337163119167138543
+      "questIDHigh:4": 474175170633356389,
+      "questIDLow:4": -6514944689077887996
     },
     "1:10": {
-      "questIDHigh:4": 6035711729352856687,
-      "questIDLow:4": -7493315018811464423
+      "questIDHigh:4": 8256922664058245829,
+      "questIDLow:4": -8789665321007389418
     }
   },
   "properties:10": {
@@ -21,18 +21,18 @@
         "id:8": "minecraft:stick"
       },
       "countAsQuest:1": 1,
-      "desc:8": "Freezes its targets in time. Core: Chrono Stabilizer.",
+      "desc:8": "Six-wheel truck for four, with a roof gunner (7.62x51).",
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,
         "Damage:2": 0,
         "OreDict:8": "",
-        "id:8": "newgunrizons:SpacetimeSkimmer"
+        "id:8": "newgunrizons:OffroadTruck"
       },
       "isMain:1": 0,
       "isSilent:1": 0,
       "lockedProgress:1": 0,
-      "name:8": "UMV Vehicle",
+      "name:8": "MV Off-road Truck",
       "notification_duration:5": -1.0,
       "notification_effect:3": -1,
       "notification_fade_in:5": -1.0,
@@ -58,8 +58,8 @@
       "visibility:8": "ALWAYS"
     }
   },
-  "questIDHigh:4": 2768923604243537570,
-  "questIDLow:4": -6039032068248625933,
+  "questIDHigh:4": -3788315984109677605,
+  "questIDLow:4": -5632114818683725361,
   "rewards:9": {},
   "tasks:9": {
     "0:10": {
@@ -75,7 +75,7 @@
           "Count:3": 1,
           "Damage:2": 0,
           "OreDict:8": "",
-          "id:8": "newgunrizons:SpacetimeSkimmer"
+          "id:8": "newgunrizons:OffroadTruck"
         }
       },
       "taskID:8": "bq_standard:retrieval"

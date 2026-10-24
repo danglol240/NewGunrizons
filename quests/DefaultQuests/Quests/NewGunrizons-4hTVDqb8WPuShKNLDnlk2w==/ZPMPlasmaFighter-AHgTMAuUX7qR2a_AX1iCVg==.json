@@ -1,12 +1,12 @@
 {
   "preRequisites:9": {
     "0:10": {
-      "questIDHigh:4": 474175170633356389,
-      "questIDLow:4": -6514944689077887996
+      "questIDHigh:4": 4086961266903634159,
+      "questIDLow:4": -5229281463567091500
     },
     "1:10": {
-      "questIDHigh:4": 8256922664058245829,
-      "questIDLow:4": -8789665321007389418
+      "questIDHigh:4": -1617470040751058306,
+      "questIDLow:4": -7992675290940457625
     }
   },
   "properties:10": {
@@ -21,18 +21,18 @@
         "id:8": "minecraft:stick"
       },
       "countAsQuest:1": 1,
-      "desc:8": "Six-wheel truck for four, with a roof gunner (7.62x51).",
+      "desc:8": "A space fighter that flies where you look. Refuel with plasma cells or a charger.",
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,
         "Damage:2": 0,
         "OreDict:8": "",
-        "id:8": "newgunrizons:OffroadTruck"
+        "id:8": "newgunrizons:PlasmaFighter"
       },
       "isMain:1": 0,
       "isSilent:1": 0,
       "lockedProgress:1": 0,
-      "name:8": "MV Vehicle",
+      "name:8": "ZPM Plasma Fighter",
       "notification_duration:5": -1.0,
       "notification_effect:3": -1,
       "notification_fade_in:5": -1.0,
@@ -58,8 +58,8 @@
       "visibility:8": "ALWAYS"
     }
   },
-  "questIDHigh:4": -3788315984109677605,
-  "questIDLow:4": -5632114818683725361,
+  "questIDHigh:4": 33798094278909882,
+  "questIDLow:4": -7937119627495570858,
   "rewards:9": {},
   "tasks:9": {
     "0:10": {
@@ -75,7 +75,7 @@
           "Count:3": 1,
           "Damage:2": 0,
           "OreDict:8": "",
-          "id:8": "newgunrizons:OffroadTruck"
+          "id:8": "newgunrizons:PlasmaFighter"
         }
       },
       "taskID:8": "bq_standard:retrieval"

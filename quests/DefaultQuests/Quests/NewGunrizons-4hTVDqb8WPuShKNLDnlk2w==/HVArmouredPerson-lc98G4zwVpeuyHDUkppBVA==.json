@@ -1,12 +1,12 @@
 {
   "preRequisites:9": {
     "0:10": {
-      "questIDHigh:4": 7249455810750271563,
-      "questIDLow:4": -8161125006688514657
+      "questIDHigh:4": 604989657878192083,
+      "questIDLow:4": -6990434738673610092
     },
     "1:10": {
-      "questIDHigh:4": 7811289850026088951,
-      "questIDLow:4": -7711697064358790745
+      "questIDHigh:4": -3788315984109677605,
+      "questIDLow:4": -5632114818683725361
     }
   },
   "properties:10": {
@@ -21,18 +21,18 @@
         "id:8": "minecraft:stick"
       },
       "countAsQuest:1": 1,
-      "desc:8": "The first aircraft: Space to climb, the descend key (C) to sink. Chin laser for the gunner, rocket pods for the pilot.",
+      "desc:8": "Armoured carrier, remote .50 BMG turret. Diesel or a GregTech charger.",
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,
         "Damage:2": 0,
         "OreDict:8": "",
-        "id:8": "newgunrizons:TiltrotorVTOL"
+        "id:8": "newgunrizons:ArmoredAPC"
       },
       "isMain:1": 0,
       "isSilent:1": 0,
       "lockedProgress:1": 0,
-      "name:8": "LuV Vehicle",
+      "name:8": "HV Armoured Personnel Carrier",
       "notification_duration:5": -1.0,
       "notification_effect:3": -1,
       "notification_fade_in:5": -1.0,
@@ -58,8 +58,8 @@
       "visibility:8": "ALWAYS"
     }
   },
-  "questIDHigh:4": -1617470040751058306,
-  "questIDLow:4": -7992675290940457625,
+  "questIDHigh:4": -7651760784108661097,
+  "questIDLow:4": -5852303657472999084,
   "rewards:9": {},
   "tasks:9": {
     "0:10": {
@@ -75,7 +75,7 @@
           "Count:3": 1,
           "Damage:2": 0,
           "OreDict:8": "",
-          "id:8": "newgunrizons:TiltrotorVTOL"
+          "id:8": "newgunrizons:ArmoredAPC"
         }
       },
       "taskID:8": "bq_standard:retrieval"

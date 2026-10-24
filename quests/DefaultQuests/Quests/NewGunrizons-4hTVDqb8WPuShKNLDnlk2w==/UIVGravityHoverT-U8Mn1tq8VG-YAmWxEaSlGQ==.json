@@ -1,12 +1,12 @@
 {
   "preRequisites:9": {
     "0:10": {
-      "questIDHigh:4": -119329161995330801,
-      "questIDLow:4": -7622291494043783025
+      "questIDHigh:4": -3986244903187161931,
+      "questIDLow:4": -6772081252253424649
     },
     "1:10": {
-      "questIDHigh:4": 8700916111911770214,
-      "questIDLow:4": -6847639791430512810
+      "questIDHigh:4": 1098460480351002215,
+      "questIDLow:4": -5858228433972580082
     }
   },
   "properties:10": {
@@ -21,18 +21,18 @@
         "id:8": "minecraft:stick"
       },
       "countAsQuest:1": 1,
-      "desc:8": "Floats over land and water. Electric, railgun with Ferromagnetic Slugs.",
+      "desc:8": "Hover tank with a graviton cannon that leaves gravity wells. Core: Graviton Field Emitter.",
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,
         "Damage:2": 0,
         "OreDict:8": "",
-        "id:8": "newgunrizons:HoverJeep"
+        "id:8": "newgunrizons:GravityTank"
       },
       "isMain:1": 0,
       "isSilent:1": 0,
       "lockedProgress:1": 0,
-      "name:8": "IV Vehicle",
+      "name:8": "UIV Gravity Hover Tank",
       "notification_duration:5": -1.0,
       "notification_effect:3": -1,
       "notification_fade_in:5": -1.0,
@@ -58,8 +58,8 @@
       "visibility:8": "ALWAYS"
     }
   },
-  "questIDHigh:4": 7811289850026088951,
-  "questIDLow:4": -7711697064358790745,
+  "questIDHigh:4": 6035711729352856687,
+  "questIDLow:4": -7493315018811464423,
   "rewards:9": {},
   "tasks:9": {
     "0:10": {
@@ -75,7 +75,7 @@
           "Count:3": 1,
           "Damage:2": 0,
           "OreDict:8": "",
-          "id:8": "newgunrizons:HoverJeep"
+          "id:8": "newgunrizons:GravityTank"
         }
       },
       "taskID:8": "bq_standard:retrieval"
