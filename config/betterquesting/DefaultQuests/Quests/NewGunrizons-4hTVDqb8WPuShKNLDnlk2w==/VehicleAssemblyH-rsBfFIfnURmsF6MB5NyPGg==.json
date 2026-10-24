@@ -1,0 +1,92 @@
+{
+  "preRequisites:9": {
+    "0:10": {
+      "questIDHigh:4": 4231594254914637902,
+      "questIDLow:4": -5744897708165222306
+    }
+  },
+  "properties:10": {
+    "betterquesting:10": {
+      "autoClaim:1": 0,
+      "completion_animation:8": "default",
+      "completion_particle:8": "default",
+      "confetti_icon:10": {
+        "Count:3": 0,
+        "Damage:2": 0,
+        "OreDict:8": "",
+        "id:8": "minecraft:stick"
+      },
+      "countAsQuest:1": 1,
+      "desc:8": "Builds every vehicle. Controller: 2 LV circuits, LV Piston, 2 LV Motors, LV Hull, 2 LV Robot Arms.\n\n[note]Layout (controller in the bottom middle of the front wall):[/note]\nFront wall, 9 wide x 5 high: Solid Steel Machine Casings around a 7x3 glass gallery.\nEach bay behind it, 2 blocks deep, every slice 9 x 5:\n  F F F F F F F F F   <- roof: 9 Assembly Frames of the bay's tier\n  C . . . . . . . C   <- empty hall, 3 rows\n  C P P P P P P P C   <- floor: 7 Landing Pads of the bay's tier\nBack wall, 9 x 5 Solid Steel Machine Casings, right behind the last bay.\nBay 1 = LV, bay 2 = MV ... bay 14 = MAX. The number of consecutive bays is the highest vehicle tier it builds.\nHologram Projector: stack size = number of bays.\n\nHatches on any casing: 1 Energy, 1 Maintenance, 1 Input Bus, 1 Output Bus, 1 Input Hatch for solder.",
+      "globalShare:1": 0,
+      "icon:10": {
+        "Count:3": 1,
+        "Damage:2": 17922,
+        "OreDict:8": "",
+        "id:8": "gregtech:gt.blockmachines"
+      },
+      "isMain:1": 1,
+      "isSilent:1": 0,
+      "lockedProgress:1": 0,
+      "name:8": "§a§lVehicle Assembly Hangar",
+      "notification_duration:5": -1.0,
+      "notification_effect:3": -1,
+      "notification_fade_in:5": -1.0,
+      "notification_fade_out:5": -1.0,
+      "notification_icon_offset_y:3": -2147483648,
+      "notification_icon_scale:5": -1.0,
+      "notification_pos_x:3": -2147483648,
+      "notification_pos_y:3": -2147483648,
+      "notification_show_icon:8": "default",
+      "notification_style:8": "default",
+      "notification_subtitle:8": "",
+      "notification_subtitle_scale:5": -1.0,
+      "notification_title:8": "",
+      "notification_title_scale:5": -1.0,
+      "particle_count:3": -1,
+      "questLogic:8": "AND",
+      "repeatTime:3": -1,
+      "repeat_relative:1": 1,
+      "simultaneous:1": 0,
+      "snd_complete:8": "random.levelup",
+      "snd_update:8": "random.levelup",
+      "taskLogic:8": "AND",
+      "visibility:8": "ALWAYS"
+    }
+  },
+  "questIDHigh:4": -5854574973797576423,
+  "questIDLow:4": -6046184746191646950,
+  "rewards:9": {},
+  "tasks:9": {
+    "0:10": {
+      "autoConsume:1": 0,
+      "consume:1": 0,
+      "groupDetect:1": 0,
+      "ignoreNBT:1": 1,
+      "index:3": 0,
+      "partialMatch:1": 1,
+      "requireOnlyOneItem:1": 0,
+      "requiredItems:9": {
+        "0:10": {
+          "Count:3": 1,
+          "Damage:2": 17922,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockmachines"
+        },
+        "1:10": {
+          "Count:3": 18,
+          "Damage:2": 0,
+          "OreDict:8": "",
+          "id:8": "newgunrizons:TierFrame"
+        },
+        "2:10": {
+          "Count:3": 14,
+          "Damage:2": 0,
+          "OreDict:8": "",
+          "id:8": "newgunrizons:LandingPad"
+        }
+      },
+      "taskID:8": "bq_standard:retrieval"
+    }
+  }
+}
