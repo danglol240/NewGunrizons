@@ -1,0 +1,19 @@
+{
+  "properties:10": {
+    "betterquesting:10": {
+      "bg_image:8": "",
+      "bg_size:3": 256,
+      "desc:8": "Weapons from LV to MAX made in the Munitions Factory, Avaritia components, and combat drones from the Drone Assembly Complex, and vehicles from the Vehicle Assembly Hangar.",
+      "icon:10": {
+        "Count:3": 1,
+        "Damage:2": 0,
+        "OreDict:8": "",
+        "id:8": "newgunrizons:SentinelDrone"
+      },
+      "name:8": "NewGunrizons",
+      "visibility:8": "UNLOCKED"
+    }
+  },
+  "questLineIDHigh:4": -2155864062695810821,
+  "questLineIDLow:4": -7889001104485554981
+}

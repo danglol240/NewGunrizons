@@ -1,0 +1,9597 @@
+[
+ {
+  "item": "IntensifyChemicalDistorter",
+  "cls": "GT_TileEntity_IntensifyChemicalDistorter",
+  "id": 19001,
+  "name": "Intensify Chemical Distorter",
+  "type": "Intensify Chemical Distorter/Chemical Reactor",
+  "info": [
+   "I! AM! THE! CHEM! THAT! IS! APPROOOOOACHING !!",
+   "The most advanced base chemical reactor.",
+   "Use screwdriver to change mode.",
+   "Intensify Chemical Distorter mode:",
+   "Focus on processing the most complex chemical reaction - 16x Parallel.",
+   "Chemical Reactor mode:",
+   "1024x Parallel and 900% faster than using LCR of the same voltage."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UHV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Mega Chemical Reactor"
+     ],
+     [
+      16,
+      "Carbon Nanites"
+     ],
+     [
+      16,
+      "Emitter UV"
+     ],
+     [
+      16,
+      "UHV Circuit"
+     ]
+    ],
+    "fluids": [
+     [
+      2304,
+      "Molten Soldering Alloy"
+     ]
+    ]
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings4",
+    1
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    0
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    1
+   ]
+  ],
+  "structure": [
+   "Heating Coils (the coil tier matters)"
+  ]
+ },
+ {
+  "item": "PreciseHighEnergyPhotonicQuantumMaster",
+  "cls": "GT_TileEntity_PreciseHighEnergyPhotonicQuantumMaster",
+  "id": 19002,
+  "name": "Precise High-Energy Photonic Quantum Master",
+  "type": "Photon Controller/Laser Engraver",
+  "info": [
+   "Prism tank in order, sir.",
+   "Control Photons on the scale of 10⁻² meters.",
+   "Install Photonic Intensifier on the back side of the structure to dramatically increase production speeds.",
+   "Multi upgrade modules can be stacked. Also can be uninstalled. Replace using normal Casing.",
+   "Use screwdriver to change mode.",
+   "Photon Controller mode:",
+   "16x Parallel",
+   "Laser Engraver mode:",
+   "256x Parallel | Extra reduce 50% recipe time spent"
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UHV",
+    "map": "assembler",
+    "inputs": [
+     [
+      4,
+      "EM Power"
+     ],
+     [
+      null,
+      "Cerium Doped Lutetium Aluminium Garnet"
+     ],
+     [
+      5,
+      "Emitter UV"
+     ],
+     [
+      1,
+      "Field Generator UV"
+     ],
+     [
+      4,
+      "UHV Circuit"
+     ]
+    ],
+    "fluids": [
+     [
+      18432,
+      "Molten Soldering Alloy"
+     ]
+    ]
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings2",
+    5
+   ],
+   [
+    "gregtech:gt.blockcasings2",
+    9
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    7
+   ],
+   [
+    "gregtech:gt.blockcasings9",
+    1
+   ],
+   [
+    "TwistSpaceTechnology:PhotonControllerUpgrades",
+    0
+   ],
+   [
+    "TwistSpaceTechnology:PhotonControllerUpgrades",
+    1
+   ],
+   [
+    "TwistSpaceTechnology:PhotonControllerUpgrades",
+    2
+   ],
+   [
+    "TwistSpaceTechnology:PhotonControllerUpgrades",
+    3
+   ],
+   [
+    "TwistSpaceTechnology:PhotonControllerUpgrades",
+    4
+   ],
+   [
+    "TwistSpaceTechnology:PhotonControllerUpgrades",
+    5
+   ],
+   [
+    "TwistSpaceTechnology:PhotonControllerUpgrades",
+    6
+   ],
+   [
+    "TwistSpaceTechnology:PhotonControllerUpgrades",
+    7
+   ],
+   [
+    "TwistSpaceTechnology:PhotonControllerUpgrades",
+    8
+   ],
+   [
+    "TwistSpaceTechnology:PhotonControllerUpgrades",
+    9
+   ],
+   [
+    "TwistSpaceTechnology:PhotonControllerUpgrades",
+    10
+   ],
+   [
+    "TwistSpaceTechnology:PhotonControllerUpgrades",
+    11
+   ],
+   [
+    "TwistSpaceTechnology:PhotonControllerUpgrades",
+    12
+   ],
+   [
+    "TwistSpaceTechnology:PhotonControllerUpgrades",
+    13
+   ]
+  ],
+  "structure": [
+   "Photonic Intensifiers (optional speed upgrades)"
+  ]
+ },
+ {
+  "item": "MiracleTop",
+  "cls": "GT_TileEntity_MiracleTop",
+  "id": 19003,
+  "name": "Miracle Top",
+  "type": "Circuit Assembler/Gravitation Breaker",
+  "info": [
+   "I never think about the future because it will come sooner or later.",
+   "For absolute precision and efficiency, please abandon traditional manufacturing methods.",
+   "The machine consists of a ring section and a conveying section.",
+   "The number of rings is variable: Maximum 16 rings, Minimum 2 rings(the first and the last).",
+   "Total speed multiplier is equal to 400% x num of rings.",
+   "Enable Perfect overclock when num of rings >= 8.",
+   "128x Parallel per Ring."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UMV",
+    "map": "AssemblyLine",
+    "inputs": [
+     [
+      64,
+      "Adv Circuit Assembly Line"
+     ],
+     [
+      64,
+      "Component Assembly Line"
+     ],
+     [
+      64,
+      "Space Warper"
+     ],
+     [
+      48,
+      "Transcendent Metal Nanites"
+     ],
+     [
+      64,
+      "EM Coil"
+     ],
+     [
+      32,
+      "UMV Circuit"
+     ],
+     [
+      128,
+      "UIV Circuit"
+     ],
+     [
+      256,
+      "Optical SOC"
+     ],
+     [
+      16,
+      "EM Spacetime"
+     ],
+     [
+      64,
+      "Transcendent Metal Dense Plate"
+     ],
+     [
+      32,
+      "Field Generator UIV"
+     ],
+     [
+      64,
+      "Infinity 16x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      147456,
+      "Solder plasma"
+     ],
+     [
+      2304,
+      "Molten Space Time"
+     ],
+     [
+      9216,
+      "Molten Superconductor UIV Base"
+     ],
+     [
+      73728,
+      "Molten Superconductor UEV Base"
+     ]
+    ],
+    "research": "Adv Circuit Assembly Line"
+   }
+  ],
+  "blocks": [
+   [
+    "tectech:gt.blockcasingsTT",
+    4
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    7
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    9
+   ]
+  ],
+  "structure": []
+ },
+ {
+  "item": "MagneticDrivePressureFormer",
+  "cls": "GT_TileEntity_MagneticDrivePressureFormer",
+  "id": 19004,
+  "name": "Magnetic Drive Pressure Former",
+  "type": "Extruder | Bending Machine | Forming Press | Forge Hammer",
+  "info": [
+   "Simple applications of Maxwell's equations.",
+   "No difficulty ! No hurry !",
+   "Extruder Mode:",
+   "700% faster than normal | Infinity Coil+ enable Perfect Overclock",
+   "Bending and Forming Press and Forge Hammer Mode:",
+   "1500% faster than normal | Enable Perfect Overclock",
+   "1024x Parallel.",
+   "Extra +100% speed multiplier per Coil Level.",
+   "Need Infinity Glass to use Laser energy hatch."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UHV",
+    "map": "AssemblyLine",
+    "inputs": [
+     [
+      64,
+      "Industrial Bending Machine"
+     ],
+     [
+      64,
+      "Industrial Extruder"
+     ],
+     [
+      64,
+      "Industrial Forming Press"
+     ],
+     [
+      64,
+      "UHV Circuit"
+     ],
+     [
+      128,
+      "UV Coil"
+     ],
+     [
+      128,
+      "Neutronium Block"
+     ],
+     [
+      2,
+      "Field Generator UV"
+     ],
+     [
+      16,
+      "Robot Arm UV"
+     ],
+     [
+      16,
+      "Conveyor Module UV"
+     ],
+     [
+      32,
+      "High Energy Flow Circuit"
+     ],
+     [
+      32,
+      "Neutronium Dense Plate"
+     ],
+     [
+      64,
+      "Superconductor UV 2x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      36864,
+      "Solder Ind Alloy"
+     ],
+     [
+      36864,
+      "Molten Naquadria"
+     ],
+     [
+      256000,
+      "Lubricant"
+     ],
+     [
+      36864,
+      "Molten Samarium"
+     ]
+    ],
+    "research": "Industrial Extruder"
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings2",
+    5
+   ]
+  ],
+  "structure": [
+   "Heating Coils (the coil tier matters)",
+   "Tiered glass (limits the energy hatch tier)",
+   "Compact Fusion Coils"
+  ]
+ },
+ {
+  "item": "PhysicalFormSwitcher",
+  "cls": "GT_TileEntity_PhysicalFormSwitcher",
+  "id": 19005,
+  "name": "Physical Form Switcher",
+  "type": "Fluid Solidifier | Fluid Extractor",
+  "info": [
+   "Forming Master !",
+   "The ultimate method of melt operation.",
+   "Has parallel equivalent to Perfect Overclock.",
+   "Additional 10% reduction in time per Voltage Tier, multiplication calculus.",
+   "The Glass Tier limit the recipe voltage tier."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UV",
+    "map": "assembler",
+    "inputs": [
+     [
+      16,
+      "Naquadria Frame Box"
+     ],
+     [
+      64,
+      "Fluid Extractor UV"
+     ],
+     [
+      64,
+      "Fluid Solidifier UV"
+     ],
+     [
+      16,
+      "Field Generator UV"
+     ],
+     [
+      16,
+      "Naquadah Alloy Dense Plate"
+     ],
+     [
+      16,
+      "UHV Circuit"
+     ],
+     [
+      8,
+      "Superconductor UV 4x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      9216,
+      "Molten Iridium"
+     ]
+    ]
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings2",
+    8
+   ],
+   [
+    "gregtech:gt.blockcasings2",
+    15
+   ]
+  ],
+  "structure": [
+   "Tiered glass (limits the energy hatch tier)",
+   "Naquadah Alloy Frame Boxes"
+  ]
+ },
+ {
+  "item": "MagneticMixer",
+  "cls": "GT_TileEntity_MagneticMixer",
+  "id": 19006,
+  "name": "\"Mini\" Magnetic Mixer",
+  "type": "Mixer",
+  "info": [
+   "Watch out for the Bumps !",
+   "Looks more like a tumble washing machine.",
+   "Has parallel equivalent to Perfect Overclock.",
+   "Additional 20% reduction in time per Voltage Tier, multiplication calculus."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UV",
+    "map": "assembler",
+    "inputs": [
+     [
+      16,
+      "Neutronium Frame Box"
+     ],
+     [
+      64,
+      "Mixer UV"
+     ],
+     [
+      16,
+      "Field Generator UV"
+     ],
+     [
+      16,
+      "UHV Circuit"
+     ],
+     [
+      16,
+      "Naquadah Alloy Dense Plate"
+     ],
+     [
+      8,
+      "Superconductor UV 4x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      9216,
+      "Molten Iridium"
+     ]
+    ]
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings2",
+    8
+   ]
+  ],
+  "structure": []
+ },
+ {
+  "item": "MagneticDomainConstructor",
+  "cls": "GT_TileEntity_MagneticDomainConstructor",
+  "id": 19007,
+  "name": "Magnetic Domain Constructor",
+  "type": "Electromagnetic Separator | Electromagnetic Polarizer",
+  "info": [
+   "Don't give up your imagination.",
+   "Controlling the magnetic domains inside the crystal, yes that's it.",
+   "64x Parallel per Ring.(Don't use a lot of blueprints when first scanning.)",
+   "Additional 25% reduction in time per Voltage Tier, multiplication calculus.",
+   "Use screwdriver to change mode."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UHV",
+    "map": "assembler",
+    "inputs": [
+     [
+      64,
+      "Industrial Magnetar Separator"
+     ],
+     [
+      16,
+      "Electromagnetic Separator UHV"
+     ],
+     [
+      16,
+      "Polarizer UHV"
+     ],
+     [
+      3,
+      "Field Generator UV"
+     ],
+     [
+      8,
+      "Robot Arm UHV"
+     ],
+     [
+      16,
+      "UEV Circuit"
+     ],
+     [
+      64,
+      "Black Plutonium Plate"
+     ],
+     [
+      16,
+      "Superconductor UHV 4x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      9216,
+      "Solder plasma"
+     ]
+    ]
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings2",
+    8
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    7
+   ]
+  ],
+  "structure": [
+   "Naquadah Alloy Frame Boxes",
+   "Tengam Attuned Frame Boxes",
+   "Compact Fusion Coils"
+  ]
+ },
+ {
+  "item": "Silksong",
+  "cls": "GT_TileEntity_Silksong",
+  "id": 19008,
+  "name": "Silksong",
+  "type": "Wiremill",
+  "info": [
+   "Maybe dreams aren't such a good thing ......",
+   "Endless cables spew from this machine.",
+   "Parallel = 32 × piece × coil tier.",
+   "Each level of coil increases the speed by 100%.",
+   "Additional 15% reduction in time per Coil Tier, multiplication calculus."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_ZPM",
+    "map": "assembler",
+    "inputs": [
+     [
+      8,
+      "Neutronium Frame Box"
+     ],
+     [
+      16,
+      "Wiremill UV"
+     ],
+     [
+      8,
+      "High Energy Flow Circuit"
+     ],
+     [
+      16,
+      "Robot Arm ZPM"
+     ],
+     [
+      16,
+      "Conveyor Module ZPM"
+     ],
+     [
+      8,
+      "ZPM Circuit"
+     ],
+     [
+      16,
+      "Superconductor ZPM 4x Wire"
+     ],
+     [
+      16,
+      "Neutronium Dense Plate"
+     ]
+    ],
+    "fluids": [
+     [
+      4608,
+      "Molten Iridium"
+     ]
+    ]
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings",
+    11
+   ],
+   [
+    "gregtech:gt.blockcasings2",
+    15
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    7
+   ]
+  ],
+  "structure": [
+   "Heating Coils (the coil tier matters)",
+   "Neutronium Frame Boxes"
+  ]
+ },
+ {
+  "item": "HolySeparator",
+  "cls": "GT_TileEntity_HolySeparator",
+  "id": 19009,
+  "name": "Holy Separator",
+  "type": "Cutter | Lathe",
+  "info": [
+   "Precision and Grace.",
+   "Another form of laser engraving.",
+   "You can even slice potato chips with this.",
+   "Extra 8x Parallel per Piece. 16 Piece enable Perfect Overclock.",
+   "Additional 10% reduction in time per Voltage Tier, multiplication calculus.",
+   "Use screwdriver to change mode."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UHV",
+    "map": "AssemblyLine",
+    "inputs": [
+     [
+      16,
+      "Casing MAX"
+     ],
+     [
+      32,
+      "Cutting Machine UHV"
+     ],
+     [
+      32,
+      "Lathe UHV"
+     ],
+     [
+      16,
+      "EM Power"
+     ],
+     [
+      16,
+      "Field Generator UHV"
+     ],
+     [
+      128,
+      "Emitter UHV"
+     ],
+     [
+      8,
+      "Electric Pump UHV"
+     ],
+     [
+      16,
+      "UEV Circuit"
+     ],
+     [
+      16,
+      "UHV Circuit"
+     ],
+     [
+      16,
+      "Neutronium Dense Plate"
+     ],
+     [
+      16,
+      "Superconductor UHV 4x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      18432,
+      "Solder plasma"
+     ],
+     [
+      9216,
+      "Molten Naquadria"
+     ],
+     [
+      128000,
+      "Super Coolant"
+     ]
+    ],
+    "research": "Cutting Machine UHV"
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings8",
+    10
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    0
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    4
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    6
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    8
+   ]
+  ],
+  "structure": []
+ },
+ {
+  "item": "SpaceScaler",
+  "cls": "GT_TileEntity_SpaceScaler",
+  "id": 19010,
+  "name": "Space Scaler",
+  "type": "Compressor | Extractor | Particle Collider | Electric Implosion Compressor | Neutronium Compressor",
+  "info": [
+   "First Look Space Technology.",
+   "Another method to operate matter.",
+   "Only if the space is manageable...",
+   "Has parallel equivalent to Perfect Overclock.",
+   "If use Ultimate Containment Field Generator, enable 10x speed multiplier.",
+   "Crude Stabilisation Field Generator block+ allowed machine Particle Collider Mode.",
+   "Gallifreyan Stabilisation Field Generator block enables Electric Implosion Compressor & Neutronium Compressor mode.",
+   "In Particle Collider mode, higher tier has more output.",
+   "T2 block unlock HIP Unit limitation, T3 block unlock Stabilized Black Hole limitation.",
+   "Use screwdriver to change mode."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UEV",
+    "map": "AssemblyLine",
+    "inputs": [
+     [
+      16,
+      "Casing MAX"
+     ],
+     [
+      64,
+      "Compressor UHV"
+     ],
+     [
+      64,
+      "Extractor UHV"
+     ],
+     [
+      64,
+      "Cosmic Neutronium Block"
+     ],
+     [
+      32,
+      "Field Generator UEV"
+     ],
+     [
+      128,
+      "Field Generator UHV"
+     ],
+     [
+      32,
+      "UIV Circuit"
+     ],
+     [
+      64,
+      "UEV Circuit"
+     ],
+     [
+      32,
+      "High Energy Flow Circuit"
+     ],
+     [
+      64,
+      "Osmiridium Dense Plate"
+     ],
+     [
+      64,
+      "Cosmic Neutronium Dense Plate"
+     ],
+     [
+      64,
+      "Neutronium Dense Plate"
+     ],
+     [
+      64,
+      "Superconductor UHV 4x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      36864,
+      "Solder plasma"
+     ],
+     [
+      256000,
+      "UU Matter"
+     ],
+     [
+      256000,
+      "Super Coolant"
+     ],
+     [
+      36864,
+      "Molten Naquadah Alloy"
+     ]
+    ],
+    "research": "Compressor UHV"
+   }
+  ],
+  "blocks": [
+   [
+    "tectech:gt.blockcasingsTT",
+    4
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    6
+   ]
+  ],
+  "structure": []
+ },
+ {
+  "item": "MoleculeDeconstructor",
+  "cls": "GT_TileEntity_MoleculeDeconstructor",
+  "id": 19011,
+  "name": "Molecule Deconstructor",
+  "type": "Electrolyzer | Centrifuge",
+  "info": [
+   "The lightning seemed to roll down a ladder.",
+   "Separate the molecules one by one with tweezers.",
+   "Extra 24x Parallel per Piece. 16 Piece enable Perfect Overclock.",
+   "Additional 10% reduction in time per Voltage Tier, multiplication calculus.",
+   "The Glass Tier limit the Energy hatch voltage Tier.",
+   "Use screwdriver to change mode."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UHV",
+    "map": "AssemblyLine",
+    "inputs": [
+     [
+      16,
+      "Casing MAX"
+     ],
+     [
+      64,
+      "Electrolyzer UV"
+     ],
+     [
+      64,
+      "Centrifuge UV"
+     ],
+     [
+      16,
+      "Carbon Nanites"
+     ],
+     [
+      64,
+      "Cosmic Neutronium Frame Box"
+     ],
+     [
+      16,
+      "Emitter UV"
+     ],
+     [
+      8,
+      "Field Generator UV"
+     ],
+     [
+      32,
+      "Electric Pump UV"
+     ],
+     [
+      80,
+      "UHV Circuit"
+     ],
+     [
+      128,
+      "Osmiridium Dense Plate"
+     ],
+     [
+      64,
+      "High Energy Flow Circuit"
+     ],
+     [
+      64,
+      "Superconductor UV 4x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      36864,
+      "Solder plasma"
+     ],
+     [
+      36864,
+      "Molten Osmiridium"
+     ],
+     [
+      64000,
+      "UU Matter"
+     ],
+     [
+      128000,
+      "Super Coolant"
+     ]
+    ],
+    "research": "Electrolyzer UV"
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings2",
+    15
+   ],
+   [
+    "gregtech:gt.blockcasings4",
+    14
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    8
+   ]
+  ],
+  "structure": [
+   "Tiered glass (limits the energy hatch tier)",
+   "Cosmic Neutronium Frame Boxes"
+  ]
+ },
+ {
+  "item": "CrystallineInfinitier",
+  "cls": "GTCM_CrystallineInfinitier",
+  "id": 19012,
+  "name": "Crystalline Infinitier",
+  "type": "Autoclave | Crystalline Infinitier | Chemical Bath",
+  "info": [
+   "They're here. Grow and multiply without end.",
+   "With Gravitation Tech as a medium, we can control growth of crystalline cells more conveniently.",
+   "Higher glass tier, higher field generator tier, higher voltage tier means higher value of parallel.",
+   "And higher field generator tier means lower Energy cost.",
+   "Crude Stabilisation Field Generator enable Perfect Overclock.",
+   "Extra +300% speed in Autoclave mode. Extra +1500% speed in Chemical Bath mode.",
+   "The Glass Tier limit the Energy hatch voltage Tier.",
+   "Use screwdriver to change mode."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UEV",
+    "map": "AssemblyLine",
+    "inputs": [
+     [
+      16,
+      "Naquadah Alloy Frame Box"
+     ],
+     [
+      4,
+      "EM Containment Field"
+     ],
+     [
+      64,
+      "Autoclave UHV"
+     ],
+     [
+      16,
+      "Electric Pump UEV"
+     ],
+     [
+      128,
+      "UEV Circuit"
+     ],
+     [
+      128,
+      "Neutronium Dense Plate"
+     ],
+     [
+      128,
+      "Naquadah Alloy Dense Plate"
+     ],
+     [
+      64,
+      "Superconductor UHV 4x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      36864,
+      "Solder plasma"
+     ],
+     [
+      36864,
+      "Molten Naquadah Alloy"
+     ],
+     [
+      128000,
+      "UU Matter"
+     ]
+    ],
+    "research": "Autoclave UHV"
+   }
+  ],
+  "blocks": [
+   [
+    "tectech:gt.blockcasingsTT",
+    8
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    9
+   ]
+  ],
+  "structure": [
+   "Tiered glass (limits the energy hatch tier)",
+   "Naquadah Alloy Frame Boxes"
+  ]
+ },
+ {
+  "item": "DSPLauncher",
+  "cls": "TST_DSPLauncher",
+  "id": 19013,
+  "name": "Dyson Sphere Module Launch Site",
+  "type": "Dyson Sphere Program: Launch Site",
+  "info": [
+   "\"Low altitude flight...\"",
+   "Launching Dyson Sphere components into Dyson Sphere orbit to form a Dyson Sphere.",
+   "No overclock and no extra parallel.",
+   "Higher tier of Elevator motor Module means faster launching.",
+   "Inputting Space Warper will enable overlord mode. Reduce launch intervals.",
+   "Joining the wireless EU network when without installing an energy hatch."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Output Bus",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UIV",
+    "map": "AssemblyLine",
+    "inputs": [
+     [
+      64,
+      "Landing Pad"
+     ],
+     [
+      64,
+      "Cosmic Neutronium Frame Box"
+     ],
+     [
+      64,
+      "Field Generator UEV"
+     ],
+     [
+      64,
+      "UMV Circuit"
+     ],
+     [
+      64,
+      "Electric Motor UEV"
+     ],
+     [
+      64,
+      "Electric Piston UEV"
+     ],
+     [
+      64,
+      "Robot Arm UEV"
+     ],
+     [
+      64,
+      "Sensor UEV"
+     ],
+     [
+      64,
+      "Stellar Construction Frame Material"
+     ],
+     [
+      64,
+      "Superconductor UEV 16x Wire"
+     ],
+     [
+      32,
+      "Infinity Gear"
+     ],
+     [
+      64,
+      "EM Power"
+     ],
+     [
+      64,
+      "S Block Casings SE"
+     ],
+     [
+      64,
+      "Dyson Swarm Casing"
+     ]
+    ],
+    "fluids": [
+     [
+      1179648,
+      "Solder plasma"
+     ],
+     [
+      128000,
+      "UU Matter"
+     ],
+     [
+      1024000,
+      "Super Coolant"
+     ],
+     [
+      147456,
+      "Molten Cosmic Neutronium"
+     ]
+    ],
+    "research": "landing Pad"
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings8",
+    7
+   ],
+   [
+    "gtnhintergalactic:gt.blockcasingsSE",
+    0
+   ],
+   [
+    "gtnhintergalactic:gt.blockcasingsSE",
+    1
+   ],
+   [
+    "gtnhintergalactic:gt.blockcasingsSE",
+    2
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    0
+   ]
+  ],
+  "structure": [
+   "Cosmic Neutronium Frame Boxes",
+   "Space Elevator casings"
+  ]
+ },
+ {
+  "item": "DSPReceiver",
+  "cls": "TST_DSPReceiver",
+  "id": 19014,
+  "name": "Dyson Sphere Ray Receiving Station",
+  "type": "Dyson Sphere Program: Ray Receiving Station",
+  "info": [
+   "You hold in your hands the true power of Master Nebula ...",
+   "Receive high-energy rays transmitted back from the Dyson Cloud or the Dyson Sphere.",
+   "The received energy can be exported directly to the Wireless EU Net or Dynamo Hatches or stored as Critical Photons.",
+   "Ratio of the requesting from Dyson Sphere power point can be limited by putting Integrated Circuit into controller block.",
+   "At the same time, the maximum requested power point is 1024A Max (default).",
+   "Actual output power is affected by stellar and planetary coefficients.",
+   "Inputting Gravitational Lens will enable intensify mode. Increase actual output power.",
+   "Joining the wireless EU network when without installing a dynamo hatch."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Output Bus",
+   "Dynamo Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UIV",
+    "map": "AssemblyLine",
+    "inputs": [
+     [
+      1,
+      "ZPM3"
+     ],
+     [
+      64,
+      "Cosmic Neutronium Frame Box"
+     ],
+     [
+      64,
+      "High Energy Flow Circuit"
+     ],
+     [
+      64,
+      "UMV Circuit"
+     ],
+     [
+      128,
+      "Sensor UEV"
+     ],
+     [
+      128,
+      "Emitter UEV"
+     ],
+     [
+      64,
+      "Stellar Construction Frame Material"
+     ],
+     [
+      64,
+      "Field Generator UEV"
+     ],
+     [
+      64,
+      "Superconductor UEV 16x Wire"
+     ],
+     [
+      64,
+      "Laser Lens Special"
+     ],
+     [
+      64,
+      "Space Warper"
+     ],
+     [
+      64,
+      "S Block Casings SE"
+     ],
+     [
+      64,
+      "Dyson Swarm Casing"
+     ]
+    ],
+    "fluids": [
+     [
+      1179648,
+      "Solder plasma"
+     ],
+     [
+      1024000,
+      "UU Matter"
+     ],
+     [
+      8192000,
+      "Cryotheum"
+     ],
+     [
+      147456,
+      "Molten Cosmic Neutronium"
+     ]
+    ],
+    "research": "DSP Launcher"
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings",
+    14
+   ],
+   [
+    "gregtech:gt.blockcasings2",
+    8
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    2
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    10
+   ],
+   [
+    "gtnhintergalactic:gt.blockcasingsSE",
+    0
+   ],
+   [
+    "gtnhintergalactic:gt.blockcasingsSE",
+    1
+   ],
+   [
+    "gtnhintergalactic:gt.blockcasingsSE",
+    2
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    0
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    6
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    7
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    9
+   ]
+  ],
+  "structure": [
+   "Naquadah Alloy Frame Boxes",
+   "Space Elevator casings"
+  ]
+ },
+ {
+  "item": "ArtificialStar",
+  "cls": "TST_ArtificialStar",
+  "id": 19015,
+  "name": "Artificial Star",
+  "type": "Dyson Sphere Program: Annihilation Generator",
+  "info": [
+   "All you need to do is to let the proton and antiproton beams",
+   "pass silently from both ends into the annihilation constrainer. Easy peasy!",
+   "It owes its simple shape to the elegance of the theory.",
+   "Actual output power is affected by 3 types tiered block.",
+   "At the same time, higher tier increase the probability of recovering materials.",
+   "Continuous operation improves power generation.",
+   "Only and must install 1 input bus.",
+   "Energy will output to Wireless EU Net directly.",
+   "Use screwdriver to enable/disable animations."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Output Bus"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UXV",
+    "map": "AssemblyLine",
+    "inputs": [
+     [
+      64,
+      "Stellar Construction Frame Material"
+     ],
+     [
+      64,
+      "EM Spacetime"
+     ],
+     [
+      64,
+      "EM Ultimate Containment Field"
+     ],
+     [
+      64,
+      "Casing Dim Bridge"
+     ],
+     [
+      64,
+      "EM Ultimate Containment Advanced"
+     ],
+     [
+      64,
+      "EM Coil"
+     ],
+     [
+      64,
+      "EM Hollow"
+     ],
+     [
+      64,
+      "Electric Pump UMV"
+     ],
+     [
+      64,
+      "Annihilation Constrainer"
+     ],
+     [
+      64,
+      "Field Generator UMV"
+     ],
+     [
+      64,
+      "UXV Circuit"
+     ],
+     [
+      64,
+      "UMV Circuit"
+     ],
+     [
+      64,
+      "High Energy Flow Circuit"
+     ],
+     [
+      64,
+      "Tesseract"
+     ],
+     [
+      64,
+      "Energised Tesseract"
+     ],
+     [
+      64,
+      "Space Time Dense Plate"
+     ]
+    ],
+    "fluids": [
+     [
+      1179648,
+      "Solder plasma"
+     ],
+     [
+      1179648,
+      "Molten Transcendent Metal"
+     ],
+     [
+      1179648,
+      "Molten Space Time"
+     ],
+     [
+      1179648,
+      "Molten Superconductor UMV Base"
+     ]
+    ],
+    "research": "Annihilation Constrainer"
+   }
+  ],
+  "blocks": [
+   [
+    "gtnhintergalactic:gt.blockcasingsSE",
+    2
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    4
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    7
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    8
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    12
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    13
+   ]
+  ],
+  "structure": [
+   "Space Elevator casings"
+  ]
+ },
+ {
+  "item": "MiracleDoor",
+  "cls": "TST_MiracleDoor",
+  "id": 19016,
+  "name": "Miracle Door",
+  "type": "Stellar Forge | Stellar Forge : Alloy Smelter",
+  "info": [
+   "Mere mortals can't even begin to understand the progress we've made.",
+   "Enslaving Stellaris to work for us.",
+   "No matter how large the workload, it can be done in one time.",
+   "No matter how large the workload, it need one Critical Photon to start.",
+   "Power consumption: Alloy Smelter 100% | Stellar Forge 200%",
+   "Directly get EU from the Wireless EU Net.",
+   "Warning! If trying to start machine when Wireless EU Net has not enough EU,",
+   "the materials will fade.",
+   "Put Integrated Circuit into Controller block to decrease process time interval."
+  ],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UXV",
+    "map": "AssemblyLine",
+    "inputs": [
+     [
+      256,
+      "Mega Alloy Blast Smelter"
+     ],
+     [
+      64,
+      "Stellar Construction Frame Material"
+     ],
+     [
+      64,
+      "Emitter UMV"
+     ],
+     [
+      64,
+      "Field Generator UMV"
+     ],
+     [
+      64,
+      "EM Teleportation"
+     ],
+     [
+      128,
+      "High Energy Flow Circuit"
+     ],
+     [
+      128,
+      "UXV Circuit"
+     ],
+     [
+      64,
+      "Space Warper"
+     ],
+     [
+      64,
+      "Gravitational Lens"
+     ],
+     [
+      64,
+      "Particle Trap Time Space Shield"
+     ],
+     [
+      64,
+      "Energised Tesseract"
+     ]
+    ],
+    "fluids": [
+     [
+      9437184,
+      "Solder plasma"
+     ],
+     [
+      65536000,
+      "UU Matter"
+     ],
+     [
+      16384000,
+      "Excited DTEC"
+     ]
+    ],
+    "research": "eM Teleportation"
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings8",
+    13
+   ],
+   [
+    "gtnhintergalactic:gt.blockcasingsSE",
+    1
+   ],
+   [
+    "gtnhintergalactic:gt.blockcasingsSE",
+    2
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    4
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    6
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    9
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    10
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    12
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    14
+   ]
+  ],
+  "structure": [
+   "Space Elevator casings"
+  ]
+ },
+ {
+  "item": "OreProcessingFactory",
+  "cls": "TST_OreProcessingFactory",
+  "id": 19017,
+  "name": "General Ore Processing Factory TST",
+  "type": "Ore Processor",
+  "info": [
+   "Engineering is the art of directing the great sources of power in nature for the use and convenience of man.",
+   "The ores will line up and go in through the entrance and out through the exit.",
+   "This machine will not do overclock. Progress time is always 6.4s (default).",
+   "It will process as many inputs as possible at once, if power allow.",
+   "Consume 3200L Lubricant every 12.8s (default).",
+   "Joining the wireless EU network when without installing an energy hatch.",
+   "Non-ore inputs will be transferred to the output bus."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UEV",
+    "map": "AssemblyLine",
+    "inputs": [
+     [
+      64,
+      "Cosmic Neutronium Frame Box"
+     ],
+     [
+      64,
+      "Integrated Ore Factory"
+     ],
+     [
+      64,
+      "UIV Circuit"
+     ],
+     [
+      64,
+      "Neutronium Rotor"
+     ],
+     [
+      64,
+      "Electric Motor UEV"
+     ],
+     [
+      16,
+      "Electric Pump UEV"
+     ],
+     [
+      16,
+      "Conveyor Module UEV"
+     ],
+     [
+      16,
+      "Robot Arm UEV"
+     ],
+     [
+      16,
+      "Neutronium Nanites"
+     ],
+     [
+      16,
+      "Infinity Huge Pipe"
+     ],
+     [
+      64,
+      "Neutronium Dense Plate"
+     ],
+     [
+      64,
+      "Iridium Dense Plate"
+     ],
+     [
+      64,
+      "Stainless Steel Dense Plate"
+     ],
+     [
+      64,
+      "EM Power"
+     ],
+     [
+      64,
+      "Superconductor UEV 16x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      73728,
+      "Solder plasma"
+     ],
+     [
+      147456,
+      "Molten Tungsten Steel"
+     ],
+     [
+      147456,
+      "Molten Neutronium"
+     ],
+     [
+      147456,
+      "Molten Osmiridium"
+     ]
+    ],
+    "research": "Integrated Ore Factory"
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings2",
+    4
+   ],
+   [
+    "gregtech:gt.blockcasings2",
+    6
+   ],
+   [
+    "gregtech:gt.blockcasings2",
+    15
+   ],
+   [
+    "gregtech:gt.blockcasings4",
+    0
+   ],
+   [
+    "gregtech:gt.blockcasings4",
+    1
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    7
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    0
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    7
+   ]
+  ],
+  "structure": [
+   "Tiered glass (limits the energy hatch tier)",
+   "Tungsten Steel Frame Boxes"
+  ]
+ },
+ {
+  "item": "ElvenWorkshop",
+  "cls": "GTCM_ElvenWorkshop",
+  "id": 19018,
+  "name": "ElvenWorkshop",
+  "type": "Mana Infuser/Rune Engraver",
+  "info": [
+   "For its unique structure, you may need to use Blueprint to build the machine."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "infusion",
+    "map": null,
+    "research": "BH_ELVEN_WORKSHOP",
+    "inputs": [
+     [
+      1,
+      "terra Plate"
+     ],
+     [
+      2,
+      "Field Generator EV"
+     ],
+     [
+      2,
+      "Casing IV"
+     ],
+     [
+      2,
+      "Spawner Mover"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "ElvenWorkshopLegacy",
+  "cls": "GTCM_ElvenWorkshopLegacy",
+  "id": 19500,
+  "name": "ElvenWorkshop",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "HyperSpacetimeTransformer",
+  "cls": "TST_HyperSpacetimeTransformer",
+  "id": 19019,
+  "name": "HyperSpacetimeTransformer",
+  "type": "Hyper Spacetime Transformer",
+  "info": [
+   "To change the material itself in a higher dimension.",
+   "Maximum parallel: 256. Upgrade the fusion coils to improve processing speed.",
+   "Energy Sustainment Matrix tier limits the voltage tier of supported recipes.",
+   "Upgrade the central cooling casings to unlock perfect overclocking."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [],
+  "blocks": [
+   [
+    "TwistSpaceTechnology:MetaBlockCasing02",
+    7
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing01",
+    12
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing02",
+    4
+   ]
+  ],
+  "structure": [
+   "Compact Fusion Coils"
+  ]
+ },
+ {
+  "item": "CircuitConverter",
+  "cls": "TST_CircuitConverter",
+  "id": 19020,
+  "name": "General Circuit Converter",
+  "type": "Circuit Converter",
+  "info": [
+   "Transform input circuits to Any Circuit."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Output Bus"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_IV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Iridium Frame Box"
+     ],
+     [
+      3,
+      "Casing Processor"
+     ],
+     [
+      1,
+      "Machine IV Boxinator"
+     ],
+     [
+      4,
+      "Titanium Small Gear"
+     ],
+     [
+      8,
+      "Superconductor IV 1x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      4608,
+      "Molten Soldering Alloy"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "LargeIndustrialCokingFactory",
+  "cls": "TST_LargeIndustrialCokingFactory",
+  "id": 19021,
+  "name": "Large Industrial Coking Factory",
+  "type": "Coke Oven",
+  "info": [
+   "Seizing like a ravenous beast, lavishing like a breezing east.",
+   "Process endless inputs in one time.",
+   "Higher tier of coil make machine more faster."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UHV",
+    "map": "assembler",
+    "inputs": [
+     [
+      64,
+      "Industrial Coke Oven"
+     ],
+     [
+      64,
+      "Pyrolyze Oven"
+     ],
+     [
+      16,
+      "Black Steel Frame Box"
+     ],
+     [
+      16,
+      "UHV Circuit"
+     ],
+     [
+      16,
+      "High Energy Flow Circuit"
+     ],
+     [
+      6,
+      "Electric Pump UV"
+     ],
+     [
+      64,
+      "Black Steel Rotor"
+     ],
+     [
+      8,
+      "Superconductor UV 1x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      13824,
+      "Molten Soldering Alloy"
+     ]
+    ]
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings2",
+    15
+   ],
+   [
+    "gregtech:gt.blockcasings3",
+    15
+   ],
+   [
+    "gregtech:gt.blockcasingsNH",
+    2
+   ]
+  ],
+  "structure": [
+   "Heating Coils (the coil tier matters)",
+   "Black Steel Frame Boxes",
+   "Steel Frame Boxes"
+  ]
+ },
+ {
+  "item": "MegaBrickedBlastFurnace",
+  "cls": "GT_TileEntity_MegaBrickedBlastFurnace",
+  "id": 19022,
+  "name": "Mega Bricked Blast Furnace",
+  "type": "Blast Furnace",
+  "info": [
+   "Who could ever imagine the power of the Steam Age?",
+   "consume iron/wrought iron ingots and coke coals (blocks) to produce steel (and ash byproduct)",
+   "Default recipe time is 240s. More wrought iron and coal input will reduce process time.",
+   "actual progress time = default x parallels /((1 + 4 x Ratio of wrought iron input) x sqrt(Coke coal input))",
+   "process 50% of (wrought) iron input and consume all coke coal input at once.",
+   "minimum coke coal requirement:2 x (wrought) iron processed",
+   "Takes 8 hours of continuous run time to achieve maximum efficiency.",
+   "This improve coal efficiency by up to 800%. Reduce minimum coal requirement and calculate in actual progress time.",
+   "It is recommended not to force yourself to build it until you have enough resources.",
+   "Use the GUI mode button or a screwdriver to switch to primitive mode and process primitive blast furnace recipes, without wrought iron acceleration",
+   "You can use the channel:chisel to automatically convert chisel blocks when building, and you can see nei to preview the available blocks"
+  ],
+  "hatches": [
+   "Input Bus",
+   "Output Bus"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_LV",
+    "map": "assembler",
+    "inputs": [
+     [
+      128,
+      "Casing Firebricks"
+     ],
+     [
+      192,
+      "Machine Bricked Blast Furnace"
+     ],
+     [
+      16,
+      "Steel Small Gear"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "Scavenger",
+  "cls": "TST_Scavenger",
+  "id": 19023,
+  "name": "Scavenger",
+  "type": "Sifter",
+  "info": [
+   "I like pigs. Dogs look up to us. Cats look down on us. Pigs treat us as equals.",
+   "Has parallel equivalent to Perfect Overclock.",
+   "Only uses 60% of the EU/t normally required.",
+   "Additional 20% reduction in time per Voltage Tier, multiplication calculus."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_ZPM",
+    "map": "assembler",
+    "inputs": [
+     [
+      64,
+      "Large Sifter"
+     ],
+     [
+      16,
+      "Sifting Machine ZPM"
+     ],
+     [
+      16,
+      "ZPM Circuit"
+     ],
+     [
+      9,
+      "Osmiridium Frame Box"
+     ],
+     [
+      8,
+      "Superconductor ZPM 2x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      4608,
+      "Molten Soldering Alloy"
+     ]
+    ]
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings8",
+    7
+   ],
+   [
+    "gregtech:gt.blockcasings4",
+    14
+   ]
+  ],
+  "structure": [
+   "Tiered glass (limits the energy hatch tier)",
+   "Osmiridium Frame Boxes"
+  ]
+ },
+ {
+  "item": "superCleanRoom",
+  "cls": "TST_CleanRoom",
+  "id": 19024,
+  "name": "CleanRoom",
+  "type": "",
+  "info": [],
+  "hatches": [
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "craft",
+    "map": null,
+    "inputs": [
+     [
+      null,
+      "Tin cable Gt01"
+     ],
+     [
+      null,
+      "LV Circuit"
+     ],
+     [
+      null,
+      "Lubricant Cell"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": [
+   "Tiered glass (limits the energy hatch tier)"
+  ]
+ },
+ {
+  "item": "BiosphereIII",
+  "cls": "TST_BiosphereIII",
+  "id": 19025,
+  "name": "Biosphere III",
+  "type": "Bacterial Vat | Brewing Machine | Fermenter",
+  "info": [
+   "Control the thoughts of those microorganisms...",
+   "Use screwdriver to change mode.",
+   "----- Bacterial Vat Mode -----",
+   "Need Petri Dish in controller slot",
+   "Every Petri Dish provides 4x parallel",
+   "Keep the Output Hatch always half filled for maximum efficiency",
+   "----- Bacterial Vat Automation Mode -----",
+   "Need Petri Dish in controller slot",
+   "Every Petri Dish provides 1x parallel",
+   "Advanced artificial intelligence controls the breeding of bacteria",
+   "Original efficiency of control is 40% of the maximum. Each glass tier over recipe requirement improve the efficiency by 15%.",
+   "----- Brewing Machine Mode -----",
+   "Don't need Petri Dish",
+   "Each glass tier over HV provides 4 times parallel",
+   "EV glass provides 4x parallel, IV glass provides 16x parallel, etc.",
+   "----- Fermenter Mode -----",
+   "Don't need Petri Dish",
+   "Each glass tier over HV provides 4 times parallel",
+   "EV glass provides 4x parallel, IV glass provides 16x parallel, etc."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UEV",
+    "map": "AssemblyLine",
+    "inputs": [
+     [
+      64,
+      "Osmiridium Frame Box"
+     ],
+     [
+      64,
+      "Find Item"
+     ],
+     [
+      3,
+      "Infinity Huge Pipe"
+     ],
+     [
+      16,
+      "Electric Pump UHV"
+     ],
+     [
+      16,
+      "Cosmic Neutronium Rotor"
+     ],
+     [
+      16,
+      "Neutronium Rotor"
+     ],
+     [
+      64,
+      "Polybenzimidazole pipe Tiny"
+     ],
+     [
+      8,
+      "UEV Circuit"
+     ],
+     [
+      64,
+      "Circuit Silicon Wafer7"
+     ],
+     [
+      64,
+      "Circuit Parts Chip Bioware"
+     ],
+     [
+      16,
+      "High Energy Flow Circuit"
+     ],
+     [
+      16,
+      "Superconductor UHV 2x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      9216,
+      "Solder plasma"
+     ],
+     [
+      9216,
+      "Molten Naquadria"
+     ],
+     [
+      9216,
+      "Molten Cosmic Neutronium"
+     ]
+    ],
+    "research": null
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings2",
+    15
+   ],
+   [
+    "gregtech:gt.blockcasings4",
+    1
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    0
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    6
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    5
+   ]
+  ],
+  "structure": [
+   "Tiered glass (limits the energy hatch tier)",
+   "Osmiridium Frame Boxes"
+  ]
+ },
+ {
+  "item": "MegaEggGenerator",
+  "cls": "GT_TileEntity_MegaEggGenerator",
+  "id": 19026,
+  "name": "Tower of Abstraction",
+  "type": "Magical Energy Absorber",
+  "info": [
+   "This is where the ultimate destiny of the Dragon's Children lies.",
+   "With the help of the Magic Egg, it draws in endless magical power as effortlessly as a soul-sucking sorcerer.",
+   "Every dragon egg generates 1A EV & every creeper's generates 1A HV.",
+   "Infinity egg generates 2A IV, but you can put only one for one each piece you add.",
+   "But quantitative change leads to qualitative change,",
+   "Every 2^n pieces give 2% max efficiency bonus, and every infinity egg gives 1%.",
+   "You can also put nothing on the egg pos, but every empty pos decreases 5% max efficiency.",
+   "Warm-up process for 0.01% per second as base, each pair of Dragon Eggs add 0.01% but limit for 50 pairs, each Infinity Egg add 1% with no limits.",
+   "The process will take about 3 hours if put Creeper Eggs only, but who really care about?",
+   "Whether it is the Dragon Egg, Creeper Egg, or the Egg of Infinity, only their presence can drive the full circulation of power."
+  ],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "TierEU.RECIPE_LuV",
+    "map": "assembler",
+    "inputs": [
+     [
+      4,
+      "Magic Energy Absorber LV"
+     ],
+     [
+      4,
+      "Magic Energy Absorber MV"
+     ],
+     [
+      4,
+      "Magic Energy Absorber HV"
+     ],
+     [
+      4,
+      "Magic Energy Absorber EV"
+     ],
+     [
+      4,
+      "Magic Energy Converter LV"
+     ],
+     [
+      4,
+      "Magic Energy Converter MV"
+     ],
+     [
+      4,
+      "Magic Energy Converter HV"
+     ],
+     [
+      4,
+      "Void Pollen"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings8",
+    7
+   ]
+  ],
+  "structure": [
+   "Trinium Frame Boxes",
+   "Iridium Frame Boxes",
+   "Photonic Intensifiers (optional speed upgrades)"
+  ]
+ },
+ {
+  "item": "AdvancedMegaOilCracker",
+  "cls": "TST_AdvancedMegaOilCracker",
+  "id": 19027,
+  "name": "Advanced Mega Oil Cracker",
+  "type": "Cracker",
+  "info": [
+   "Freedom as a basis for self-government.",
+   "As the Mega Oil Cracker do.",
+   "Chamber placement no longer has restrictions.",
+   "Operates 100% faster than the Mega Oil Cracker.",
+   "Power Loss Reduction = 100% / Coil Tier.",
+   "Hypogen coil (or better) enable Perfect Overclocking."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_EV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Mega Oil Cracker"
+     ],
+     [
+      4,
+      "IV Circuit"
+     ],
+     [
+      16,
+      "EV Circuit"
+     ],
+     [
+      4,
+      "Electric Pump IV"
+     ]
+    ],
+    "fluids": [
+     [
+      2304,
+      "Molten Soldering Alloy"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": [
+   "Heating Coils (the coil tier matters)",
+   "Tiered glass (limits the energy hatch tier)",
+   "Vanadium Frame Boxes"
+  ]
+ },
+ {
+  "item": "IndistinctTentacle",
+  "cls": "TST_IndistinctTentacle",
+  "id": 19028,
+  "name": "Indistinct Tentacle",
+  "type": "Assembly Line | Component Assembly Line | Assembler | Precise Assembler",
+  "info": [
+   "In the midst of this sea and endless solitude there appears a dim road, a road without human footprints.",
+   "No man has ever passed this place; no ship has ever sailed here.",
+   "Made everything in its where should be.",
+   "Glass tier limit energy hatch, laser hatch need UV glass.",
+   "Component Casing tier limit recipe can process. Casing tier require at least the recipe voltage level -1.",
+   "If Component Casing tier is higher than recipe voltage, enable Perfect Overclock.",
+   "UMV+ glass and Component Casing allow Wireless mode by placing no energy hatch.",
+   "Progressing time is fixed in Wireless mode.",
+   "Watch out your Global energy storage if use wireless mode, you should not want to see the power drain's landscape."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "TierEU.RECIPE_MAX",
+    "map": "MiracleTopRecipeMap",
+    "inputs": [
+     [
+      64,
+      "Adv Ass Line"
+     ],
+     [
+      64,
+      "Component Assembly Line"
+     ],
+     [
+      64,
+      "Assembling Machine UMV"
+     ],
+     [
+      64,
+      "Precise Assembler"
+     ],
+     [
+      128,
+      "Stellar Construction Frame Material"
+     ],
+     [
+      128,
+      "Annihilation Constrainer"
+     ],
+     [
+      128,
+      "Dyson Sphere Frame Component"
+     ],
+     [
+      128,
+      "Space Warper"
+     ],
+     [
+      128,
+      "Gravitational Lens"
+     ],
+     [
+      128,
+      "UXV Circuit"
+     ],
+     [
+      128,
+      "EM Ultimate Containment Advanced"
+     ]
+    ],
+    "fluids": [
+     [
+      75497472,
+      "Molten Space Time"
+     ],
+     [
+      75497472,
+      "Molten Space"
+     ],
+     [
+      75497472,
+      "Molten Time"
+     ],
+     [
+      75497472,
+      "Molten Eternity"
+     ],
+     [
+      75497472,
+      "Molten White Dwarf Matter"
+     ],
+     [
+      75497472,
+      "Molten Black Dwarf Matter"
+     ],
+     [
+      75497472,
+      "Molten Universium"
+     ],
+     [
+      524288000,
+      "Raw Star Matter"
+     ],
+     [
+      2097152000,
+      "UU Matter"
+     ],
+     [
+      301989888,
+      "Solder plasma"
+     ]
+    ]
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings2",
+    9
+   ],
+   [
+    "gregtech:gt.blockcasings9",
+    1
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    7
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    9
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    10
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    12
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    13
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    14
+   ]
+  ],
+  "structure": [
+   "Tiered glass (limits the energy hatch tier)",
+   "Component Assembly Line Casings (tier limits recipes)"
+  ]
+ },
+ {
+  "item": "AstralComputingArray",
+  "cls": "TST_Computer",
+  "id": 19029,
+  "name": "Astral Computing Array",
+  "type": "",
+  "info": [
+   "what the fuck"
+  ],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UEV * 3",
+    "map": "AssemblyLine",
+    "inputs": [
+     [
+      256,
+      "Machine Multi Computer"
+     ],
+     [
+      128,
+      "Hi C T5"
+     ],
+     [
+      128,
+      "Circuit UIV"
+     ],
+     [
+      64,
+      "Sensor UEV"
+     ],
+     [
+      64,
+      "Field Generator UEV"
+     ],
+     [
+      64,
+      "Silver Nanites"
+     ],
+     [
+      64,
+      "Gravistar"
+     ],
+     [
+      256,
+      "S Block Casings TT"
+     ]
+    ],
+    "fluids": [
+     [
+      14400,
+      "Tin plasma"
+     ],
+     [
+      4000000,
+      "Super Coolant"
+     ],
+     [
+      114514,
+      "Molten Infinity"
+     ]
+    ],
+    "research": "Machine Multi Computer"
+   }
+  ],
+  "blocks": [
+   [
+    "gtnhintergalactic:gt.blockcasingsSE",
+    0
+   ],
+   [
+    "gtnhintergalactic:gt.blockcasingsSE",
+    1
+   ],
+   [
+    "gtnhintergalactic:gt.blockcasingsSE",
+    2
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    0
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    1
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    2
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    3
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    7
+   ]
+  ],
+  "structure": [
+   "Compact Fusion Coils",
+   "Space Elevator casings"
+  ]
+ },
+ {
+  "item": "ThermalEnergyDevourer",
+  "cls": "TST_ThermalEnergyDevourer",
+  "id": 19030,
+  "name": "Thermal Energy Devourer",
+  "type": "Vacuum Freezer",
+  "info": [
+   "It's White Album season again.",
+   "The thermal energy it greedily devours.",
+   "But overall it's still a Freezer, and works well.",
+   "Increasing the input power will also increase the operating efficiency.",
+   "Use screwdriver to change mode.",
+   "----- High Speed Mode -----",
+   "Operating efficiency decrease the progress time directly.",
+   "1024x parallel.",
+   "----- High Parallel Mode -----",
+   "Operating efficiency decrease the EU cost.",
+   "Almost infinite parallel.",
+   "----- Wireless Mode -----",
+   "Put Energised Tesseract into controller slot to turn into Wireless mode.",
+   "Directly consume required EU from wireless EU network.",
+   "Progress time is fixed at 6.4s."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UEV",
+    "map": "AssemblyLine",
+    "inputs": [
+     [
+      64,
+      "Naquadah Alloy Frame Box"
+     ],
+     [
+      64,
+      "Endothermic Fridge"
+     ],
+     [
+      16,
+      "Field Generator UHV"
+     ],
+     [
+      64,
+      "Electric Pump UHV"
+     ],
+     [
+      16,
+      "Neutronium Rotor"
+     ],
+     [
+      16,
+      "Cosmic Neutronium Rotor"
+     ],
+     [
+      16,
+      "UHV Circuit"
+     ],
+     [
+      64,
+      "Advanced Radiation Protection Plate"
+     ],
+     [
+      16,
+      "Superconductor UHV 4x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      9216,
+      "Solder Ind Alloy"
+     ],
+     [
+      9216,
+      "Molten Naquadah Alloy"
+     ],
+     [
+      64000,
+      "UU Matter"
+     ]
+    ],
+    "research": "Endothermic Fridge"
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings",
+    11
+   ],
+   [
+    "gregtech:gt.blockcasings2",
+    1
+   ],
+   [
+    "gregtech:gt.blockcasings2",
+    8
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    3
+   ]
+  ],
+  "structure": [
+   "Naquadah Alloy Frame Boxes"
+  ]
+ },
+ {
+  "item": "VacuumFilterExtractor",
+  "cls": "TST_VacuumFilterExtractor",
+  "id": 19031,
+  "name": "Vacuum Filter Extractor",
+  "type": "Distillation Tower | Distillery",
+  "info": [
+   "Engineers think something isn't broken because it has too few features.",
+   "By manipulating space in order to achieve separation of matter",
+   "rather than direct manipulation of matter.",
+   "Recipe voltage is only 50% of normal.",
+   "Increasing the energy input will result in more speed boosts.",
+   "Use screwdriver to change mode.",
+   "In distillery mode, machine will enable Perfect Overclock."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UEV",
+    "map": "AssemblyLine",
+    "inputs": [
+     [
+      64,
+      "Black Plutonium Frame Box"
+     ],
+     [
+      64,
+      "Mega Distillation Tower"
+     ],
+     [
+      64,
+      "Carbon Nanites"
+     ],
+     [
+      8,
+      "Field Generator UHV"
+     ],
+     [
+      256,
+      "Electric Pump UHV"
+     ],
+     [
+      1,
+      "Laser Lens Special"
+     ],
+     [
+      16,
+      "UHV Circuit"
+     ],
+     [
+      64,
+      "High Energy Flow Circuit"
+     ],
+     [
+      64,
+      "Black Plutonium Dense Plate"
+     ],
+     [
+      16,
+      "Superconductor UHV 4x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      18432,
+      "Solder plasma"
+     ],
+     [
+      9216,
+      "Molten Neutronium"
+     ],
+     [
+      9216,
+      "Molten Black Plutonium"
+     ]
+    ],
+    "research": "Distillery UV"
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings2",
+    8
+   ],
+   [
+    "gregtech:gt.blockcasings9",
+    0
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    8
+   ]
+  ],
+  "structure": [
+   "Neutronium Frame Boxes"
+  ]
+ },
+ {
+  "item": "LargeSteamForgeHammer",
+  "cls": "TST_LargeSteamForgeHammer",
+  "id": 19032,
+  "name": "Large Steam Forge Hammer",
+  "type": "Forge Hammer",
+  "info": [
+   "He has a hammer. Who has the Sickle?"
+  ],
+  "hatches": [
+   "Input Bus",
+   "Output Bus"
+  ],
+  "recipes": [
+   {
+    "eut": "craft",
+    "map": null,
+    "inputs": [
+     [
+      null,
+      "Anvil"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "LargeSteamAlloySmelter",
+  "cls": "TST_LargeSteamAlloySmelter",
+  "id": 19033,
+  "name": "Large Steam Alloy Smelter",
+  "type": "Alloy Smelter",
+  "info": [
+   "Steam Tech Operational"
+  ],
+  "hatches": [
+   "Input Bus",
+   "Output Bus"
+  ],
+  "recipes": [
+   {
+    "eut": "craft",
+    "map": null,
+    "inputs": [
+     [
+      null,
+      "Steel Double Plate"
+     ],
+     [
+      null,
+      "Machine HP Alloy Smelter"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings3",
+    14
+   ],
+   [
+    "gregtech:gt.blockcasingsNH",
+    2
+   ]
+  ],
+  "structure": []
+ },
+ {
+  "item": "EyeOfWood",
+  "cls": "TST_EyeOfWood",
+  "id": 19034,
+  "name": "Eye of Wood",
+  "type": "Happiness Master",
+  "info": [
+   "You'd better to do a sanity check, if you are looking at this.",
+   "Can only be deployed in the Overworld, otherwise it will have a festive effect."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Output Bus"
+  ],
+  "recipes": [
+   {
+    "eut": "craft",
+    "map": null,
+    "inputs": [
+     [
+      null,
+      "Brick block"
+     ],
+     [
+      null,
+      "Primitive Mans Space Time Distortion Device"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "BeeEngineer",
+  "cls": "TST_BeeEngineer",
+  "id": 19035,
+  "name": "Bee Engineer (Prototype)",
+  "type": "Bee Engineer",
+  "info": [
+   "Controller of the Bee Engineer",
+   "Still in test.",
+   "Transforming drones into princesses.",
+   "Who knows how many drones became stepping stones for the Last Queen?",
+   "Cost 128kL Honey to transform a drone into princess, but with 40% failing chance.",
+   "Will try to consume 32kL UUM (if exists) to increase success rate to 80%.",
+   "In case of failure, all consumed ingredients will not be returned.",
+   "Don't put too many drones in at once, that will result in a long run time!"
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_ZPM",
+    "map": "assembler",
+    "inputs": [
+     [
+      64,
+      "Bronze Frame Box"
+     ],
+     [
+      4,
+      "Field Generator Lu V"
+     ],
+     [
+      16,
+      "Electric Pump Lu V"
+     ],
+     [
+      16,
+      "Conveyor Module Lu V"
+     ],
+     [
+      64,
+      "Plutonium241 Fine Wire"
+     ],
+     [
+      16,
+      "UHV Circuit"
+     ]
+    ],
+    "fluids": [
+     [
+      256000,
+      "Honey"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "MegaMacerator",
+  "cls": "TST_MegaMacerator",
+  "id": 19036,
+  "name": "\"Mini\" Household Cell Fragmentizer",
+  "type": "Macerator",
+  "info": [
+   "Squeezed Collision of Material.",
+   "This is way better than a forge hammer.",
+   "Can parallel up to 2 ^ (2 ^ (Tier + 2) - 1).",
+   "Tier is determined by cotainment block: Damascus Steel, Neutronium, Universium.",
+   "The max voltage tier is limited by the glass tier.",
+   "Enable 8x speed multiplier when glass tier > recipe tier."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Output Bus",
+   "Energy Hatch",
+   "Maintenance Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_ZPM",
+    "map": "assembler",
+    "inputs": [
+     [
+      64,
+      "Maceration Stack"
+     ],
+     [
+      16,
+      "Macerator ZPM"
+     ],
+     [
+      16,
+      "ZPM Circuit"
+     ],
+     [
+      64,
+      "Maceration Upgrade Chip"
+     ],
+     [
+      null,
+      "Ademic Steel"
+     ],
+     [
+      16,
+      "Electric Motor UV"
+     ],
+     [
+      8,
+      "Superconductor ZPM 4x Wire"
+     ],
+     [
+      null,
+      "Adamantium Alloy"
+     ]
+    ],
+    "fluids": [
+     [
+      9216,
+      "Solder Ind Alloy"
+     ]
+    ]
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings2",
+    0
+   ],
+   [
+    "gregtech:gt.blockcasings2",
+    8
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    7
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    10
+   ]
+  ],
+  "structure": [
+   "Tiered glass (limits the energy hatch tier)",
+   "Naquadah Alloy Frame Boxes",
+   "Cosmic Neutronium Frame Boxes"
+  ]
+ },
+ {
+  "item": "HephaestusAtelier",
+  "cls": "TST_HephaestusAtelier",
+  "id": 19037,
+  "name": "Hephaestus' Atelier",
+  "type": "Furnace | Alloy Smelter",
+  "info": [
+   "“And first Hephaestus makes a great and massive shield ...",
+   "... And he forged on the shield two noble cities.”",
+   "Even in the future, the most primitive means of smelting will be needed.",
+   "Parallelism across recipes is possible, even using Crafting Input hatches.",
+   "The machine will adjust its operation according to the installed coil level.",
+   "Use screwdriver to change mode.",
+   "----- T1 Coil : Molecular Coil -----",
+   "Like other normal machine, use energy from energy hatches and do overclock.",
+   "2.1G parallel. Furnace mode every item smelting consume 7 EU/t and 25.6s.",
+   "----- T2 Coil : Ultimate Containment Field Generator -----",
+   "Directly consume energy from wireless EU net.",
+   "Infinite parallel. Furnace mode every item smelting consume 2048 EU.",
+   "Processing time is fixed at 12.8s.",
+   "----- T3 Coil : Teleportation Casing -----",
+   "Processing time 1s.",
+   "Otherwise same as T2."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Output Bus",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UEV",
+    "map": "assemblyLine",
+    "inputs": [
+     [
+      64,
+      "Machine Multi Furnace"
+     ],
+     [
+      64,
+      "Casing Heat Proof"
+     ],
+     [
+      64,
+      "Casing Frost Proof"
+     ],
+     [
+      64,
+      "EM Hollow"
+     ],
+     [
+      16,
+      "Field Generator UHV"
+     ],
+     [
+      64,
+      "Electric Pump UHV"
+     ],
+     [
+      64,
+      "Conveyor Module UHV"
+     ],
+     [
+      32,
+      "UHV Circuit"
+     ],
+     [
+      192,
+      "High Energy Flow Circuit"
+     ],
+     [
+      64,
+      "Osmiridium Dense Plate"
+     ],
+     [
+      64,
+      "Invar Dense Plate"
+     ],
+     [
+      16,
+      "Superconductor UHV 4x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      18432,
+      "Solder plasma"
+     ],
+     [
+      9216,
+      "Molten Cosmic Neutronium"
+     ],
+     [
+      64000,
+      "UU Matter"
+     ],
+     [
+      64000,
+      "Super Coolant"
+     ]
+    ],
+    "research": "Machine Multi Furnace"
+   }
+  ],
+  "blocks": [
+   [
+    "tectech:gt.blockcasingsTT",
+    4
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    7
+   ]
+  ],
+  "structure": []
+ },
+ {
+  "item": "DeployedNanoCore",
+  "cls": "TST_DeployedNanoCore",
+  "id": 19038,
+  "name": "Deployed Nano Core",
+  "type": "Nano Forge",
+  "info": [
+   "If you shed tears when you miss the sun, you also miss the stars.",
+   "It'll take care of itself.",
+   "With perfect overclock and infinite parallel.",
+   "What are you worried about?"
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "2000000000",
+    "map": "MiracleTopRecipeMap",
+    "inputs": [
+     [
+      512,
+      "Nano Forge"
+     ],
+     [
+      64,
+      "Universium Nanites"
+     ],
+     [
+      128,
+      "Eternity Nanites"
+     ],
+     [
+      1024,
+      "Transcendent Metal Nanites"
+     ],
+     [
+      64,
+      "Space Scaler"
+     ],
+     [
+      1024,
+      "Gravitational Lens"
+     ],
+     [
+      1024,
+      "Annihilation Constrainer"
+     ],
+     [
+      1024,
+      "Dyson Sphere Frame Component"
+     ],
+     [
+      2048,
+      "Perfect Lapotron Crystal"
+     ],
+     [
+      1024,
+      "Field Generator UMV"
+     ],
+     [
+      2048,
+      "Emitter UMV"
+     ],
+     [
+      4096,
+      "UXV Circuit"
+     ],
+     [
+      2048,
+      "Stellar Construction Frame Material"
+     ],
+     [
+      4096,
+      "Eternity Dense Plate"
+     ]
+    ],
+    "fluids": [
+     [
+      36864,
+      "Molten MHDCSM"
+     ],
+     [
+      2000000,
+      "UU Matter"
+     ],
+     [
+      1000000,
+      "Excited DTSC"
+     ],
+     [
+      75497472,
+      "Molten Neutronium"
+     ],
+     [
+      75497472,
+      "Molten Cosmic Neutronium"
+     ],
+     [
+      75497472,
+      "Molten Naquadah Alloy"
+     ]
+    ]
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings2",
+    5
+   ],
+   [
+    "gregtech:gt.blockcasings2",
+    8
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    10
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    9
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    10
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    12
+   ]
+  ],
+  "structure": []
+ },
+ {
+  "item": "CoreDeviceOfHumanPowerGenerationFacility",
+  "cls": "TST_CoreDeviceOfHumanPowerGenerationFacility",
+  "id": 19039,
+  "name": "Core Device of Human Power Generation Facility",
+  "type": "Fluid Heater",
+  "info": [
+   "The use of \"The Fast-Heater\" is prohibited in the dormitories.",
+   "Upgrade coils for faster speeds.",
+   "The Glass Tier limit the Energy hatch voltage Tier."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UV",
+    "map": "assembler",
+    "inputs": [
+     [
+      64,
+      "Fluid Heater UV"
+     ],
+     [
+      64,
+      "Electric Pump UV"
+     ],
+     [
+      64,
+      "Iridium Frame Box"
+     ],
+     [
+      32,
+      "UHV Circuit"
+     ],
+     [
+      32,
+      "High Energy Flow Circuit"
+     ],
+     [
+      64,
+      "Superconductor UV 4x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      9216,
+      "Solder plasma"
+     ]
+    ]
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings2",
+    4
+   ]
+  ],
+  "structure": [
+   "Heating Coils (the coil tier matters)",
+   "Tiered glass (limits the energy hatch tier)",
+   "Osmiridium Frame Boxes"
+  ]
+ },
+ {
+  "item": "StarcoreMiner",
+  "cls": "TST_StarcoreMiner",
+  "id": 19040,
+  "name": "Starcore Miner",
+  "type": "Void Miner",
+  "info": [
+   "\" Do you sell them ? \"",
+   "\" I'm afraid not. \"",
+   "\" But, maybe we could make a deal ? \"",
+   "To the depths, to gather for you the deepest riches of the planet.",
+   "Each run produces 24 types of ore, 131072 of each type,",
+   "and takes 6.4s, 2,013,265,920 EU/t (MAX).",
+   "The mining access portion of the structure needs to extend at least to a height of 20 below.",
+   "Put Astral Array Fabricator into controller slot then machine can further increase ore production.",
+   "There is a serious bug in the blueprint automatic construction function of borosilicate glass,",
+   "which may cause the save file to crash and become inaccessible.",
+   "In case of emergency, you can install ZeroPointBugFix mod for temporary fix.",
+   "Joining the wireless EU network when without installing an energy hatch."
+  ],
+  "hatches": [
+   "Output Bus",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UIV",
+    "map": "assemblyLine",
+    "inputs": [
+     [
+      64,
+      "S Block Casings SE"
+     ],
+     [
+      18,
+      "UEV"
+     ],
+     [
+      18,
+      "Space Warper"
+     ],
+     [
+      64,
+      "Energised Tesseract"
+     ],
+     [
+      64,
+      "Electric Motor UEV"
+     ],
+     [
+      48,
+      "Field Generator UEV"
+     ],
+     [
+      64,
+      "Sensor UEV"
+     ],
+     [
+      64,
+      "UIV Circuit"
+     ],
+     [
+      64,
+      "High Energy Flow Circuit"
+     ],
+     [
+      64,
+      "EM Power"
+     ],
+     [
+      64,
+      "Superconductor UEV 16x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      147456,
+      "Solder plasma"
+     ],
+     [
+      147456,
+      "Molten Quantium"
+     ],
+     [
+      2048000,
+      "UU Matter"
+     ]
+    ],
+    "research": "Infinity tool Head Drill"
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings",
+    11
+   ],
+   [
+    "gregtech:gt.blockcasings",
+    14
+   ],
+   [
+    "gregtech:gt.blockcasings2",
+    15
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    7
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    10
+   ],
+   [
+    "gtnhintergalactic:gt.blockcasingsSE",
+    0
+   ],
+   [
+    "gtnhintergalactic:gt.blockcasingsSE",
+    1
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    8
+   ]
+  ],
+  "structure": [
+   "Tiered glass (limits the energy hatch tier)",
+   "Naquadah Alloy Frame Boxes",
+   "Space Elevator casings"
+  ]
+ },
+ {
+  "item": "Disassembler",
+  "cls": "TST_Disassembler",
+  "id": 19041,
+  "name": "TST Large Disassembler",
+  "type": "Disassembler",
+  "info": [
+   "The incomplete becomes complete; the crooked becomes straight; the empty becomes full; the worn out becomes new.",
+   "How your other machine assembles the item, this one disassembles it back.",
+   "Note: The component assembly line casing level limit recipe the machine can perform.",
+   "No energy consumption."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Output Bus",
+   "Output Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UEV",
+    "map": "assemblyLine",
+    "inputs": [
+     [
+      64,
+      "Assembling Machine UHV"
+     ],
+     [
+      16,
+      "Field Generator UHV"
+     ],
+     [
+      64,
+      "Electric Pump UHV"
+     ],
+     [
+      64,
+      "Conveyor Module UHV"
+     ],
+     [
+      256,
+      "Robot Arm UHV"
+     ],
+     [
+      64,
+      "EM Power"
+     ],
+     [
+      16,
+      "Cosmic Neutronium Frame Box"
+     ],
+     [
+      16,
+      "Osmiridium Dense Plate"
+     ]
+    ],
+    "fluids": [
+     [
+      147456,
+      "Solder plasma"
+     ],
+     [
+      128000,
+      "UU Matter"
+     ],
+     [
+      768000,
+      "Super Coolant"
+     ]
+    ],
+    "research": "Machine LV Assembler"
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings2",
+    5
+   ],
+   [
+    "gregtech:gt.blockcasings2",
+    8
+   ],
+   [
+    "gregtech:gt.blockcasings2",
+    9
+   ],
+   [
+    "gregtech:gt.blockcasings9",
+    1
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    4
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    8
+   ]
+  ],
+  "structure": [
+   "Tiered glass (limits the energy hatch tier)",
+   "Cosmic Neutronium Frame Boxes",
+   "Component Assembly Line Casings (tier limits recipes)"
+  ]
+ },
+ {
+  "item": "BallLightning",
+  "cls": "TST_BallLightning",
+  "id": 19046,
+  "name": "BallLightning",
+  "type": "(Plasma / Electric) Arc Furnace / Fusion Reactor / Star Kernel Generator",
+  "info": [
+   "\" I closed my eyes and opened them again. \"",
+   "\" The rose didn't reappear, \"",
+   "\" but I knew it was there,\"",
+   "\" nestled in the amethyst vase.\"",
+   "The most elemental and ultimate utilization of energy.",
+   "The structure requires at least Infinity Coil.",
+   "Comprises four machine levels, Tier3 and Tier4 each unlocking a next mode.",
+   "With each machine tier upgrade, the lower-tier modes benefit from a 4x speed multiplier.",
+   "=== Machine Tier ===",
+   "The base structure is Tier 1",
+   "Gravitational Lens in the control slot unlocks Tier 2",
+   "Upgrade Chip in the control slot and utilizing Tier 2 structure unlocks Tier 3",
+   "Utilizing Advanced High Power Coil and then utilizing Teleportation Casing replacing Dimensional Bridge unlock Tier 4",
+   "=== Machine Mode ===",
+   "(Plasma / Electric) Arc Furnace",
+   "Parallel number = 2 ^ (Compact Fusion Coil Tier * (Coil Tier - 10))",
+   "Tiers above Crude Stabilisation Field Generator block enables perfect overclocks",
+   "Fusion Reactor",
+   "The maximum Eu consumption is limited at 4 ^ (Compact Fusion Coil Tier - 2) * 1.8 ^ (Field Generator Tier - 1) MAX/t",
+   "65536x parallel | Perfect overclocks",
+   "The max recipe tier is limited by the Compact Fusion Coil Tier",
+   "Star Kernel Generator",
+   "Almost infinite parallel | Upgrade the Field Generator for faster speeds",
+   "Eu Modifier = 1 - 9.9% * (Field Generator Tier - 1)"
+  ],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UEV",
+    "map": "assemblyLine",
+    "inputs": [
+     [
+      64,
+      "High Power Radiation Proof Casing"
+     ],
+     [
+      64,
+      "Industrial Arc Furnace"
+     ],
+     [
+      32,
+      "Arc Furnace UEV"
+     ],
+     [
+      64,
+      "GTPP Casing UHV"
+     ],
+     [
+      16,
+      "Bw realglas"
+     ],
+     [
+      32,
+      "Field Restriction Coil T2"
+     ],
+     [
+      16,
+      "Field Generator UEV"
+     ],
+     [
+      32,
+      "Robot Arm UEV"
+     ],
+     [
+      128,
+      "UEV Circuit"
+     ],
+     [
+      16,
+      "Superconductor UEV 4x Wire"
+     ],
+     [
+      256,
+      "High Energy Flow Circuit"
+     ]
+    ],
+    "fluids": [
+     [
+      16000,
+      "Excited DTEC"
+     ]
+    ],
+    "research": "Industrial Arc Furnace"
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings8",
+    5
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing01",
+    1
+   ]
+  ],
+  "structure": [
+   "Heating Coils (the coil tier matters)",
+   "Tiered glass (limits the energy hatch tier)",
+   "Superconductor UIV Base Frame Boxes",
+   "Neutronium Frame Boxes",
+   "Compact Fusion Coils"
+  ]
+ },
+ {
+  "item": "IndustrialMagicMatrix",
+  "cls": "GT_TileEntity_IndustrialMagicMatrix",
+  "id": 19047,
+  "name": "Industrial Magic Matrix",
+  "type": "Magic Matrix",
+  "info": [
+   "Please use the Infusion Supplier to supply Essence!",
+   "When you stare into the void, the void stares at you.",
+   "Some say it's a miracle of a mystical envoy,",
+   "Others say that it is a cult creature of a sorcerer.",
+   "But who cares?!",
+   "Needless to say, its incredible principle is fascinating...",
+   "Because of the pollution of technology,",
+   "It is unable to perform active infusions.",
+   "Parallelism depends on the level of the structure block.",
+   "Do an 4/2 overclock.Turn on lossless overclocking after reaching the maximum acceleration rate.",
+   "Use Charged Nodes to get acceleration rewards,",
+   "However, when the number of nodes is less than six,",
+   "the processing time will be carried out (recipe time * number of missing nodes * 1.75).",
+   "The matrix will take the largest element of each of the six nodes and calculate the average.",
+   "The closer the quantities between the six primitive elements are, the higher the multiplication factor will be.",
+   "The actual acceleration magnification is (0.4+0.45exp(-0.05Variance)+",
+   "0.15(ln(1+exp(-Variance))/ln2)) * (Mean / 500).",
+   "Variance is the variance of the largest element in the six nodes,",
+   "Mean is the average.",
+   "When the type of the six elements is not the six original elements,",
+   "Each missing one adds a fixed 1 second to the time.",
+   "Gain up to 1145.14% acceleration multiplier.",
+   "Putting EssentiaCell_Creative in the controller GUI doesn't cost essentia, but if it's a hero's proof,maybe a little bit of an incredible change..."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Output Bus",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "infusion",
+    "map": null,
+    "research": "INDUSTRIAL_MAGIC_MATRIX",
+    "inputs": [
+     [
+      1,
+      "Machine Multi Assemblyline"
+     ],
+     [
+      4,
+      "LuV Circuit"
+     ],
+     [
+      4,
+      "Block Stone Device"
+     ],
+     [
+      8,
+      "Block Metal Device"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings8",
+    8
+   ]
+  ],
+  "structure": [
+   "Thaumium Frame Boxes"
+  ]
+ },
+ {
+  "item": "LargeCanner",
+  "cls": "TST_LargeCanner",
+  "id": 19048,
+  "name": "Large Canner",
+  "type": "Fluid/Solid Canner",
+  "info": [
+   "\"Use unimaginable force to press items into containers!\"",
+   "Having almost infinite parallelism!",
+   "Please use a screwdriver to switch modes."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UV",
+    "map": "assembler",
+    "inputs": [
+     [
+      16,
+      "Naquadah Alloy Frame Box"
+     ],
+     [
+      16,
+      "Tungsten Steel Dense Plate"
+     ],
+     [
+      32,
+      "Canning Machine ZPM"
+     ],
+     [
+      16,
+      "UHV Circuit"
+     ],
+     [
+      16,
+      "Electric Pump ZPM"
+     ],
+     [
+      8,
+      "Conveyor Module ZPM"
+     ],
+     [
+      16,
+      "Superconductor ZPM 1x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      9216,
+      "Molten Soldering Alloy"
+     ]
+    ]
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings2",
+    15
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    0
+   ]
+  ],
+  "structure": [
+   "Naquadah Alloy Frame Boxes"
+  ]
+ },
+ {
+  "item": "IndustrialMagnetarSeparator",
+  "cls": "TST_IndustrialMagnetarSeparator",
+  "id": 19050,
+  "name": "Industrial Magnetar Separator",
+  "type": "Electromagnetic Separator",
+  "info": [
+   "300% faster than using single block machines of the same voltage",
+   "Only uses 80% of the EU/t normally required",
+   "Processes 4 items per voltage tier"
+  ],
+  "hatches": [
+   "Input Bus",
+   "Output Bus",
+   "Energy Hatch",
+   "Maintenance Hatch",
+   "Muffler Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "craft",
+    "map": null,
+    "inputs": [
+     [
+      null,
+      "IV Circuit"
+     ],
+     [
+      null,
+      "IV Coil"
+     ],
+     [
+      null,
+      "Machine IV Electromagnetic Separator"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [
+   [
+    "TwistSpaceTechnology:MetaBlockCasing01",
+    8
+   ]
+  ],
+  "structure": []
+ },
+ {
+  "item": "EcoSphereSimulator",
+  "cls": "TST_EcoSphereSimulator",
+  "id": 19051,
+  "name": "Eco-Sphere Simulator",
+  "type": "Arboreal Genesis | Aquatic Simulation | Artificial Greenhouse | Directed Mob Cloning",
+  "info": [
+   "Hark to the whispers of all creation......",
+   "Yet, save the bees, for they do buzz too loudly.",
+   "The thaumaturges' latest masterpiece in the Integration of Magic and Electrical Engineering",
+   "Reproduce selected environmental and biological processes from simple materials",
+   "Features a unique method of overclocking",
+   "Each protocol has a fixed base cycle time",
+   "Higher input power increases recipe parallelism nonlinearly",
+   "Install an execution protocol in the controller to select the simulation",
+   "Operating media enter through input hatches; fluid-habitat protocols reproduce them in the chamber",
+   "Requires one Eco-Sphere Input Interface and one Eco-Sphere Upgrade Interface",
+   "This multiblock can only output to ME output buses/hatches"
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "infusion",
+    "map": null,
+    "research": "ECO_SPHERE_SIMULATOR",
+    "inputs": [
+     [
+      1,
+      "item Eldritch Object"
+     ],
+     [
+      2,
+      "Ichorium Superdense Plate"
+     ],
+     [
+      4,
+      "Circuit UV"
+     ],
+     [
+      4,
+      "Robot Arm UV"
+     ],
+     [
+      4,
+      "Conveyor Module UV"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [
+   [
+    "TwistSpaceTechnology:MetaBlockCasing01",
+    9
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing01",
+    10
+   ],
+   [
+    "gregtech:gt.blockcasings",
+    10
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing02",
+    6
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing02",
+    2
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    10
+   ],
+   [
+    "gregtech:gt.blockcasings9",
+    1
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing01",
+    13
+   ]
+  ],
+  "structure": [
+   "Tiered glass (limits the energy hatch tier)",
+   "Mytryl Frame Boxes",
+   "Astral Silver Frame Boxes"
+  ]
+ },
+ {
+  "item": "EcoSphereInputInterface",
+  "cls": "TST_EcoSphereInputInterfaceHatch",
+  "id": 18849,
+  "name": "Eco-Sphere Input Interface",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "infusion",
+    "map": null,
+    "research": "ECO_SPHERE_INPUT_INTERFACE",
+    "inputs": [
+     [
+      1,
+      "Hatch Input Bus UV"
+     ],
+     [
+      1,
+      "Block Jar"
+     ],
+     [
+      1,
+      "Circuit UHV"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "EcoSphereUpgradeInterface",
+  "cls": "TST_EcoSphereUpgradeInterfaceHatch",
+  "id": 18850,
+  "name": "Eco-Sphere Upgrade Interface",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "infusion",
+    "map": null,
+    "research": "ECO_SPHERE_UPGRADE_INTERFACE",
+    "inputs": [
+     [
+      1,
+      "Hatch Input Bus UV"
+     ],
+     [
+      1,
+      "Block Jar"
+     ],
+     [
+      1,
+      "Tool Data Orb"
+     ],
+     [
+      1,
+      "Item Resource"
+     ],
+     [
+      1,
+      "Circuit UHV"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": [
+   "Tiered glass (limits the energy hatch tier)"
+  ]
+ },
+ {
+  "item": "ExtremeCraftCenter",
+  "cls": "TST_MegaCraftingCenter",
+  "id": 19052,
+  "name": "Extreme Crafting Center",
+  "type": "molecularAssembler | extremeCraftTable",
+  "info": [
+   "Goodbye, all crafting lags.",
+   "Do not use power. Need to connect the controller to ME net.",
+   "Time consumption is fixed at 1 second, output items in output buses.",
+   "Input encoded patterns into input bus, the valid will be moved to internal, the invalid will be moved to output bus.",
+   "Support crafting table pattern and Dire Crafting process pattern.",
+   "Allow to double the pattern.",
+   "Set the pattern Magnification parameters in the controller GUI.",
+   "The internal pattern input and output quantity will be multiplied by the magnification parameter as the actual pattern information in running.",
+   "Include crafting pattern (crafting table recipes).",
+   "Use a screwdriver right click controller to move internal patterns to output bus.",
+   "-----------------------------------------",
+   "Use scanner check controller block to get more information."
+  ],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "craft",
+    "map": null,
+    "inputs": [
+     [
+      null,
+      "Molecular Transformer"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [
+   [
+    "tectech:gt.blockcasingsTT",
+    4
+   ]
+  ],
+  "structure": []
+ },
+ {
+  "item": "PatternAccessHatch",
+  "cls": "TST_PatternAccessHatch",
+  "id": 18847,
+  "name": "Pattern Access Hatch",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_LuV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Hatch Crafting Input Bus ME Item Only"
+     ],
+     [
+      8,
+      "Tungsten Steel item Casing"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "LightningSpire",
+  "cls": "GTCM_LightningSpire",
+  "id": 19053,
+  "name": "Lightning Spire",
+  "type": "Multi Lightning Rod",
+  "info": [
+   "\"Thunder is God's cannon.\"",
+   "\"But now we will control the thunder.\"",
+   "Maximum storage capacity of 512 lightning rods(I).",
+   "Each lightning rod produces 28 MEU per lightning strike and stores 280 MEU.",
+   "Ignoring thunderstorm weather for power generation.",
+   "Consume 128mb cruotheum and 72mb*the number of lightning rods of molten iron ever lightning",
+   "Quantitative input is required, too much or too little can lead to power generation failure",
+   "Before dismantling the machine, please output the lightning rod first!",
+   "Otherwise all internal lightning rods will be lost!",
+   "Use a wire cutter to enable/disable lightning animation."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Dynamo Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_IV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "GTPP Casing IV"
+     ],
+     [
+      4,
+      "Energy Core EV"
+     ],
+     [
+      2,
+      "Emitter IV"
+     ],
+     [
+      2,
+      "Sensor IV"
+     ],
+     [
+      4,
+      "Field Generator HV"
+     ]
+    ],
+    "fluids": [
+     [
+      2304,
+      "Molten Rubber Silicone"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "DimensionallyTranscendentMatterPlasmaForgePrototypeMK2",
+  "cls": "MM_DimensionallyTranscendentMatterPlasmaForgePrototypeMK2",
+  "id": 19054,
+  "name": "Dimensionally Transcendent Matter Plasma Forge Prototype MK-II",
+  "type": "Modularized Machine - Plasma Forge",
+  "info": [
+   "If the facts don't fit the theory, change the facts.",
+   "The Prototype of Dimensionally Transcendent Plasma Forge",
+   "Better at continuous long-term operation and mass production.",
+   "But it is not good enough in miniaturization.",
+   "Reach the best operating state after 24 hours of continuous operation, reducing 75% fuel consumption.",
+   "After stopping operation, the fuel consumption reduction rate will quickly decrease to 0% within 1 hours.",
+   "Installing module hatches near the controller block can significantly improve machine performance."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UXV",
+    "map": "assemblyLine",
+    "inputs": [
+     [
+      64,
+      "EM Teleportation"
+     ],
+     [
+      64,
+      "Machine Multi Plasma Forge"
+     ],
+     [
+      64,
+      "Compact Fusion Coil T4"
+     ],
+     [
+      64,
+      "Superconductor UMV 16x Wire"
+     ],
+     [
+      128,
+      "Annihilation Constrainer"
+     ],
+     [
+      128,
+      "Space Warper"
+     ],
+     [
+      128,
+      "Emitter UMV"
+     ],
+     [
+      128,
+      "Field Generator UMV"
+     ],
+     [
+      128,
+      "Advanced High Power Coil Block"
+     ],
+     [
+      64,
+      "ZPM6"
+     ],
+     [
+      64,
+      "Gravitational Lens"
+     ]
+    ],
+    "fluids": [
+     [
+      2000000000,
+      "DTR"
+     ],
+     [
+      75497472,
+      "Molten Eternity"
+     ],
+     [
+      301989888,
+      "Molten Space Time"
+     ]
+    ],
+    "research": "Miracle Door"
+   }
+  ],
+  "blocks": [
+   [
+    "tectech:gt.blockcasingsTT",
+    10
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    12
+   ]
+  ],
+  "structure": [
+   "Heating Coils (the coil tier matters)"
+  ]
+ },
+ {
+  "item": "LargeNeutronOscillator",
+  "cls": "MM_LargeNeutronOscillator",
+  "id": 19055,
+  "name": "Large Neutron Oscillator",
+  "type": "Modularized Machine - Neutron Activator",
+  "info": [
+   "The more physics you know the less engineering you need.",
+   "It consumes a lot of electricity to produce large quantities quickly.",
+   "Installing module hatches near the controller block can significantly improve machine performance."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UEV",
+    "map": "GoodGeneratorRecipeMaps.preciseAssemblerRecipes",
+    "inputs": [
+     [
+      64,
+      "Hi C T5"
+     ],
+     [
+      8,
+      "Compact Fusion Coil T3"
+     ],
+     [
+      8,
+      "UIV Circuit"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [
+   [
+    "tectech:gt.blockcasingsTT",
+    0
+   ]
+  ],
+  "structure": [
+   "Tiered glass (limits the energy hatch tier)",
+   "Naquadah Alloy Frame Boxes"
+  ]
+ },
+ {
+  "item": "IndistinctTentaclePrototypeMK2",
+  "cls": "MM_IndistinctTentaclePrototypeMK2",
+  "id": 19056,
+  "name": "Indistinct Tentacle Prototype MK-II",
+  "type": "Modularized Machine - Assembly Line | Component Assembly Line | Assembler | Precise Assembler",
+  "info": [
+   "There is no evil, only ignorance.",
+   "The advanced version of Indistinct Tentacle.",
+   "Directly use the energy from the wireless EU network, no energy hatch required.",
+   "Installing module hatches near the controller block can significantly improve machine performance."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_MAX",
+    "map": "GTCMRecipe.AssemblyLineWithoutResearchRecipeMap",
+    "inputs": [
+     [
+      64,
+      "MHDCSM Frame Box"
+     ],
+     [
+      1,
+      "Perfect Execution Core"
+     ],
+     [
+      16,
+      "Indistinct Tentacle"
+     ],
+     [
+      64,
+      "Advanced High Power Coil Block"
+     ],
+     [
+      16384,
+      "Energised Tesseract"
+     ],
+     [
+      512,
+      "Stellar Construction Frame Material"
+     ],
+     [
+      512,
+      "Dyson Sphere Frame Component"
+     ],
+     [
+      512,
+      "Annihilation Constrainer"
+     ],
+     [
+      1024,
+      "UXV Circuit"
+     ],
+     [
+      1024,
+      "EM Ultimate Containment Advanced"
+     ]
+    ],
+    "fluids": [
+     [
+      2000000000,
+      "UU Matter"
+     ],
+     [
+      75497472,
+      "Molten Eternity"
+     ],
+     [
+      75497472,
+      "Molten Universium"
+     ],
+     [
+      75497472,
+      "Molten Space Time"
+     ]
+    ]
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings2",
+    9
+   ],
+   [
+    "gregtech:gt.blockcasings9",
+    1
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    7
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    9
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    10
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    12
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    13
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    14
+   ]
+  ],
+  "structure": [
+   "Tiered glass (limits the energy hatch tier)",
+   "Component Assembly Line Casings (tier limits recipes)"
+  ]
+ },
+ {
+  "item": "MassFabricatorGenesis",
+  "cls": "MM_MassFabricatorGenesis",
+  "id": 19057,
+  "name": "Mass Fabricator : Genesis",
+  "type": "Modularized Machine - Neutron Activator",
+  "info": [
+   "“Even though the future seems far away, it is actually beginning right now.”",
+   "Energy - Mass : Interface."
+  ],
+  "hatches": [
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UMV",
+    "map": "assemblyLine",
+    "inputs": [
+     [
+      64,
+      "Space Time Frame Box"
+     ],
+     [
+      64,
+      "Industrial Mass Fab"
+     ],
+     [
+      64,
+      "ZPM3"
+     ],
+     [
+      64,
+      "UXV Circuit"
+     ],
+     [
+      128,
+      "Field Generator UMV"
+     ],
+     [
+      128,
+      "Emitter UMV"
+     ],
+     [
+      256,
+      "Laser Lens Special"
+     ],
+     [
+      64,
+      "High Energy Flow Circuit"
+     ],
+     [
+      64,
+      "Machine Multi Transformer"
+     ],
+     [
+      64,
+      "Superconductor UMV 16x Wire"
+     ],
+     [
+      64,
+      "Space Time Dense Plate"
+     ]
+    ],
+    "fluids": [
+     [
+      36864,
+      "Molten Space"
+     ],
+     [
+      36864,
+      "Molten Time"
+     ],
+     [
+      294912,
+      "Molten Cosmic Neutronium"
+     ]
+    ],
+    "research": "Mass Fabricator UMV"
+   }
+  ],
+  "blocks": [
+   [
+    "tectech:gt.blockcasingsTT",
+    9
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    10
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    12
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    13
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    14
+   ]
+  ],
+  "structure": []
+ },
+ {
+  "item": "IncompactCyclotron",
+  "cls": "TST_IncompactCyclotron",
+  "id": 19058,
+  "name": "PULSAR - Incompact Cyclotron",
+  "type": "Particle Accelerator",
+  "info": [
+   "Pulsed Ultrafast Linear Synchronized Accelerator Ring",
+   "The particles are accelerated to 99% of the speed of light by the electric field!",
+   "But you can extract the accelerated particles at any time.",
+   "\"That's incredible!\"",
+   "Thanks to the upgrade of technology",
+   "The accelerator upgraded 100% speedup and 256 parallel",
+   "But it requires additional 60% of power to work"
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UEV",
+    "map": "assemblyLine",
+    "inputs": [
+     [
+      64,
+      "Hull UEV"
+     ],
+     [
+      64,
+      "Beam Crafter"
+     ],
+     [
+      8,
+      "Casing Coil Infinity"
+     ],
+     [
+      4,
+      "Laser Lens Special"
+     ],
+     [
+      16,
+      "Field Generator UHV"
+     ],
+     [
+      32,
+      "Hi C T5"
+     ],
+     [
+      16,
+      "UEV Circuit"
+     ],
+     [
+      null,
+      "Enriched Naquadah Alloy"
+     ],
+     [
+      16,
+      "Naquadah Alloy Gear"
+     ],
+     [
+      64,
+      "Naquadah Alloy Screw"
+     ]
+    ],
+    "fluids": [
+     [
+      36864,
+      "Molten Naquadah Alloy"
+     ],
+     [
+      1000000,
+      "Cryotheum"
+     ]
+    ],
+    "research": "COMET Cyclotron"
+   }
+  ],
+  "blocks": [
+   [
+    "TwistSpaceTechnology:MetaBlockCasing01",
+    12
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing01",
+    11
+   ]
+  ],
+  "structure": [
+   "Tiered glass (limits the energy hatch tier)"
+  ]
+ },
+ {
+  "item": "StrangeMatterAggregator",
+  "cls": "TST_StrangeMatterAggregator",
+  "id": 19059,
+  "name": "Strange Matter Aggregator",
+  "type": "Modularized Machine - Strange Matter Aggregator",
+  "info": [
+   "Life is like Ephemera in the world, a drop in the sea.",
+   "Creation of specialized space-time, efficient manipulation of strange matter.",
+   "The machines are stacked, and each layer can be fitted with one type of Space-Time Operator Cube.",
+   "Higher tier, more rings, more benefits, but also costs.",
+   "---------------- SpaceTime Oscillator ----------------",
+   "Base run time: the higher the tier the shorter the run time",
+   "Basic materials consumption: the higher the number of rings, the lower the amount consumed",
+   "SpaceTime maintenance fluid consumption: more rings more consumed",
+   "Core element and annihilation constrainer consumption: higher tier, more rings, lower consumption rate",
+   "---------------- SpaceTime Constraintor ----------------",
+   "Consumption rate of auxiliary materials: the higher the level, the lower the consumption rate",
+   "Actual running time: the higher the tier the longer the actual running time is",
+   "SpaceTime maintenance fluid consumption: the more rings you have the less you consume",
+   "---------------- SpaceTime Merger ----------------",
+   "Maximum Continuous Running Points: The higher the tier, the higher the Continuous Running Points limit!",
+   "Byproduct outputs: the more rings the more outputs",
+   "Power Consumption: higher tier, more rings, the higher the power consumption",
+   "---------------- SpaceTime Maintenance Fluid ----------------",
+   "Setting the used SpaceTime maintenance fluid tier within the machine UI:",
+   "T1 = 576L Molten SpaceTime | T2 = 96L Molten Universium | T3 = 16L Molten Magnetohydrodynamically Constrained Star Matter",
+   "Using Advanced SpaceTime Maintenance Fluid increases num of fuel rods can be crafted per Annihilation Constrainer and Core Element,",
+   "and reduce the consumption of fluid materials and auxiliary materials. The type of byproducts depends on the SpaceTime maintenance fluid used.",
+   "T1: Molten Infinity and Molten Hypogen; T2: Molten SpaceTime and Molten Shirabon; T3: Molten Universium;",
+   "-----------------------------------------",
+   "Continuous Operation will produce by-products and more of the main product.",
+   "For each successful run, Continuous Running Points is increased by one.",
+   "Continuous provision of sufficient space-time maintenance fluid to maintain continuous operation. Otherwise, operation is interrupted.",
+   "Provide Core Elements to obtain t2 products",
+   "If input Core Element, machine will consume Core Element and output a portion of T2 product instead part primary product.",
+   "At the same time, byproduct yields are doubled.",
+   "Installing module hatches near the controller block can significantly improve machine performance."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_MAX",
+    "map": "GTCMRecipe.MiracleTopRecipeMap",
+    "inputs": [
+     [
+      8192,
+      "Space Time Frame Box"
+     ],
+     [
+      512,
+      "Antimatter Fuel Rod"
+     ],
+     [
+      512,
+      "Annihilation Constrainer"
+     ],
+     [
+      512,
+      "Dyson Sphere Frame Component"
+     ],
+     [
+      512,
+      "Space Warper"
+     ],
+     [
+      64,
+      "EM Spacetime"
+     ],
+     [
+      64,
+      "EM Ultimate Containment Field"
+     ],
+     [
+      64,
+      "EM Teleportation"
+     ],
+     [
+      512,
+      "Field Generator UMV"
+     ],
+     [
+      512,
+      "Transcendent Metal Nanites"
+     ],
+     [
+      512,
+      "Tesseract"
+     ],
+     [
+      512,
+      "Energised Tesseract"
+     ],
+     [
+      512,
+      "UXV Circuit"
+     ],
+     [
+      1,
+      "ZPM"
+     ]
+    ],
+    "fluids": [
+     [
+      18874368,
+      "Molten Void"
+     ],
+     [
+      2359296,
+      "Molten Space"
+     ],
+     [
+      2359296,
+      "Molten Time"
+     ]
+    ]
+   }
+  ],
+  "blocks": [
+   [
+    "tectech:gt.blockcasingsTT",
+    9
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    10
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    14
+   ]
+  ],
+  "structure": []
+ },
+ {
+  "item": "MicroSpaceTimeFabricatorio",
+  "cls": "TST_MicroSpaceTimeFabricatorio",
+  "id": 19060,
+  "name": "Micro SpaceTime Fabricatorio",
+  "type": "Artificial SpaceTime Fabricator",
+  "info": [
+   "A little start of Genesis.",
+   "Activate the primordial singularity to begin the creation process of the universe, of course, within controllable limits.",
+   "Upgrading the T2 Field blocks enables perfect overclock, and further upgrades can significantly increase the running speed.",
+   "But the use of advanced Field blocks requires the use of advanced structure casing block at the same time. Otherwise, it will cause calamity.",
+   "Can provide space-time seeds in dedicated input bus, consuming 1 space-time seed per run and doubling the output."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UMV",
+    "map": "GTRecipeConstants.AssemblyLine",
+    "inputs": [
+     [
+      16,
+      "Transcendent Metal Frame Box"
+     ],
+     [
+      16,
+      "Space Warper"
+     ],
+     [
+      16,
+      "Gravitational Lens"
+     ],
+     [
+      16,
+      "UMV Circuit"
+     ],
+     [
+      16,
+      "Energy Fluctuation Self Harmonizer"
+     ],
+     [
+      16,
+      "Packet Information Translation Array"
+     ],
+     [
+      16,
+      "Energised Tesseract"
+     ],
+     [
+      16,
+      "Field Generator UIV"
+     ],
+     [
+      16,
+      "Emitter UIV"
+     ],
+     [
+      16,
+      "Sensor UIV"
+     ],
+     [
+      16,
+      "High Energy Flow Circuit"
+     ],
+     [
+      64,
+      "Transcendent Metal item Casing"
+     ],
+     [
+      48,
+      "Superconductor UIV 16x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      64000,
+      "Hydrogen plasma"
+     ],
+     [
+      64000,
+      "UU Matter"
+     ],
+     [
+      18432,
+      "Molten Quantium"
+     ]
+    ],
+    "research": "Transcendent Metal item Casing"
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "BloodyHell",
+  "cls": "TST_BloodyHell",
+  "id": 19061,
+  "name": "Bloody Hell",
+  "type": "Altar of Blood | Alchemic Chemistry Set | Ritual of Binding",
+  "info": [
+   "After years of researching, you finally find the last piece to mass-produce the Blood Magic things!",
+   "Researches show that the speed of soaking ritual is highly related to the greatness of the altar and the runes it used.",
+   "And there is a small text on the corner said, \"Speed Runes can be the key.\"",
+   "Also a weird stranger told you that Armok splashes Blood everywhere in the machine."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus"
+  ],
+  "recipes": [
+   {
+    "eut": "infusion",
+    "map": null,
+    "research": "BLOODY_HELL",
+    "inputs": [
+     [
+      1,
+      "block Master Stone"
+     ],
+     [
+      1,
+      "Activation Crystal"
+     ],
+     [
+      3,
+      "Amorphic Catalyst"
+     ],
+     [
+      1,
+      "Block Altar"
+     ],
+     [
+      1,
+      "Block Writing Table"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [
+   [
+    "TwistSpaceTechnology:MetaBlockCasing01",
+    9
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing02",
+    0
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing02",
+    1
+   ]
+  ],
+  "structure": []
+ },
+ {
+  "item": "BloodOrbHatch",
+  "cls": "TST_BloodOrbHatch",
+  "id": 18846,
+  "name": "Blood Hatch",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "infusion",
+    "map": null,
+    "research": "BLOOD_HATCH",
+    "inputs": [
+     [
+      1,
+      "Hatch Input IV"
+     ],
+     [
+      1,
+      "Weak Blood Orb"
+     ],
+     [
+      1,
+      "Sacrificial Dagger"
+     ],
+     [
+      2,
+      "Item Zombie Brain"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "MegaStoneBreaker",
+  "cls": "TST_MegaStoneBreaker",
+  "id": 19062,
+  "name": "Silicon Rock Synthesizer",
+  "type": "Stone Breaker",
+  "info": [
+   "Hey, I heard you come from a sky island?",
+   "Basic parallel is 4, and the multiplier is equivalent to imperfect overclock",
+   "Basic increase in output by 4x, When water and lava are input from the side input hatch, Increase to 1024x of output"
+  ],
+  "hatches": [
+   "Input Bus",
+   "Output Bus",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UV",
+    "map": "assemblyLine",
+    "inputs": [
+     [
+      4,
+      "Hull UEV"
+     ],
+     [
+      16,
+      "Rock Breaker ZPM"
+     ],
+     [
+      64,
+      "Boldarnator"
+     ],
+     [
+      64,
+      "ZPM Large Pipe"
+     ],
+     [
+      1,
+      "Cosmic Neutronium Superdense Plate"
+     ],
+     [
+      1,
+      "Bedrockium Superdense Plate"
+     ],
+     [
+      1,
+      "Naquadah Alloy Superdense Plate"
+     ],
+     [
+      1,
+      "Superconductor ZPM Base Superdense Plate"
+     ]
+    ],
+    "fluids": [
+     [
+      2000000000,
+      "Lava"
+     ],
+     [
+      2000000000,
+      "Water"
+     ]
+    ],
+    "research": "Boldarnator"
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings11",
+    7
+   ],
+   [
+    "gregtech:gt.blockcasings2",
+    15
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    7
+   ],
+   [
+    "gregtech:gt.blockcasings9",
+    1
+   ]
+  ],
+  "structure": [
+   "Cosmic Neutronium Frame Boxes"
+  ]
+ },
+ {
+  "item": "ManufacturingCenter",
+  "cls": "TST_ManufacturingCenter",
+  "id": 19063,
+  "name": "Manufacturing Center",
+  "type": "Manufacturing Center | Nine in One",
+  "info": [
+   "A Combination of Machines.",
+   "Recipe voltages are limited by the MultiUse Core.",
+   "Manufacturing Center cannot handle recipes over N.",
+   "20% faster than single blocks.",
+   "Each Core Tier over 0.5 gains 100 Speed Bonus comparing to single block machines.",
+   "Each Core Tier over 0.15 gains 100 EU/t Reduction.",
+   "Max parallel is 2x max voltage tier."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch",
+   "Maintenance Hatch",
+   "Muffler Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "craft",
+    "map": null,
+    "inputs": [],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "IndustrialAlchemyTower",
+  "cls": "TST_IndustrialAlchemyTower",
+  "id": 19064,
+  "name": "Industrial Alchemy Tower",
+  "type": "Alchemy Tower",
+  "info": [
+   "Gurgling",
+   "Please use the Infusion Supplier to supply Essence!",
+   "Parallelism depends on the level of the structure block.",
+   "Do an 4/2 overclock.Turn on lossless overclocking after reaching the maximum acceleration rate.",
+   "Use Charged Nodes to get acceleration rewards,",
+   "No acceleration when there are no charging nodes.",
+   "When the number of nodes is less than 4, each charging node increases acceleration by 10%,",
+   "When the number of nodes is 4, calculate the nodes with the highest rates of air, fire, entropy, and order.",
+   "Use the essence quantity of the node with the highest rate of each essence for subsequent calculations.",
+   "min=min(fire,air,entropy,order,10);max=max(fire,air,entropy,order,10);",
+   "Basic speed bonus equals 1/11.4514 + (0.7-1/11.4514)*(1-exp(min-10)).",
+   "If there is too much disparity in the quantity of the above essence, there will be a penalty mechanism.",
+   "Punishment speed bonus equals (0.7-baseSpeedBonus)*(max-min)/max",
+   "Final speed bonus equals the sum of the two.",
+   "Putting EssentiaCell_Creative in the controller GUI doesn't cost essentia, but if it's a hero's proof,maybe a little bit of an incredible change...",
+   "You can use the channel:chisel to automatically convert chisel blocks when building, and you can see nei to preview the available blocks"
+  ],
+  "hatches": [
+   "Input Bus",
+   "Output Bus",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "infusion",
+    "map": null,
+    "research": "INDUSTRIAL_ALCHEMY_TOWER",
+    "inputs": [
+     [
+      1,
+      "Industrial Alloy Blast Smelter"
+     ],
+     [
+      2,
+      "Block Metal Device"
+     ],
+     [
+      4,
+      "IV Circuit"
+     ],
+     [
+      2,
+      "Amorphic Catalyst"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "GiantVacuumDryingFurnace",
+  "cls": "TST_GiantVacuumDryingFurnace",
+  "id": 19065,
+  "name": "Giant Vacuum Drying Furnace",
+  "type": "Vacuum Furnace | Dehydrator",
+  "info": [
+   "Harness the power of vacuum technology for industrial drying!!!",
+   "This machine consists of vacuum pump, main structure, drying tower three parts.",
+   "parallel = coil * piece * 32",
+   "Every additional voltage step reduces the time to 80% of the original and The processing speed increases by 50% for each step of the coil",
+   "Switch modes using a screwdriver",
+   "Every additional voltage step reduces the time to 80% of the original",
+   "Would anyone really need this machine to handle space ice cream?"
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_ZPM",
+    "map": "assembler",
+    "inputs": [
+     [
+      16,
+      "Controller Vacuum Furnace"
+     ],
+     [
+      16,
+      "GT Dehydrator ZPM"
+     ],
+     [
+      16,
+      "Robot Arm ZPM"
+     ],
+     [
+      16,
+      "Conveyor Module ZPM"
+     ],
+     [
+      32,
+      "ZPM Circuit"
+     ],
+     [
+      16,
+      "Superconductor ZPM 4x Wire"
+     ],
+     [
+      16,
+      "Neutronium Dense Plate"
+     ]
+    ],
+    "fluids": [
+     [
+      4608,
+      "Molten Iridium"
+     ]
+    ]
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings4",
+    1
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    1
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    0
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    7
+   ],
+   [
+    "gregtech:gt.blockcasings2",
+    1
+   ]
+  ],
+  "structure": [
+   "Heating Coils (the coil tier matters)",
+   "Tiered glass (limits the energy hatch tier)"
+  ]
+ },
+ {
+  "item": "ProcessingArray",
+  "cls": "TST_ProcessingArray",
+  "id": 19066,
+  "name": "TST Processing Array",
+  "type": "Processing Array",
+  "info": [
+   "Twist Space Technology is honored to serve you",
+   "Runs supplied machines as if placed in the world",
+   "Place up to 64 singleblock GT machines into the controller",
+   "Note that you still need to supply power to them all",
+   "Do general overclock",
+   "Centrifuge, Electrolyzer, Mixer do their multiblock machine recipe"
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "craft",
+    "map": null,
+    "inputs": [
+     [
+      null,
+      "Stainless Steel Large Pipe"
+     ],
+     [
+      null,
+      "IV Circuit"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "AdvCircuitAssemblyLine",
+  "cls": "TST_AdvCircuitAssemblyLine",
+  "id": 19067,
+  "name": "Advanced Circuit Assembly Line",
+  "type": "Circuit Assembly Line",
+  "info": [
+   "Crystal Circuit Ti Super OC Crafting not D version",
+   "Circuit assembly line with 64 times overclocking",
+   "Allows installation of one energy hatch with max 64 amp limitation",
+   "Allows installation of crafting input buffer",
+   "Install imprint circuit hatch for more recipe support (more than one hatch is not allowed)"
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_ZPM",
+    "map": "assemblyLine",
+    "inputs": [
+     [
+      16,
+      "ZPM Circuit"
+     ],
+     [
+      32,
+      "LuV Circuit"
+     ],
+     [
+      64,
+      "IV Circuit"
+     ],
+     [
+      1,
+      "Automation Chest Buffer ZPM"
+     ]
+    ],
+    "fluids": [
+     [
+      8000,
+      "Lubricant"
+     ]
+    ],
+    "research": null
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings2",
+    5
+   ],
+   [
+    "gregtech:gt.blockcasings2",
+    9
+   ],
+   [
+    "gregtech:gt.blockcasings3",
+    10
+   ]
+  ],
+  "structure": [
+   "Tiered glass (limits the energy hatch tier)"
+  ]
+ },
+ {
+  "item": "SwelegfyrBlastFurnace",
+  "cls": "TST_SwelegfyrBlastFurnace",
+  "id": 19068,
+  "name": "Swelegfyr Blast Furnace",
+  "type": "Blast Furnace",
+  "info": [
+   "Blaze Pyrotheum feeds celestial forges. Soulsteel wrought, flame-bound cosmic rite.",
+   "Excels at continuous processing, but also handles conventional recipes.",
+   "Blast furnace temp gradually increases in Passive Mode.",
+   "Recipe changes recalculate extra heat based on structure tier.",
+   "Power consumption decreases by 10% per 900K above recipe temperature threshold.",
+   "Max parallels: 4096x in Normal Mode; 256x in Passive Mode.",
+   "Processes recipes at 390% speed; Glass tier restricts Energy Hatch tier.",
+   "Upgrade machine and build additional structure to unlock additional functions.",
+   "Do not open the cabin door while the machine is running!"
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_UHV",
+    "map": "assemblyLine",
+    "inputs": [
+     [
+      256,
+      "Machine Adv Blast Furnace"
+     ],
+     [
+      8,
+      "Electric Pump UV"
+     ],
+     [
+      16,
+      "Conveyor Module UV"
+     ],
+     [
+      32,
+      "UHV Circuit"
+     ],
+     [
+      64,
+      "UV Circuit"
+     ],
+     [
+      64,
+      "High Energy Flow Circuit"
+     ],
+     [
+      32,
+      "Circuit Chip QPIC"
+     ],
+     [
+      16,
+      "Superconductor UV 8x Wire"
+     ],
+     [
+      4,
+      "Neutronium Superdense Plate"
+     ]
+    ],
+    "fluids": [],
+    "research": "Machine Adv Blast Furnace"
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings",
+    11
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing02",
+    6
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing02",
+    2
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    10
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing01",
+    15
+   ]
+  ],
+  "structure": [
+   "Heating Coils (the coil tier matters)",
+   "Tiered glass (limits the energy hatch tier)",
+   "Neutronium Frame Boxes",
+   "Naquadah Alloy Frame Boxes",
+   "Cosmic Neutronium Frame Boxes",
+   "Compact Fusion Coils"
+  ]
+ },
+ {
+  "item": "SwelegfyrBlastFurnaceLegacy",
+  "cls": "TST_SwelegfyrBlastFurnaceLegacy",
+  "id": 19298,
+  "name": "Swelegfyr Blast Furnace",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings",
+    11
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    5
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing02",
+    2
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    10
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing01",
+    15
+   ]
+  ],
+  "structure": [
+   "Heating Coils (the coil tier matters)",
+   "Tiered glass (limits the energy hatch tier)",
+   "Neutronium Frame Boxes",
+   "Naquadah Alloy Frame Boxes",
+   "Cosmic Neutronium Frame Boxes",
+   "Compact Fusion Coils"
+  ]
+ },
+ {
+  "item": "HyperThermalConvector",
+  "cls": "TST_HyperThermalConvector",
+  "id": 19069,
+  "name": "Hyper Thermal Convector",
+  "type": "Heat Exchanger | Heat Cooler",
+  "info": [
+   "Where did all the heat go?",
+   "The fastest and most efficient heat exchange device ever made.",
+   "Processes the input thermal fluid as thoroughly as possible in a single pass.",
+   "This device complies with GB/T 28712 standards and will not explode!"
+  ],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "(int) RECIPE_UV",
+    "map": "researchableAssemblyLine",
+    "research": "Extreme Heat Exchanger",
+    "inputs": [
+     [
+      256,
+      "Extreme Heat Exchanger"
+     ],
+     [
+      256,
+      "XL Heat Exchanger"
+     ],
+     [
+      64,
+      "Central Processing Unit T3"
+     ],
+     [
+      64,
+      "ZPM Circuit"
+     ],
+     [
+      64,
+      "Electric Pump UV"
+     ],
+     [
+      4,
+      "Reactor Coolant Sp 6"
+     ]
+    ],
+    "fluids": [
+     [
+      1152,
+      "Molten Cosmic Neutronium"
+     ],
+     [
+      128000,
+      "Super Coolant"
+     ]
+    ]
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings10",
+    11
+   ],
+   [
+    "gregtech:gt.blockcasings2",
+    1
+   ],
+   [
+    "gregtech:gt.blockcasings4",
+    14
+   ],
+   [
+    "gregtech:gt.blockcasings6",
+    10
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    7
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    10
+   ],
+   [
+    "gregtech:gt.blockcasings9",
+    1
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing02",
+    2
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing02",
+    3
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing02",
+    4
+   ],
+   [
+    "gregtech:gt.blockcasings2",
+    8
+   ]
+  ],
+  "structure": [
+   "Iridium Frame Boxes",
+   "Cosmic Neutronium Frame Boxes"
+  ]
+ },
+ {
+  "item": "PrimordialDisjunctus",
+  "cls": "TST_PrimordialDisjunctus",
+  "id": 19070,
+  "name": "Primordial Disjunctus",
+  "type": "Essentia Extractor",
+  "info": [
+   "Still sweating over bubbling crucibles?Huff-puff... Let the Primordial Disjunctus coax primal essentia forth with but a whisper of electric power",
+   "Draw raw auram essence into the arcane containment vessel and initiate centrifugal separation.However,due to the cascade reaction of quintessential dissociation, the process will inevitably degrade the complex aura into its primal form, leaving only rudimentary Essentia as residue.",
+   "parallel = The sum of diffusion cell values (Novice = 1, Adept = 2, Master = 4, Grandmaster = 8)",
+   "Min voltage 1A EV, standard overclocks",
+   "With the power of technology, this process only requires energy to produce a base amount of 16 primal aspects per parallel every 20 seconds at 1 amp EV",
+   "Providing Ordo vis(at least 50) will reduce the flux produced to nothing, flux produced is not affected by muffler tier.",
+   "while providing Perditio vis will boost primal aspect production.Every 10 increase the output by 100%. The maximum increase is 16 times.",
+   "It should be noted that the supply of VIS is specifically provided through Vis Relay located near the host.",
+   "This machine maxes out at 1 UMV amp anything more will just void power.",
+   "Since EssentiaHatch has been removed and is now replaced by EssentiaProvider, it is still just a decoration and does not require input."
+  ],
+  "hatches": [
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "infusion",
+    "map": null,
+    "research": "PRIMORDIAL_DISJUNCTUS",
+    "inputs": [
+     [
+      1,
+      "block Metal Device"
+     ],
+     [
+      3,
+      "Block Metal Device"
+     ],
+     [
+      4,
+      "IV Circuit"
+     ],
+     [
+      1,
+      "Block Crystal"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings2",
+    0
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    0
+   ],
+   [
+    "gregtech:gt.blockcasings2",
+    15
+   ]
+  ],
+  "structure": []
+ },
+ {
+  "item": "SkypiercerTower",
+  "cls": "TST_SkypiercerTower",
+  "id": 19071,
+  "name": "Skypiercer Tower",
+  "type": "Essentia Synthesizer",
+  "info": [
+   "Wir müssen wissen. Wir werden wissen.",
+   "Thaumaturgical research confirms: Essentia degradation occurs spontaneously. while recombination demands human intervention to overcome inherent resistance.",
+   "Synthesizes compound aspects. Requires at least 1A EV. Processing time depends on aspect tier: primal aspects are tier 0; a compound aspect's tier is the max tier of its components plus 1.",
+   "A tier 1 aspect takes 2 seconds. Each additional tier multiplies the time by 3/2, rounded down.",
+   "Essentia Mode: Supply essentia via Infusion Provider. Automatically matches two combinable aspects from the network, outputs through Essentia Output Hatch. Each ring adds 16 parallels and enables perfect overclocking.",
+   "Passive Mode: Select aspects manually for continuous synthesis. Each ring adds 6 parallels and divides time by 1.2^rings (≈1/10 time at 13 rings).",
+   "Crystal Essence Mode: Input crystals via Input Bus, output through Output Bus. Bonuses same as Passive Mode.",
+   "Note: Non‑passive modes require blocking to ensure only one type of aspect is synthesized at a time; otherwise it may interfere or even jam (also does not support color input)."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Output Bus",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "infusion",
+    "map": null,
+    "research": "SKYPIERCER_TOWER",
+    "inputs": [
+     [
+      1,
+      "Machine IV Assembler"
+     ],
+     [
+      4,
+      "Hui Circuit"
+     ],
+     [
+      4,
+      "IV Circuit"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings8",
+    0
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    8
+   ],
+   [
+    "gregtech:gt.blockcasings2",
+    9
+   ]
+  ],
+  "structure": []
+ },
+ {
+  "item": "MeteorMiner",
+  "cls": "TST_LaserMeteorMiner",
+  "id": 19072,
+  "name": "Laser Meteor Miner",
+  "type": "Meteor Miner",
+  "info": [
+   "To work properly the center of the meteor has to be 48 blocks above the highest block of the multi.",
+   "The laser will mine in a radius of up to 40 blocks in each direction from the center of the meteor.",
+   "All the chunks involved must be chunkloaded.",
+   "The laser will automatically set its radius based on the meteorite,",
+   "if it doesn't find any it will wait for a meteor to spawn,",
+   "considering the block right above the center of the meteor (like Warded Glass).",
+   "Use the Hologram Projector on the controller to see where the Warded Glass (center of the meteor) and the Master Ritual Stone go.",
+   "The reset button will restart the machine without optimizing the radius.",
+   "Machine need Meteor Miner Schematic put in controller slot to run.",
+   "Accepts normal energy hatches or TecTech multi Amp / laser energy hatches, but not mixed.",
+   "TIER I",
+   "Mines one block every cycle.",
+   "Default Fortune is 0, it can be increased by putting in the input bus special pickaxes:",
+   "Fortune I: Pickaxe of the Core",
+   "Fortune II: Bound Pickaxe",
+   "Fortune III: Terra Shatterer",
+   "TIER II",
+   "Always has Fortune III",
+   "Mines one row every cycle.",
+   "Finally some good Meteors!"
+  ],
+  "hatches": [
+   "Input Bus",
+   "Output Bus",
+   "Energy Hatch",
+   "Maintenance Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_LuV",
+    "map": "assembler",
+    "inputs": [
+     [
+      4,
+      "Ore Drill3"
+     ],
+     [
+      3,
+      "Sensor Lu V"
+     ],
+     [
+      8,
+      "Hi C T2"
+     ],
+     [
+      18,
+      "Tungsten Steel item Casing"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings",
+    15
+   ],
+   [
+    "gregtech:gt.blockcasings4",
+    7
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    2
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    3
+   ],
+   [
+    "gregtech:gt.blockcasings9",
+    11
+   ],
+   [
+    "gregtech:gt.blockcasings5",
+    5
+   ]
+  ],
+  "structure": [
+   "Tiered glass (limits the energy hatch tier)",
+   "Neutronium Frame Boxes",
+   "Black Plutonium Frame Boxes",
+   "Stainless Steel Frame Boxes"
+  ]
+ },
+ {
+  "item": "SteamBasicGenerator",
+  "cls": "TST_SteamBasicGenerator",
+  "id": 19073,
+  "name": "Basic Steam Generator",
+  "type": "Steam generator",
+  "info": [
+   "Converts steam into EU",
+   "Base rate: 1L of Steam -> 0.7 EU",
+   "Fuel Efficiency: 140%",
+   "Accepts LV dynamo hatch"
+  ],
+  "hatches": [
+   "Input Hatch",
+   "Dynamo Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "craft",
+    "map": null,
+    "inputs": [
+     [
+      null,
+      "Lead cable Gt04"
+     ],
+     [
+      null,
+      "Generator Steam Turbine LV"
+     ],
+     [
+      null,
+      "Hull LV"
+     ],
+     [
+      null,
+      "Steel Quintuple Plate"
+     ],
+     [
+      null,
+      "Hatch Input LV"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings2",
+    0
+   ],
+   [
+    "gregtech:gt.blockcasings3",
+    14
+   ]
+  ],
+  "structure": [
+   "Bronze Frame Boxes"
+  ]
+ },
+ {
+  "item": "UniversalGenerator",
+  "cls": "TST_UniversalGenerator",
+  "id": 19074,
+  "name": "Universal Generator",
+  "type": "Universal Generator",
+  "info": [
+   "Has 2 modes: Gas | Fuel",
+   "Maximum 8 dynamo hatches",
+   "Dynamo hatches Lv-Hv tier",
+   "Fuel Efficiency: 150%"
+  ],
+  "hatches": [
+   "Input Hatch",
+   "Dynamo Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "craft",
+    "map": null,
+    "inputs": [
+     [
+      null,
+      "Robot Arm LV"
+     ],
+     [
+      null,
+      "Steel Rotor"
+     ],
+     [
+      null,
+      "Hull LV"
+     ],
+     [
+      null,
+      "Electric Piston LV"
+     ],
+     [
+      null,
+      "Tin cable Gt04"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings",
+    11
+   ],
+   [
+    "gregtech:gt.blockcasings2",
+    3
+   ],
+   [
+    "gregtech:gt.blockcasings3",
+    13
+   ]
+  ],
+  "structure": [
+   "Steel Frame Boxes"
+  ]
+ },
+ {
+  "item": "InfusionMaterialDispenser",
+  "cls": "TST_InfusionMaterialDispenser",
+  "id": 19075,
+  "name": "Infusion Material Dispenser",
+  "type": "Infusion Material Dispenser",
+  "info": [
+   "automatically dispense? What? This is impossible!",
+   "A paper with player's name should be in controller to enable the fakeplayer to obtain research. Otherwise, the machine will crash.",
+   "By right-clicking controller with a screwdriver, refresh the research progress and check the number of pedestals again.",
+   "For research, no management. If materials are directly recycled, it indicates that the research has not been unlocked and the infusion cannot be activated.",
+   "For essence, no management. If essences are insufficient, and the world accelerator is used...",
+   "The controller is located in the upper square of the infusion matrix. Also,remember to open InterfaceBlockingMode for the input bus.",
+   "You can use it together with the Essentia Terminal for more precise automation. The specific method is left to the reader as a challenge to their understanding of AE.",
+   "Of course, if you are unsure, you can refer to the manual, which contains some hints.However, there is no diagram this time.."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Output Bus"
+  ],
+  "recipes": [
+   {
+    "eut": "infusion",
+    "map": null,
+    "research": "INFUSION_MATERIAL_DISPENSER",
+    "inputs": [
+     [
+      1,
+      "Automation Chest Buffer IV"
+     ],
+     [
+      1,
+      "Item Wand Casting"
+     ],
+     [
+      1,
+      "Conveyor Module IV"
+     ],
+     [
+      1,
+      "IV Circuit"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "LargeSolarBoiler",
+  "cls": "TST_LargeSolarBoiler",
+  "id": 19076,
+  "name": "Large Solar Boiler",
+  "type": "Solar Boiler",
+  "info": [
+   "Steam Power by the Sun.",
+   "Works similarly to the singleblock version.",
+   "Has Heat and Calcification mechanics.",
+   "On a clear day, it will quickly",
+   "At night or in bad weather, it will cool down slowly",
+   "The controller needs a clear view of the sky to heat up.",
+   "After",
+   "It will take",
+   "Use distilled water to prevent calcification.",
+   "Will Explode if water is added when heat is equal or above 50%",
+   "Has two tiers: Bronze and Steel",
+   "Max steam production:",
+   "Bronze:",
+   "Steel:"
+  ],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "craft",
+    "map": null,
+    "inputs": [
+     [
+      null,
+      "Reinforced Glass"
+     ],
+     [
+      null,
+      "Silver Quintuple Plate"
+     ],
+     [
+      null,
+      "Bronze Large Pipe"
+     ],
+     [
+      null,
+      "Bronze Gear"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": [
+   "Tiered glass (limits the energy hatch tier)"
+  ]
+ },
+ {
+  "item": "NetherInterface",
+  "cls": "TST_NetherInterface",
+  "id": 19077,
+  "name": "Nether Interface",
+  "type": "Otherworld Teleporter",
+  "info": [
+   "The imprisoned souls of an ancient civilization now serve you.",
+   "Build portals and transport the dirty but useful resources of Hell back to you.",
+   "Machine takes 2A IV to maintain the teleporter, and 1A IV per parallel."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "TierEU.RECIPE_LuV",
+    "map": "assembler",
+    "inputs": [
+     [
+      16,
+      "Obsidian Frame Box"
+     ],
+     [
+      4,
+      "Field Generator Lu V"
+     ],
+     [
+      16,
+      "ZPM Circuit"
+     ],
+     [
+      16,
+      "Netherite Dense Plate"
+     ]
+    ],
+    "fluids": [
+     [
+      9216,
+      "Molten Hellish Metal"
+     ]
+    ]
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings2",
+    0
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing02",
+    5
+   ]
+  ],
+  "structure": [
+   "Obsidian Frame Boxes"
+  ]
+ },
+ {
+  "item": "SuperWaterPurifier",
+  "cls": "TST_SuperWaterPurifier",
+  "id": 19078,
+  "name": "Super Water Purifier",
+  "type": "Perfect Water Creator",
+  "info": [
+   "Per cycle, it produces 3 or 6 (Concentrated UU) randomly selected liquids from the list,",
+   "Water Grade has a 12% chance each",
+   "Stable Baryonic Matter has a 4% chance",
+   "Maximum of 2,000,000 parallels",
+   "Each parallel requires 1 UMV amp"
+  ],
+  "hatches": [
+   "Input Hatch",
+   "Dynamo Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "TierEU.RECIPE_UXV",
+    "map": "MiracleTopRecipeMap",
+    "inputs": [
+     [
+      1,
+      "Machine Multi Purification Unit Clarifier"
+     ],
+     [
+      1,
+      "Machine Multi Purification Unit Ozonation"
+     ],
+     [
+      1,
+      "Machine Multi Purification Unit Flocculator"
+     ],
+     [
+      1,
+      "Machine Multi Purification Unit Ph Adjustment"
+     ],
+     [
+      1,
+      "Machine Multi Purification Unit Plasma Heater"
+     ],
+     [
+      1,
+      "Machine Multi Purification Unit UV Treatment"
+     ],
+     [
+      1,
+      "Machine Multi Purification Unit Degasifier"
+     ],
+     [
+      1,
+      "Machine Multi Purification Unit Particle Extractor"
+     ]
+    ],
+    "fluids": [
+     [
+      null,
+      "Grade1Purified Water"
+     ],
+     [
+      null,
+      "Grade2Purified Water"
+     ],
+     [
+      null,
+      "Grade3Purified Water"
+     ],
+     [
+      null,
+      "Grade4Purified Water"
+     ],
+     [
+      null,
+      "Grade5Purified Water"
+     ],
+     [
+      null,
+      "Grade6Purified Water"
+     ],
+     [
+      null,
+      "Grade7Purified Water"
+     ],
+     [
+      null,
+      "Grade8Purified Water"
+     ],
+     [
+      null,
+      "Stable Baryonic Matter"
+     ]
+    ]
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings10",
+    9
+   ],
+   [
+    "gregtech:gt.blockcasings8",
+    14
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    10
+   ]
+  ],
+  "structure": [
+   "Six Phased Copper Frame Boxes"
+  ]
+ },
+ {
+  "item": "IntegratedAssemblyMatrix",
+  "cls": "TST_IntegratedAssemblyMatrix",
+  "id": 19079,
+  "name": "Integrated Assembly Matrix",
+  "type": "Assembly Line",
+  "info": [
+   "Imagination can take you anywhere",
+   "The built-in integrated logistics system allows you to no longer worry about external logistics design.",
+   "Spatial isolation technology brings higher batch production capabilities.",
+   "The cost is 1.5 times the base time.",
+   "Still need to use the data access hatch to provide data stick.",
+   "The energy hatch tier limits the voltage tier at which recipes can be executed.",
+   "Nanite Containment Bus can be installed and provided with silver nanites or gold nanites to increase the running speed.",
+   "Up to 256 Silver Nanites will increase the running speed to 100% of normal speed.",
+   "Or up to 1024 Gold Nanites will increase the running speed to 200% of normal speed,",
+   "And double the parallelism."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "(int) RECIPE_UEV",
+    "map": "researchableAssemblyLine",
+    "research": "Research On AAL",
+    "inputs": [
+     [
+      16,
+      "Adv Ass Line"
+     ],
+     [
+      64,
+      "Electric Pump UHV"
+     ],
+     [
+      64,
+      "Robot Arm UHV"
+     ],
+     [
+      64,
+      "Infinity Frame Box"
+     ],
+     [
+      128,
+      "High Energy Flow Circuit"
+     ],
+     [
+      128,
+      "Field Generator UHV"
+     ],
+     [
+      128,
+      "Conveyor Module UHV"
+     ],
+     [
+      128,
+      "EM Hollow"
+     ],
+     [
+      null,
+      "GT Ore Dict Unificator"
+     ],
+     [
+      128,
+      "Circuit Chip Biocell"
+     ]
+    ],
+    "fluids": [
+     [
+      512000,
+      "Super Coolant"
+     ],
+     [
+      512000,
+      "UU Matter"
+     ]
+    ]
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings2",
+    5
+   ],
+   [
+    "gregtech:gt.blockcasings2",
+    9
+   ],
+   [
+    "gtnhintergalactic:gt.blockcasingsSE",
+    0
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    4
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    6
+   ]
+  ],
+  "structure": [
+   "Tiered glass (limits the energy hatch tier)",
+   "Space Elevator casings"
+  ]
+ },
+ {
+  "item": "MegaSolarPanelFactory",
+  "cls": "TST_MegaSolarPanelFactory",
+  "id": 19080,
+  "name": "Mega Solar Panel Factory",
+  "type": "Solar Factory",
+  "info": [
+   "bigger is better!",
+   "Perfect overclocking.",
+   "Recipe Time Multiplier = 100% / Component Casing Tier."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "(int) RECIPE_UMV",
+    "map": "researchableAssemblyLine",
+    "research": "Solar Factory",
+    "inputs": [
+     [
+      128,
+      "Solar Factory"
+     ],
+     [
+      32,
+      "Dyson Sphere Frame Component"
+     ],
+     [
+      64,
+      "Gold Nanites"
+     ],
+     [
+      32,
+      "EM Ultimate Containment"
+     ],
+     [
+      4,
+      "EM Spacetime"
+     ],
+     [
+      64,
+      "Field Generator UMV"
+     ],
+     [
+      32,
+      "Circuit UMV"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings10",
+    11
+   ],
+   [
+    "tectech:gt.blockcasingsTT",
+    9
+   ]
+  ],
+  "structure": [
+   "Tiered glass (limits the energy hatch tier)",
+   "Component Assembly Line Casings (tier limits recipes)"
+  ]
+ },
+ {
+  "item": "MegaNqReactor",
+  "cls": "TST_MegaNqReactor",
+  "id": 19081,
+  "name": "Mega Naquadah Reactor",
+  "type": "Naquadah Reactor,LNR",
+  "info": [
+   "Human resource Friendly!",
+   "Similar to LNR, Maximum of 1,000 parallels",
+   "Continuous operation reduces coolant/excited liquid consumption",
+   "Up to 50%. Max in 24h, decays when idle.",
+   "Ensure sufficient dynamo size, or the machine will shut down."
+  ],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UIV",
+    "map": "AssemblyLine",
+    "inputs": [
+     [
+      256,
+      "Large Naquadah Reactor"
+     ],
+     [
+      64,
+      "UIV Circuit"
+     ],
+     [
+      32,
+      "Laser Lens Special"
+     ],
+     [
+      2,
+      "Duranium Superdense Plate"
+     ],
+     [
+      256,
+      "S Block Casings8"
+     ]
+    ],
+    "fluids": [
+     [
+      256000,
+      "Stable Baryonic Matter"
+     ]
+    ],
+    "research": "Large Naquadah Reactor"
+   }
+  ],
+  "blocks": [
+   [
+    "gregtech:gt.blockcasings",
+    14
+   ],
+   [
+    "gregtech:gt.blockcasings9",
+    14
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing02",
+    2
+   ]
+  ],
+  "structure": [
+   "Tiered glass (limits the energy hatch tier)"
+  ]
+ },
+ {
+  "item": "InfiniteAirHatch",
+  "cls": "GT_MetaTileEntity_Hatch_Air",
+  "id": 18999,
+  "name": "Infinite Air Hatch",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Hatch Air Intake Extreme"
+     ],
+     [
+      1,
+      "Electric Pump UHV"
+     ],
+     [
+      1,
+      "UHV Circuit"
+     ],
+     [
+      4,
+      "Draconium Awakened Plate"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "InfiniteWirelessDynamoHatch",
+  "cls": "GT_Hatch_InfiniteWirelessDynamoHatch",
+  "id": 18998,
+  "name": "Infinite Wireless Dynamo Hatch",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UXV",
+    "map": "AssemblyLine",
+    "inputs": [
+     [
+      1,
+      "Annihilation Constrainer"
+     ],
+     [
+      1,
+      "Compact Fusion Coil T0"
+     ],
+     [
+      1,
+      "Compact Fusion Coil T4"
+     ],
+     [
+      1,
+      "Machine Multi Transformer"
+     ],
+     [
+      16,
+      "EM Power"
+     ],
+     [
+      16,
+      "Space Time 1x Wire"
+     ],
+     [
+      2,
+      "Field Generator UMV"
+     ],
+     [
+      4,
+      "UXV Circuit"
+     ],
+     [
+      4,
+      "UMV Circuit"
+     ],
+     [
+      4,
+      "Energised Tesseract"
+     ],
+     [
+      4,
+      "Tesseract"
+     ],
+     [
+      8,
+      "Gravitational Lens"
+     ]
+    ],
+    "fluids": [
+     [
+      5184,
+      "Solder plasma"
+     ],
+     [
+      8000,
+      "UU Matter"
+     ],
+     [
+      64000,
+      "Excited DTEC"
+     ]
+    ],
+    "research": "eM dynamo Multi64 UMV"
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "ManaHatch",
+  "cls": "TST_ManaHatch",
+  "id": 18979,
+  "name": "Mana Hatch",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "craft",
+    "map": null,
+    "inputs": [
+     [
+      null,
+      "Elven Elementium Plate"
+     ],
+     [
+      null,
+      "Spark"
+     ],
+     [
+      null,
+      "Hatch Input HV"
+     ],
+     [
+      null,
+      "Rune"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "AEStorageCellInputBus",
+  "cls": "TST_AEStorageCellInputBus",
+  "id": 18851,
+  "name": "Super Stocking Input Bus (ME)",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UEV",
+    "map": "SA",
+    "inputs": [
+     [
+      16,
+      "Hatch Input Bus MAX"
+     ],
+     [
+      2,
+      "Hatch Input Bus ME Advanced"
+     ],
+     [
+      1,
+      "Perfect Engraved Energy Chip"
+     ],
+     [
+      1,
+      "Conveyor Module UEV"
+     ]
+    ],
+    "fluids": [
+     [
+      8000,
+      "Dimensionally Shifted Superfluid"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "AEStorageCellInputHatch",
+  "cls": "TST_AEStorageCellInputHatch",
+  "id": 18852,
+  "name": "Super Stocking Input Hatch (ME)",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UEV",
+    "map": "SA",
+    "inputs": [
+     [
+      4,
+      "Hatch Input Multi 2x2 UIV"
+     ],
+     [
+      2,
+      "Hatch Input ME Advanced"
+     ],
+     [
+      1,
+      "INTERFACE"
+     ],
+     [
+      1,
+      "Perfect Engraved Energy Chip"
+     ],
+     [
+      1,
+      "Electric Pump UEV"
+     ]
+    ],
+    "fluids": [
+     [
+      8000,
+      "Dimensionally Shifted Superfluid"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "DualInputBuffer_IV",
+  "cls": "GT_MetaTileEntity_Hatch_DualInput",
+  "id": 18980,
+  "name": "Dual Input Buffer (IV)",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_IV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Hatch Input Bus IV"
+     ],
+     [
+      1,
+      "Hatch Input Multi 2x2 IV"
+     ],
+     [
+      1,
+      "LuV Circuit"
+     ]
+    ],
+    "fluids": [
+     [
+      576,
+      "Solder Ind Alloy"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "DualInputBuffer_LuV",
+  "cls": "GT_MetaTileEntity_Hatch_DualInput",
+  "id": 18981,
+  "name": "Dual Input Buffer (LuV)",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_LuV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Hatch Input Bus Lu V"
+     ],
+     [
+      1,
+      "Hatch Input Multi 2x2 Lu V"
+     ],
+     [
+      1,
+      "ZPM Circuit"
+     ],
+     [
+      null,
+      "Rhodium Plated Palladium"
+     ]
+    ],
+    "fluids": [
+     [
+      1152,
+      "Solder Ind Alloy"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "DualInputBuffer_ZPM",
+  "cls": "GT_MetaTileEntity_Hatch_DualInput",
+  "id": 18982,
+  "name": "Dual Input Buffer (ZPM)",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_ZPM",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Hatch Input Bus ZPM"
+     ],
+     [
+      1,
+      "Hatch Input Multi 2x2 ZPM"
+     ],
+     [
+      1,
+      "UHV Circuit"
+     ],
+     [
+      4,
+      "Iridium Plate"
+     ]
+    ],
+    "fluids": [
+     [
+      2304,
+      "Solder Ind Alloy"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "DualInputBuffer_UV",
+  "cls": "GT_MetaTileEntity_Hatch_DualInput",
+  "id": 18983,
+  "name": "Dual Input Buffer (UV)",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Hatch Input Bus UV"
+     ],
+     [
+      1,
+      "Hatch Input Multi 2x2 UV"
+     ],
+     [
+      1,
+      "UHV Circuit"
+     ],
+     [
+      4,
+      "Osmium Plate"
+     ]
+    ],
+    "fluids": [
+     [
+      4608,
+      "Solder Ind Alloy"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "BufferedEnergyHatchLV",
+  "cls": "GT_Hatch_BufferedEnergyHatch",
+  "id": 18984,
+  "name": "Buffered Energy Hatch LV",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_LV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Battery Buffer 4by4 LV"
+     ],
+     [
+      1,
+      "Hatch Energy LV"
+     ],
+     [
+      1,
+      "Tin 16x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      1296,
+      "Molten Polyethylene"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "BufferedEnergyHatchMV",
+  "cls": "GT_Hatch_BufferedEnergyHatch",
+  "id": 18985,
+  "name": "Buffered Energy Hatch MV",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_MV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Battery Buffer 4by4 MV"
+     ],
+     [
+      1,
+      "Hatch Energy MV"
+     ],
+     [
+      1,
+      "Copper 16x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      1296,
+      "Molten Polyethylene"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "BufferedEnergyHatchHV",
+  "cls": "GT_Hatch_BufferedEnergyHatch",
+  "id": 18986,
+  "name": "Buffered Energy Hatch HV",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_HV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Battery Buffer 4by4 HV"
+     ],
+     [
+      1,
+      "Hatch Energy HV"
+     ],
+     [
+      1,
+      "Gold 16x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      1296,
+      "Molten Polyethylene"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "BufferedEnergyHatchEV",
+  "cls": "GT_Hatch_BufferedEnergyHatch",
+  "id": 18987,
+  "name": "Buffered Energy Hatch EV",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_EV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Battery Buffer 4by4 EV"
+     ],
+     [
+      1,
+      "Hatch Energy EV"
+     ],
+     [
+      1,
+      "Aluminium 16x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      1296,
+      "Molten Polyethylene"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "BufferedEnergyHatchIV",
+  "cls": "GT_Hatch_BufferedEnergyHatch",
+  "id": 18988,
+  "name": "Buffered Energy Hatch IV",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_IV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Battery Buffer 4by4 IV"
+     ],
+     [
+      1,
+      "Hatch Energy IV"
+     ],
+     [
+      1,
+      "Superconductor IV 16x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      1296,
+      "Molten Polyethylene"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "BufferedEnergyHatchLuV",
+  "cls": "GT_Hatch_BufferedEnergyHatch",
+  "id": 18989,
+  "name": "Buffered Energy Hatch LuV",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_LuV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Battery Buffer 4by4 Lu V"
+     ],
+     [
+      1,
+      "Hatch Energy Lu V"
+     ],
+     [
+      1,
+      "Superconductor Lu V 16x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      12960,
+      "Molten Polyethylene"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "BufferedEnergyHatchZPM",
+  "cls": "GT_Hatch_BufferedEnergyHatch",
+  "id": 18990,
+  "name": "Buffered Energy Hatch ZPM",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_ZPM",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Battery Buffer 4by4 ZPM"
+     ],
+     [
+      1,
+      "Hatch Energy ZPM"
+     ],
+     [
+      1,
+      "Superconductor ZPM 16x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      12960,
+      "Molten Polyethylene"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "BufferedEnergyHatchUV",
+  "cls": "GT_Hatch_BufferedEnergyHatch",
+  "id": 18991,
+  "name": "Buffered Energy Hatch UV",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Battery Buffer 4by4 UV"
+     ],
+     [
+      1,
+      "Hatch Energy UV"
+     ],
+     [
+      1,
+      "Superconductor UV 16x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      12960,
+      "Molten Polyethylene"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "BufferedEnergyHatchUHV",
+  "cls": "GT_Hatch_BufferedEnergyHatch",
+  "id": 18992,
+  "name": "Buffered Energy Hatch UHV",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UHV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Battery Buffer 4by4 UHV"
+     ],
+     [
+      1,
+      "Hatch Energy UHV"
+     ],
+     [
+      1,
+      "Superconductor UHV 16x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      12960,
+      "Molten Polyethylene"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "BufferedEnergyHatchUEV",
+  "cls": "GT_Hatch_BufferedEnergyHatch",
+  "id": 18993,
+  "name": "Buffered Energy Hatch UEV",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UEV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Battery Buffer 4by4 UEV"
+     ],
+     [
+      1,
+      "Hatch Energy UEV"
+     ],
+     [
+      1,
+      "Field Generator UEV"
+     ]
+    ],
+    "fluids": [
+     [
+      12960,
+      "Molten Polyethylene"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "BufferedEnergyHatchUIV",
+  "cls": "GT_Hatch_BufferedEnergyHatch",
+  "id": 18994,
+  "name": "Buffered Energy Hatch UIV",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UIV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Battery Buffer 4by4 UIV"
+     ],
+     [
+      1,
+      "Hatch Energy UIV"
+     ],
+     [
+      1,
+      "Field Generator UIV"
+     ]
+    ],
+    "fluids": [
+     [
+      12960,
+      "Molten Polyethylene"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "BufferedEnergyHatchUMV",
+  "cls": "GT_Hatch_BufferedEnergyHatch",
+  "id": 18995,
+  "name": "Buffered Energy Hatch UMV",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UMV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Battery Buffer 4by4 UMV"
+     ],
+     [
+      1,
+      "Hatch Energy UMV"
+     ],
+     [
+      1,
+      "Field Generator UMV"
+     ]
+    ],
+    "fluids": [
+     [
+      12960,
+      "Molten Polyethylene"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "BufferedEnergyHatchUXV",
+  "cls": "GT_Hatch_BufferedEnergyHatch",
+  "id": 18996,
+  "name": "Buffered Energy Hatch UXV",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UXV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Battery Buffer 4by4 UXV"
+     ],
+     [
+      1,
+      "Hatch Energy UXV"
+     ],
+     [
+      1,
+      "Field Generator UXV"
+     ]
+    ],
+    "fluids": [
+     [
+      12960,
+      "Molten Polyethylene"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "BufferedEnergyHatchMAX",
+  "cls": "GT_Hatch_BufferedEnergyHatch",
+  "id": 18997,
+  "name": "Buffered Energy Hatch MAX",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_MAX",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Hatch Energy MAX"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "DebugUncertaintyHatch",
+  "cls": "GT_MetaTileEntity_Hatch_UncertaintyDebug",
+  "id": 18978,
+  "name": "Debug Uncertainty Hatch",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UEV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Uncertainty X Hatch"
+     ],
+     [
+      1,
+      "Hatch Creative Maintenance"
+     ],
+     [
+      1,
+      "Tool Data Orb"
+     ]
+    ],
+    "fluids": []
+   },
+   {
+    "eut": "RECIPE_UXV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Uncertainty X Hatch"
+     ],
+     [
+      1,
+      "Hatch Creative Maintenance"
+     ],
+     [
+      1,
+      "Tool Data Orb"
+     ],
+     [
+      1,
+      "Timepiece"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "LaserSmartNode",
+  "cls": "GT_MetaTileEntity_Pipe_EnergySmart",
+  "id": 18960,
+  "name": "Laser Smart Node",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UHV",
+    "map": "assembler",
+    "inputs": [
+     [
+      64,
+      "LASE Rpipe"
+     ],
+     [
+      1,
+      "Laser Lens Special"
+     ],
+     [
+      1,
+      "UEV Circuit"
+     ],
+     [
+      1,
+      "Hatch Energy UHV"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "LaserFocusedSmartNode",
+  "cls": "GT_MetaTileEntity_Pipe_EnergySmart_Focusing",
+  "id": 18961,
+  "name": "Laser-Focused Smart Node",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UHV",
+    "map": "assembler",
+    "inputs": [
+     [
+      64,
+      "LASE Rpipe"
+     ],
+     [
+      1,
+      "Laser Lens Special"
+     ],
+     [
+      1,
+      "UEV Circuit"
+     ],
+     [
+      1,
+      "Hatch Dynamo UHV"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "FackRackHatch",
+  "cls": "GT_Hatch_RackComputationMonitor",
+  "id": 18959,
+  "name": "rack simulation hack",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "RealRackHatch",
+  "cls": "GT_Hatch_RackComputationMonitor",
+  "id": 18958,
+  "name": "rack simulation controller hack",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UEV * 2",
+    "map": "assembler",
+    "inputs": [
+     [
+      64,
+      "Rack Hatch"
+     ],
+     [
+      64,
+      "Field Generator UEV"
+     ],
+     [
+      64,
+      "S Block Casings TT"
+     ],
+     [
+      64,
+      "Hi C T5"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "WirelessDataInputHatch",
+  "cls": "GT_Hatch_WirelessData_input",
+  "id": 18957,
+  "name": "Wireless Optical Slave Connector",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UMV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Data In Hatch"
+     ],
+     [
+      1,
+      "Machine Multi Switch"
+     ],
+     [
+      16,
+      "Sensor UIV"
+     ],
+     [
+      64,
+      "Tesseract"
+     ]
+    ],
+    "fluids": [
+     [
+      1152,
+      "Molten Space Time"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "WirelessDataOutputHatch",
+  "cls": "GT_Hatch_WirelessData_output",
+  "id": 18956,
+  "name": "Wireless Optical Master Connector",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UMV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Data Out Hatch"
+     ],
+     [
+      1,
+      "Machine Multi Switch"
+     ],
+     [
+      16,
+      "Emitter UIV"
+     ],
+     [
+      64,
+      "Energised Tesseract"
+     ]
+    ],
+    "fluids": [
+     [
+      1152,
+      "Molten Space Time"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "LegendaryWirelessEnergyHatch",
+  "cls": "GT_Hatch_InfiniteWirelessMulti",
+  "id": 18798,
+  "name": "Legendary Wireless Energy Hatch",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "(int) RECIPE_UMV",
+    "map": "researchableAssemblyLine",
+    "research": "Legend Target",
+    "inputs": [
+     [
+      1,
+      "Legend Target"
+     ],
+     [
+      1,
+      "Dyson Swarm Casing"
+     ],
+     [
+      1,
+      "Machine Multi Transformer"
+     ],
+     [
+      64,
+      "EM Power"
+     ],
+     [
+      64,
+      "Space Time 16x Wire"
+     ],
+     [
+      32,
+      "Eternity Dense Plate"
+     ],
+     [
+      16,
+      "MHDCSM Dense Plate"
+     ],
+     [
+      16,
+      "UXV Circuit"
+     ],
+     [
+      1,
+      "Energised Tesseract"
+     ]
+    ],
+    "fluids": [
+     [
+      331776,
+      "Solder plasma"
+     ],
+     [
+      32000,
+      "Excited DTSC"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "HarmoniousWirelessEnergyHatch",
+  "cls": "GT_Hatch_InfiniteWirelessMulti",
+  "id": 18799,
+  "name": "Harmonious Wireless Energy Hatch",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "(int) RECIPE_UXV",
+    "map": "researchableAssemblyLine",
+    "research": "Legendary Wireless Energy Hatch",
+    "inputs": [
+     [
+      16,
+      "Legendary Wireless Energy Hatch"
+     ],
+     [
+      64,
+      "Advanced High Power Coil Block"
+     ],
+     [
+      64,
+      "ZPM6"
+     ],
+     [
+      1,
+      "Mass Fabricator Genesis"
+     ],
+     [
+      64,
+      "Homo Structure Main"
+     ],
+     [
+      64,
+      "Space Time 16x Wire"
+     ],
+     [
+      32,
+      "Eternity Dense Plate"
+     ],
+     [
+      16,
+      "MHDCSM Dense Plate"
+     ],
+     [
+      16,
+      "MAX Circuit"
+     ],
+     [
+      64,
+      "Energised Tesseract"
+     ]
+    ],
+    "fluids": [
+     [
+      1327104,
+      "Solder plasma"
+     ],
+     [
+      128000,
+      "Excited DTSC"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "SolidifyHatch_UHV",
+  "cls": "GT_MetaTileEntity_Hatch_Solidify",
+  "id": 18797,
+  "name": "Solidifier Hatch(UHV)",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UHV",
+    "map": "assemblerRecipes",
+    "inputs": [
+     [
+      6,
+      "Hatch Input UHV"
+     ],
+     [
+      1,
+      "Hatch Input Bus ULV"
+     ],
+     [
+      1,
+      "UHV Circuit"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "SolidifyHatch_UV",
+  "cls": "GT_MetaTileEntity_Hatch_Solidify",
+  "id": 18796,
+  "name": "Solidifier Hatch(UV)",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UV",
+    "map": "assemblerRecipes",
+    "inputs": [
+     [
+      4,
+      "Hatch Input UV"
+     ],
+     [
+      1,
+      "Hatch Input Bus ULV"
+     ],
+     [
+      1,
+      "UV Circuit"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "SolidifyHatch_ZPM",
+  "cls": "GT_MetaTileEntity_Hatch_Solidify",
+  "id": 18795,
+  "name": "Solidifier Hatch(ZPM)",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_ZPM",
+    "map": "assemblerRecipes",
+    "inputs": [
+     [
+      2,
+      "Hatch Input ZPM"
+     ],
+     [
+      1,
+      "Hatch Input Bus ULV"
+     ],
+     [
+      1,
+      "LuV Circuit"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "SolidifyHatch_LuV",
+  "cls": "GT_MetaTileEntity_Hatch_Solidify",
+  "id": 18794,
+  "name": "Solidifier Hatch(LuV)",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_LuV",
+    "map": "assemblerRecipes",
+    "inputs": [
+     [
+      2,
+      "Hatch Input Lu V"
+     ],
+     [
+      1,
+      "Hatch Input Bus ULV"
+     ],
+     [
+      1,
+      "LuV Circuit"
+     ],
+     [
+      null,
+      "Rhodium Plated Palladium"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "SolidifyHatch_IV",
+  "cls": "GT_MetaTileEntity_Hatch_Solidify",
+  "id": 18793,
+  "name": "Solidifier Hatch(IV)",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_IV",
+    "map": "assemblerRecipes",
+    "inputs": [
+     [
+      1,
+      "Hatch Input IV"
+     ],
+     [
+      1,
+      "Hatch Input Bus ULV"
+     ],
+     [
+      1,
+      "IV Circuit"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "CircuitImprintHatchT2",
+  "cls": "TST_CircuitImprintHatch",
+  "id": 18792,
+  "name": "Imprint Circuit Hatch T2",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UHV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Hull MAX"
+     ],
+     [
+      2,
+      "Electric Motor UHV"
+     ],
+     [
+      4,
+      "Sensor UHV"
+     ],
+     [
+      16,
+      "Conveyor Module UHV"
+     ],
+     [
+      32,
+      "UEV Circuit"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "CircuitImprintHatchT1",
+  "cls": "TST_CircuitImprintHatch",
+  "id": 18791,
+  "name": "Imprint Circuit Hatch T1",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_LuV",
+    "map": "assembler",
+    "inputs": [
+     [
+      1,
+      "Hull IV"
+     ],
+     [
+      1,
+      "Electric Motor Lu V"
+     ],
+     [
+      2,
+      "Sensor Lu V"
+     ],
+     [
+      4,
+      "Conveyor Module Lu V"
+     ],
+     [
+      8,
+      "UV Circuit"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "DynamicParallelControllerT1",
+  "cls": "DynamicParallelController",
+  "id": 18800,
+  "name": "Dynamic Parallel Controller Module T1",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "DynamicParallelControllerT2",
+  "cls": "DynamicParallelController",
+  "id": 18801,
+  "name": "Dynamic Parallel Controller Module T2",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "DynamicParallelControllerT3",
+  "cls": "DynamicParallelController",
+  "id": 18802,
+  "name": "Dynamic Parallel Controller Module T3",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "DynamicParallelControllerT4",
+  "cls": "DynamicParallelController",
+  "id": 18803,
+  "name": "Dynamic Parallel Controller Module T4",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "DynamicParallelControllerT5",
+  "cls": "DynamicParallelController",
+  "id": 18804,
+  "name": "Dynamic Parallel Controller Module T5",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "DynamicParallelControllerT6",
+  "cls": "DynamicParallelController",
+  "id": 18805,
+  "name": "Dynamic Parallel Controller Module T6",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "DynamicParallelControllerT7",
+  "cls": "DynamicParallelController",
+  "id": 18806,
+  "name": "Dynamic Parallel Controller Module T7",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "DynamicParallelControllerT8",
+  "cls": "DynamicParallelController",
+  "id": 18807,
+  "name": "Dynamic Parallel Controller Module T8",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticParallelControllerT1",
+  "cls": "StaticParallelController",
+  "id": 18808,
+  "name": "Static Parallel Controller Module T1",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticParallelControllerT2",
+  "cls": "StaticParallelController",
+  "id": 18809,
+  "name": "Static Parallel Controller Module T2",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticParallelControllerT3",
+  "cls": "StaticParallelController",
+  "id": 18810,
+  "name": "Static Parallel Controller Module T3",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticParallelControllerT4",
+  "cls": "StaticParallelController",
+  "id": 18811,
+  "name": "Static Parallel Controller Module T4",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticParallelControllerT5",
+  "cls": "StaticParallelController",
+  "id": 18812,
+  "name": "Static Parallel Controller Module T5",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticParallelControllerT6",
+  "cls": "StaticParallelController",
+  "id": 18813,
+  "name": "Static Parallel Controller Module T6",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticParallelControllerT7",
+  "cls": "StaticParallelController",
+  "id": 18814,
+  "name": "Static Parallel Controller Module T7",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticParallelControllerT8",
+  "cls": "StaticParallelController",
+  "id": 18815,
+  "name": "Static Parallel Controller Module T8",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "DynamicSpeedControllerT1",
+  "cls": "DynamicSpeedController",
+  "id": 18816,
+  "name": "Dynamic Speed Controller Module T1",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "DynamicSpeedControllerT2",
+  "cls": "DynamicSpeedController",
+  "id": 18817,
+  "name": "Dynamic Speed Controller Module T2",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "DynamicSpeedControllerT3",
+  "cls": "DynamicSpeedController",
+  "id": 18818,
+  "name": "Dynamic Speed Controller Module T3",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "DynamicSpeedControllerT4",
+  "cls": "DynamicSpeedController",
+  "id": 18819,
+  "name": "Dynamic Speed Controller Module T4",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "DynamicSpeedControllerT5",
+  "cls": "DynamicSpeedController",
+  "id": 18820,
+  "name": "Dynamic Speed Controller Module T5",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "DynamicSpeedControllerT6",
+  "cls": "DynamicSpeedController",
+  "id": 18821,
+  "name": "Dynamic Speed Controller Module T6",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "DynamicSpeedControllerT7",
+  "cls": "DynamicSpeedController",
+  "id": 18822,
+  "name": "Dynamic Speed Controller Module T7",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "DynamicSpeedControllerT8",
+  "cls": "DynamicSpeedController",
+  "id": 18823,
+  "name": "Dynamic Speed Controller Module T8",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticSpeedControllerT1",
+  "cls": "StaticSpeedController",
+  "id": 18824,
+  "name": "Static Speed Controller Module T1",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticSpeedControllerT2",
+  "cls": "StaticSpeedController",
+  "id": 18825,
+  "name": "Static Speed Controller Module T2",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticSpeedControllerT3",
+  "cls": "StaticSpeedController",
+  "id": 18826,
+  "name": "Static Speed Controller Module T3",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticSpeedControllerT4",
+  "cls": "StaticSpeedController",
+  "id": 18827,
+  "name": "Static Speed Controller Module T4",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticSpeedControllerT5",
+  "cls": "StaticSpeedController",
+  "id": 18828,
+  "name": "Static Speed Controller Module T5",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticSpeedControllerT6",
+  "cls": "StaticSpeedController",
+  "id": 18829,
+  "name": "Static Speed Controller Module T6",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticSpeedControllerT7",
+  "cls": "StaticSpeedController",
+  "id": 18830,
+  "name": "Static Speed Controller Module T7",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticSpeedControllerT8",
+  "cls": "StaticSpeedController",
+  "id": 18831,
+  "name": "Static Speed Controller Module T8",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticPowerConsumptionControllerT1",
+  "cls": "StaticPowerConsumptionController",
+  "id": 18832,
+  "name": "Static Power Consumption Controller Module T1",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticPowerConsumptionControllerT2",
+  "cls": "StaticPowerConsumptionController",
+  "id": 18833,
+  "name": "Static Power Consumption Controller Module T2",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticPowerConsumptionControllerT3",
+  "cls": "StaticPowerConsumptionController",
+  "id": 18834,
+  "name": "Static Power Consumption Controller Module T3",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticPowerConsumptionControllerT4",
+  "cls": "StaticPowerConsumptionController",
+  "id": 18835,
+  "name": "Static Power Consumption Controller Module T4",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticPowerConsumptionControllerT5",
+  "cls": "StaticPowerConsumptionController",
+  "id": 18836,
+  "name": "Static Power Consumption Controller Module T5",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticPowerConsumptionControllerT6",
+  "cls": "StaticPowerConsumptionController",
+  "id": 18837,
+  "name": "Static Power Consumption Controller Module T6",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticPowerConsumptionControllerT7",
+  "cls": "StaticPowerConsumptionController",
+  "id": 18838,
+  "name": "Static Power Consumption Controller Module T7",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "StaticPowerConsumptionControllerT8",
+  "cls": "StaticPowerConsumptionController",
+  "id": 18839,
+  "name": "Static Power Consumption Controller Module T8",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "LowSpeedPerfectOverclockController",
+  "cls": "StaticOverclockController",
+  "id": 18840,
+  "name": "Low Speed Perfect Overclock Controller Module",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UIV",
+    "map": "assemblerRecipes",
+    "inputs": [
+     [
+      2,
+      "Cosmic Neutronium Frame Box"
+     ],
+     [
+      1,
+      "Machine Multi Transformer"
+     ],
+     [
+      64,
+      "High Energy Flow Circuit"
+     ],
+     [
+      32,
+      "Casing Coil Quantum Force Transformer"
+     ],
+     [
+      64,
+      "UHV Coil"
+     ],
+     [
+      32,
+      "Field Generator UIV"
+     ],
+     [
+      64,
+      "Emitter UIV"
+     ],
+     [
+      16,
+      "Gold Nanites"
+     ]
+    ],
+    "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "PerfectOverclockController",
+  "cls": "StaticOverclockController",
+  "id": 18841,
+  "name": "Perfect Overclock Controller Module",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UMV",
+    "map": "AssemblyLine",
+    "inputs": [
+     [
+      1,
+      "Low Speed Perfect Overclock Controller"
+     ],
+     [
+      16,
+      "Space Time Frame Box"
+     ],
+     [
+      64,
+      "Compact Fusion Coil T4"
+     ],
+     [
+      64,
+      "Gold Nanites"
+     ],
+     [
+      256,
+      "Field Generator UMV"
+     ],
+     [
+      256,
+      "Emitter UMV"
+     ],
+     [
+      64,
+      "UXV Circuit"
+     ],
+     [
+      null,
+      "Metastable Oganesson"
+     ],
+     [
+      null,
+      "Shirabon"
+     ]
+    ],
+    "fluids": [
+     [
+      46080,
+      "Molten Space"
+     ],
+     [
+      46080,
+      "Molten Time"
+     ]
+    ],
+    "research": "Low Speed Perfect Overclock Controller"
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "SingularityPerfectOverclockController",
+  "cls": "StaticOverclockController",
+  "id": 18842,
+  "name": "Singularity Perfect Overclock Controller Module",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_MAX",
+    "map": "GTCMRecipe.AssemblyLineWithoutResearchRecipeMap",
+    "inputs": [
+     [
+      1,
+      "Proof Of Heroes"
+     ],
+     [
+      2048,
+      "Perfect Overclock Controller"
+     ],
+     [
+      4096,
+      "Field Generator UXV"
+     ],
+     [
+      8192,
+      "Universium Nanites"
+     ],
+     [
+      8192,
+      "Eternity Nanites"
+     ],
+     [
+      8192,
+      "Black Dwarf Matter Nanites"
+     ],
+     [
+      8192,
+      "White Dwarf Matter Nanites"
+     ],
+     [
+      65536,
+      "Timepiece"
+     ],
+     [
+      131072,
+      "UXV Circuit"
+     ]
+    ],
+    "fluids": [
+     [
+      2359296,
+      "Molten Dark Iron"
+     ],
+     [
+      9437184,
+      "Molten Force"
+     ],
+     [
+      18874368,
+      "Molten Universium"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "ExecutionCore",
+  "cls": "ExecutionCore",
+  "id": 18843,
+  "name": "Execution Core Module",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UV",
+    "map": "AssemblyLine",
+    "inputs": [
+     [
+      1,
+      "Hull UIV"
+     ],
+     [
+      16,
+      "Electric Motor UV"
+     ],
+     [
+      12,
+      "Conveyor Module UV"
+     ],
+     [
+      18,
+      "Robot Arm UV"
+     ],
+     [
+      12,
+      "Electric Pump UV"
+     ],
+     [
+      1,
+      "Field Generator UV"
+     ],
+     [
+      1,
+      "Sensor UV"
+     ],
+     [
+      2,
+      "UHV Circuit"
+     ],
+     [
+      36,
+      "High Energy Flow Circuit"
+     ],
+     [
+      32,
+      "Infinity Fine Wire"
+     ],
+     [
+      6,
+      "Neutronium Gear"
+     ],
+     [
+      16,
+      "Neutronium Small Gear"
+     ],
+     [
+      32,
+      "Neutronium Screw"
+     ],
+     [
+      16,
+      "Neutronium Plate"
+     ]
+    ],
+    "fluids": [
+     [
+      9216,
+      "Molten Cosmic Neutronium"
+     ],
+     [
+      9216,
+      "Molten Neutronium"
+     ],
+     [
+      147456,
+      "Molten Quantium"
+     ]
+    ],
+    "research": "Cover Screen"
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "AdvancedExecutionCore",
+  "cls": "AdvExecutionCore",
+  "id": 18844,
+  "name": "Advanced Execution Core Module",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UMV",
+    "map": "AssemblyLine",
+    "inputs": [
+     [
+      1,
+      "Hull UMV"
+     ],
+     [
+      64,
+      "Electric Motor UMV"
+     ],
+     [
+      32,
+      "Conveyor Module UMV"
+     ],
+     [
+      48,
+      "Robot Arm UMV"
+     ],
+     [
+      32,
+      "Electric Pump UMV"
+     ],
+     [
+      48,
+      "Field Generator UMV"
+     ],
+     [
+      8,
+      "Sensor UMV"
+     ],
+     [
+      64,
+      "UMV Circuit"
+     ],
+     [
+      64,
+      "High Energy Flow Circuit"
+     ],
+     [
+      64,
+      "Energised Tesseract"
+     ],
+     [
+      16,
+      "Space Time Gear"
+     ],
+     [
+      64,
+      "Space Time Small Gear"
+     ],
+     [
+      64,
+      "Space Time Long Rod"
+     ],
+     [
+      64,
+      "Space Time Screw"
+     ],
+     [
+      64,
+      "Space Time Dense Plate"
+     ],
+     [
+      64,
+      "Space Time item Casing"
+     ]
+    ],
+    "fluids": [
+     [
+      9437184,
+      "Molten Infinity"
+     ]
+    ],
+    "research": "Execution Core"
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "PerfectExecutionCore",
+  "cls": "PerfectExecutionCore",
+  "id": 18845,
+  "name": "Perfect Execution Core Module",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UXV",
+    "map": "AssemblyLine",
+    "inputs": [
+     [
+      1,
+      "Hull UXV"
+     ],
+     [
+      64,
+      "Electric Motor UXV"
+     ],
+     [
+      48,
+      "Conveyor Module UXV"
+     ],
+     [
+      64,
+      "Robot Arm UXV"
+     ],
+     [
+      48,
+      "Electric Pump UXV"
+     ],
+     [
+      16,
+      "Field Generator UXV"
+     ],
+     [
+      16,
+      "Sensor UXV"
+     ],
+     [
+      64,
+      "UXV Circuit"
+     ],
+     [
+      256,
+      "Eternity Nanites"
+     ],
+     [
+      256,
+      "Universium Nanites"
+     ]
+    ],
+    "fluids": [
+     [
+      3538944,
+      "Molten MHDCSM"
+     ],
+     [
+      7077888,
+      "Molten Universium"
+     ],
+     [
+      14155776,
+      "Molten Eternity"
+     ],
+     [
+      589824,
+      "Molten Space Time"
+     ]
+    ],
+    "research": "Advanced Execution Core"
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "BloodOrbHatchDebug",
+  "cls": "TST_Debug_BloodHatch",
+  "id": 18848,
+  "name": "Debug Blood Hatch",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "SpaceApiaryT1",
+  "cls": "TST_SpaceApiaryT1",
+  "id": 19042,
+  "name": "Space Apiray Module MK-I",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UHV",
+    "map": "SpaceAssembler",
+    "inputs": [
+     [
+      256,
+      "Machine Industrial Apiary"
+     ],
+     [
+      256,
+      "Industrial Apiary Upgrade Acceleration 8 Upgraded"
+     ],
+     [
+      16,
+      "Field Generator UHV"
+     ],
+     [
+      16,
+      "Conveyor Module UHV"
+     ],
+     [
+      16,
+      "Robot Arm UHV"
+     ],
+     [
+      16,
+      "Electric Pump UHV"
+     ],
+     [
+      64,
+      "UEV Circuit"
+     ]
+    ],
+    "fluids": [
+     [
+      128000,
+      "UU Matter"
+     ],
+     [
+      256000,
+      "Honey"
+     ]
+    ]
+   },
+   {
+    "eut": "RECIPE_UHV",
+    "map": "SpaceAssembler",
+    "inputs": [
+     [
+      256,
+      "Machine Industrial Apiary"
+     ],
+     [
+      256,
+      "Industrial Apiary Upgrade Acceleration 8 Upgraded"
+     ],
+     [
+      16,
+      "Field Generator UHV"
+     ],
+     [
+      16,
+      "Conveyor Module UHV"
+     ],
+     [
+      16,
+      "Robot Arm UHV"
+     ],
+     [
+      16,
+      "Electric Pump UHV"
+     ],
+     [
+      64,
+      "UEV Circuit"
+     ]
+    ],
+    "fluids": [
+     [
+      128000,
+      "UU Matter"
+     ],
+     [
+      256000,
+      "Honey"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "SpaceApiaryT2",
+  "cls": "TST_SpaceApiaryT2",
+  "id": 19043,
+  "name": "Space Apiray Module MK-II",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UEV",
+    "map": "SpaceAssembler",
+    "inputs": [
+     [
+      256,
+      "Machine Industrial Apiary"
+     ],
+     [
+      256,
+      "Industrial Apiary Upgrade Acceleration 8 Upgraded"
+     ],
+     [
+      16,
+      "Field Generator UEV"
+     ],
+     [
+      16,
+      "Conveyor Module UEV"
+     ],
+     [
+      16,
+      "Robot Arm UEV"
+     ],
+     [
+      16,
+      "Electric Pump UEV"
+     ],
+     [
+      64,
+      "UIV Circuit"
+     ]
+    ],
+    "fluids": [
+     [
+      256000,
+      "UU Matter"
+     ],
+     [
+      512000,
+      "Honey"
+     ]
+    ]
+   },
+   {
+    "eut": "RECIPE_UEV",
+    "map": "SpaceAssembler",
+    "inputs": [
+     [
+      256,
+      "Machine Industrial Apiary"
+     ],
+     [
+      256,
+      "Industrial Apiary Upgrade Acceleration 8 Upgraded"
+     ],
+     [
+      16,
+      "Field Generator UEV"
+     ],
+     [
+      16,
+      "Conveyor Module UEV"
+     ],
+     [
+      16,
+      "Robot Arm UEV"
+     ],
+     [
+      16,
+      "Electric Pump UEV"
+     ],
+     [
+      64,
+      "UIV Circuit"
+     ]
+    ],
+    "fluids": [
+     [
+      256000,
+      "UU Matter"
+     ],
+     [
+      512000,
+      "Honey"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "SpaceApiaryT3",
+  "cls": "TST_SpaceApiaryT3",
+  "id": 19044,
+  "name": "Space Apiray Module MK-III",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UIV",
+    "map": "SpaceAssembler",
+    "inputs": [
+     [
+      256,
+      "Machine Industrial Apiary"
+     ],
+     [
+      256,
+      "Industrial Apiary Upgrade Acceleration 8 Upgraded"
+     ],
+     [
+      16,
+      "Field Generator UIV"
+     ],
+     [
+      16,
+      "Conveyor Module UIV"
+     ],
+     [
+      16,
+      "Robot Arm UIV"
+     ],
+     [
+      16,
+      "Electric Pump UIV"
+     ],
+     [
+      64,
+      "UMV Circuit"
+     ]
+    ],
+    "fluids": [
+     [
+      512000,
+      "UU Matter"
+     ],
+     [
+      1024000,
+      "Honey"
+     ]
+    ]
+   },
+   {
+    "eut": "RECIPE_UIV",
+    "map": "SpaceAssembler",
+    "inputs": [
+     [
+      256,
+      "Machine Industrial Apiary"
+     ],
+     [
+      256,
+      "Industrial Apiary Upgrade Acceleration 8 Upgraded"
+     ],
+     [
+      16,
+      "Field Generator UIV"
+     ],
+     [
+      16,
+      "Conveyor Module UIV"
+     ],
+     [
+      16,
+      "Robot Arm UIV"
+     ],
+     [
+      16,
+      "Electric Pump UIV"
+     ],
+     [
+      64,
+      "UMV Circuit"
+     ]
+    ],
+    "fluids": [
+     [
+      512000,
+      "UU Matter"
+     ],
+     [
+      1024000,
+      "Honey"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "SpaceApiaryT4",
+  "cls": "TST_SpaceApiaryT4",
+  "id": 19045,
+  "name": "Space Apiray Module MK-IV",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "RECIPE_UMV",
+    "map": "SpaceAssembler",
+    "inputs": [
+     [
+      256,
+      "Machine Industrial Apiary"
+     ],
+     [
+      256,
+      "Industrial Apiary Upgrade Acceleration 8 Upgraded"
+     ],
+     [
+      16,
+      "Field Generator UMV"
+     ],
+     [
+      16,
+      "Conveyor Module UMV"
+     ],
+     [
+      16,
+      "Robot Arm UMV"
+     ],
+     [
+      16,
+      "Electric Pump UMV"
+     ],
+     [
+      64,
+      "UXV Circuit"
+     ]
+    ],
+    "fluids": [
+     [
+      1024000,
+      "UU Matter"
+     ],
+     [
+      2048000,
+      "Honey"
+     ]
+    ]
+   },
+   {
+    "eut": "RECIPE_UMV",
+    "map": "SpaceAssembler",
+    "inputs": [
+     [
+      256,
+      "Machine Industrial Apiary"
+     ],
+     [
+      256,
+      "Industrial Apiary Upgrade Acceleration 8 Upgraded"
+     ],
+     [
+      16,
+      "Field Generator UMV"
+     ],
+     [
+      16,
+      "Conveyor Module UMV"
+     ],
+     [
+      16,
+      "Robot Arm UMV"
+     ],
+     [
+      16,
+      "Electric Pump UMV"
+     ],
+     [
+      64,
+      "UXV Circuit"
+     ]
+    ],
+    "fluids": [
+     [
+      1024000,
+      "UU Matter"
+     ],
+     [
+      2048000,
+      "Honey"
+     ]
+    ]
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ }
+]

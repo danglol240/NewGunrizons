@@ -1,0 +1,80 @@
+{
+  "preRequisites:9": {
+    "0:10": {
+      "questIDHigh:4": 3530978475185954226,
+      "questIDLow:4": -8502498732782627156
+    }
+  },
+  "properties:10": {
+    "betterquesting:10": {
+      "autoClaim:1": 0,
+      "completion_animation:8": "default",
+      "completion_particle:8": "default",
+      "confetti_icon:10": {
+        "Count:3": 0,
+        "Damage:2": 0,
+        "OreDict:8": "",
+        "id:8": "minecraft:stick"
+      },
+      "countAsQuest:1": 1,
+      "desc:8": "§6Machine type: §aAlchemy Tower§r\n\nGurgling\nPlease use the Infusion Supplier to supply Essence!\nParallelism depends on the level of the structure block.\nDo an 4/2 overclock.Turn on lossless overclocking after reaching the maximum acceleration rate.\nUse Charged Nodes to get acceleration rewards,\nNo acceleration when there are no charging nodes.\nWhen the number of nodes is less than 4, each charging node increases acceleration by 10%,\nWhen the number of nodes is 4, calculate the nodes with the highest rates of air, fire, entropy, and order.\nUse the essence quantity of the node with the highest rate of each essence for subsequent calculations.\nmin=min(fire,air,entropy,order,10);max=max(fire,air,entropy,order,10);\nBasic speed bonus equals 1/11.4514 + (0.7-1/11.4514)*(1-exp(min-10)).\nIf there is too much disparity in the quantity of the above essence, there will be a penalty mechanism.\nPunishment speed bonus equals (0.7-baseSpeedBonus)*(max-min)/max\nFinal speed bonus equals the sum of the two.\nPutting EssentiaCell_Creative in the controller GUI doesn't cost essentia, but if it's a hero's proof,maybe a little bit of an incredible change...\nYou can use the channel:chisel to automatically convert chisel blocks when building, and you can see nei to preview the available blocks\n\n[note]Hatches[/note]: Input Bus, Output Bus, Energy Hatch\nUse a Hologram Projector (or the NEI structure preview) to see and auto-build the structure.\n\n[note]Controller recipe[/note]: Thaumcraft Infusion\nResearch: Industrial Alchemy Tower (Thaumonomicon, TST tab).\n - Industrial Alloy Blast Smelter\n - 2x Block Metal Device\n - 4x IV Circuit\n - 2x Amorphic Catalyst",
+      "globalShare:1": 0,
+      "icon:10": {
+        "Count:3": 1,
+        "Damage:2": 19064,
+        "OreDict:8": "",
+        "id:8": "gregtech:gt.blockmachines"
+      },
+      "isMain:1": 0,
+      "isSilent:1": 0,
+      "lockedProgress:1": 0,
+      "name:8": "Industrial Alchemy Tower",
+      "notification_duration:5": -1.0,
+      "notification_effect:3": -1,
+      "notification_fade_in:5": -1.0,
+      "notification_fade_out:5": -1.0,
+      "notification_icon_offset_y:3": -2147483648,
+      "notification_icon_scale:5": -1.0,
+      "notification_pos_x:3": -2147483648,
+      "notification_pos_y:3": -2147483648,
+      "notification_show_icon:8": "default",
+      "notification_style:8": "default",
+      "notification_subtitle:8": "",
+      "notification_subtitle_scale:5": -1.0,
+      "notification_title:8": "",
+      "notification_title_scale:5": -1.0,
+      "particle_count:3": -1,
+      "questLogic:8": "AND",
+      "repeatTime:3": -1,
+      "repeat_relative:1": 1,
+      "simultaneous:1": 0,
+      "snd_complete:8": "random.levelup",
+      "snd_update:8": "random.levelup",
+      "taskLogic:8": "AND",
+      "visibility:8": "ALWAYS"
+    }
+  },
+  "questIDHigh:4": -6106240857351367609,
+  "questIDLow:4": -8855735231300962321,
+  "rewards:9": {},
+  "tasks:9": {
+    "0:10": {
+      "autoConsume:1": 0,
+      "consume:1": 0,
+      "groupDetect:1": 0,
+      "ignoreNBT:1": 1,
+      "index:3": 0,
+      "partialMatch:1": 1,
+      "requireOnlyOneItem:1": 0,
+      "requiredItems:9": {
+        "0:10": {
+          "Count:3": 1,
+          "Damage:2": 19064,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockmachines"
+        }
+      },
+      "taskID:8": "bq_standard:retrieval"
+    }
+  }
+}

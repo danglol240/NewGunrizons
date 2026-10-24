@@ -1,0 +1,117 @@
+{
+  "preRequisites:9": {},
+  "properties:10": {
+    "betterquesting:10": {
+      "autoClaim:1": 0,
+      "completion_animation:8": "default",
+      "completion_particle:8": "default",
+      "confetti_icon:10": {
+        "Count:3": 0,
+        "Damage:2": 0,
+        "OreDict:8": "",
+        "id:8": "minecraft:stick"
+      },
+      "countAsQuest:1": 1,
+      "desc:8": "§6Machine type: §aAssembly Line§r\n\nImagination can take you anywhere\nThe built-in integrated logistics system allows you to no longer worry about external logistics design.\nSpatial isolation technology brings higher batch production capabilities.\nThe cost is 1.5 times the base time.\nStill need to use the data access hatch to provide data stick.\nThe energy hatch tier limits the voltage tier at which recipes can be executed.\nNanite Containment Bus can be installed and provided with silver nanites or gold nanites to increase the running speed.\nUp to 256 Silver Nanites will increase the running speed to 100% of normal speed.\nOr up to 1024 Gold Nanites will increase the running speed to 200% of normal speed,\nAnd double the parallelism.\n\n[note]Hatches[/note]: Input Bus, Input Hatch, Output Bus, Output Hatch, Energy Hatch\n[note]Structure[/note]: Tiered glass (limits the energy hatch tier); Space Elevator casings; the casings in the optional task.\nUse a Hologram Projector (or the NEI structure preview) to see and auto-build the structure.\n\n[note]Controller recipe[/note]: Assembly Line (TecTech research), UEV\nResearch item: Research On AAL\n - 16x Adv Ass Line\n - 64x Electric Pump UHV\n - 64x Robot Arm UHV\n - 64x Infinity Frame Box\n - 128x High Energy Flow Circuit\n - 128x Field Generator UHV\n - 128x Conveyor Module UHV\n - 128x EM Hollow\n - GT Ore Dict Unificator\n - 128x Circuit Chip Biocell\n - 512,000x Super Coolant\n - 512,000 L UU Matter",
+      "globalShare:1": 0,
+      "icon:10": {
+        "Count:3": 1,
+        "Damage:2": 19079,
+        "OreDict:8": "",
+        "id:8": "gregtech:gt.blockmachines"
+      },
+      "isMain:1": 0,
+      "isSilent:1": 0,
+      "lockedProgress:1": 0,
+      "name:8": "Integrated Assembly Matrix",
+      "notification_duration:5": -1.0,
+      "notification_effect:3": -1,
+      "notification_fade_in:5": -1.0,
+      "notification_fade_out:5": -1.0,
+      "notification_icon_offset_y:3": -2147483648,
+      "notification_icon_scale:5": -1.0,
+      "notification_pos_x:3": -2147483648,
+      "notification_pos_y:3": -2147483648,
+      "notification_show_icon:8": "default",
+      "notification_style:8": "default",
+      "notification_subtitle:8": "",
+      "notification_subtitle_scale:5": -1.0,
+      "notification_title:8": "",
+      "notification_title_scale:5": -1.0,
+      "particle_count:3": -1,
+      "questLogic:8": "AND",
+      "repeatTime:3": -1,
+      "repeat_relative:1": 1,
+      "simultaneous:1": 0,
+      "snd_complete:8": "random.levelup",
+      "snd_update:8": "random.levelup",
+      "taskLogic:8": "AND",
+      "visibility:8": "ALWAYS"
+    }
+  },
+  "questIDHigh:4": -8154584110617636695,
+  "questIDLow:4": -5983807900300560849,
+  "rewards:9": {},
+  "tasks:9": {
+    "0:10": {
+      "autoConsume:1": 0,
+      "consume:1": 0,
+      "groupDetect:1": 0,
+      "ignoreNBT:1": 1,
+      "index:3": 0,
+      "partialMatch:1": 1,
+      "requireOnlyOneItem:1": 0,
+      "requiredItems:9": {
+        "0:10": {
+          "Count:3": 1,
+          "Damage:2": 19079,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockmachines"
+        }
+      },
+      "taskID:8": "bq_standard:retrieval"
+    },
+    "1:10": {
+      "autoConsume:1": 0,
+      "consume:1": 0,
+      "groupDetect:1": 0,
+      "ignoreNBT:1": 1,
+      "index:3": 1,
+      "partialMatch:1": 1,
+      "requireOnlyOneItem:1": 0,
+      "requiredItems:9": {
+        "0:10": {
+          "Count:3": 1,
+          "Damage:2": 5,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockcasings2"
+        },
+        "1:10": {
+          "Count:3": 1,
+          "Damage:2": 9,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockcasings2"
+        },
+        "2:10": {
+          "Count:3": 1,
+          "Damage:2": 0,
+          "OreDict:8": "",
+          "id:8": "gtnhintergalactic:gt.blockcasingsSE"
+        },
+        "3:10": {
+          "Count:3": 1,
+          "Damage:2": 4,
+          "OreDict:8": "",
+          "id:8": "tectech:gt.blockcasingsTT"
+        },
+        "4:10": {
+          "Count:3": 1,
+          "Damage:2": 6,
+          "OreDict:8": "",
+          "id:8": "tectech:gt.blockcasingsTT"
+        }
+      },
+      "taskID:8": "bq_standard:optional_retrieval"
+    }
+  }
+}
