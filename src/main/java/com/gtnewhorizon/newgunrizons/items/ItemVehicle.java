@@ -188,7 +188,8 @@ public class ItemVehicle extends Item implements ISpecialElectricItem, IElectric
             .isEmpty()) {
             player.addChatMessage(
                 new ChatComponentText(
-                    EnumChatFormatting.RED + "Not enough room here: the " + new ItemStack(this).getDisplayName()
+                    EnumChatFormatting.RED + "Not enough room here: the "
+                        + new ItemStack(this).getDisplayName()
                         + " needs "
                         + fmt(l.width)
                         + " x "
@@ -222,7 +223,9 @@ public class ItemVehicle extends Item implements ISpecialElectricItem, IElectric
                 + Math.round(armor * 100)
                 + "%");
         tooltip.add("Top speed: " + Math.round(speed * 72.0F) + " km/h (" + modeName() + ")");
-        tooltip.add(String.format("Energy: %.0f%% of %,.0f EU (%s)", 100.0D * charge / getCapacity(), getCapacity(), fuel.label));
+        tooltip.add(
+            String
+                .format("Energy: %.0f%% of %,.0f EU (%s)", 100.0D * charge / getCapacity(), getCapacity(), fuel.label));
         int[] ammo = getAmmo(stack);
         for (int i = 0; i < weapons.size(); i++) {
             VehicleWeapon w = weapons.get(i);
@@ -249,11 +252,13 @@ public class ItemVehicle extends Item implements ISpecialElectricItem, IElectric
                     + ".");
         }
         if (fuel.electric) {
-            tooltip.add(EnumChatFormatting.DARK_GRAY + "Charge in a " + GTValues.VN[tier] + " Battery Buffer or Charger.");
+            tooltip
+                .add(EnumChatFormatting.DARK_GRAY + "Charge in a " + GTValues.VN[tier] + " Battery Buffer or Charger.");
         }
         if (core != null) {
             tooltip.add(
-                EnumChatFormatting.DARK_GRAY + "A " + new ItemStack(core).getDisplayName()
+                EnumChatFormatting.DARK_GRAY + "A "
+                    + new ItemStack(core).getDisplayName()
                     + " refills the whole battery.");
         }
         tooltip.add(EnumChatFormatting.DARK_GRAY + "Repair: right click it with plates.");

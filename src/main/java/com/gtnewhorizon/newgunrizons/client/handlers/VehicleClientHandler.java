@@ -3,10 +3,10 @@ package com.gtnewhorizon.newgunrizons.client.handlers;
 import java.util.List;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
-import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.MouseEvent;
@@ -89,11 +89,27 @@ public class VehicleClientHandler {
         FontRenderer f = mc.fontRenderer;
         int x = 6, y = res.getScaledHeight() / 2 - 40;
         GL11.glPushMatrix();
-        f.drawStringWithShadow(new ItemStack(item).getDisplayName() + " §7(" + GTValues.VN[item.getTier()] + ")", x, y, 0xFFE8A0);
+        f.drawStringWithShadow(
+            new ItemStack(item).getDisplayName() + " §7(" + GTValues.VN[item.getTier()] + ")",
+            x,
+            y,
+            0xFFE8A0);
         y += 11;
-        bar(x, y, v.getHealth() / item.getMaxHealth(), 0xFF50D060, "Hull " + Math.round(v.getHealth()) + "/" + Math.round(item.getMaxHealth()), f);
+        bar(
+            x,
+            y,
+            v.getHealth() / item.getMaxHealth(),
+            0xFF50D060,
+            "Hull " + Math.round(v.getHealth()) + "/" + Math.round(item.getMaxHealth()),
+            f);
         y += 11;
-        bar(x, y, v.getChargeFraction(), 0xFF40B8FF, item.getFuel().label + " " + Math.round(v.getChargeFraction() * 100) + "%", f);
+        bar(
+            x,
+            y,
+            v.getChargeFraction(),
+            0xFF40B8FF,
+            item.getFuel().label + " " + Math.round(v.getChargeFraction() * 100) + "%",
+            f);
         y += 13;
         double vx = v.posX - v.prevPosX, vy = v.posY - v.prevPosY, vz = v.posZ - v.prevPosZ;
         int kmh = (int) Math.round(Math.sqrt(vx * vx + vy * vy + vz * vz) * 72.0D);
@@ -111,10 +127,9 @@ public class VehicleClientHandler {
             y += 10;
         }
         y += 3;
-        String hint = seat == 0
-            ? (item.getMode().flies ? "W/S/A/D move, Space up, " + KeyBindings.keyName(KeyBindings.vehicleDownKey) + " down, Shift exit"
-                : "W/S drive, A/D steer, Shift exit")
-            : "Mouse aims the turret, Shift exit";
+        String hint = seat == 0 ? (item.getMode().flies
+            ? "W/S/A/D move, Space up, " + KeyBindings.keyName(KeyBindings.vehicleDownKey) + " down, Shift exit"
+            : "W/S drive, A/D steer, Shift exit") : "Mouse aims the turret, Shift exit";
         f.drawStringWithShadow("§8" + hint, x, y, 0xFFFFFF);
         GL11.glPopMatrix();
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);

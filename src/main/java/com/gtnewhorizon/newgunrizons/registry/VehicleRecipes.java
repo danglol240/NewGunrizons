@@ -140,7 +140,8 @@ public final class VehicleRecipes {
         FluidStack lube = Materials.Lubricant.getFluid(250L * t);
         String kind = ItemVehicleComponent.driveName(t);
         if (kind.startsWith("Wheel")) {
-            Materials rubber = t == 1 ? Materials.Rubber : t == 2 ? Materials.Silicone : Materials.StyreneButadieneRubber;
+            Materials rubber = t == 1 ? Materials.Rubber
+                : t == 2 ? Materials.Silicone : Materials.StyreneButadieneRubber;
             part(
                 Kind.DRIVE,
                 t,
@@ -223,7 +224,9 @@ public final class VehicleRecipes {
         partRecipes++;
     }
 
-    /** A null in the input list is optional only for the armour's extra slot; anything else missing skips the recipe. */
+    /**
+     * A null in the input list is optional only for the armour's extra slot; anything else missing skips the recipe.
+     */
     private static boolean hasMissing(ItemStack[] inputs, Kind kind) {
         int nulls = countNulls(inputs);
         if (nulls == 0) return false;
@@ -245,8 +248,8 @@ public final class VehicleRecipes {
         ItemStack[] weapon = weapon(t);
         int big = t >= 8 ? 2 : 1;
         ItemStack[] inputs = { component(Kind.CHASSIS, t, big), component(Kind.ARMOR, t, 2 + t / 2),
-            component(Kind.ENGINE, t, big), component(Kind.CONTROL, t, 1), component(Kind.DRIVE, t, big),
-            weapon[0], weapon[1], circuit(t, 2), first(plate(METAL[t], 8), plate(Materials.Steel, 8)) };
+            component(Kind.ENGINE, t, big), component(Kind.CONTROL, t, 1), component(Kind.DRIVE, t, big), weapon[0],
+            weapon[1], circuit(t, 2), first(plate(METAL[t], 8), plate(Materials.Steel, 8)) };
         for (ItemStack s : inputs) {
             if (s == null || s.getItem() == null) {
                 LOG.warn("Skipping the {} recipe: an ingredient is not registered in this pack", v.getName());

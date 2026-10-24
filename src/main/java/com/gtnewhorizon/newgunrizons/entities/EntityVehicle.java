@@ -190,7 +190,8 @@ public class EntityVehicle extends Entity implements IEntityAdditionalSpawnData 
     public static EntityVehicle of(Entity rider) {
         if (rider == null) return null;
         if (rider.ridingEntity instanceof EntityVehicle) return (EntityVehicle) rider.ridingEntity;
-        if (rider.ridingEntity instanceof EntityVehicleSeat) return ((EntityVehicleSeat) rider.ridingEntity).getVehicle();
+        if (rider.ridingEntity instanceof EntityVehicleSeat)
+            return ((EntityVehicleSeat) rider.ridingEntity).getVehicle();
         return null;
     }
 
@@ -198,7 +199,8 @@ public class EntityVehicle extends Entity implements IEntityAdditionalSpawnData 
     public int seatOf(Entity rider) {
         if (rider == null) return -1;
         if (rider.ridingEntity == this) return 0;
-        if (rider.ridingEntity instanceof EntityVehicleSeat && ((EntityVehicleSeat) rider.ridingEntity).getVehicle() == this) {
+        if (rider.ridingEntity instanceof EntityVehicleSeat
+            && ((EntityVehicleSeat) rider.ridingEntity).getVehicle() == this) {
             return ((EntityVehicleSeat) rider.ridingEntity).getSeat();
         }
         return -1;
@@ -506,7 +508,8 @@ public class EntityVehicle extends Entity implements IEntityAdditionalSpawnData 
             if (powered) {
                 double yaw = Math.toRadians(rotationYaw);
                 double pitch = mode == VehicleMode.SPACE ? Math.toRadians(rotationPitch) : 0.0D;
-                double fx = -Math.sin(yaw) * Math.cos(pitch), fy = -Math.sin(pitch), fz = Math.cos(yaw) * Math.cos(pitch);
+                double fx = -Math.sin(yaw) * Math.cos(pitch), fy = -Math.sin(pitch),
+                    fz = Math.cos(yaw) * Math.cos(pitch);
                 double rx = -Math.cos(yaw), rz = -Math.sin(yaw);
                 double f = fwd > 0.0F ? fwd : fwd * 0.4F;
                 double vert = inUp ? 1.0D : inDown ? -1.0D : 0.0D;
@@ -603,12 +606,26 @@ public class EntityVehicle extends Entity implements IEntityAdditionalSpawnData 
             if (w.isHitscan()) {
                 Hitscan.fire(w, gunner, muzzle, dir, w.damage, w.spread);
             } else {
-                EntityBullet bullet = new EntityBullet(w, worldObj, gunner, w.speed, 0.0F, w.spread, w.damage, w.explosion);
+                EntityBullet bullet = new EntityBullet(
+                    w,
+                    worldObj,
+                    gunner,
+                    w.speed,
+                    0.0F,
+                    w.spread,
+                    w.damage,
+                    w.explosion);
                 bullet.setLocationAndAngles(muzzle.xCoord, muzzle.yCoord, muzzle.zCoord, aim[0], aim[1]);
                 bullet.setThrowableHeading(dir.xCoord, dir.yCoord, dir.zCoord, w.speed, w.spread);
                 worldObj.spawnEntityInWorld(bullet);
             }
-            worldObj.playSoundEffect(muzzle.xCoord, muzzle.yCoord, muzzle.zCoord, w.sound, 2.0F, 0.9F + rand.nextFloat() * 0.2F);
+            worldObj.playSoundEffect(
+                muzzle.xCoord,
+                muzzle.yCoord,
+                muzzle.zCoord,
+                w.sound,
+                2.0F,
+                0.9F + rand.nextFloat() * 0.2F);
             if (!creative) {
                 if (w.usesRounds()) ammo[i]--;
                 else charge -= cost;

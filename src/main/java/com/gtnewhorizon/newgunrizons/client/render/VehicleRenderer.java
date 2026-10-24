@@ -49,7 +49,8 @@ public class VehicleRenderer extends Render {
         VehicleLayout l = item.getLayout();
         VehicleMode mode = item.getMode();
 
-        float yaw = v.prevRotationYaw + MathHelper.wrapAngleTo180_float(v.rotationYaw - v.prevRotationYaw) * partialTicks;
+        float yaw = v.prevRotationYaw
+            + MathHelper.wrapAngleTo180_float(v.rotationYaw - v.prevRotationYaw) * partialTicks;
         float throttle = v.prevThrottle + (v.throttle - v.prevThrottle) * partialTicks;
         float pitch = mode == VehicleMode.SPACE
             ? v.prevRotationPitch + (v.rotationPitch - v.prevRotationPitch) * partialTicks
@@ -102,7 +103,8 @@ public class VehicleRenderer extends Render {
     public static void renderStatic(ItemVehicle item, double x, double y, double z, float yaw, float maxWidth,
         float maxHeight, float maxLength) {
         VehicleLayout l = item.getLayout();
-        float fit = Math.min(1.0F, Math.min(maxWidth / Math.max(0.1F, l.width * 1.6F), maxHeight / Math.max(0.1F, l.height)));
+        float fit = Math
+            .min(1.0F, Math.min(maxWidth / Math.max(0.1F, l.width * 1.6F), maxHeight / Math.max(0.1F, l.height)));
         fit = Math.min(fit, maxLength / Math.max(0.1F, l.width * 2.2F));
         String base = "vehicle_" + item.getName()
             .toLowerCase();
@@ -127,7 +129,8 @@ public class VehicleRenderer extends Render {
         if (MISSING.contains(path)) return;
         JsonModel model = MODELS.get(path);
         if (model == null) {
-            if (VehicleRenderer.class.getResource("/assets/newgunrizons/models/vehicle/" + path + ".geo.json") == null) {
+            if (VehicleRenderer.class.getResource("/assets/newgunrizons/models/vehicle/" + path + ".geo.json")
+                == null) {
                 MISSING.add(path);
                 return;
             }

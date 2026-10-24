@@ -90,9 +90,7 @@ public class MTEVehicleHangar extends MTEExtendedPowerMultiBlockBase<MTEVehicleH
     private static IStructureDefinition<MTEVehicleHangar> buildStructure() {
         StructureDefinition.Builder<MTEVehicleHangar> b = StructureDefinition.<MTEVehicleHangar>builder()
             .addShape(HEAD, new String[][] { { "CCCCCCCCC", "CGGGGGGGC", "CGGGGGGGC", "CGGGGGGGC", "CCCC~CCCC" } })
-            .addShape(
-                BACK,
-                new String[][] { { "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC" } });
+            .addShape(BACK, new String[][] { { "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC" } });
         for (int tier = 1; tier <= MAX_BAYS; tier++) {
             char f = MTEMunitionsFactory.segmentChar(tier);
             char p = padChar(tier);
@@ -191,10 +189,28 @@ public class MTEVehicleHangar extends MTEExtendedPowerMultiBlockBase<MTEVehicleH
         if (built >= 0) return built;
         int count = GTStructureChannels.STRUCTURE_LENGTH.getValueClamped(stackSize, 1, MAX_BAYS);
         for (int i = 1; i <= count; i++) {
-            built = survivalBuildPiece(BAY + i, stackSize, OFFSET_X, OFFSET_Y, bayOffset(i), elementBudget, env, false, true);
+            built = survivalBuildPiece(
+                BAY + i,
+                stackSize,
+                OFFSET_X,
+                OFFSET_Y,
+                bayOffset(i),
+                elementBudget,
+                env,
+                false,
+                true);
             if (built >= 0) return built;
         }
-        return survivalBuildPiece(BACK, stackSize, OFFSET_X, OFFSET_Y, bayOffset(count + 1), elementBudget, env, false, true);
+        return survivalBuildPiece(
+            BACK,
+            stackSize,
+            OFFSET_X,
+            OFFSET_Y,
+            bayOffset(count + 1),
+            elementBudget,
+            env,
+            false,
+            true);
     }
 
     @Override
@@ -333,8 +349,15 @@ public class MTEVehicleHangar extends MTEExtendedPowerMultiBlockBase<MTEVehicleH
         double cz = z + 0.5D + back.offsetZ * depth;
         float yaw = (float) Math.toDegrees(Math.atan2(-back.offsetX, back.offsetZ)) + 180.0F;
         double t = (world.getTotalWorldTime() % 100000L) + partialTicks;
-        VehicleRenderer.renderStatic((ItemVehicle) product, cx, y + 1.0D, cz, yaw + (float) Math.sin(t * 0.01D) * 10.0F,
-            7.0F, 3.0F, BAY_DEPTH * renderBays);
+        VehicleRenderer.renderStatic(
+            (ItemVehicle) product,
+            cx,
+            y + 1.0D,
+            cz,
+            yaw + (float) Math.sin(t * 0.01D) * 10.0F,
+            7.0F,
+            3.0F,
+            BAY_DEPTH * renderBays);
     }
 
     @Override
