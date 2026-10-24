@@ -1,6 +1,7 @@
 package com.gtnewhorizon.newgunrizons.entities;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
@@ -66,8 +67,10 @@ public class EntityVehicleSeat extends Entity implements IEntityAdditionalSpawnD
             if (riddenByEntity != null) lastRider = riddenByEntity;
             else {
                 // the passenger got out: put them on top of the vehicle instead of inside its hull
-                if (lastRider != null && !lastRider.isDead) {
-                    lastRider.setPositionAndUpdate(v.posX, v.boundingBox.maxY + 0.1D, v.posZ);
+                if (lastRider instanceof EntityLivingBase && !lastRider.isDead) {
+                    ((EntityLivingBase) lastRider).setPositionAndUpdate(v.posX, v.boundingBox.maxY + 0.1D, v.posZ);
+                } else if (lastRider != null && !lastRider.isDead) {
+                    lastRider.setPosition(v.posX, v.boundingBox.maxY + 0.1D, v.posZ);
                 }
                 setDead();
             }

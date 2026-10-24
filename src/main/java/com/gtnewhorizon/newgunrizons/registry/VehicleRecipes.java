@@ -141,7 +141,7 @@ public final class VehicleRecipes {
         String kind = ItemVehicleComponent.driveName(t);
         if (kind.startsWith("Wheel")) {
             Materials rubber = t == 1 ? Materials.Rubber
-                : t == 2 ? Materials.Silicone : Materials.StyreneButadieneRubber;
+                : Materials.get(t == 2 ? "Silicone" : "StyreneButadieneRubber");
             part(
                 Kind.DRIVE,
                 t,
