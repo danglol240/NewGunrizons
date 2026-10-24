@@ -107,11 +107,6 @@ public class EntityVehicleSeat extends Entity implements IEntityAdditionalSpawnD
     }
 
     @Override
-    public boolean writeMountToNBT(NBTTagCompound tag) {
-        return false;
-    }
-
-    @Override
     protected void readEntityFromNBT(NBTTagCompound tag) {}
 
     @Override

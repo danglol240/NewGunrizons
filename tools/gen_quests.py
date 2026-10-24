@@ -18,6 +18,7 @@ ROOT = Path(sys.argv[1])
 OUT = ROOT / "quests/DefaultQuests"
 FACTORY_ID = 17920
 BAY_ID = 17921
+HANGAR_ID = 17922
 
 
 def ng(name, count=1):
@@ -26,7 +27,7 @@ def ng(name, count=1):
 
 LINE = QuestLine("6e657767-756e-7269-7a6f-6e7351756573", "NewGunrizons",
                  "Weapons from LV to MAX made in the Munitions Factory, Avaritia components, and combat drones from "
-                 "the Drone Assembly Complex.", ng("SentinelDrone"))
+                 "the Drone Assembly Complex, and vehicles from the Vehicle Assembly Hangar.", ng("SentinelDrone"))
 q = LINE.q
 
 
@@ -38,7 +39,7 @@ MATERIALS = ["Steel", "Aluminium", "Stainless Steel", "Titanium", "Tungstensteel
              "Neutronium", "Cosmic Neutronium", "Infinity", "Transcendent Metal", "Spacetime", "Universium",
              "Magmatter"]
 COL, ROW = 56, 64
-ROWS = {"era": 0, "part": 1, "gun": 2, "storey": 3, "drone": 4}
+ROWS = {"era": 0, "part": 1, "gun": 2, "storey": 3, "drone": 4, "hall": 5, "vpart": 6, "vehicle": 7}
 
 
 def pos(tier_index, row, main=False):
@@ -214,6 +215,83 @@ for i, (name, desc) in enumerate(DRONES):
     q(f"drone_{name}", f"{tier} Drone", ng(name), retrieval(ng(name)),
       [("bay" if i == 0 else f"storey_{tier}")] + ([f"drone_{DRONES[i - 1][0]}"] if i else []),
       *pos(i, "drone", main_), desc + (DRONE_INTRO if i == 0 else ""), main=main_)
+
+
+# ---------------------------------------------------------------- vehicles
+VEHICLES = [
+    ("FieldJeep", "Jeep with a pintle machine gun (7.62x39). Runs on diesel: right click it with a cell of diesel "
+                  "or another combustion fuel."),
+    ("OffroadTruck", "Six-wheel truck for four, with a roof gunner (7.62x51)."),
+    ("ArmoredAPC", "Armoured carrier, remote .50 BMG turret. Diesel or a GregTech charger."),
+    ("BattleTank", "Tracked tank: 120 mm explosive cannon (left mouse, from the battery) and coaxial 7.62 MG "
+                   "(right mouse)."),
+    ("HoverJeep", "Floats over land and water. Electric, railgun with Ferromagnetic Slugs."),
+    ("TiltrotorVTOL", "The first aircraft: Space to climb, the descend key (C) to sink. Chin laser for the gunner, "
+                      "rocket pods for the pilot."),
+    ("PlasmaFighter", "A space fighter that flies where you look. Refuel with plasma cells or a charger."),
+    ("ParticleCruiser", "From UV on a Particle Accelerator Segment (or the tier's core) refills the whole battery."),
+    ("AntimatterFrigate", "Antimatter cannon and two gunner laser batteries. Core: Antimatter Trap."),
+    ("QuantumRingship", "Its shots phase through walls. Core: Quantum Entanglement Core."),
+    ("GravityTank", "Hover tank with a graviton cannon that leaves gravity wells. Core: Graviton Field Emitter."),
+    ("SpacetimeSkimmer", "Freezes its targets in time. Core: Chrono Stabilizer."),
+    ("DimensionalLeviathan", "Capital ship: rift beam and three void laser turrets. Core: Dimensional Rift Emitter."),
+    ("GenesisArk", "The last ship. Core: Reality Engine."),
+]
+DRIVE = {1: "Wheel Set", 2: "Wheel Set", 3: "Wheel Set", 4: "Track Set", 5: "Hover Emitter Array",
+         6: "Tiltrotor Set", 11: "Hover Emitter Array"}
+
+
+def vpart(kind, tier, n=1):
+    return item("newgunrizons:VehicleComponent", kind * 16 + tier, n)
+
+
+HANGAR_GUIDE = (
+    "[note]Layout (controller in the bottom middle of the front wall):[/note]\n"
+    "Front wall, 9 wide x 5 high: Solid Steel Machine Casings around a 7x3 glass gallery.\n"
+    "Each bay behind it, 2 blocks deep, every slice 9 x 5:\n"
+    "  F F F F F F F F F   <- roof: 9 Assembly Frames of the bay's tier\n"
+    "  C . . . . . . . C   <- empty hall, 3 rows\n"
+    "  C P P P P P P P C   <- floor: 7 Landing Pads of the bay's tier\n"
+    "Back wall, 9 x 5 Solid Steel Machine Casings, right behind the last bay.\n"
+    "Bay 1 = LV, bay 2 = MV ... bay 14 = MAX. The number of consecutive bays is the highest vehicle tier it builds.\n"
+    "Hologram Projector: stack size = number of bays."
+)
+q("hangar", "§a§lVehicle Assembly Hangar", machine(HANGAR_ID),
+  retrieval(machine(HANGAR_ID), frame(0, 18), pad(0, 14)), ["gun_LV"], *pos(0, "hall", True),
+  "Builds every vehicle. Controller: 2 LV circuits, LV Piston, 2 LV Motors, LV Hull, 2 LV Robot Arms.\n\n"
+  + HANGAR_GUIDE + "\n\nHatches on any casing: 1 Energy, 1 Maintenance, 1 Input Bus, 1 Output Bus, "
+  "1 Input Hatch for solder.", main=True)
+for i in range(1, 14):
+    tier = TIERS[i]
+    q(f"hall_{tier}", f"Hangar Bay: {tier}", frame(i), retrieval(frame(i, 18), pad(i, 14)),
+      [("hangar" if i == 1 else f"hall_{TIERS[i - 1]}"), f"storey_{tier}"], *pos(i, "hall"),
+      f"Add the {tier} bay: 18 {tier} {MATERIALS[i]} Assembly Frames for the roof and 14 Landing Pads for the "
+      "floor, two slices deep, then move the back wall one bay further.")
+for i in range(14):
+    t = i + 1
+    tier = TIERS[i]
+    names = ["Chassis", "Armour", "Engine", "Controls", DRIVE.get(t, "Thruster Pack")]
+    where = "an Assembler" if t <= 5 else "an Assembly Line (research the part of the tier below)"
+    q(f"vpart_{tier}", f"{tier} Vehicle Parts", vpart(2, t), retrieval(*[vpart(k, t) for k in range(5)]),
+      [("hangar" if i == 0 else f"hall_{tier}")] + ([f"vpart_{TIERS[i - 1]}"] if i else []), *pos(i, "vpart"),
+      f"The five parts of the {tier} vehicle, made in {where}: " + ", ".join(names) + ". "
+      "Each takes the tier's metal, its motors, pistons, pumps, emitters or field generators, and its circuits.")
+VEHICLE_INTRO = (
+    "\n\n[note]Driving:[/note]\n"
+    "- Right click a block to park it, right click the vehicle to get in (the first one in drives, the others take "
+    "the gunner and passenger seats). Shift: get out. Sneak + right click the empty vehicle: pick it up.\n"
+    "- W/S drive, A/D steer. Flying vehicles: Space climbs, C sinks.\n"
+    "- Left mouse fires the main weapon, right mouse the secondary. A gunner seat aims its own turret; if nobody "
+    "sits there, the driver fires it.\n"
+    "- Load rounds by right clicking the vehicle with them. Repair with plates. A wreck drops the vehicle with a "
+    "broken hull: repair it before driving into battle again."
+)
+for i, (name, desc) in enumerate(VEHICLES):
+    tier = TIERS[i]
+    main_ = i in (0, 13)
+    q(f"vehicle_{name}", f"{tier} Vehicle", ng(name), retrieval(ng(name)),
+      [f"vpart_{tier}"] + ([f"vehicle_{VEHICLES[i - 1][0]}"] if i else []), *pos(i, "vehicle", main_),
+      desc + (VEHICLE_INTRO if i == 0 else ""), main=main_)
 
 
 if __name__ == "__main__":
