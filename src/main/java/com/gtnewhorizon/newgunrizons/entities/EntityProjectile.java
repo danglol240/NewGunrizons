@@ -271,6 +271,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
         Map<Entity, Double> distances = new HashMap<>();
 
         for (Entity candidate : nearbyEntities) {
+            if (EntityVehicle.carries(candidate, thrower)) continue; // the shooter's own vehicle
             if (candidate.canBeCollidedWith() && this.canHitEntity(candidate)
                 && (candidate != thrower || this.ticksInAir >= THROWER_IMMUNITY_TICKS)) {
                 AxisAlignedBB expandedBbox = candidate.boundingBox

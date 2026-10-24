@@ -3,6 +3,7 @@ package com.gtnewhorizon.newgunrizons;
 import net.minecraft.creativetab.CreativeTabs;
 
 import com.gtnewhorizon.newgunrizons.registry.DroneRecipes;
+import com.gtnewhorizon.newgunrizons.registry.VehicleRecipes;
 import com.gtnewhorizon.newgunrizons.registry.GTRecipes;
 import com.gtnewhorizon.newgunrizons.registry.HighTierRecipes;
 import com.gtnewhorizon.newgunrizons.registry.Machines;
@@ -59,12 +60,14 @@ public class NewGunrizonsMod {
     public void postInit(FMLPostInitializationEvent event) {
         HighTierRecipes.init();
         DroneRecipes.init();
+        VehicleRecipes.init();
         StructureBlockRecipes.init();
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
         Machines.register();
+        Machines.registerHangar();
         GTRecipes.init();
     }
 

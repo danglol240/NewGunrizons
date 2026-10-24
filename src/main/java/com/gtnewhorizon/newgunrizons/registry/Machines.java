@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.gtnewhorizon.newgunrizons.machines.MTEDroneAssemblyBay;
 import com.gtnewhorizon.newgunrizons.machines.MTEMunitionsFactory;
+import com.gtnewhorizon.newgunrizons.machines.MTEVehicleHangar;
 
 import gregtech.api.GregTechAPI;
 import gregtech.api.enums.ItemList;
@@ -24,12 +25,15 @@ public final class Machines {
     /** Outside GregTech's listed IDs and below Twist Space Technology's 19000+ range. */
     private static final int DEFAULT_FACTORY_ID = 17920;
     private static final int DEFAULT_DRONE_BAY_ID = 17921;
+    private static final int DEFAULT_HANGAR_ID = 17922;
     private static final int SEARCH_WINDOW = 64;
 
     private static int configuredFactoryId = DEFAULT_FACTORY_ID;
     private static int configuredDroneBayId = DEFAULT_DRONE_BAY_ID;
+    private static int configuredHangarId = DEFAULT_HANGAR_ID;
     public static ItemStack munitionsFactory;
     public static ItemStack droneAssemblyBay;
+    public static ItemStack vehicleHangar;
 
     private Machines() {}
 
@@ -50,6 +54,13 @@ public final class Machines {
             1,
             32765,
             "GregTech MetaTileEntity ID of the Drone Assembly Complex controller. Same rules as munitionsFactoryId.");
+        configuredHangarId = config.getInt(
+            "vehicleHangarId",
+            "machines",
+            DEFAULT_HANGAR_ID,
+            1,
+            32765,
+            "GregTech MetaTileEntity ID of the Vehicle Assembly Hangar controller. Same rules as munitionsFactoryId.");
         if (config.hasChanged()) config.save();
     }
 
@@ -79,6 +90,23 @@ public final class Machines {
                 GTModHandler.RecipeBits.BITSD,
                 new Object[] { "CSC", "MHM", "CRC", 'C', OrePrefixes.circuit.get(Materials.LV), 'S', ItemList.Sensor_LV,
                     'M', ItemList.Electric_Motor_LV, 'H', ItemList.Hull_LV, 'R', ItemList.Robot_Arm_LV });
+        }
+    }
+
+    /** Registered after the other two so their IDs stay where they were. */
+    public static void registerHangar() {
+        int hangarId = freeId(configuredHangarId, "Vehicle Assembly Hangar", "vehicleHangarId");
+        if (hangarId > 0) {
+            vehicleHangar = new MTEVehicleHangar(
+                hangarId,
+                "multimachine.newgunrizons.vehiclehangar",
+                "Vehicle Assembly Hangar").getStackForm(1);
+            GTModHandler.addCraftingRecipe(
+                vehicleHangar.copy(),
+                GTModHandler.RecipeBits.BITSD,
+                new Object[] { "CPC", "MHM", "CRC", 'C', OrePrefixes.circuit.get(Materials.LV), 'P',
+                    ItemList.Electric_Piston_LV, 'M', ItemList.Electric_Motor_LV, 'H', ItemList.Hull_LV, 'R',
+                    ItemList.Robot_Arm_LV });
         }
     }
 

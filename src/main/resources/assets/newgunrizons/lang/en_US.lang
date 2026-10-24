@@ -485,6 +485,26 @@ item.newgunrizons_RiftDrone.name=UXV Rift Drone
 item.newgunrizons_SentinelDrone.name=MAX Sentinel Drone
 newgunrizons.recipe.drones=Drone Assembly Complex
 
+# Vehicles
+item.newgunrizons_FieldJeep.name=LV Field Jeep
+item.newgunrizons_OffroadTruck.name=MV Off-road Truck
+item.newgunrizons_ArmoredAPC.name=HV Armoured Personnel Carrier
+item.newgunrizons_BattleTank.name=EV Main Battle Tank
+item.newgunrizons_HoverJeep.name=IV Hover Jeep
+item.newgunrizons_TiltrotorVTOL.name=LuV Tiltrotor VTOL
+item.newgunrizons_PlasmaFighter.name=ZPM Plasma Fighter
+item.newgunrizons_ParticleCruiser.name=UV Particle Cruiser
+item.newgunrizons_AntimatterFrigate.name=UHV Antimatter Frigate
+item.newgunrizons_QuantumRingship.name=UEV Quantum Ringship
+item.newgunrizons_GravityTank.name=UIV Gravity Hover Tank
+item.newgunrizons_SpacetimeSkimmer.name=UMV Spacetime Skimmer
+item.newgunrizons_DimensionalLeviathan.name=UXV Dimensional Leviathan
+item.newgunrizons_GenesisArk.name=MAX Genesis Ark
+item.newgunrizons_VehicleComponent.name=Vehicle Part
+newgunrizons.recipe.vehicles=Vehicle Assembly Hangar
+key.vehicle_down=Vehicle: Descend
+death.attack.newgunrizons.vehicle=%1$s was run over by %2$s
+
 # Structure blocks
 tile.newgunrizons.TierFrame.0.name=LV Steel Assembly Frame
 tile.newgunrizons.TierFrame.1.name=MV Aluminium Assembly Frame

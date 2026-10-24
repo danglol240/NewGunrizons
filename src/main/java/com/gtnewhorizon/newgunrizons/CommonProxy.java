@@ -7,6 +7,10 @@ import net.minecraftforge.client.IItemRenderer;
 import com.gtnewhorizon.newgunrizons.blocks.NGBlocks;
 import com.gtnewhorizon.newgunrizons.entities.EntityBullet;
 import com.gtnewhorizon.newgunrizons.entities.EntityDrone;
+import com.gtnewhorizon.newgunrizons.entities.EntityVehicle;
+import com.gtnewhorizon.newgunrizons.entities.EntityVehicleSeat;
+import com.gtnewhorizon.newgunrizons.network.VehicleControlMessage;
+import com.gtnewhorizon.newgunrizons.registry.Vehicles;
 import com.gtnewhorizon.newgunrizons.entities.EntityGravityField;
 import com.gtnewhorizon.newgunrizons.entities.EntityGrenade;
 import com.gtnewhorizon.newgunrizons.entities.EntityShellCasing;
@@ -143,6 +147,23 @@ public class CommonProxy {
             false);
         EntityRegistry
             .registerModEntity(EntityDrone.class, "Drone" + this.modEntityID, this.modEntityID++, mod, 96, 2, true);
+        EntityRegistry.registerModEntity(
+            EntityVehicle.class,
+            "Vehicle" + this.modEntityID,
+            this.modEntityID++,
+            mod,
+            160,
+            1,
+            true);
+        EntityRegistry.registerModEntity(
+            EntityVehicleSeat.class,
+            "VehicleSeat" + this.modEntityID,
+            this.modEntityID++,
+            mod,
+            160,
+            1,
+            false);
+        channel.registerMessage(new VehicleControlMessage.Handler(), VehicleControlMessage.class, 23, Side.SERVER);
 
         // Register gun component items
         GunBarrelSteel = new ItemGunBarrelSteel();
@@ -191,6 +212,7 @@ public class CommonProxy {
         Guns.init();
         Parts.init();
         Drones.init();
+        Vehicles.init();
         Grenades.init();
     }
 

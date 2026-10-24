@@ -17,6 +17,7 @@ import net.minecraft.world.World;
 import com.gtnewhorizon.newgunrizons.NewGunrizonsMod;
 import com.gtnewhorizon.newgunrizons.entities.EntityBullet;
 import com.gtnewhorizon.newgunrizons.entities.EntityDrone;
+import com.gtnewhorizon.newgunrizons.entities.EntityVehicle;
 import com.gtnewhorizon.newgunrizons.items.ShotProfile;
 import com.gtnewhorizon.newgunrizons.items.WeaponBehavior;
 import com.gtnewhorizon.newgunrizons.network.BeamMessage;
@@ -87,7 +88,7 @@ public final class Hitscan {
             .expand(1.0D, 1.0D, 1.0D);
         for (Object o : world.getEntitiesWithinAABBExcludingEntity(shooter, area)) {
             Entity e = (Entity) o;
-            if (!e.canBeCollidedWith() || e == friend) continue;
+            if (!e.canBeCollidedWith() || e == friend || EntityVehicle.carries(e, shooter)) continue;
             if (e instanceof EntityDrone && ((EntityDrone) e).isOwnedBy(friend != null ? friend : shooter)) continue;
             MovingObjectPosition hit = e.boundingBox.expand(HITBOX_EXPANSION, HITBOX_EXPANSION, HITBOX_EXPANSION)
                 .calculateIntercept(eye, end);

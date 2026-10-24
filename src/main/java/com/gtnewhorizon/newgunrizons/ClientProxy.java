@@ -21,7 +21,11 @@ import com.gtnewhorizon.newgunrizons.client.render.EntityGrenadeRenderer;
 import com.gtnewhorizon.newgunrizons.client.render.EntityShellRenderer;
 import com.gtnewhorizon.newgunrizons.client.render.GravityFieldRenderer;
 import com.gtnewhorizon.newgunrizons.entities.EntityBullet;
+import com.gtnewhorizon.newgunrizons.client.handlers.VehicleClientHandler;
+import com.gtnewhorizon.newgunrizons.client.render.VehicleRenderer;
 import com.gtnewhorizon.newgunrizons.entities.EntityDrone;
+import com.gtnewhorizon.newgunrizons.entities.EntityVehicle;
+import com.gtnewhorizon.newgunrizons.entities.EntityVehicleSeat;
 import com.gtnewhorizon.newgunrizons.entities.EntityGravityField;
 import com.gtnewhorizon.newgunrizons.entities.EntityGrenade;
 import com.gtnewhorizon.newgunrizons.entities.EntityShellCasing;
@@ -72,6 +76,13 @@ public class ClientProxy extends CommonProxy {
         RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new EntityGrenadeRenderer());
         RenderingRegistry.registerEntityRenderingHandler(EntityGravityField.class, new GravityFieldRenderer());
         RenderingRegistry.registerEntityRenderingHandler(EntityDrone.class, new DroneRenderer());
+        RenderingRegistry.registerEntityRenderingHandler(EntityVehicle.class, new VehicleRenderer());
+        RenderingRegistry.registerEntityRenderingHandler(EntityVehicleSeat.class, new VehicleRenderer.Seat());
+        VehicleClientHandler vehicleHandler = new VehicleClientHandler();
+        FMLCommonHandler.instance()
+            .bus()
+            .register(vehicleHandler);
+        MinecraftForge.EVENT_BUS.register(vehicleHandler);
         MinecraftForge.EVENT_BUS.register(new BeamEffects());
     }
 
