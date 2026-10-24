@@ -109,9 +109,16 @@ public class ItemMagazine extends ItemAttachment
         private int ammo;
         private final Set<ItemBullet> compatibleBullets = new HashSet<>();
         private String reloadSound;
+        private int energyTier;
 
         public ItemMagazine.Builder withAmmo(int ammo) {
             this.ammo = ammo;
+            return this;
+        }
+
+        /** Makes this an energy cell that GregTech battery buffers and chargers of the given tier can recharge. */
+        public ItemMagazine.Builder withEnergyTier(int tier) {
+            this.energyTier = tier;
             return this;
         }
 
@@ -127,13 +134,19 @@ public class ItemMagazine extends ItemAttachment
 
         @Override
         protected ItemAttachment createAttachment() {
-            ItemMagazine magazine = new ItemMagazine(this.ammo);
+            ItemMagazine magazine = this.energyTier > 0 ? new ItemEnergyCell(this.ammo, this.energyTier)
+                : new ItemMagazine(this.ammo);
             magazine.compatibleBullets = new ArrayList<>(this.compatibleBullets);
             if (this.reloadSound != null) {
                 magazine.reloadSound = Sounds.resolve(this.reloadSound);
             }
 
-            this.withInformationProvider((stack) -> "Ammo: " + ItemInstance.getAmmo(stack) + "/" + this.ammo);
+            if (magazine instanceof ItemEnergyCell) {
+                ItemEnergyCell cell = (ItemEnergyCell) magazine;
+                this.withInformationProvider(cell::describe);
+            } else {
+                this.withInformationProvider((stack) -> "Ammo: " + ItemInstance.getAmmo(stack) + "/" + this.ammo);
+            }
             return magazine;
         }
     }

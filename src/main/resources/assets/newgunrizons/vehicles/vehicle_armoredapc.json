@@ -1,0 +1,51 @@
+{
+ "scale": 2.0,
+ "width": 2.8,
+ "height": 2.4,
+ "seats": [
+  {
+   "x": -4,
+   "y": -10,
+   "z": -14,
+   "hidden": true
+  },
+  {
+   "x": 0,
+   "y": -10,
+   "z": -4,
+   "hidden": true
+  },
+  {
+   "x": -4,
+   "y": -10,
+   "z": 10,
+   "hidden": true
+  },
+  {
+   "x": 4,
+   "y": -10,
+   "z": 10,
+   "hidden": true
+  }
+ ],
+ "turrets": [
+  {
+   "x": 0,
+   "y": -16,
+   "z": -2,
+   "seat": 1,
+   "gx": 0,
+   "gy": -3,
+   "gz": -2,
+   "length": 20,
+   "minPitch": -60,
+   "maxPitch": 30,
+   "turret": true,
+   "gun": true
+  }
+ ],
+ "mounts": [],
+ "rotors": [],
+ "pads": [],
+ "exhausts": []
+}

@@ -17,6 +17,7 @@ public class KeyBindings {
     public static KeyBinding addKey;
     public static KeyBinding subtractKey;
     public static KeyBinding fireModeKey;
+    public static KeyBinding vehicleDownKey;
 
     public static void init() {
         reloadKey = new KeyBinding("key.reload", 19, "key.categories.newgunrizons");
@@ -41,5 +42,11 @@ public class KeyBindings {
         ClientRegistry.registerKeyBinding(addKey);
         ClientRegistry.registerKeyBinding(subtractKey);
         ClientRegistry.registerKeyBinding(fireModeKey);
+        vehicleDownKey = new KeyBinding("key.vehicle_down", 46, "key.categories.newgunrizons");
+        ClientRegistry.registerKeyBinding(vehicleDownKey);
+    }
+
+    public static String keyName(KeyBinding key) {
+        return org.lwjgl.input.Keyboard.getKeyName(key.getKeyCode());
     }
 }

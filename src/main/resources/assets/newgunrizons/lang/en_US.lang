@@ -380,3 +380,171 @@ gui.inventoryFull=Inventory full
 gui.currentZoom=Zoom: %s%%
 gui.grenadeExplodes=Explodes in %s sec
 gui.coolingDown=Cooling down...
+
+# High-tier weapons (IV-UHV)
+itemGroup.HighTier_tab=NewGunrizons EV-MAX Weapons
+item.newgunrizons_FerroSlug.name=Ferromagnetic Slug
+item.newgunrizons_LaserCharge.name=Laser Charge
+item.newgunrizons_PlasmaCannonCharge.name=Plasma Cannon Charge
+item.newgunrizons_ParticleCharge.name=Particle Charge
+item.newgunrizons_ExoticCharge.name=Exotic Matter Charge
+item.newgunrizons_AntimatterCharge.name=Antimatter Charge
+item.newgunrizons_CoilgunMag.name=50rnd Coilgun Slug Magazine
+item.newgunrizons_GaussRifleMag.name=8rnd Gauss Rifle Magazine
+item.newgunrizons_RailgunMag.name=6rnd Railgun Magazine
+item.newgunrizons_LaserRifleCell.name=60-shot Laser Rifle Cell
+item.newgunrizons_PlasmaRifleCell.name=80-shot Plasma Rifle Cell
+item.newgunrizons_ParticleBeamCell.name=10-shot Particle Beam Cell
+item.newgunrizons_NeutronRifleCell.name=150-shot Neutron Rifle Cell
+item.newgunrizons_ExoticMatterCell.name=40-shot Exotic Matter Cell
+item.XR7.name=XR-7 Rail-Assisted Rifle
+item.HX9.name=HX-9 Heavy Rifle
+item.Coilgun.name=Coilgun
+item.GaussRifle.name=Gauss Rifle
+item.Railgun.name=Railgun
+item.LaserRifle.name=Laser Rifle
+item.PlasmaRifle.name=Plasma Rifle
+item.PlasmaCannon.name=Plasma Cannon
+item.ParticleBeamRifle.name=Particle Beam Rifle
+item.NeutronRifle.name=Neutron Rifle
+item.AntimatterCannon.name=Antimatter Cannon
+item.ExoticMatterRifle.name=Exotic Matter Rifle
+newgunrizons.recipe.munitions=Munitions Factory
+
+# Mechanisms and technology modules
+item.newgunrizons_PistolSlide.name=Pistol Slide Assembly
+item.newgunrizons_BlowbackBolt.name=Blowback Bolt Group
+item.newgunrizons_GasPistonSystem.name=Gas Piston System
+item.newgunrizons_PrecisionBoltAction.name=Precision Bolt Action
+item.newgunrizons_PumpActionAssembly.name=Pump-Action Assembly
+item.newgunrizons_BeltFeedMechanism.name=Belt Feed Mechanism
+item.newgunrizons_SmartTargetingModule.name=Smart Targeting Module
+item.newgunrizons_ElectromagneticCoil.name=Electromagnetic Coil Assembly
+item.newgunrizons_SuperconductingRail.name=Superconducting Rail
+item.newgunrizons_FocusingLensArray.name=Focusing Lens Array
+item.newgunrizons_PlasmaContainmentChamber.name=Plasma Containment Chamber
+item.newgunrizons_ParticleAcceleratorSegment.name=Particle Accelerator Segment
+item.newgunrizons_NeutronEmitter.name=Neutron Emitter
+item.newgunrizons_AntimatterTrap.name=Penning Antimatter Trap
+item.newgunrizons_ExoticMatterStabilizer.name=Exotic Matter Stabilizer
+
+# UEV-MAX weapons
+item.newgunrizons_QuantumCharge.name=Quantum Charge
+item.newgunrizons_GravitonCharge.name=Graviton Charge
+item.newgunrizons_ChronoCharge.name=Chrono Charge
+item.newgunrizons_SingularityCharge.name=Singularity Charge
+item.newgunrizons_DimensionalCharge.name=Dimensional Charge
+item.newgunrizons_InfinityCharge.name=Infinity Charge
+item.newgunrizons_QuantumCell.name=Quantum Cell
+item.newgunrizons_GravitonCore.name=Graviton Core
+item.newgunrizons_TimeCrystal.name=Time Crystal
+item.newgunrizons_DimensionalCore.name=Dimensional Core
+item.newgunrizons_InfinityCatalyst.name=Infinity Catalyst
+item.QuantumPhaseRifle.name=Quantum Phase Rifle
+item.GravitonCannon.name=Graviton Cannon
+item.ChronoRifle.name=Chrono Rifle
+item.SingularityCannon.name=Singularity Cannon
+item.DimensionalCutter.name=Dimensional Cutter
+item.RealityEraser.name=Reality Eraser
+item.newgunrizons_PlasmaCharge.name=Plasma Charge
+
+# UEV-MAX modules
+item.newgunrizons_QuantumEntanglementCore.name=Quantum Entanglement Core
+item.newgunrizons_GravitonFieldEmitter.name=Graviton Field Emitter
+item.newgunrizons_ChronoStabilizer.name=Chrono Stabilizer
+item.newgunrizons_SingularityContainmentUnit.name=Singularity Containment Unit
+item.newgunrizons_DimensionalRiftEmitter.name=Dimensional Rift Emitter
+item.newgunrizons_RealityEngine.name=Reality Engine
+
+# weapon heat
+gui.newgunrizons.heat=Heat [%s] %d%%
+gui.newgunrizons.overheated=Overheated! %s s
+entity.newgunrizons.GravityField.name=Gravity Field
+
+# Weapon chassis (Extreme Crafting Table)
+item.newgunrizons_CrystalMatrixChassis.name=Crystal Matrix Weapon Chassis
+item.newgunrizons_NeutroniumChassis.name=Neutronium Weapon Chassis
+item.newgunrizons_InfinityChassis.name=Infinity Weapon Chassis
+item.newgunrizons_SpacetimeChassis.name=Spacetime Weapon Chassis
+item.newgunrizons_EternalChassis.name=Eternal Weapon Chassis
+
+# Drones
+item.newgunrizons_ScoutDrone.name=LV Scout Quadcopter
+item.newgunrizons_AssaultDrone.name=MV Assault Quadcopter
+item.newgunrizons_GunshipDrone.name=HV Gunship Hexacopter
+item.newgunrizons_HeavyDrone.name=EV Heavy Octocopter
+item.newgunrizons_RailDrone.name=IV Railgun Drone
+item.newgunrizons_LaserDrone.name=LuV Laser Drone
+item.newgunrizons_PlasmaDrone.name=ZPM Plasma Drone
+item.newgunrizons_ParticleDrone.name=UV Particle Beam Drone
+item.newgunrizons_AntimatterDrone.name=UHV Antimatter Drone
+item.newgunrizons_QuantumDrone.name=UEV Quantum Drone
+item.newgunrizons_GravitonDrone.name=UIV Graviton Drone
+item.newgunrizons_ChronoDrone.name=UMV Chrono Drone
+item.newgunrizons_RiftDrone.name=UXV Rift Drone
+item.newgunrizons_SentinelDrone.name=MAX Sentinel Drone
+newgunrizons.recipe.drones=Drone Assembly Complex
+
+# Vehicles
+item.newgunrizons_FieldJeep.name=LV Field Jeep
+item.newgunrizons_OffroadTruck.name=MV Off-road Truck
+item.newgunrizons_ArmoredAPC.name=HV Armoured Personnel Carrier
+item.newgunrizons_BattleTank.name=EV Main Battle Tank
+item.newgunrizons_HoverJeep.name=IV Hover Jeep
+item.newgunrizons_TiltrotorVTOL.name=LuV Tiltrotor VTOL
+item.newgunrizons_PlasmaFighter.name=ZPM Plasma Fighter
+item.newgunrizons_ParticleCruiser.name=UV Particle Cruiser
+item.newgunrizons_AntimatterFrigate.name=UHV Antimatter Frigate
+item.newgunrizons_QuantumRingship.name=UEV Quantum Ringship
+item.newgunrizons_GravityTank.name=UIV Gravity Hover Tank
+item.newgunrizons_SpacetimeSkimmer.name=UMV Spacetime Skimmer
+item.newgunrizons_DimensionalLeviathan.name=UXV Dimensional Leviathan
+item.newgunrizons_GenesisArk.name=MAX Genesis Ark
+item.newgunrizons_VehicleComponent.name=Vehicle Part
+newgunrizons.recipe.vehicles=Vehicle Assembly Hangar
+key.vehicle_down=Vehicle: Descend
+death.attack.newgunrizons.vehicle=%1$s was run over by %2$s
+
+# Structure blocks
+tile.newgunrizons.TierFrame.0.name=LV Steel Assembly Frame
+tile.newgunrizons.TierFrame.1.name=MV Aluminium Assembly Frame
+tile.newgunrizons.TierFrame.2.name=HV Stainless Steel Assembly Frame
+tile.newgunrizons.TierFrame.3.name=EV Titanium Assembly Frame
+tile.newgunrizons.TierFrame.4.name=IV Tungstensteel Assembly Frame
+tile.newgunrizons.TierFrame.5.name=LuV HSS-S Assembly Frame
+tile.newgunrizons.TierFrame.6.name=ZPM Naquadah Alloy Assembly Frame
+tile.newgunrizons.TierFrame.7.name=UV Neutronium Assembly Frame
+tile.newgunrizons.TierFrame.8.name=UHV Cosmic Neutronium Assembly Frame
+tile.newgunrizons.TierFrame.9.name=UEV Infinity Assembly Frame
+tile.newgunrizons.TierFrame.10.name=UIV Transcendent Metal Assembly Frame
+tile.newgunrizons.TierFrame.11.name=UMV Spacetime Assembly Frame
+tile.newgunrizons.TierFrame.12.name=UXV Universium Assembly Frame
+tile.newgunrizons.TierFrame.13.name=MAX Magmatter Assembly Frame
+tile.newgunrizons.LandingPad.0.name=LV Steel Landing Pad
+tile.newgunrizons.LandingPad.1.name=MV Aluminium Landing Pad
+tile.newgunrizons.LandingPad.2.name=HV Stainless Steel Landing Pad
+tile.newgunrizons.LandingPad.3.name=EV Titanium Landing Pad
+tile.newgunrizons.LandingPad.4.name=IV Tungstensteel Landing Pad
+tile.newgunrizons.LandingPad.5.name=LuV HSS-S Landing Pad
+tile.newgunrizons.LandingPad.6.name=ZPM Naquadah Alloy Landing Pad
+tile.newgunrizons.LandingPad.7.name=UV Neutronium Landing Pad
+tile.newgunrizons.LandingPad.8.name=UHV Cosmic Neutronium Landing Pad
+tile.newgunrizons.LandingPad.9.name=UEV Infinity Landing Pad
+tile.newgunrizons.LandingPad.10.name=UIV Transcendent Metal Landing Pad
+tile.newgunrizons.LandingPad.11.name=UMV Spacetime Landing Pad
+tile.newgunrizons.LandingPad.12.name=UXV Universium Landing Pad
+tile.newgunrizons.LandingPad.13.name=MAX Magmatter Landing Pad
+item.newgunrizons_Emblem.0.name=M1911 Emblem
+item.newgunrizons_Emblem.1.name=MP40 Emblem
+item.newgunrizons_Emblem.2.name=M4A1 Emblem
+item.newgunrizons_Emblem.3.name=XR-7 Emblem
+item.newgunrizons_Emblem.4.name=Railgun Emblem
+item.newgunrizons_Emblem.5.name=Laser Rifle Emblem
+item.newgunrizons_Emblem.6.name=Plasma Cannon Emblem
+item.newgunrizons_Emblem.7.name=Particle Beam Rifle Emblem
+item.newgunrizons_Emblem.8.name=Antimatter Cannon Emblem
+item.newgunrizons_Emblem.9.name=Quantum Phase Rifle Emblem
+item.newgunrizons_Emblem.10.name=Graviton Cannon Emblem
+item.newgunrizons_Emblem.11.name=Chrono Rifle Emblem
+item.newgunrizons_Emblem.12.name=Dimensional Cutter Emblem
+item.newgunrizons_Emblem.13.name=Reality Eraser Emblem
