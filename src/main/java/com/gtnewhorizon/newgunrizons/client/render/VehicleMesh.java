@@ -83,8 +83,10 @@ public final class VehicleMesh {
             LOG.error("Cannot read vehicle mesh {}", path, e);
             return null;
         }
-        for (Map.Entry<String, FloatList> e : data.entrySet()) mesh.groups.put(e.getKey(), e.getValue()
-            .toArray());
+        for (Map.Entry<String, FloatList> e : data.entrySet()) mesh.groups.put(
+            e.getKey(),
+            e.getValue()
+                .toArray());
         return mesh;
     }
 
