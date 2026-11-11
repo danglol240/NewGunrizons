@@ -22,6 +22,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
@@ -357,7 +358,12 @@ public class MTEVehicleHangar extends MTEExtendedPowerMultiBlockBase<MTEVehicleH
             yaw + (float) Math.sin(t * 0.01D) * 10.0F,
             7.0F,
             3.0F,
-            BAY_DEPTH * renderBays);
+            BAY_DEPTH * renderBays,
+            world.getLightBrightnessForSkyBlocks(
+                MathHelper.floor_double(tile.getXCoord() + back.offsetX * depth),
+                tile.getYCoord() + 1,
+                MathHelper.floor_double(tile.getZCoord() + back.offsetZ * depth),
+                0));
     }
 
     @Override

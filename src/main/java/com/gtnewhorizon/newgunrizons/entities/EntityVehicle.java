@@ -73,6 +73,9 @@ public class EntityVehicle extends Entity implements IEntityAdditionalSpawnData 
     public float rotorAngle, prevRotorAngle;
     public float roll, prevRoll;
     public float throttle, prevThrottle;
+    /** Distance driven forwards (blocks) and front wheel angle (degrees, positive to the right). */
+    public float wheelTravel, prevWheelTravel;
+    public float steer, prevSteer;
 
     public EntityVehicle(World world) {
         super(world);
@@ -423,6 +426,8 @@ public class EntityVehicle extends Entity implements IEntityAdditionalSpawnData 
         prevRotorAngle = rotorAngle;
         prevRoll = roll;
         prevThrottle = throttle;
+        prevWheelTravel = wheelTravel;
+        prevSteer = steer;
         EntityPlayer driver = occupant(0);
 
         if (worldObj.isRemote && !drivenLocally()) {
@@ -555,6 +560,15 @@ public class EntityVehicle extends Entity implements IEntityAdditionalSpawnData 
         throttle += (Math.max(target, driven ? 0.25F : 0.0F) - throttle) * 0.1F;
         rotorAngle += 10.0F + 50.0F * throttle;
         float turn = MathHelper.wrapAngleTo180_float(rotationYaw - prevRotationYaw);
+        double yawRad = Math.toRadians(rotationYaw);
+        double forward = -Math.sin(yawRad) * vx + Math.cos(yawRad) * vz;
+        wheelTravel += (float) forward;
+        if (wheelTravel > 10000.0F || wheelTravel < -10000.0F) {
+            prevWheelTravel -= wheelTravel;
+            wheelTravel = 0.0F;
+        }
+        float steerTarget = MathHelper.clamp_float(turn * 6.0F * (forward < -0.01D ? -1.0F : 1.0F), -30.0F, 30.0F);
+        steer += (steerTarget - steer) * 0.3F;
         float tilt = vehicle.getMode().flies ? turn * 4.0F : 0.0F;
         roll += (MathHelper.clamp_float(tilt, -25.0F, 25.0F) - roll) * 0.2F;
     }

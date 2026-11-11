@@ -26,14 +26,17 @@ public final class VehicleLayout {
 
         public final float x, y, z, r;
         public final boolean hidden;
+        /** Wheels: turns with the steering. Rotors: has its own mesh group r&lt;i&gt;. */
+        public final boolean steer, model;
 
         Point(JsonObject o) {
             x = f(o, "x");
             y = f(o, "y");
             z = f(o, "z");
             r = f(o, "r");
-            hidden = o.has("hidden") && o.get("hidden")
-                .getAsBoolean();
+            hidden = b(o, "hidden");
+            steer = b(o, "steer");
+            model = b(o, "model");
         }
     }
 
@@ -71,6 +74,8 @@ public final class VehicleLayout {
     public final float width;
     public final float height;
     public final List<Point> seats;
+    /** Wheels drawn from mesh groups w&lt;i&gt;, spun by the distance driven. */
+    public final List<Point> wheels;
     public final List<Turret> turrets;
     public final List<Point> mounts;
     public final List<Point> rotors;
@@ -82,6 +87,7 @@ public final class VehicleLayout {
         width = f(root, "width");
         height = f(root, "height");
         seats = points(root, "seats");
+        wheels = points(root, "wheels");
         mounts = points(root, "mounts");
         rotors = points(root, "rotors");
         pads = points(root, "pads");
@@ -127,6 +133,11 @@ public final class VehicleLayout {
         JsonArray a = root.getAsJsonArray(key);
         if (a != null) for (JsonElement e : a) out.add(new Point(e.getAsJsonObject()));
         return Collections.unmodifiableList(out);
+    }
+
+    private static boolean b(JsonObject o, String key) {
+        return o.has(key) && o.get(key)
+            .getAsBoolean();
     }
 
     private static float f(JsonObject o, String key) {
