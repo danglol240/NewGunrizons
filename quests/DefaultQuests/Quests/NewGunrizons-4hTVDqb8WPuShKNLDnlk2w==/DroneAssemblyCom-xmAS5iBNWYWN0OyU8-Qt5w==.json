@@ -1,0 +1,92 @@
+{
+  "preRequisites:9": {
+    "0:10": {
+      "questIDHigh:4": 4231594254914637902,
+      "questIDLow:4": -5744897708165222306
+    }
+  },
+  "properties:10": {
+    "betterquesting:10": {
+      "autoClaim:1": 0,
+      "completion_animation:8": "default",
+      "completion_particle:8": "default",
+      "confetti_icon:10": {
+        "Count:3": 0,
+        "Damage:2": 0,
+        "OreDict:8": "",
+        "id:8": "minecraft:stick"
+      },
+      "countAsQuest:1": 1,
+      "desc:8": "A tower that builds drones and grows with every era. Controller: 2 LV circuits, LV Sensor, 2 LV Motors, LV Hull, 2 LV Robot Arms.\n\n[note]Base:[/note]\n- A round platform of radius 3 made of Solid Steel Machine Casings (hatches go here, at least 30 casings).\n- On it, a 5x5 hangar 3 high: Solid Steel edges, glass in the middle row, an empty 3x3 inside. The controller sits in the middle of the front wall, bottom row.\n\n[note]Each tier adds:[/note]\n- A storey on top of the tower: tier Assembly Frames on the 4 corners with glass between, then a full band of tier Assembly Frames.\n- A landing ring on the ground (platform height): that tier's Landing Pads at radius 4 + 2 x tier from the tower centre, with an Assembly Frame at north, east, south and west.\nLanding Pads: Assembler, 4 plates + 1 frame box of the tier's material -> 8 pads.\nConsecutive storeys = highest drone tier. Hologram Projector: stack size = number of tiers.",
+      "globalShare:1": 0,
+      "icon:10": {
+        "Count:3": 1,
+        "Damage:2": 17921,
+        "OreDict:8": "",
+        "id:8": "gregtech:gt.blockmachines"
+      },
+      "isMain:1": 1,
+      "isSilent:1": 0,
+      "lockedProgress:1": 0,
+      "name:8": "§b§lDrone Assembly Complex",
+      "notification_duration:5": -1.0,
+      "notification_effect:3": -1,
+      "notification_fade_in:5": -1.0,
+      "notification_fade_out:5": -1.0,
+      "notification_icon_offset_y:3": -2147483648,
+      "notification_icon_scale:5": -1.0,
+      "notification_pos_x:3": -2147483648,
+      "notification_pos_y:3": -2147483648,
+      "notification_show_icon:8": "default",
+      "notification_style:8": "default",
+      "notification_subtitle:8": "",
+      "notification_subtitle_scale:5": -1.0,
+      "notification_title:8": "",
+      "notification_title_scale:5": -1.0,
+      "particle_count:3": -1,
+      "questLogic:8": "AND",
+      "repeatTime:3": -1,
+      "repeat_relative:1": 1,
+      "simultaneous:1": 0,
+      "snd_complete:8": "random.levelup",
+      "snd_update:8": "random.levelup",
+      "taskLogic:8": "AND",
+      "visibility:8": "ALWAYS"
+    }
+  },
+  "questIDHigh:4": -4152298076841879163,
+  "questIDLow:4": -8227816394714763801,
+  "rewards:9": {},
+  "tasks:9": {
+    "0:10": {
+      "autoConsume:1": 0,
+      "consume:1": 0,
+      "groupDetect:1": 0,
+      "ignoreNBT:1": 1,
+      "index:3": 0,
+      "partialMatch:1": 1,
+      "requireOnlyOneItem:1": 0,
+      "requiredItems:9": {
+        "0:10": {
+          "Count:3": 1,
+          "Damage:2": 17921,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockmachines"
+        },
+        "1:10": {
+          "Count:3": 36,
+          "Damage:2": 0,
+          "OreDict:8": "",
+          "id:8": "newgunrizons:LandingPad"
+        },
+        "2:10": {
+          "Count:3": 24,
+          "Damage:2": 0,
+          "OreDict:8": "",
+          "id:8": "newgunrizons:TierFrame"
+        }
+      },
+      "taskID:8": "bq_standard:retrieval"
+    }
+  }
+}

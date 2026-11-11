@@ -1,0 +1,195 @@
+{
+  "preRequisites:9": {},
+  "properties:10": {
+    "betterquesting:10": {
+      "autoClaim:1": 0,
+      "completion_animation:8": "default",
+      "completion_particle:8": "default",
+      "confetti_icon:10": {
+        "Count:3": 0,
+        "Damage:2": 0,
+        "OreDict:8": "",
+        "id:8": "minecraft:stick"
+      },
+      "countAsQuest:1": 1,
+      "desc:8": "§6Machine type: §aPhoton Controller/Laser Engraver§r\n\nPrism tank in order, sir.\nControl Photons on the scale of 10⁻² meters.\nInstall Photonic Intensifier on the back side of the structure to dramatically increase production speeds.\nMulti upgrade modules can be stacked. Also can be uninstalled. Replace using normal Casing.\nUse screwdriver to change mode.\nPhoton Controller mode:\n16x Parallel\nLaser Engraver mode:\n256x Parallel | Extra reduce 50% recipe time spent\n\n[note]Hatches[/note]: Input Bus, Input Hatch, Output Bus, Output Hatch, Energy Hatch\n[note]Structure[/note]: Photonic Intensifiers (optional speed upgrades); the casings in the optional task.\nUse a Hologram Projector (or the NEI structure preview) to see and auto-build the structure.\n\n[note]Controller recipe[/note]: Assembler, UHV\n - 4x EM Power\n - Cerium Doped Lutetium Aluminium Garnet\n - 5x Emitter UV\n - Field Generator UV\n - 4x UHV Circuit\n - 18,432 L Molten Soldering Alloy",
+      "globalShare:1": 0,
+      "icon:10": {
+        "Count:3": 1,
+        "Damage:2": 19002,
+        "OreDict:8": "",
+        "id:8": "gregtech:gt.blockmachines"
+      },
+      "isMain:1": 0,
+      "isSilent:1": 0,
+      "lockedProgress:1": 0,
+      "name:8": "Precise High-Energy Photonic Quantum Master",
+      "notification_duration:5": -1.0,
+      "notification_effect:3": -1,
+      "notification_fade_in:5": -1.0,
+      "notification_fade_out:5": -1.0,
+      "notification_icon_offset_y:3": -2147483648,
+      "notification_icon_scale:5": -1.0,
+      "notification_pos_x:3": -2147483648,
+      "notification_pos_y:3": -2147483648,
+      "notification_show_icon:8": "default",
+      "notification_style:8": "default",
+      "notification_subtitle:8": "",
+      "notification_subtitle_scale:5": -1.0,
+      "notification_title:8": "",
+      "notification_title_scale:5": -1.0,
+      "particle_count:3": -1,
+      "questLogic:8": "AND",
+      "repeatTime:3": -1,
+      "repeat_relative:1": 1,
+      "simultaneous:1": 0,
+      "snd_complete:8": "random.levelup",
+      "snd_update:8": "random.levelup",
+      "taskLogic:8": "AND",
+      "visibility:8": "ALWAYS"
+    }
+  },
+  "questIDHigh:4": -266069218663574504,
+  "questIDLow:4": -7535998753709961988,
+  "rewards:9": {},
+  "tasks:9": {
+    "0:10": {
+      "autoConsume:1": 0,
+      "consume:1": 0,
+      "groupDetect:1": 0,
+      "ignoreNBT:1": 1,
+      "index:3": 0,
+      "partialMatch:1": 1,
+      "requireOnlyOneItem:1": 0,
+      "requiredItems:9": {
+        "0:10": {
+          "Count:3": 1,
+          "Damage:2": 19002,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockmachines"
+        }
+      },
+      "taskID:8": "bq_standard:retrieval"
+    },
+    "1:10": {
+      "autoConsume:1": 0,
+      "consume:1": 0,
+      "groupDetect:1": 0,
+      "ignoreNBT:1": 1,
+      "index:3": 1,
+      "partialMatch:1": 1,
+      "requireOnlyOneItem:1": 0,
+      "requiredItems:9": {
+        "0:10": {
+          "Count:3": 1,
+          "Damage:2": 5,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockcasings2"
+        },
+        "1:10": {
+          "Count:3": 1,
+          "Damage:2": 9,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockcasings2"
+        },
+        "2:10": {
+          "Count:3": 1,
+          "Damage:2": 7,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockcasings8"
+        },
+        "3:10": {
+          "Count:3": 1,
+          "Damage:2": 1,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockcasings9"
+        },
+        "4:10": {
+          "Count:3": 1,
+          "Damage:2": 0,
+          "OreDict:8": "",
+          "id:8": "TwistSpaceTechnology:PhotonControllerUpgrades"
+        },
+        "5:10": {
+          "Count:3": 1,
+          "Damage:2": 1,
+          "OreDict:8": "",
+          "id:8": "TwistSpaceTechnology:PhotonControllerUpgrades"
+        },
+        "6:10": {
+          "Count:3": 1,
+          "Damage:2": 2,
+          "OreDict:8": "",
+          "id:8": "TwistSpaceTechnology:PhotonControllerUpgrades"
+        },
+        "7:10": {
+          "Count:3": 1,
+          "Damage:2": 3,
+          "OreDict:8": "",
+          "id:8": "TwistSpaceTechnology:PhotonControllerUpgrades"
+        },
+        "8:10": {
+          "Count:3": 1,
+          "Damage:2": 4,
+          "OreDict:8": "",
+          "id:8": "TwistSpaceTechnology:PhotonControllerUpgrades"
+        },
+        "9:10": {
+          "Count:3": 1,
+          "Damage:2": 5,
+          "OreDict:8": "",
+          "id:8": "TwistSpaceTechnology:PhotonControllerUpgrades"
+        },
+        "10:10": {
+          "Count:3": 1,
+          "Damage:2": 6,
+          "OreDict:8": "",
+          "id:8": "TwistSpaceTechnology:PhotonControllerUpgrades"
+        },
+        "11:10": {
+          "Count:3": 1,
+          "Damage:2": 7,
+          "OreDict:8": "",
+          "id:8": "TwistSpaceTechnology:PhotonControllerUpgrades"
+        },
+        "12:10": {
+          "Count:3": 1,
+          "Damage:2": 8,
+          "OreDict:8": "",
+          "id:8": "TwistSpaceTechnology:PhotonControllerUpgrades"
+        },
+        "13:10": {
+          "Count:3": 1,
+          "Damage:2": 9,
+          "OreDict:8": "",
+          "id:8": "TwistSpaceTechnology:PhotonControllerUpgrades"
+        },
+        "14:10": {
+          "Count:3": 1,
+          "Damage:2": 10,
+          "OreDict:8": "",
+          "id:8": "TwistSpaceTechnology:PhotonControllerUpgrades"
+        },
+        "15:10": {
+          "Count:3": 1,
+          "Damage:2": 11,
+          "OreDict:8": "",
+          "id:8": "TwistSpaceTechnology:PhotonControllerUpgrades"
+        },
+        "16:10": {
+          "Count:3": 1,
+          "Damage:2": 12,
+          "OreDict:8": "",
+          "id:8": "TwistSpaceTechnology:PhotonControllerUpgrades"
+        },
+        "17:10": {
+          "Count:3": 1,
+          "Damage:2": 13,
+          "OreDict:8": "",
+          "id:8": "TwistSpaceTechnology:PhotonControllerUpgrades"
+        }
+      },
+      "taskID:8": "bq_standard:optional_retrieval"
+    }
+  }
+}

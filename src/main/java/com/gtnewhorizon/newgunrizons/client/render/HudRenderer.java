@@ -18,6 +18,7 @@ import com.gtnewhorizon.newgunrizons.items.instances.ItemInstance;
 import com.gtnewhorizon.newgunrizons.items.instances.ItemWeaponInstance;
 import com.gtnewhorizon.newgunrizons.network.StatusMessageManager;
 import com.gtnewhorizon.newgunrizons.weapon.WeaponAttachmentAspect;
+import com.gtnewhorizon.newgunrizons.weapon.WeaponHeat;
 import com.gtnewhorizon.newgunrizons.weapon.WeaponState;
 
 public class HudRenderer {
@@ -69,6 +70,7 @@ public class HudRenderer {
             renderAttachmentModeHints(fontRender, width, height);
         } else {
             renderStatusMessage(fontRender, width, height, getDefaultWeaponMessage(weaponInstance), COLOR_YELLOW);
+            renderHeat(fontRender, width, height, itemStack, mc.theWorld.getTotalWorldTime());
         }
 
         GL11.glPopAttrib();
@@ -109,6 +111,30 @@ public class HudRenderer {
 
         fontRender.drawStringWithShadow(messageText, x, y, color);
         return true;
+    }
+
+    /** Heat gauge above the ammo counter for weapons that overheat (or have a cooldown). */
+    private void renderHeat(FontRenderer fontRender, int width, int height, ItemStack itemStack, long worldTime) {
+        ItemWeapon weapon = (ItemWeapon) itemStack.getItem();
+        if (!weapon.getBehavior()
+            .hasHeat()) return;
+        String text;
+        int color;
+        if (WeaponHeat.isLocked(itemStack, worldTime)) {
+            text = StatCollector.translateToLocalFormatted(
+                "gui.newgunrizons.overheated",
+                String.format("%.1f", WeaponHeat.secondsLeft(itemStack, worldTime)));
+            color = COLOR_RED;
+        } else {
+            int percent = Math.round(WeaponHeat.fraction(itemStack, worldTime) * 100.0F);
+            StringBuilder bar = new StringBuilder();
+            for (int i = 0; i < 10; i++) bar.append(i < percent / 10 ? '|' : '.');
+            text = StatCollector.translateToLocalFormatted("gui.newgunrizons.heat", bar.toString(), percent);
+            color = percent >= 75 ? COLOR_YELLOW : COLOR_WHITE;
+        }
+        int scaledHeight = (int) (fontRender.FONT_HEIGHT * AMMO_COUNTER_SCALE);
+        int y = getStatusBarYPosition(height, scaledHeight) - fontRender.FONT_HEIGHT - 3;
+        fontRender.drawStringWithShadow(text, width - fontRender.getStringWidth(text) - 5, y, color);
     }
 
     private void renderAttachmentModeHints(FontRenderer fontRender, int width, int height) {

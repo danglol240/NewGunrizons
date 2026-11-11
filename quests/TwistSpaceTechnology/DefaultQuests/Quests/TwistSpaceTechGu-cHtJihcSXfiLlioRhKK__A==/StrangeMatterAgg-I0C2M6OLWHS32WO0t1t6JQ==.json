@@ -1,0 +1,110 @@
+{
+  "preRequisites:9": {
+    "0:10": {
+      "questIDHigh:4": 8292828057211590035,
+      "questIDLow:4": -5020853756332366504
+    }
+  },
+  "properties:10": {
+    "betterquesting:10": {
+      "autoClaim:1": 0,
+      "completion_animation:8": "default",
+      "completion_particle:8": "default",
+      "confetti_icon:10": {
+        "Count:3": 0,
+        "Damage:2": 0,
+        "OreDict:8": "",
+        "id:8": "minecraft:stick"
+      },
+      "countAsQuest:1": 1,
+      "desc:8": "§6Machine type: §aModularized Machine - Strange Matter Aggregator§r\n\nLife is like Ephemera in the world, a drop in the sea.\nCreation of specialized space-time, efficient manipulation of strange matter.\nThe machines are stacked, and each layer can be fitted with one type of Space-Time Operator Cube.\nHigher tier, more rings, more benefits, but also costs.\nBase run time: the higher the tier the shorter the run time\nBasic materials consumption: the higher the number of rings, the lower the amount consumed\nSpaceTime maintenance fluid consumption: more rings more consumed\nCore element and annihilation constrainer consumption: higher tier, more rings, lower consumption rate\nConsumption rate of auxiliary materials: the higher the level, the lower the consumption rate\nActual running time: the higher the tier the longer the actual running time is\nSpaceTime maintenance fluid consumption: the more rings you have the less you consume\nMaximum Continuous Running Points: The higher the tier, the higher the Continuous Running Points limit!\nByproduct outputs: the more rings the more outputs\nPower Consumption: higher tier, more rings, the higher the power consumption\nSetting the used SpaceTime maintenance fluid tier within the machine UI:\nT1 = 576L Molten SpaceTime | T2 = 96L Molten Universium | T3 = 16L Molten Magnetohydrodynamically Constrained Star Matter\n(more in the controller's tooltip)\n\n[note]Hatches[/note]: Input Bus, Input Hatch, Output Bus, Output Hatch, Energy Hatch\n[note]Structure[/note]: the casings in the optional task.\nUse a Hologram Projector (or the NEI structure preview) to see and auto-build the structure.\n\n[note]Controller recipe[/note]: Miracle Top, MAX\n - 8,192x Space Time Frame Box\n - 512x Antimatter Fuel Rod\n - 512x Annihilation Constrainer\n - 512x Dyson Sphere Frame Component\n - 512x Space Warper\n - 64x EM Spacetime\n - 64x EM Ultimate Containment Field\n - 64x EM Teleportation\n - 512x Field Generator UMV\n - 512x Transcendent Metal Nanites\n - 512x Tesseract\n - 512x Energised Tesseract\n - 512x UXV Circuit\n - ZPM\n - 18,874,368 L Molten Void\n - 2,359,296 L Molten Space\n - 2,359,296 L Molten Time",
+      "globalShare:1": 0,
+      "icon:10": {
+        "Count:3": 1,
+        "Damage:2": 19059,
+        "OreDict:8": "",
+        "id:8": "gregtech:gt.blockmachines"
+      },
+      "isMain:1": 1,
+      "isSilent:1": 0,
+      "lockedProgress:1": 0,
+      "name:8": "§c§l§lStrange Matter Aggregator",
+      "notification_duration:5": -1.0,
+      "notification_effect:3": -1,
+      "notification_fade_in:5": -1.0,
+      "notification_fade_out:5": -1.0,
+      "notification_icon_offset_y:3": -2147483648,
+      "notification_icon_scale:5": -1.0,
+      "notification_pos_x:3": -2147483648,
+      "notification_pos_y:3": -2147483648,
+      "notification_show_icon:8": "default",
+      "notification_style:8": "default",
+      "notification_subtitle:8": "",
+      "notification_subtitle_scale:5": -1.0,
+      "notification_title:8": "",
+      "notification_title_scale:5": -1.0,
+      "particle_count:3": -1,
+      "questLogic:8": "AND",
+      "repeatTime:3": -1,
+      "repeat_relative:1": 1,
+      "simultaneous:1": 0,
+      "snd_complete:8": "random.levelup",
+      "snd_update:8": "random.levelup",
+      "taskLogic:8": "AND",
+      "visibility:8": "ALWAYS"
+    }
+  },
+  "questIDHigh:4": 2540230522740365428,
+  "questIDLow:4": -5199014667001038299,
+  "rewards:9": {},
+  "tasks:9": {
+    "0:10": {
+      "autoConsume:1": 0,
+      "consume:1": 0,
+      "groupDetect:1": 0,
+      "ignoreNBT:1": 1,
+      "index:3": 0,
+      "partialMatch:1": 1,
+      "requireOnlyOneItem:1": 0,
+      "requiredItems:9": {
+        "0:10": {
+          "Count:3": 1,
+          "Damage:2": 19059,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockmachines"
+        }
+      },
+      "taskID:8": "bq_standard:retrieval"
+    },
+    "1:10": {
+      "autoConsume:1": 0,
+      "consume:1": 0,
+      "groupDetect:1": 0,
+      "ignoreNBT:1": 1,
+      "index:3": 1,
+      "partialMatch:1": 1,
+      "requireOnlyOneItem:1": 0,
+      "requiredItems:9": {
+        "0:10": {
+          "Count:3": 1,
+          "Damage:2": 9,
+          "OreDict:8": "",
+          "id:8": "tectech:gt.blockcasingsTT"
+        },
+        "1:10": {
+          "Count:3": 1,
+          "Damage:2": 10,
+          "OreDict:8": "",
+          "id:8": "tectech:gt.blockcasingsTT"
+        },
+        "2:10": {
+          "Count:3": 1,
+          "Damage:2": 14,
+          "OreDict:8": "",
+          "id:8": "tectech:gt.blockcasingsTT"
+        }
+      },
+      "taskID:8": "bq_standard:optional_retrieval"
+    }
+  }
+}

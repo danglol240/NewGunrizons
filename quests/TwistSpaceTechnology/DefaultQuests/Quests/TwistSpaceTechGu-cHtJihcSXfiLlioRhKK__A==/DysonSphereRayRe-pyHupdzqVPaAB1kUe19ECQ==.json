@@ -1,0 +1,158 @@
+{
+  "preRequisites:9": {
+    "0:10": {
+      "questIDHigh:4": 1443180766527444407,
+      "questIDLow:4": -8878426407664894796
+    }
+  },
+  "properties:10": {
+    "betterquesting:10": {
+      "autoClaim:1": 0,
+      "completion_animation:8": "default",
+      "completion_particle:8": "default",
+      "confetti_icon:10": {
+        "Count:3": 0,
+        "Damage:2": 0,
+        "OreDict:8": "",
+        "id:8": "minecraft:stick"
+      },
+      "countAsQuest:1": 1,
+      "desc:8": "§6Machine type: §aDyson Sphere Program: Ray Receiving Station§r\n\nYou hold in your hands the true power of Master Nebula ...\nReceive high-energy rays transmitted back from the Dyson Cloud or the Dyson Sphere.\nThe received energy can be exported directly to the Wireless EU Net or Dynamo Hatches or stored as Critical Photons.\nRatio of the requesting from Dyson Sphere power point can be limited by putting Integrated Circuit into controller block.\nAt the same time, the maximum requested power point is 1024A Max (default).\nActual output power is affected by stellar and planetary coefficients.\nInputting Gravitational Lens will enable intensify mode. Increase actual output power.\nJoining the wireless EU network when without installing a dynamo hatch.\n\n[note]Hatches[/note]: Input Bus, Output Bus, Dynamo Hatch\n[note]Structure[/note]: Naquadah Alloy Frame Boxes; Space Elevator casings; the casings in the optional task.\nUse a Hologram Projector (or the NEI structure preview) to see and auto-build the structure.\n\n[note]Controller recipe[/note]: Assembly Line, UIV\nResearch item: DSP Launcher\n - ZPM3\n - 64x Cosmic Neutronium Frame Box\n - 64x High Energy Flow Circuit\n - 64x UMV Circuit\n - 128x Sensor UEV\n - 128x Emitter UEV\n - 64x Stellar Construction Frame Material\n - 64x Field Generator UEV\n - 64x Superconductor UEV 16x Wire\n - 64x Laser Lens Special\n - 64x Space Warper\n - 64x S Block Casings SE\n - 64x Dyson Swarm Casing\n - 1,179,648 L Solder plasma\n - 1,024,000 L UU Matter\n - 8,192,000x Cryotheum\n - 147,456 L Molten Cosmic Neutronium",
+      "globalShare:1": 0,
+      "icon:10": {
+        "Count:3": 1,
+        "Damage:2": 19014,
+        "OreDict:8": "",
+        "id:8": "gregtech:gt.blockmachines"
+      },
+      "isMain:1": 0,
+      "isSilent:1": 0,
+      "lockedProgress:1": 0,
+      "name:8": "Dyson Sphere Ray Receiving Station",
+      "notification_duration:5": -1.0,
+      "notification_effect:3": -1,
+      "notification_fade_in:5": -1.0,
+      "notification_fade_out:5": -1.0,
+      "notification_icon_offset_y:3": -2147483648,
+      "notification_icon_scale:5": -1.0,
+      "notification_pos_x:3": -2147483648,
+      "notification_pos_y:3": -2147483648,
+      "notification_show_icon:8": "default",
+      "notification_style:8": "default",
+      "notification_subtitle:8": "",
+      "notification_subtitle_scale:5": -1.0,
+      "notification_title:8": "",
+      "notification_title_scale:5": -1.0,
+      "particle_count:3": -1,
+      "questLogic:8": "AND",
+      "repeatTime:3": -1,
+      "repeat_relative:1": 1,
+      "simultaneous:1": 0,
+      "snd_complete:8": "random.levelup",
+      "snd_update:8": "random.levelup",
+      "taskLogic:8": "AND",
+      "visibility:8": "ALWAYS"
+    }
+  },
+  "questIDHigh:4": -6403574799000775434,
+  "questIDLow:4": -9221303767513742327,
+  "rewards:9": {},
+  "tasks:9": {
+    "0:10": {
+      "autoConsume:1": 0,
+      "consume:1": 0,
+      "groupDetect:1": 0,
+      "ignoreNBT:1": 1,
+      "index:3": 0,
+      "partialMatch:1": 1,
+      "requireOnlyOneItem:1": 0,
+      "requiredItems:9": {
+        "0:10": {
+          "Count:3": 1,
+          "Damage:2": 19014,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockmachines"
+        }
+      },
+      "taskID:8": "bq_standard:retrieval"
+    },
+    "1:10": {
+      "autoConsume:1": 0,
+      "consume:1": 0,
+      "groupDetect:1": 0,
+      "ignoreNBT:1": 1,
+      "index:3": 1,
+      "partialMatch:1": 1,
+      "requireOnlyOneItem:1": 0,
+      "requiredItems:9": {
+        "0:10": {
+          "Count:3": 1,
+          "Damage:2": 14,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockcasings"
+        },
+        "1:10": {
+          "Count:3": 1,
+          "Damage:2": 8,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockcasings2"
+        },
+        "2:10": {
+          "Count:3": 1,
+          "Damage:2": 2,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockcasings8"
+        },
+        "3:10": {
+          "Count:3": 1,
+          "Damage:2": 10,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockcasings8"
+        },
+        "4:10": {
+          "Count:3": 1,
+          "Damage:2": 0,
+          "OreDict:8": "",
+          "id:8": "gtnhintergalactic:gt.blockcasingsSE"
+        },
+        "5:10": {
+          "Count:3": 1,
+          "Damage:2": 1,
+          "OreDict:8": "",
+          "id:8": "gtnhintergalactic:gt.blockcasingsSE"
+        },
+        "6:10": {
+          "Count:3": 1,
+          "Damage:2": 2,
+          "OreDict:8": "",
+          "id:8": "gtnhintergalactic:gt.blockcasingsSE"
+        },
+        "7:10": {
+          "Count:3": 1,
+          "Damage:2": 0,
+          "OreDict:8": "",
+          "id:8": "tectech:gt.blockcasingsTT"
+        },
+        "8:10": {
+          "Count:3": 1,
+          "Damage:2": 6,
+          "OreDict:8": "",
+          "id:8": "tectech:gt.blockcasingsTT"
+        },
+        "9:10": {
+          "Count:3": 1,
+          "Damage:2": 7,
+          "OreDict:8": "",
+          "id:8": "tectech:gt.blockcasingsTT"
+        },
+        "10:10": {
+          "Count:3": 1,
+          "Damage:2": 9,
+          "OreDict:8": "",
+          "id:8": "tectech:gt.blockcasingsTT"
+        }
+      },
+      "taskID:8": "bq_standard:optional_retrieval"
+    }
+  }
+}
