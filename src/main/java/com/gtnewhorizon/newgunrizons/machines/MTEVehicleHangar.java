@@ -165,7 +165,6 @@ public class MTEVehicleHangar extends MTEExtendedPowerMultiBlockBase<MTEVehicleH
             .addInputBus("1+", "Any Solid Steel Machine Casing", 1)
             .addInputHatch("0+", "Any Solid Steel Machine Casing", 1)
             .addOutputBus("1+", "Any Solid Steel Machine Casing", 1)
-            .addStructureAuthors(EnumChatFormatting.GOLD + "NewGunrizons")
             .toolTipFinisher();
         return tt;
     }

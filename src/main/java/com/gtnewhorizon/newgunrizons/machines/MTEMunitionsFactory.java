@@ -184,7 +184,6 @@ public class MTEMunitionsFactory extends MTEExtendedPowerMultiBlockBase<MTEMunit
             .addInputBus("1+", "Any Heat Proof Machine Casing", 1)
             .addInputHatch("0+", "Any Heat Proof Machine Casing", 1)
             .addOutputBus("1+", "Any Heat Proof Machine Casing", 1)
-            .addStructureAuthors(EnumChatFormatting.GOLD + "NewGunrizons")
             .toolTipFinisher();
         return tt;
     }
