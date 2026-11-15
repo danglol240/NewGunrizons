@@ -2,10 +2,12 @@ package com.gtnewhorizon.newgunrizons;
 
 import net.minecraft.creativetab.CreativeTabs;
 
+import com.gtnewhorizon.newgunrizons.registry.GTRecipes;
 import com.gtnewhorizon.newgunrizons.tabs.AmmoTab;
 import com.gtnewhorizon.newgunrizons.tabs.GunsTab;
 import com.gtnewhorizon.newgunrizons.tabs.ShotgunsTab;
 
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
@@ -15,11 +17,11 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
-@Mod(modid = NewGunrizonsMod.MODID, version = NewGunrizonsMod.VERSION)
+@Mod(modid = NewGunrizonsMod.MODID, version = NewGunrizonsMod.VERSION, dependencies = "after:gregtech")
 public class NewGunrizonsMod {
 
     public static final String MODID = "newgunrizons";
-    public static final String VERSION = "1.0.1";
+    public static final String VERSION = "1.1.0";
 
     public static final SimpleNetworkWrapper CHANNEL;
 
@@ -39,7 +41,10 @@ public class NewGunrizonsMod {
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-
+        // GregTech is optional at runtime; GTRecipes references GT classes, so load it only when GT is present.
+        if (Loader.isModLoaded("gregtech")) {
+            GTRecipes.init();
+        }
     }
 
     @EventHandler

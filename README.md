@@ -2,9 +2,32 @@
 
 A Minecraft 1.7.10 firearms mod for the [GT New Horizons](https://github.com/GTNewHorizons) modpack. NewGunrizons is a heavily modified fork of [**Vic's Modern Warfare**](https://github.com/vic4games/modern-warfare) (also known as Modern Warfare Mod / MWC), rebuilt from the ground up to integrate with GregTech and the GTNH ecosystem.
 
-> **WARNING: This branch targets GTNH 2.9.0-RC-2.**
-> It is built against GTNHLib 0.11.52, NotEnoughItems 2.8.155-GTNH and tested with Angelica 2.2.28, the versions shipped with that release.
-> GregTech recipes are currently not present in the code (they were removed during the March 2026 refactor), so weapons are only obtainable from the creative tab.
+> **This branch targets GTNH 2.9.0 (stable).**
+> Built against GTNHLib 0.11.54, NotEnoughItems 2.8.171-GTNH and GregTech 5.09.54.265, the versions shipped with GTNH 2.9.0. Tested target for shaders: Angelica 2.2.43.
+
+## Current content (1.1.0)
+
+The mod is being rebuilt on a Bedrock-model animation system. Only the weapons below have been migrated so far; the larger catalogue further down describes the pre-migration version and is being brought back gradually.
+
+| Item | Tier | GregTech Assembler recipe |
+|---|---|---|
+| 12 Gauge Shotgun Shell (x8) | LV | 1 Brass Plate, 2 Gunpowder Dust, Programmed Circuit 8 |
+| Doom Shotgun | MV | 6 Steel Plate, 2 Steel Rod, 4 Steel Screw, 1 MV Electric Piston, 2 MV Circuit, 144 L Soldering Alloy |
+| Plasma Rifle | EV | 8 Titanium Plate, 1 EV Electric Motor, 2 EV Emitter, 1 EV Field Generator, 2 EV Circuit, 576 L Soldering Alloy |
+| Laser Rifle | IV | 8 Tungstensteel Plate, 2 IV Emitter, 1 IV Sensor, 1 Ruby Lens, 2 IV Circuit, 1152 L Soldering Alloy |
+
+Recipes are registered only when GregTech is installed. The Plasma and Laser Rifles currently load 12 Gauge shells until energy cells are added.
+
+### Quest line
+
+`quests/` contains a **"NewGunrizons: Arsenal"** quest line in GTNH's BetterQuesting format (4 quests, LV to IV). To add it to a GTNH instance:
+
+1. Back up your world.
+2. Windows: `powershell -ExecutionPolicy Bypass -File quests\install-quests.ps1 -Instance "C:\path\to\GTNH\.minecraft"`
+   Linux/macOS/server: `bash quests/install-quests.sh /path/to/gtnh`
+3. Join the world, wait a few seconds, then run `/bq_admin default load` (as OP on a server).
+
+The scripts back up `config/betterquesting/DefaultQuests` first and merge the new line into it. Regenerate the files with `python3 tools/quests/generate_quests.py`.
 
 ## Shader Compatibility
 
@@ -21,7 +44,7 @@ This is not a simple config tweak — the mod has been extensively restructured 
 - **Tiered progression** — weapons are gated behind GregTech voltage tiers (LV through IV), requiring progressively advanced components
 - **Custom component system** — gun barrels, receivers, stocks, firing mechanisms, bullet casings, and precision lenses are intermediate crafting ingredients made in GT machines
 
-## Features
+## Pre-migration catalogue (being restored)
 
 ### Weapons
 
