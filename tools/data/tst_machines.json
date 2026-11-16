@@ -4,15 +4,15 @@
   "cls": "GT_TileEntity_IntensifyChemicalDistorter",
   "id": 19001,
   "name": "Intensify Chemical Distorter",
-  "type": "Intensify Chemical Distorter/Chemical Reactor",
+  "type": "Intensify Chemical Distorter/Chemical Reactor/Chemical Plant",
   "info": [
    "I! AM! THE! CHEM! THAT! IS! APPROOOOOACHING !!",
-   "The most advanced base chemical reactor.",
-   "Use screwdriver to change mode.",
    "Intensify Chemical Distorter mode:",
-   "Focus on processing the most complex chemical reaction - 16x Parallel.",
-   "Chemical Reactor mode:",
-   "1024x Parallel and 900% faster than using LCR of the same voltage."
+   "16x Parallel.",
+   "Each coil tier above the recipe requirement adds 100% processing speed.",
+   "Chemical Reactor | Chemical Plant modes:",
+   "1024x Parallel | Higher-tier coils increase processing speed.",
+   "Infinity coils unlock Chemical Plant mode."
   ],
   "hatches": [
    "Input Bus",
@@ -6071,9 +6071,9 @@
   "type": "Steam generator",
   "info": [
    "Converts steam into EU",
-   "Base rate: 1L of Steam -> 0.7 EU",
-   "Fuel Efficiency: 140%",
-   "Accepts LV dynamo hatch"
+   "Base rate: 1L of Steam -> 0.71 EU",
+   "Fuel Efficiency: 142%",
+   "Accepts 1 to 8 LV dynamo hatches, or a single 1A MV or HV dynamo hatch"
   ],
   "hatches": [
    "Input Hatch",
@@ -6309,24 +6309,7 @@
    {
     "eut": "TierEU.RECIPE_LuV",
     "map": "assembler",
-    "inputs": [
-     [
-      16,
-      "Obsidian Frame Box"
-     ],
-     [
-      4,
-      "Field Generator Lu V"
-     ],
-     [
-      16,
-      "ZPM Circuit"
-     ],
-     [
-      16,
-      "Netherite Dense Plate"
-     ]
-    ],
+    "inputs": [],
     "fluids": [
      [
       9216,
@@ -6588,7 +6571,6 @@
    "Input Bus",
    "Input Hatch",
    "Output Bus",
-   "Output Hatch",
    "Energy Hatch"
   ],
   "recipes": [
@@ -6653,9 +6635,10 @@
   "info": [
    "Human resource Friendly!",
    "Similar to LNR, Maximum of 1,000 parallels",
-   "Continuous operation reduces coolant/excited liquid consumption",
-   "Up to 50%. Max in 24h, decays when idle.",
-   "Ensure sufficient dynamo size, or the machine will shut down."
+   "Continuous operation increases power output",
+   "Up to 2.25x. Max in 24h, decays when idle.",
+   "Without a dynamo hatch, energy is output directly to the wireless EU network.",
+   "With dynamo hatches, ensure sufficient capacity or the machine will shut down."
   ],
   "hatches": [],
   "recipes": [
@@ -6709,6 +6692,214 @@
   ],
   "structure": [
    "Tiered glass (limits the energy hatch tier)"
+  ]
+ },
+ {
+  "item": "BottledChaos",
+  "cls": "MM_BottledChaos",
+  "id": 19082,
+  "name": "Bottled Chaos",
+  "type": "Modularized Machine - Production Chain Processor",
+  "info": [
+   "Countless processes, one bottle.",
+   "Links multiple processing steps internally, automatically turning inputs into target products.",
+   "Structure modules provide the corresponding machines' recipes and capabilities.",
+   "Credentials select processing chains; each group runs independently.",
+   "Processing pauses when power is insufficient.",
+   "At machine tier UXV with no energy hatches installed, wireless mode is enabled.",
+   "In wireless mode, each group prepays its energy cost and runs at the minimum overclock time.",
+   "Capacity regions form a shared pool, allocated by the route weights of enabled groups.",
+   "When identical credentials share inputs, capacity usage counts every corresponding credential hatch."
+  ],
+  "hatches": [
+   "Input Bus",
+   "Input Hatch",
+   "Output Bus",
+   "Output Hatch",
+   "Energy Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "TierEU.RECIPE_UV",
+    "map": "GTRecipeConstants.AssemblyLine",
+    "inputs": [
+     [
+      8,
+      "Naquadah Alloy Frame Box"
+     ],
+     [
+      1,
+      "Machine Multi Assemblyline"
+     ],
+     [
+      4,
+      "Quantum Chest MV"
+     ],
+     [
+      8,
+      "UV Circuit"
+     ],
+     [
+      16,
+      "Circuit Parts Crystal Chip Master"
+     ],
+     [
+      64,
+      "Tool Data Orb"
+     ],
+     [
+      2,
+      "Field Generator ZPM"
+     ],
+     [
+      4,
+      "Emitter ZPM"
+     ],
+     [
+      4,
+      "Sensor ZPM"
+     ],
+     [
+      4,
+      "Robot Arm ZPM"
+     ],
+     [
+      8,
+      "Conveyor Module ZPM"
+     ],
+     [
+      16,
+      "Superconductor ZPM 4x Wire"
+     ]
+    ],
+    "fluids": [
+     [
+      4608,
+      "Molten Polybenzimidazole"
+     ],
+     [
+      32000,
+      "Super Coolant"
+     ],
+     [
+      8000,
+      "UU Matter"
+     ]
+    ],
+    "research": null
+   }
+  ],
+  "blocks": [
+   [
+    "TwistSpaceTechnology:MetaBlockCasing01",
+    1
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing02",
+    2
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing02",
+    4
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing02",
+    7
+   ],
+   [
+    "TwistSpaceTechnology:MetaBlockCasing02",
+    8
+   ]
+  ],
+  "structure": [
+   "Tiered glass (limits the energy hatch tier)",
+   "Neutronium Frame Boxes",
+   "Naquadah Alloy Frame Boxes"
+  ]
+ },
+ {
+  "item": "MegaDigester",
+  "cls": "TST_MegaDigester",
+  "id": 19083,
+  "name": "Mega Digester",
+  "type": "Digester",
+  "info": [
+   "All things dissolve, all slurries boil.",
+   "Performs Perfect Overclocking.",
+   "Initial speed is 100%, each coil tier adds 100% speed.",
+   "Has near-infinite parallel!"
+  ],
+  "hatches": [
+   "Energy Hatch",
+   "Maintenance Hatch",
+   "Muffler Hatch"
+  ],
+  "recipes": [
+   {
+    "eut": "RECIPE_LuV",
+    "map": "AssemblyLine",
+    "inputs": [
+     [
+      32,
+      "Machine Buck Converter Lu V"
+     ],
+     [
+      32,
+      "Super Tank IV"
+     ],
+     [
+      64,
+      "Field Generator Lu V"
+     ],
+     [
+      64,
+      "Emitter Lu V"
+     ],
+     [
+      64,
+      "Sensor Lu V"
+     ],
+     [
+      64,
+      "Electric Pump Lu V"
+     ],
+     [
+      64,
+      "Fluid Regulator Lu V"
+     ],
+     [
+      64,
+      "Endium Dense Plate"
+     ],
+     [
+      64,
+      "Osmium Dense Plate"
+     ],
+     [
+      64,
+      "Ta Hf C Nanofibers"
+     ],
+     [
+      64,
+      "ZPM Circuit"
+     ]
+    ],
+    "fluids": [
+     [
+      96000,
+      "Molten Osmiridium"
+     ],
+     [
+      96000,
+      "Molten Vanadium Gallium"
+     ]
+    ],
+    "research": null
+   }
+  ],
+  "blocks": [],
+  "structure": [
+   "Heating Coils (the coil tier matters)"
   ]
  },
  {
@@ -8248,6 +8439,76 @@
      ]
     ],
     "fluids": []
+   }
+  ],
+  "blocks": [],
+  "structure": []
+ },
+ {
+  "item": "BottledChaosRecipeTokenHatch",
+  "cls": "TST_BottledChaosRecipeTokenHatch",
+  "id": 18790,
+  "name": "Bottled Chaos Credential Hatch",
+  "type": "",
+  "info": [],
+  "hatches": [],
+  "recipes": [
+   {
+    "eut": "TierEU.RECIPE_UV",
+    "map": "GTRecipeConstants.AssemblyLine",
+    "inputs": [
+     [
+      1,
+      "Hatch Input Bus ZPM"
+     ],
+     [
+      1,
+      "Hatch Data Access Lu V"
+     ],
+     [
+      4,
+      "UV Circuit"
+     ],
+     [
+      32,
+      "Tool Data Orb"
+     ],
+     [
+      64,
+      "Circuit Chip Ram"
+     ],
+     [
+      64,
+      "Circuit Chip NAND"
+     ],
+     [
+      64,
+      "Circuit Chip NOR"
+     ],
+     [
+      2,
+      "Sensor ZPM"
+     ],
+     [
+      2,
+      "Robot Arm ZPM"
+     ],
+     [
+      64,
+      "Osmium Fine Wire"
+     ],
+     [
+      16,
+      "Polybenzimidazole Plate"
+     ]
+    ],
+    "fluids": [
+     [
+      2304,
+      "Molten Rubber Silicone"
+     ]
+    ],
+    "research": "Hatch Data Access Lu V"
    }
   ],
   "blocks": [],

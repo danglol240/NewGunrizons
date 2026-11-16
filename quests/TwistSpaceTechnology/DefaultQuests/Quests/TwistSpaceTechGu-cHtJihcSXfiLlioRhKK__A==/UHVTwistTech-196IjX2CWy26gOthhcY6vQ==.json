@@ -17,7 +17,7 @@
         "id:8": "minecraft:stick"
       },
       "countAsQuest:1": 1,
-      "desc:8": "[note]UHV[/note]\nTST machines you can build at UHV:\n - Intensify Chemical Distorter: Intensify Chemical Distorter/Chemical Reactor\n - Precise High-Energy Photonic Quantum Master: Photon Controller/Laser Engraver\n - Magnetic Drive Pressure Former: Extruder\n - Magnetic Domain Constructor: Electromagnetic Separator\n - Holy Separator: Cutter\n - Molecule Deconstructor: Electrolyzer\n - Large Industrial Coking Factory: Coke Oven\n - Swelegfyr Blast Furnace: Blast Furnace\n - Laser Smart Nodes\n - Space Apiary Modules",
+      "desc:8": "[note]UHV[/note]\nTST machines you can build at UHV:\n - Intensify Chemical Distorter: Intensify Chemical Distorter/Chemical Reactor/Chemical Plant\n - Precise High-Energy Photonic Quantum Master: Photon Controller/Laser Engraver\n - Magnetic Drive Pressure Former: Extruder\n - Magnetic Domain Constructor: Electromagnetic Separator\n - Holy Separator: Cutter\n - Molecule Deconstructor: Electrolyzer\n - Large Industrial Coking Factory: Coke Oven\n - Swelegfyr Blast Furnace: Blast Furnace\n - Laser Smart Nodes\n - Space Apiary Modules",
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,

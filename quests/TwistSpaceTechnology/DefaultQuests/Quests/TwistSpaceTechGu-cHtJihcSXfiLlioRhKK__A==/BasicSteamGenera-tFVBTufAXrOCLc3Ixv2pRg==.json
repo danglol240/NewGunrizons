@@ -12,7 +12,7 @@
         "id:8": "minecraft:stick"
       },
       "countAsQuest:1": 1,
-      "desc:8": "§6Machine type: §aSteam generator§r\n\nConverts steam into EU\nBase rate: 1L of Steam -> 0.7 EU\nFuel Efficiency: 140%\nAccepts LV dynamo hatch\n\n[note]Hatches[/note]: Input Hatch, Dynamo Hatch\n[note]Structure[/note]: Bronze Frame Boxes; the casings in the optional task.\nUse a Hologram Projector (or the NEI structure preview) to see and auto-build the structure.\n\n[note]Controller recipe[/note]: Crafting Table\nUses: Lead cable Gt04, Generator Steam Turbine LV, Hull LV, Steel Quintuple Plate, Hatch Input LV (see NEI for the shape).",
+      "desc:8": "§6Machine type: §aSteam generator§r\n\nConverts steam into EU\nBase rate: 1L of Steam -> 0.71 EU\nFuel Efficiency: 142%\nAccepts 1 to 8 LV dynamo hatches, or a single 1A MV or HV dynamo hatch\n\n[note]Hatches[/note]: Input Hatch, Dynamo Hatch\n[note]Structure[/note]: Bronze Frame Boxes; the casings in the optional task.\nUse a Hologram Projector (or the NEI structure preview) to see and auto-build the structure.\n\n[note]Controller recipe[/note]: Crafting Table\nUses: Lead cable Gt04, Generator Steam Turbine LV, Hull LV, Steel Quintuple Plate, Hatch Input LV (see NEI for the shape).",
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,

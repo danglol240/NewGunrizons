@@ -17,11 +17,11 @@
         "id:8": "minecraft:stick"
       },
       "countAsQuest:1": 1,
-      "desc:8": "[note]UV[/note]\nTST machines you can build at UV:\n - Physical Form Switcher: Fluid Solidifier\n - \"Mini\" Magnetic Mixer: Mixer\n - Core Device of Human Power Generation Facility: Fluid Heater\n - Large Canner: Fluid/Solid Canner\n - Silicon Rock Synthesizer: Stone Breaker\n - Hyper Thermal Convector: Heat Exchanger\n - Infinite Air Hatch\n - Execution Core Module\n - Parallel Controller Modules\n - Speed Controller Modules\n - Power Consumption Modules",
+      "desc:8": "[note]UV[/note]\nTST machines you can build at UV:\n - Bottled Chaos Credential Hatch\n - Physical Form Switcher: Fluid Solidifier\n - \"Mini\" Magnetic Mixer: Mixer\n - Core Device of Human Power Generation Facility: Fluid Heater\n - Large Canner: Fluid/Solid Canner\n - Silicon Rock Synthesizer: Stone Breaker\n - Hyper Thermal Convector: Heat Exchanger\n - Bottled Chaos: Modularized Machine - Production Chain Processor\n - Infinite Air Hatch\n - Execution Core Module\n - Parallel Controller Modules\n - Speed Controller Modules\n - Power Consumption Modules",
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,
-        "Damage:2": 19005,
+        "Damage:2": 18790,
         "OreDict:8": "",
         "id:8": "gregtech:gt.blockmachines"
       },

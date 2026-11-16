@@ -12,7 +12,7 @@
         "id:8": "minecraft:stick"
       },
       "countAsQuest:1": 1,
-      "desc:8": "§6Machine type: §aOtherworld Teleporter§r\n\nThe imprisoned souls of an ancient civilization now serve you.\nBuild portals and transport the dirty but useful resources of Hell back to you.\nMachine takes 2A IV to maintain the teleporter, and 1A IV per parallel.\n\n[note]Hatches[/note]: Input Bus, Input Hatch, Output Bus, Output Hatch, Energy Hatch\n[note]Structure[/note]: Obsidian Frame Boxes; the casings in the optional task.\nUse a Hologram Projector (or the NEI structure preview) to see and auto-build the structure.\n\n[note]Controller recipe[/note]: Assembler, LuV\n - 16x Obsidian Frame Box\n - 4x Field Generator Lu V\n - 16x ZPM Circuit\n - 16x Netherite Dense Plate\n - 9,216 L Molten Hellish Metal",
+      "desc:8": "§6Machine type: §aOtherworld Teleporter§r\n\nThe imprisoned souls of an ancient civilization now serve you.\nBuild portals and transport the dirty but useful resources of Hell back to you.\nMachine takes 2A IV to maintain the teleporter, and 1A IV per parallel.\n\n[note]Hatches[/note]: Input Bus, Input Hatch, Output Bus, Output Hatch, Energy Hatch\n[note]Structure[/note]: Obsidian Frame Boxes; the casings in the optional task.\nUse a Hologram Projector (or the NEI structure preview) to see and auto-build the structure.\n\n[note]Controller recipe[/note]: Assembler, LuV\n - 9,216 L Molten Hellish Metal",
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,

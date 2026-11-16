@@ -12,7 +12,7 @@
         "id:8": "minecraft:stick"
       },
       "countAsQuest:1": 1,
-      "desc:8": "§6Machine type: §aNaquadah Reactor,LNR§r\n\nHuman resource Friendly!\nSimilar to LNR, Maximum of 1,000 parallels\nContinuous operation reduces coolant/excited liquid consumption\nUp to 50%. Max in 24h, decays when idle.\nEnsure sufficient dynamo size, or the machine will shut down.\n\n[note]Structure[/note]: Tiered glass (limits the energy hatch tier); the casings in the optional task.\nUse a Hologram Projector (or the NEI structure preview) to see and auto-build the structure.\n\n[note]Controller recipe[/note]: Assembly Line, UIV\nResearch item: Large Naquadah Reactor\n - 256x Large Naquadah Reactor\n - 64x UIV Circuit\n - 32x Laser Lens Special\n - 2x Duranium Superdense Plate\n - 256x S Block Casings8\n - 256,000 L Stable Baryonic Matter",
+      "desc:8": "§6Machine type: §aNaquadah Reactor,LNR§r\n\nHuman resource Friendly!\nSimilar to LNR, Maximum of 1,000 parallels\nContinuous operation increases power output\nUp to 2.25x. Max in 24h, decays when idle.\nWithout a dynamo hatch, energy is output directly to the wireless EU network.\nWith dynamo hatches, ensure sufficient capacity or the machine will shut down.\n\n[note]Structure[/note]: Tiered glass (limits the energy hatch tier); the casings in the optional task.\nUse a Hologram Projector (or the NEI structure preview) to see and auto-build the structure.\n\n[note]Controller recipe[/note]: Assembly Line, UIV\nResearch item: Large Naquadah Reactor\n - 256x Large Naquadah Reactor\n - 64x UIV Circuit\n - 32x Laser Lens Special\n - 2x Duranium Superdense Plate\n - 256x S Block Casings8\n - 256,000 L Stable Baryonic Matter",
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,

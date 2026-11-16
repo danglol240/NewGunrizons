@@ -12,7 +12,7 @@
         "id:8": "minecraft:stick"
       },
       "countAsQuest:1": 1,
-      "desc:8": "§6Machine type: §aSolar Factory§r\n\nbigger is better!\nPerfect overclocking.\nRecipe Time Multiplier = 100% / Component Casing Tier.\n\n[note]Hatches[/note]: Input Bus, Input Hatch, Output Bus, Output Hatch, Energy Hatch\n[note]Structure[/note]: Tiered glass (limits the energy hatch tier); Component Assembly Line Casings (tier limits recipes); the casings in the optional task.\nUse a Hologram Projector (or the NEI structure preview) to see and auto-build the structure.\n\n[note]Controller recipe[/note]: Assembly Line (TecTech research), UMV\nResearch item: Solar Factory\n - 128x Solar Factory\n - 32x Dyson Sphere Frame Component\n - 64x Gold Nanites\n - 32x EM Ultimate Containment\n - 4x EM Spacetime\n - 64x Field Generator UMV\n - 32x Circuit UMV",
+      "desc:8": "§6Machine type: §aSolar Factory§r\n\nbigger is better!\nPerfect overclocking.\nRecipe Time Multiplier = 100% / Component Casing Tier.\n\n[note]Hatches[/note]: Input Bus, Input Hatch, Output Bus, Energy Hatch\n[note]Structure[/note]: Tiered glass (limits the energy hatch tier); Component Assembly Line Casings (tier limits recipes); the casings in the optional task.\nUse a Hologram Projector (or the NEI structure preview) to see and auto-build the structure.\n\n[note]Controller recipe[/note]: Assembly Line (TecTech research), UMV\nResearch item: Solar Factory\n - 128x Solar Factory\n - 32x Dyson Sphere Frame Component\n - 64x Gold Nanites\n - 32x EM Ultimate Containment\n - 4x EM Spacetime\n - 64x Field Generator UMV\n - 32x Circuit UMV",
       "globalShare:1": 0,
       "icon:10": {
         "Count:3": 1,
